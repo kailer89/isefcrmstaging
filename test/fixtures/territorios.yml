@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  sede_id: 1
+  estado: MyString
+  ciudad: MyString
+  descripcion_detallada: MyText
+
+two:
+  nombre: MyString
+  sede_id: 1
+  estado: MyString
+  ciudad: MyString
+  descripcion_detallada: MyText

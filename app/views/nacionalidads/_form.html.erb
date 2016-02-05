@@ -1,0 +1,30 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@nacionalidad.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= form_for @nacionalidad, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', nacionalidads_path, :class => 'btn' %>
+  <fieldset>
+<div class="well">    <legend><%= controller.action_name.capitalize %> Nacionalidad</legend>
+
+    <div class="control-group">
+      <%= f.label :nacionalidad, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :nacionalidad, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :pais, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :pais, :class => 'text_field' %>
+      </div>
+    </div></div>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@nacionalidad.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@nacionalidad.id}%>
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@nacionalidad.id}%> 
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@nacionalidad.id}%> 
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', nacionalidads_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

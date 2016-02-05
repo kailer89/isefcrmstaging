@@ -1,0 +1,92 @@
+<%if request.path_parameters[:controller] == "admitidos"%>  
+  <div class="tab-pane fade in active well" id="admitido">
+        <%= f.association :status_de_admision,:include_blank => false, :label_method => :valor, :label=>"Status de Admisión" %>
+
+        <%= f.input :comentarios_documentacion, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios:"%>
+        <%= f.input :fecha_lim_fpi,:label=>"Fecha de pago de inscripción:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_lim_fpi, :label=>"Fecha de pago de inscripción"%>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+        <%= f.association :periodo_para_ingresar,:include_blank => false, :label_method => :valor, :label=>"Periodo para ingresar:" %>
+        <%=f.input :archivado%>
+
+
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h2>Requisitos de documentos</h2></div>
+        <div class="panel-body">
+          <div>
+            <div class="span6">
+              <%= f.input :solicitud_de_admision, :label=>"Solicitud de Admisión"%>
+              <%= f.input :solicitud_de_beca, :label=>"Solicitud de beca"%>
+              <%= f.input :certificado_de_estudios, :label=>"Certificado de estudios"%>
+              <%= f.input :titulo_profesional, :label=>"Título profesional"%>
+              <%= f.input :cedula_profesional, :label=>"Cédula profesional"%>
+              <%= f.input :curp, :label=>"CURP"%>
+              <%= f.input :copia_del_certificado_de_preparatoria_licenciatura, :label=>"Copia del Certificado de preparatoria / licenciatura"%>
+              <%= f.input :copia_del_acta_de_nacimiento, :label=>"Acta de Nacimiento"%>
+            </div>
+            <div class="span6">
+              <%= f.input :fotografias_tamano_infantil_blanco_y_negro_papel_mate, :label=>"6 fotos" %>
+              <%= f.input :identificacion_oficial, :label=>"Identificación oficial" %>
+              <%= f.input :curriculum_vitae, :label=>"Curriculum vitae" %>
+              <%= f.input :cartas_de_recomendacion, :label=>"2 cartas recomendación" %>
+              <%= f.input :comprobante_de_domicilio, :label=>"Comprobante domicilio" %>
+              <%= f.input :copia_del_comprobante_de_pago_de_inscripcion, :label=>"Comprobante pago inscripción" %>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+
+
+
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </div>
+<%else%>
+  <%= f.simple_fields_for :admitidos, :html => { :class => 'form-horizontal' } do |f| %>
+    <div class="tab-pane fade well" id="admitido">
+        <%= f.association :status_de_admision,:include_blank => false, :label_method => :valor, :label=>"Status de Admisión" %>
+
+        <%= f.input :comentarios_documentacion, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios:"%>
+        <%= f.input :fecha_lim_fpi,:label=>"Fecha de pago de inscripción:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_lim_fpi, :label=>"Fecha de pago de inscripción"%>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+        <%= f.association :periodo_para_ingresar,:include_blank => false, :label_method => :valor, :label=>"Periodo para ingresar:" %>
+        <%=f.input :archivado%>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h2>Requisitos de documentos</h2></div>
+        <div class="panel-body">
+          <div>
+            <div class="span6">
+              <%= f.input :solicitud_de_admision, :label=>"Solicitud de Admisión"%>
+              <%= f.input :solicitud_de_beca, :label=>"Solicitud de beca"%>
+              <%= f.input :certificado_de_estudios, :label=>"Certificado de estudios"%>
+              <%= f.input :titulo_profesional, :label=>"Título profesional"%>
+              <%= f.input :cedula_profesional, :label=>"Cédula profesional"%>
+              <%= f.input :curp, :label=>"CURP"%>
+              <%= f.input :copia_del_certificado_de_preparatoria_licenciatura, :label=>"Copia del Certificado de preparatoria / licenciatura"%>
+              <%= f.input :copia_del_acta_de_nacimiento, :label=>"Acta de Nacimiento"%>
+            </div>
+            <div class="span6">
+              <%= f.input :fotografias_tamano_infantil_blanco_y_negro_papel_mate, :label=>"6 fotos" %>
+              <%= f.input :identificacion_oficial, :label=>"Identificación oficial" %>
+              <%= f.input :curriculum_vitae, :label=>"Curriculum vitae" %>
+              <%= f.input :cartas_de_recomendacion, :label=>"2 cartas recomendación" %>
+              <%= f.input :comprobante_de_domicilio, :label=>"Comprobante domicilio" %>
+              <%= f.input :copia_del_comprobante_de_pago_de_inscripcion, :label=>"Comprobante pago inscripción" %>
+            </div>
+          </div>          
+        </div>
+      </div>        
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      </div>
+      <%=render :partial=>"shared/edit_examinados", :locals=>{:f=>f}%>
+  <%end%>
+<%end%>

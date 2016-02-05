@@ -1,0 +1,101 @@
+2012-10-17T02:12:09+00:00 app[web.1]: 
+2012-10-17T02:12:09+00:00 app[web.1]: 
+2012-10-17T02:12:09+00:00 app[web.1]: Started POST "/prospectos" for 189.152.169.214 at 2012-10-17 02:12:09 +0000
+2012-10-17T02:12:19+00:00 app[web.1]: cache: [POST /prospectos] invalidate, pass
+2012-10-17T02:12:19+00:00 heroku[router]: POST tranquil-tundra-3192.herokuapp.com/prospectos dyno=web.1 queue=0 wait=0ms service=10461ms status=302 bytes=120
+2012-10-17T02:12:19+00:00 app[web.1]: 
+2012-10-17T02:12:19+00:00 app[web.1]: 
+2012-10-17T02:12:19+00:00 app[web.1]: Started GET "/prospectos/1" for 189.152.169.214 at 2012-10-17 02:12:19 +0000
+2012-10-17T02:12:20+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-10-17T02:12:20+00:00 app[web.1]: 
+2012-10-17T02:12:20+00:00 app[web.1]: 
+2012-10-17T02:12:20+00:00 app[web.1]: cache: [GET /prospectos/1] miss
+2012-10-17T02:12:20+00:00 app[web.1]:     19:         [title, summary.gsub(/^/, "  "), nil].join("\n\n")
+2012-10-17T02:12:20+00:00 app[web.1]:     20:       end
+2012-10-17T02:12:20+00:00 app[web.1]: 
+2012-10-17T02:12:20+00:00 app[web.1]:     25: <%= raw sections %>
+2012-10-17T02:12:20+00:00 app[web.1]:     21:     end.join
+2012-10-17T02:12:20+00:00 app[web.1]:     22:     sections = sections.force_encoding('UTF-8').encode('UTF-16', :invalid => :replace).encode('UTF-8') if sections.respond_to?(:force_encoding)
+2012-10-17T02:12:20+00:00 app[web.1]:     23: %>
+2012-10-17T02:12:20+00:00 app[web.1]:     24: 
+2012-10-17T02:12:20+00:00 app[web.1]: ActionView::Template::Error (code converter not found (UTF-8 to UTF-16)):
+2012-10-17T02:12:20+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/prospectos/1 dyno=web.1 queue=0 wait=0ms service=103ms status=500 bytes=822
+2012-10-17T02:15:09+00:00 app[web.1]: 
+2012-10-17T02:15:09+00:00 app[web.1]: 
+2012-10-17T02:15:09+00:00 app[web.1]: Started GET "/prospectos/1" for 189.152.169.214 at 2012-10-17 02:15:09 +0000
+2012-10-17T02:15:10+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/prospectos/1 dyno=web.1 queue=0 wait=0ms service=218ms status=500 bytes=822
+2012-10-17T02:15:10+00:00 app[web.1]: 
+2012-10-17T02:15:10+00:00 app[web.1]: ActionView::Template::Error (code converter not found (UTF-8 to UTF-16)):
+2012-10-17T02:15:10+00:00 app[web.1]:     19:         [title, summary.gsub(/^/, "  "), nil].join("\n\n")
+2012-10-17T02:15:10+00:00 app[web.1]:     20:       end
+2012-10-17T02:15:10+00:00 app[web.1]:     21:     end.join
+2012-10-17T02:15:10+00:00 app[web.1]:     22:     sections = sections.force_encoding('UTF-8').encode('UTF-16', :invalid => :replace).encode('UTF-8') if sections.respond_to?(:force_encoding)
+2012-10-17T02:15:10+00:00 app[web.1]:     23: %>
+2012-10-17T02:15:10+00:00 app[web.1]:     24: 
+2012-10-17T02:15:10+00:00 app[web.1]:     25: <%= raw sections %>
+2012-10-17T02:15:10+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-10-17T02:15:10+00:00 app[web.1]: 
+2012-10-17T02:15:10+00:00 app[web.1]: 
+2012-10-17T02:15:10+00:00 app[web.1]: cache: [GET /prospectos/1] miss
+2012-10-17T02:15:10+00:00 app[web.1]: cache: [GET /favicon.ico] miss
+2012-10-17T02:15:10+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/favicon.ico dyno=web.1 queue=0 wait=0ms service=5ms status=304 bytes=0
+2012-10-17T02:17:37+00:00 app[web.1]: 
+2012-10-17T02:17:37+00:00 app[web.1]: Started GET "/prospectos/1" for 189.152.169.214 at 2012-10-17 02:17:37 +0000
+2012-10-17T02:17:37+00:00 app[web.1]: 
+2012-10-17T02:17:37+00:00 app[web.1]: 
+2012-10-17T02:17:37+00:00 app[web.1]: ActionView::Template::Error (code converter not found (UTF-8 to UTF-16)):
+2012-10-17T02:17:37+00:00 app[web.1]:     19:         [title, summary.gsub(/^/, "  "), nil].join("\n\n")
+2012-10-17T02:17:37+00:00 app[web.1]:     23: %>
+2012-10-17T02:17:37+00:00 app[web.1]:     24: 
+2012-10-17T02:17:37+00:00 app[web.1]:     20:       end
+2012-10-17T02:17:37+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-10-17T02:17:37+00:00 app[web.1]:     22:     sections = sections.force_encoding('UTF-8').encode('UTF-16', :invalid => :replace).encode('UTF-8') if sections.respond_to?(:force_encoding)
+2012-10-17T02:17:37+00:00 app[web.1]:     21:     end.join
+2012-10-17T02:17:37+00:00 app[web.1]: 
+2012-10-17T02:17:37+00:00 app[web.1]:     25: <%= raw sections %>
+2012-10-17T02:17:37+00:00 app[web.1]: cache: [GET /prospectos/1] miss
+2012-10-17T02:17:37+00:00 app[web.1]: 
+2012-10-17T02:17:37+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/prospectos/1 dyno=web.1 queue=0 wait=0ms service=162ms status=500 bytes=822
+2012-10-17T02:17:38+00:00 app[web.1]: cache: [GET /favicon.ico] miss
+2012-10-17T02:17:38+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/favicon.ico dyno=web.1 queue=0 wait=0ms service=12ms status=304 bytes=0
+2012-10-17T02:17:41+00:00 app[web.1]: 
+2012-10-17T02:17:41+00:00 app[web.1]: 
+2012-10-17T02:17:41+00:00 app[web.1]: Started GET "/prospectos" for 189.152.169.214 at 2012-10-17 02:17:41 +0000
+2012-10-17T02:17:41+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-10-17T02:17:41+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-10-17T02:17:41+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-10-17T02:17:41+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/prospectos dyno=web.1 queue=0 wait=0ms service=250ms status=200 bytes=14796
+2012-10-17T02:17:41+00:00 app[web.1]: cache: [GET /prospectos] miss
+2012-10-17T02:17:41+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/assets/application-d460f68f0414d0e01f402ee4b4aae741.js dyno=web.1 queue=0 wait=0ms service=2ms status=304 bytes=0
+2012-10-17T02:17:41+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/assets/bootstrap-8f393c49fda1e9eb6cf4b3e871bfcbeb.css dyno=web.1 queue=0 wait=0ms service=49ms status=304 bytes=0
+2012-10-17T02:17:41+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/assets/bootstrap-responsive-94ba5e72aff48a0aeab6f738250e621e.css dyno=web.1 queue=0 wait=0ms service=13ms status=304 bytes=0
+2012-10-17T02:17:41+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/assets/application-875ebc5da51b8d78f16c685a1055934f.css dyno=web.1 queue=0 wait=0ms service=21ms status=304 bytes=0
+2012-10-17T02:17:41+00:00 app[web.1]: cache: [GET /assets/application-875ebc5da51b8d78f16c685a1055934f.css] miss
+2012-10-17T02:17:41+00:00 app[web.1]: cache: [GET /assets/bootstrap-responsive-94ba5e72aff48a0aeab6f738250e621e.css] miss
+2012-10-17T02:17:41+00:00 app[web.1]: cache: [GET /assets/application-d460f68f0414d0e01f402ee4b4aae741.js] miss
+2012-10-17T02:17:41+00:00 app[web.1]: cache: [GET /assets/dragtable-3d524e105a0054faea261eb1fe6ff0c1.js] miss
+2012-10-17T02:17:41+00:00 app[web.1]: cache: [GET /assets/bootstrap-8f393c49fda1e9eb6cf4b3e871bfcbeb.css] miss
+2012-10-17T02:17:41+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/assets/dragtable-3d524e105a0054faea261eb1fe6ff0c1.js dyno=web.1 queue=0 wait=0ms service=6ms status=304 bytes=0
+2012-10-17T02:17:42+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/assets/sorttable-78ffd9b45c0b33a466897041a5a424b2.js dyno=web.1 queue=0 wait=0ms service=19ms status=304 bytes=0
+2012-10-17T02:17:42+00:00 app[web.1]: cache: [GET /assets/sorttable-78ffd9b45c0b33a466897041a5a424b2.js] miss
+2012-10-17T02:17:42+00:00 app[web.1]: cache: [GET /assets/bootstrap-datepicker-fc02ae5accfbfb28b86239042b292117.js] miss
+2012-10-17T02:17:42+00:00 app[web.1]: cache: [GET /assets/nested_form-f411c8e6e446a9e8ae997e460cd1115f.js] miss
+2012-10-17T02:17:42+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/assets/nested_form-f411c8e6e446a9e8ae997e460cd1115f.js dyno=web.1 queue=0 wait=0ms service=18ms status=304 bytes=0
+2012-10-17T02:17:42+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/assets/bootstrap-datepicker-fc02ae5accfbfb28b86239042b292117.js dyno=web.1 queue=0 wait=0ms service=17ms status=304 bytes=0
+2012-10-17T02:17:44+00:00 app[web.1]: 
+2012-10-17T02:17:44+00:00 app[web.1]: Started GET "/prospectos/1" for 189.152.169.214 at 2012-10-17 02:17:44 +0000
+2012-10-17T02:17:44+00:00 app[web.1]: 
+2012-10-17T02:17:44+00:00 app[web.1]: 
+2012-10-17T02:17:44+00:00 app[web.1]:     22:     sections = sections.force_encoding('UTF-8').encode('UTF-16', :invalid => :replace).encode('UTF-8') if sections.respond_to?(:force_encoding)
+2012-10-17T02:17:44+00:00 app[web.1]: ActionView::Template::Error (code converter not found (UTF-8 to UTF-16)):
+2012-10-17T02:17:44+00:00 app[web.1]:     19:         [title, summary.gsub(/^/, "  "), nil].join("\n\n")
+2012-10-17T02:17:44+00:00 app[web.1]:     20:       end
+2012-10-17T02:17:44+00:00 app[web.1]:     21:     end.join
+2012-10-17T02:17:44+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-10-17T02:17:44+00:00 app[web.1]: 
+2012-10-17T02:17:44+00:00 app[web.1]:     23: %>
+2012-10-17T02:17:44+00:00 app[web.1]:     25: <%= raw sections %>
+2012-10-17T02:17:44+00:00 app[web.1]:     24: 
+2012-10-17T02:17:44+00:00 app[web.1]: 
+2012-10-17T02:17:44+00:00 app[web.1]: cache: [GET /prospectos/1] miss
+2012-10-17T02:17:44+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/prospectos/1 dyno=web.1 queue=0 wait=0ms service=153ms status=500 bytes=822

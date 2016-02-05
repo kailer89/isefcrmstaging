@@ -1,0 +1,26 @@
+<h1>Statics</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Valor</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @statics.each do |static| %>
+      <tr>
+        <td><%= static.id %></td>
+        <td><%= link_to static.valor, static_path(static) %></td>
+        <td><%= static.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_static_path(static), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', static_path(static), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_static_path, :class => 'btn btn-primary' %>

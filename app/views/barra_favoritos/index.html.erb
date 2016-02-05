@@ -1,0 +1,28 @@
+<h1>Barra Favoritos</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Favorito</th>
+      <th>User</th>      
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @barra_favoritos.each do |barra_favorito| %>
+      <tr>
+        <td><%= barra_favorito.id %></td>
+        <td><%= link_to barra_favorito.favorito.nombre, barra_favorito_path(barra_favorito) %></td>
+        <td><%= link_to barra_favorito.user.username, barra_favorito_path(barra_favorito) %></td>        
+        <td><%= barra_favorito.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_barra_favorito_path(barra_favorito), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', barra_favorito_path(barra_favorito), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_barra_favorito_path, :class => 'btn btn-primary' %>

@@ -1,0 +1,26 @@
+<h1>Status Del Pago De La Inscripcions</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Valor</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @status_del_pago_de_la_inscripcions.each do |status_del_pago_de_la_inscripcion| %>
+      <tr>
+        <td><%= status_del_pago_de_la_inscripcion.id %></td>
+        <td><%= link_to status_del_pago_de_la_inscripcion.valor, status_del_pago_de_la_inscripcion_path(status_del_pago_de_la_inscripcion) %></td>
+        <td><%= status_del_pago_de_la_inscripcion.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_status_del_pago_de_la_inscripcion_path(status_del_pago_de_la_inscripcion), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', status_del_pago_de_la_inscripcion_path(status_del_pago_de_la_inscripcion), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_status_del_pago_de_la_inscripcion_path, :class => 'btn btn-primary' %>

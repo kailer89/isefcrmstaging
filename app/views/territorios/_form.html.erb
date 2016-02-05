@@ -1,0 +1,51 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@territorio.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= form_for @territorio, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', territorios_path, :class => 'btn' %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Territorio</legend>
+
+    <div class="control-group">
+      <%= f.label :nombre, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :nombre, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :sede_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :sede_id, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :estado, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :estado, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :ciudad, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :ciudad, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :descripcion_detallada, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :descripcion_detallada, :class => 'text_area' %>
+      </div>
+    </div>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@territorio.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@territorio.id}%>
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@territorio.id}%>
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@territorio.id}%>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', territorios_path, :class => 'btn' %>
+    </div>
+    </fieldset>  
+<% end %>

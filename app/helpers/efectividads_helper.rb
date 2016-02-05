@@ -1,0 +1,2 @@
+module EfectividadsHelper
+end

@@ -1,0 +1,58 @@
+
+  body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/less.html for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;
+  .sidebar-nav {
+    padding: 9px 0;
+  }
+
+   .centeredSignUp{
+    display:block;
+
+    /*set the div in the center of the screen*/
+    position:absolute;
+    left:35%;
+    width:350px;
+  }
+  .favoritesBar
+  {
+    padding-top:0px;
+    padding-bottom: 0;
+    max-height: 35px;
+    margin-bottom:0;
+    display:block;
+    max-height: 35px;
+    min-height:35px;
+  }
+  #footer {
+    height: 15px;
+    display:block;
+
+    /*set the div in the center of the screen*/
+    position:absolute;
+    left:50%;    
+  }
+  .clearfooter {
+  height: 15px;
+  clear: both;  
+  }
+  body
+  {
+    padding-bottom:0;
+  }
+  .nav-tabs{
+    margin-bottom:0px;
+    }

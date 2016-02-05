@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  solicitud_de_beca_credito: false
+  porcentaje_de_beca_credito: 1.5
+  porcentaje_de_credito_solicitado: 1.5
+  estimado_de_pago_mensual_de_colegiatura: 9.99
+  status_de_ESE: MyString
+  status_de_pago_ESE: MyString
+  porcentaje_de_beca_sugerido_ESE: 1.5
+  fecha_limite_de_aplicacion_ESE: 2012-03-24
+  fecha_limite_de_pago_ESE: 2012-03-24
+  porcentaje_de_credito_sugerido_ESE: 2012-03-24
+  comentarios: MyText
+  status_del_tramite: MyString
+  porcentaje_de_beca_concedido: 1.5
+  comentarios_dictamen_beca: MyText
+  solicitante_id: 1
+
+two:
+  solicitud_de_beca_credito: false
+  porcentaje_de_beca_credito: 1.5
+  porcentaje_de_credito_solicitado: 1.5
+  estimado_de_pago_mensual_de_colegiatura: 9.99
+  status_de_ESE: MyString
+  status_de_pago_ESE: MyString
+  porcentaje_de_beca_sugerido_ESE: 1.5
+  fecha_limite_de_aplicacion_ESE: 2012-03-24
+  fecha_limite_de_pago_ESE: 2012-03-24
+  porcentaje_de_credito_sugerido_ESE: 2012-03-24
+  comentarios: MyText
+  status_del_tramite: MyString
+  porcentaje_de_beca_concedido: 1.5
+  comentarios_dictamen_beca: MyText
+  solicitante_id: 1

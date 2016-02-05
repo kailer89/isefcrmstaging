@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  prospecto_id: 1
+  soliticante_id: 1
+
+two:
+  nombre: MyString
+  prospecto_id: 1
+  soliticante_id: 1

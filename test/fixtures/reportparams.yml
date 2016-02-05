@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  fieldname: MyString
+  fieldvalue: MyString
+
+two:
+  nombre: MyString
+  fieldname: MyString
+  fieldvalue: MyString

@@ -1,0 +1,19 @@
+<%= form_for @status_del_tramite_de_beca, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', status_del_tramite_de_becas_path, :class => 'btn' %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Status Del Tramite De Beca</legend>
+
+    <div class="control-group">
+      <%= f.label :valor, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :valor, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', status_del_tramite_de_becas_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

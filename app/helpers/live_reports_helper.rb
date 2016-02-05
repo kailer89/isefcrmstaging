@@ -1,0 +1,2 @@
+module LiveReportsHelper
+end

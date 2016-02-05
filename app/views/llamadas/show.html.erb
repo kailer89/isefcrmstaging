@@ -1,0 +1,61 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@llamada.id, :parent_model=>@llamada.model_name, :parent_id=>@llamada.model_id}%>
+<div class="well">
+<h1>Llamada</h1>
+
+<p>
+  <b>Asunto</b><br>
+  <%= @llamada.asunto %>
+</p>
+
+<p>
+  <b>Inicio de la llamada</b><br>
+  <%= @llamada.inicio_de_la_llamada %>
+</p>
+
+<p>
+  <b>Tiempo de inicio</b><br>
+  <%= @llamada.tiempo_de_inicio.strftime('%H:%M %p') rescue nil%>
+</p>
+
+<p>
+  <b>Fin de la llamada</b><br>
+  <%= @llamada.fin_de_la_llamada %>
+</p>
+
+<p>
+  <b>Tiempo de fin</b><br>
+  <%= @llamada.tiempo_de_fin.strftime('%H:%M %p') rescue nil %>
+</p>
+
+<p>
+  <b>Duracion</b><br>
+  <%= @llamada.duracion %>
+</p>
+
+<p>
+  <b>Estado</b><br>
+  <%= @llamada.estado %>
+</p>
+
+<p>
+  <b>Aviso</b><br>
+  <%= @llamada.aviso %>
+</p>
+
+<p>
+  <b>Comentarios</b><br>
+  <%= @llamada.comentarios %>
+</p>
+</div>
+<div class="form-actions">
+  <a href="/<%=@llamada.model_name%>/<%=@llamada.model_id%>/edit" class="btn">Back</a>
+      <%if @llamada != nil%>
+        <%if @llamada.pendiente == true%>
+          <%= link_to 'Quitar pendiente', "#{@llamada.id}/convertir_llamada",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-warning', :method=>'post', :id=>'convertir_llamada'%> 
+        <%else%>
+          <%= link_to 'Hacer pendiente', "#{@llamada.id}/convertir_llamada",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'convertir_llamada'%> 
+        <%end%> 
+      <%end%>     
+  <%= link_to 'Edit', edit_llamada_path(@llamada), :class => 'btn' %>
+  <%= link_to 'Delete', llamada_path(@llamada), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  socilicita_PAA: false
+  solicita_pscicometria: false
+  solicita_entrevista_academica: false
+  status_depago_examen_de_admision: MyString
+  promedio: 1.5
+  tipo_de_admision: MyString
+  fecha_programacion_para_PAA: 2012-03-19
+  fecha_programacion_para_examenes_pscicomentricos: 2012-03-19
+  fecha_programada_para_entrevistas: 2012-03-19
+  fecha_de_limite_de_pago_examen_de_admision: 2012-03-19
+  hora_programada_PAA: 2012-03-19 22:20:43
+  hora_programada_pscicometrico: 2012-03-19 22:20:43
+  hora_programada_entrevistas: 2012-03-19 22:20:43
+  comentarios: MyText
+  prospecto_id: 1
+
+two:
+  socilicita_PAA: false
+  solicita_pscicometria: false
+  solicita_entrevista_academica: false
+  status_depago_examen_de_admision: MyString
+  promedio: 1.5
+  tipo_de_admision: MyString
+  fecha_programacion_para_PAA: 2012-03-19
+  fecha_programacion_para_examenes_pscicomentricos: 2012-03-19
+  fecha_programada_para_entrevistas: 2012-03-19
+  fecha_de_limite_de_pago_examen_de_admision: 2012-03-19
+  hora_programada_PAA: 2012-03-19 22:20:43
+  hora_programada_pscicometrico: 2012-03-19 22:20:43
+  hora_programada_entrevistas: 2012-03-19 22:20:43
+  comentarios: MyText
+  prospecto_id: 1

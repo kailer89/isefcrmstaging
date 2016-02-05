@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>
+ISEF Sugar CRM
+</title>
+<style type="text/css">
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Calibri, Arial, sans-serif; 
+}
+
+h1,h2,h3,h4,h5,h6,p,a,img,li,ol,ul,fieldset,form,label,button{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 100%;
+    line-height: 1;
+    font-family: inherit;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:hover, a:active {
+    opacity: 0.8;   
+}
+
+img {
+    border: 0;
+}
+
+#loading1 {
+    display:block;
+
+    /*set the div in the center of the screen*/
+    position:absolute;
+    top:50%;
+    left:35%;
+    width:350px;
+}
+#loading2 {
+    display:block;
+
+    /*set the div in the center of the screen*/
+    position:absolute;
+    top:50%;
+    left:35%;
+    width:350px;
+}
+
+
+label:after{
+     content:":";
+}
+
+
+.cellleft{
+    height: 100%; /* Optional */
+    width: 80%; /* Optional */
+    float: left;
+    margin: 0 0px 0px 0px;	 
+    border:0;
+overflow: hidden;
+}
+.cellright{
+    height: 100%; /* Optional */
+    width: 18&; /* Optional */
+    float: right;
+    margin: 0 0px 0px 0px;	
+border:0;  
+overflow: hidden;
+}
+
+.container { 
+overflow: hidden;
+    zoom: 1; /* IE fix */ }
+.left{ float:left; margin:0; border:0;  
+overflow: auto; height:100%; background:#ccc; width: 80%; }
+.right { float:left; margin:0; border:0;  
+overflow: auto; height:100%; background:#ccc; width: 20%; }
+
+-----------------------------------
+/* Example #2 - Clearing DIV Method */
+
+.clear{
+    clear: both;
+}
+
+</style>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.min.js'></script>
+
+</head>
+<body>
+<script type='text/javascript'>
+
+$(document).ready(function() {
+    $('#loading1').show();
+    $('#iframe1').attr( "src", "/home");
+$('#loading2').show();
+    $('#iframe2').attr( "src", "/programas");
+$('#iframe1').load(function() {
+    $('#loading1').hide();
+});
+$('#iframe2').load(function() {
+    $('#loading2').hide();
+});
+
+
+ });
+
+</script>
+<div id='container' class='container'> 
+<iframe id='iframe1' class='left' ></iframe>
+<iframe id='iframe2' class='right' ></iframe>
+</div>
+<div id='loading1'><img src="ajax-loader.gif" alt="Smiley face" /></div>
+<div id='loading2'><img src="ajax-loader.gif" alt="Smiley face" /></div>
+</body>
+</html>

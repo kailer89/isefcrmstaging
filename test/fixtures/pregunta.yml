@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ambito_de_la_pregunta: MyString
+  pregunta: MyText
+  causa_de_la_pregunta: MyText
+  alternativas_de_respuestas: MyText
+  respuesta: MyText
+  pregunta_planteada_por: MyString
+  resuelta_por: MyString
+  pregunta_frecuente: false
+
+two:
+  ambito_de_la_pregunta: MyString
+  pregunta: MyText
+  causa_de_la_pregunta: MyText
+  alternativas_de_respuestas: MyText
+  respuesta: MyText
+  pregunta_planteada_por: MyString
+  resuelta_por: MyString
+  pregunta_frecuente: false

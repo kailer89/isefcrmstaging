@@ -1,0 +1,25 @@
+	<div class="well favoritesBar hidden-tablet hidden-phone">
+		<ul class="nav nav-pills">
+		<% barra_favoritos = BarraFavorito.where(:user_id=>current_user)%>
+		<% barra_favoritos.each do |barra_favorito| %>		
+			<li class='<%=(request.path_parameters[:controller] == barra_favorito.favorito.model) and (request.path_parameters[:action] == ((barra_favorito.accion.to_s=="Nuevo") ? "new" : "index")) ? "active" : "" %>'>
+			<a href='/<%=barra_favorito.favorito.model%>/<%=(barra_favorito.accion.to_s=="Nuevo")? "new" : "" %>'>
+				<i class="icon-heart"></i>
+				<%=(barra_favorito.accion.to_s=="Nuevo")? "Nuevo " : "Mostrar " %><%=barra_favorito.favorito.nombre%>
+			</a>
+			</li>
+		<%end%>   
+		<li class="active">
+			<%=link_to barra_favoritos_path do%>
+			<i class="icon-pencil"></i>
+			Editar
+			<%end%>
+		</li>
+		<li class="active">
+			<%=link_to new_barra_favorito_path do%>
+			<i class="icon-plus"></i>
+			Agregar
+			<%end%>
+		</li>		
+		</ul>
+	</div>

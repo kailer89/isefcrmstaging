@@ -1,0 +1,30 @@
+<%= simple_form_for @attachment, :html => { :class => 'form-horizontal'  ,:multipart => true } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <a href="/<%=@attachment.model_name%>/<%=@attachment.model_id%>/edit" class="btn">Cancel</a>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@attachment.id, :parent_model=>@attachment.model_name, :parent_id=>@attachment.model_id}%>
+
+
+    <div class="control-group">
+      <%= f.label "Attachment", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :name %>
+      </div>
+    </div>
+    <% if request.path_parameters[:action] =="edit" %>
+      <%if request.port != nil%>
+        http://<%=request.host %>:<%=request.port%><%=@attachment.name_url.to_s%>
+      <%else%>
+        http://<%=request.host %><%=@attachment.name_url.to_s%>                
+      <%end%>   
+    <%end%>
+        <%=f.hidden_field :created_by%>
+    <%= f.association :user, :collection => User.where(:id => @attachment.created_by), :label_method => :username, :value_method => :id , :disabled=>true,:label=>"Creado por"%>        
+        <%=f.association :user,:label_method=>:username,:include_blank => false%>
+        <%=f.association :sede,:label_method=>:nombre,:include_blank => false%>        
+    <%=f.hidden_field :model_name %>
+    <%=f.hidden_field :model_id %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <a href="/<%=@attachment.model_name%>/<%=@attachment.model_id%>/edit" class="btn">Cancel</a>
+    </div>
+<% end %>

@@ -1,0 +1,23 @@
+<h1>Listing duracion_en_textos</h1>
+
+<table>
+  <tr>
+    <th>Valor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @duracion_en_textos.each do |duracion_en_texto| %>
+  <tr>
+    <td><%= duracion_en_texto.valor %></td>
+    <td><%= link_to 'Show', duracion_en_texto %></td>
+    <td><%= link_to 'Edit', edit_duracion_en_texto_path(duracion_en_texto) %></td>
+    <td><%= link_to 'Destroy', duracion_en_texto, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Duracion en texto', new_duracion_en_texto_path %>

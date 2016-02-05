@@ -1,0 +1,128 @@
+<%if kind != nil%>
+  <div class="tab-pane <%=(active == true) ?  'active' : '' %>" id="<%=kind%><%=identifier%>">
+<%end%>
+<%if prospectos != nil%>
+	  <p>
+		<table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+		  <thead>
+		    <tr>
+		        <%if columnas != nil%>
+		          <% columnas.each do |column| %>
+		              <th><a href="#"><%= column.humanize %></a></th>
+		          <% end %>
+		        <% end %>		      
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% prospectos.each do |prospecto| %>
+		      <tr>
+		        <%if columnas != nil%>
+		        	<%columnas.each do |columna|%>
+			        	<%if Prospecto.column_names.include?(columna)%>
+			        	<%
+			        		case columna
+			        		when "nacionalidad_id"
+			        			tabla = Nacionalidad.where(:id=>prospecto.nacionalidad_id) rescue nil
+				      			%><td><%=tabla.nacionalidad rescue nil%> - <%=tabla.pais rescue nil%></td><%
+				      		when "user_id"
+				      			tabla = User.where(:id=>prospecto.user_id) rescue nil
+				      			%><td><%=tabla.username rescue nil%></td><%
+				      		when "sede_id","territorio_id","grupo_id"
+				      			tabla = eval(columna.chomp('_id').camelize.singularize).where(:id=>eval("prospecto." + columna)) rescue nil
+				      			%><td><%=tabla.nombre rescue nil%></td><%
+				      		when "programa_id"
+				      			tabla = Programa.where(:id=>prospecto.id) rescue nil
+				      			%><td><%=tabla.nivel rescue nil%> - <%=tabla.programa rescue nil%></td><%
+				      		else
+				      			template = eval(columna.chomp('_id').camelize.singularize) rescue nil
+				      			if template != nil
+					      			if eval(columna.chomp('_id').camelize.singularize).respond_to?(:valor) then
+					      				tabla=eval(columna.chomp('_id').camelize.singularize).where(:id=>eval("prospecto." + columna)) rescue nil
+					      				%><td><%=tabla.valor rescue nil%></td><%
+					      			else
+					      				%><td><%=eval("prospecto." + columna) rescue nil%></td><%
+					      			end
+					      		else
+					      			%><td><%=eval("prospecto." + columna) rescue nil%></td><%
+					      		end
+			        		end
+			        	%>	        		
+			        	<%end%>
+			        	<%if Direccion.column_names.include?(columna)%>
+			        		<td>
+<%
+							#find direccion of the prospecto
+							if columna  != "blank" and columna != "created_by" and columna != "created_at"
+								direccion = Direccion.where(:prospecto_id=>prospecto.id).first
+								%><%=eval("direccion." + columna)%><%
+							end
+%>			        	
+							</td>
+			        	<%end%>
+			        	<%if InteresBasico.column_names.include?(columna)%>
+			        		<td>
+<%
+							#find direccion of the prospecto
+							if columna  != "blank" and columna != "created_by" and columna != "created_at"
+								direccion = InteresBasico.where(:prospecto_id=>prospecto.id).first
+								%><%=eval("direccion." + columna)%><%
+							end
+%>			        	
+							</td>
+			        	<%end%>
+			        	<%if InteresAcademico.column_names.include?(columna)%>
+			        		<td>
+<%
+							#find direccion of the prospecto
+							if columna  != "blank" and columna != "created_by" and columna != "created_at"
+								direccion = InteresAcademico.where(:prospecto_id=>prospecto.id).first
+								%><%=eval("direccion." + columna)%><%
+							end
+%>			        	
+							</td>
+			        	<%end%>
+			        	<%if PlanDeDescuento.column_names.include?(columna)%>
+			        		<td>
+<%
+							#find direccion of the prospecto
+							if columna  != "blank" and columna != "created_by" and columna != "created_at"
+								direccion = PlanDeDescuento.where(:prospecto_id=>prospecto.id).first
+								%><%=eval("direccion." + columna)%><%
+							end
+%>			        	
+							</td>
+			        	<%end%>		  
+			        	<%if MedioDeContacto.column_names.include?(columna)%>
+			        		<td>
+<%
+							#find direccion of the prospecto
+							if columna  != "blank" and columna != "created_by" and columna != "created_at"
+								direccion = MedioDeContacto.where(:prospecto_id=>prospecto.id).first
+								%><%=eval("direccion." + columna)%><%
+							end
+%>			        	
+							</td>
+			        	<%end%>					        	      				        	
+			        <%end%>
+		        <%end%>
+		        <td>
+		          <%= link_to 'Edit', edit_prospecto_path(prospecto), :class => 'btn btn-mini' %>
+		          <%= link_to 'Resumen', resumen_path(prospecto),:class=>'btn btn-success btn-mini'%>
+		        <a href="#" class='btn btn-info btn-mini'  onclick="javascript:openPrint('prospectos','<%=prospecto.id%>')">
+		          <i class="icon-print"></i> Imprimir
+		        </a>
+		          <%if not prospecto.issolicitante%>
+		              <%= link_to 'Destroy', prospecto_path(prospecto), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+		          <%end%>
+		        </td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	  </p>
+<%end%>
+
+
+<%if kind != nil%>
+	</div>
+<%end%>

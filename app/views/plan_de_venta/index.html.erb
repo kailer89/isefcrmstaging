@@ -1,0 +1,27 @@
+<h1>Planes de Venta</h1>
+<div class="well">
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Programa</th>
+      <th>Fecha de Creación</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @plan_de_venta.each do |plan_de_ventum| %>
+      <tr>
+        <td><%= plan_de_ventum.id %></td>
+        <td><%= link_to plan_de_ventum.programa, plan_de_ventum_path(plan_de_ventum) %></td>
+        <td><%= plan_de_ventum.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_plan_de_ventum_path(plan_de_ventum), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', plan_de_ventum_path(plan_de_ventum), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<%= link_to 'New', new_plan_de_ventum_path, :class => 'btn btn-primary' %>

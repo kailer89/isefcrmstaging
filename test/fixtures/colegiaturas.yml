@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  periodo_anual: MyString
+  sede_id: 1
+  nivel_id: 1
+  programa_id: 1
+  cuota_de_inscripcion_para_esta_sede: MyString
+  cuota_mensual_para_esta_sede: MyString
+  tipo_y_no_de_pagos_de_inscripcion: MyString
+  tipo_y_no_de_pagos_de_colegiatura: MyString
+
+two:
+  periodo_anual: MyString
+  sede_id: 1
+  nivel_id: 1
+  programa_id: 1
+  cuota_de_inscripcion_para_esta_sede: MyString
+  cuota_mensual_para_esta_sede: MyString
+  tipo_y_no_de_pagos_de_inscripcion: MyString
+  tipo_y_no_de_pagos_de_colegiatura: MyString

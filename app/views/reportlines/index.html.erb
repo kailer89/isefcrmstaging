@@ -1,0 +1,33 @@
+<h1>Listing reportlines</h1>
+
+<table>
+  <tr>
+    <th>Nombre del campo</th>
+    <th>Modulo</th>
+    <th>Report</th>
+    <th>Campo</th>
+    <th>Filtro</th>
+    <th>Valorcampo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reportlines.each do |reportline| %>
+  <tr>
+    <td><%= reportline.nombre_del_campo %></td>
+    <td><%= reportline.modulo %></td>
+    <td><%= reportline.report_id %></td>
+    <td><%= reportline.campo %></td>
+    <td><%= reportline.filtro %></td>
+    <td><%= reportline.valorcampo %></td>
+    <td><%= link_to 'Show', reportline %></td>
+    <td><%= link_to 'Edit', edit_reportline_path(reportline) %></td>
+    <td><%= link_to 'Destroy', reportline, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Reportline', new_reportline_path %>

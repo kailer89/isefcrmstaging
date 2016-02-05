@@ -1,0 +1,22 @@
+<h1>Authentication</h1>
+
+<p>
+  <b>User</b><br>
+  <%= @authentication.user_id %>
+</p>
+
+<p>
+  <b>Provider</b><br>
+  <%= @authentication.provider %>
+</p>
+
+<p>
+  <b>Uid</b><br>
+  <%= @authentication.uid %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', authentications_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_authentication_path(@authentication), :class => 'btn' %>
+  <%= link_to 'Delete', authentication_path(@authentication), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

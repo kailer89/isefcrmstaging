@@ -1,0 +1,47 @@
+<%- model_class = MiPlanEstrategicoDePromocionPep.new.class -%>
+<h1>Planes Operativos</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:periodo_anual) %></th>
+      <th><%= model_class.human_attribute_name(:pep_para) %></th>
+      <th><%= model_class.human_attribute_name(:nombre_de_la_institucion) %></th>
+      <th><%= model_class.human_attribute_name(:segmento) %></th>
+      <th><%= model_class.human_attribute_name(:tipo_especifico) %></th>
+      <th><%= model_class.human_attribute_name(:nse) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mi_plan_estrategico_de_promocion_peps.each do |mi_plan_estrategico_de_promocion_pep| %>
+      <tr>
+        <td><%= link_to mi_plan_estrategico_de_promocion_pep.id, mi_plan_estrategico_de_promocion_pep_path(mi_plan_estrategico_de_promocion_pep) %></td>
+        <td><%= mi_plan_estrategico_de_promocion_pep.periodo_anual %></td>
+        <td><%= mi_plan_estrategico_de_promocion_pep.pep_para %></td>
+        <td><%= mi_plan_estrategico_de_promocion_pep.nombre_de_la_institucion %></td>
+        <td><%= mi_plan_estrategico_de_promocion_pep.segmento %></td>
+        <td><%= mi_plan_estrategico_de_promocion_pep.tipo_especifico %></td>
+        <td><%= mi_plan_estrategico_de_promocion_pep.nse %></td>
+        <td><%=l mi_plan_estrategico_de_promocion_pep.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_mi_plan_estrategico_de_promocion_pep_path(mi_plan_estrategico_de_promocion_pep), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      mi_plan_estrategico_de_promocion_pep_path(mi_plan_estrategico_de_promocion_pep),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_mi_plan_estrategico_de_promocion_pep_path,
+            :class => 'btn btn-primary' %>
+<br/>
+<br/>
+<br/>

@@ -1,0 +1,18 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@favorito.id, :parent_model=>nil, :parent_id=>nil}%>
+<div class="well"><h1>Favorito</h1>
+
+<p>
+  <b>Nombre</b><br>
+  <%= @favorito.nombre %>
+</p>
+
+<p>
+  <b>Model</b><br>
+  <%= @favorito.model %>
+</p></div>
+
+<div class="form-actions">
+  <%= link_to 'Back', favoritos_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_favorito_path(@favorito), :class => 'btn' %>
+  <%= link_to 'Delete', favorito_path(@favorito), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

@@ -1,0 +1,58 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@programa.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= form_for @programa, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', programas_path, :class => 'btn' %>
+  <fieldset>
+<div class="well">    <legend><%= controller.action_name.capitalize %> Programa</legend>
+
+    <div class="control-group">
+      <%= f.label :nivel, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :nivel, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :programa, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :programa, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :descripcion_detallada, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :descripcion_detallada, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :principales_caracteristicas, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :principales_caracteristicas, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :principales_ventajas, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :principales_ventajas, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :principales_beneficios, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :principales_beneficios, :class => 'text_area' %>
+      </div>
+    </div></div>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@programa.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@programa.id}%>
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@programa.id}%>
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@programa.id}%>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', programas_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

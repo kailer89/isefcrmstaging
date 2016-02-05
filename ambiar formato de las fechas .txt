@@ -1,0 +1,21 @@
+por ejemplo este campo:
+      <%=f.input :fecha_lim_fpi, :label=>"Fecha límite  marcada en la FPI:", :as => :date, :start_year => Date.today.year - 12,
+                              :end_year => Date.today.year,
+                              :order => [:day, :month, :year] 
+					%>
+					
+					seria ahora
+	<div class="input-append date datepicker" id="dp3" data-date-format="mm/dd/yyyy">
+		<%= f.input_field :fecha_lim_fpi, :placeholder=>"Fecha límite  marcada en la FPI:"%>
+		<span class="add-on"><i class="icon-th"></i></span>
+	</div>					
+	
+	y hasta abajo del archivo se pone una sola vez lo siguiente:
+
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+	$('.datepicker').datepicker();
+});
+})(jQuery);
+</script>

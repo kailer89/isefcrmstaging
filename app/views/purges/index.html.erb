@@ -1,0 +1,69 @@
+<div class="hero-unit">
+  <h1>Warning!</h1>
+  <p>The actions bellow are permanent and cannot be recovered, ask your administrator before running any of the bellow actions.</p>
+  <p>
+    <a class="btn btn-primary btn-large">
+      Send a request mail
+    </a>
+  </p>
+</div>
+<div class="well">
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Purge</th>
+      <th>Run!</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>Purge Admitidos</td>
+        <td>
+          <%= link_to 'Purge all Admitidos', purge_admitidos_path , :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+      <tr>
+        <td>Purge Examinados</td>
+        <td>
+          <%= link_to 'Purge all Examinados', purge_examinados_path , :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+      <tr>
+        <td>Purge Inscritos</td>
+        <td>
+          <%= link_to 'Purge all Inscritos', purge_inscritos_path , :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+      <tr>
+        <td>Purge Prospectos</td>
+        <td>
+          <%= link_to 'Purge all Prospectos', purge_prospectos_path , :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+      <tr>
+        <td>Purge Sedes</td>
+        <td>
+          <%= link_to 'Purge all Sedes', purge_sedes_path , :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+      <tr>
+        <td>Purge Solicitantes</td>
+        <td>
+          <%= link_to 'Purge all Solicitantes', purge_solicitantes_path , :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>   
+      <tr>
+        <td>Purge Users</td>
+        <td>
+          <%= link_to 'Purge all Users', purge_users_path , :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>                                            
+      <tr>
+        <td>Purge all</td>
+        <td>
+          <%= link_to 'Purge all tables', purge_all_path , :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>

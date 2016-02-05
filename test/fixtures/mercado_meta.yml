@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre_de_la_institucion_meta: MyString
+  contacto_principal: MyString
+  email: MyString
+  pag_web: MyString
+  observaciones_del_mercado_meta: MyText
+  giro: MyString
+  cargo: MyString
+  email_secundario: MyString
+  telefono: MyString
+  movil: MyString
+  otro_telefono: MyString
+  calle: MyString
+  no_interior: MyString
+  no_exterior: MyString
+  colonia: MyString
+  delegacion_municipio: MyString
+  codigo_postal: MyString
+  comentarios_direccion: MyText
+  mapa_google_maps: MyString
+
+two:
+  nombre_de_la_institucion_meta: MyString
+  contacto_principal: MyString
+  email: MyString
+  pag_web: MyString
+  observaciones_del_mercado_meta: MyText
+  giro: MyString
+  cargo: MyString
+  email_secundario: MyString
+  telefono: MyString
+  movil: MyString
+  otro_telefono: MyString
+  calle: MyString
+  no_interior: MyString
+  no_exterior: MyString
+  colonia: MyString
+  delegacion_municipio: MyString
+  codigo_postal: MyString
+  comentarios_direccion: MyText
+  mapa_google_maps: MyString

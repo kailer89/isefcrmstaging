@@ -1,0 +1,92 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@report.id, :parent_model=>nil}%>
+<h1>Informe <%=@report.id%></h1>
+<h3><%=@report.nombre%></h3>
+<span class="help-block"><p>Puedes hacer click en los titulos de las columnas para reornenarlas, o moverlas haciendo click en ellas y moviendolas a la izquierda o derecha.</p><p>Addicionalmente cuando hay mas registros que los seleccionados puedes usar las flechas de la parte inferior para navegar entre los registros</p></span>
+<div class="well">
+  <table class="draggable sortable table table-striped table-bordered table-condensed">
+    <thead>
+      <tr>
+        <%if @report.column_names != nil%>
+          <% @report.column_names.each do |column| %>
+              <th><a href="#"><%= column.humanize %></a></th>
+          <% end %>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @informe.each do |informe| %>
+        <tr>
+          <%if @report.column_names != nil%>
+           <% @report.column_names.each do |column| %>
+              <%columnvalue = eval("informe" + "." + column)%>
+              <%
+                case columnvalue.class.to_s
+                when "Fixnum"
+                  %>
+                    <td><%= columnvalue %></td>
+                  <%
+                when "String"
+                    evalpath=eval("edit_" + @report.table.singularize + "_path(informe.id)")
+                      %>
+                        <td><%=link_to columnvalue, evalpath%></td>
+                      <%                    
+                when "TrueClass"
+                    case column.to_s
+                    when "sexo"
+                      %>
+                        <td><%= (columnvalue) ? "Masculino" : "Femenino" %></td>
+                      <%                      
+                    when "validado"
+                      %>
+                        <td><%= (columnvalue) ? "Validado" : "No Validado" %></td>
+                      <%                      
+                    else
+                      %>
+                        <td><%= columnvalue %></td>
+                      <%            
+                    end    
+                when "Date"                              
+                  %>
+                    <td><%= columnvalue %></td>
+                  <%
+                when "Nacionalidad"                              
+                  %>
+                    <td><%= columnvalue.nacionalidad %></td>
+                  <%                
+                else
+                    %>
+                      <td><%= (columnvalue.respond_to?(:valor)) ? columnvalue.valor  : columnvalue %></td>
+                    <%                                                          
+                end
+
+              %>
+            <% end %>  
+          <%end%>        
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate @informe %>
+  <%if @report.reportlines.size > 0%>
+    <table class="draggable sortable table table-striped table-bordered table-condensed">
+      <thead>
+        <tr>
+              <th>Registro</th>
+              <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--This will be sent when the report has some sumarize lines-->
+        <%@report.reportlines.each do |linea|%>
+          <tr>
+            <%tabla = eval(linea.modulo.camelize.singularize + ".all")%>
+            <td><%=linea.modulo.humanize%></td>
+            <td><%=tabla.size%></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  <%end%>
+
+

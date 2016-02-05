@@ -1,0 +1,44 @@
+<%= simple_form_for @meta, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                meta_path, :class => 'btn' %>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <p>
+  <%= f.input :periodo_anual %>
+  <%= f.input :sede_id %>
+  <%= f.input :clave_del_programa %>
+  <%= f.input :fecha_de_inicio %>
+  <%= f.input :nivel_id %>
+  <%= f.input :programa_id %>
+  <%= f.input :ciudad_de_apertura %>
+  <%= f.input :estado_de_apertura %>
+  <%= f.input :modalidad %>
+  <%= f.input :turno_id %>
+  <%= f.input :horarios %>
+  <%= f.input :horarios_text %>
+  <%= f.input :lugar_donde_se_impartiran_las_clases %>
+  <%= f.input :asesor_a_cargo %>
+  <%= f.input :status_de_fecha_de_apertura %>
+  <%= f.input :meta_de_alumnos %>
+  <%= f.input :meta_de_enteros %>
+  <%= f.input :viabilidad_de_la_apertura %>
+      </p>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                meta_path, :class => 'btn' %>
+  </div>
+<% end %>

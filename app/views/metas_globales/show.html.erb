@@ -1,0 +1,309 @@
+<%- model_class = @metas_globale.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-vertical">
+  <dt><strong><%= model_class.human_attribute_name(:periodo_anual) %>:</strong></dt>
+  <dd><%= @metas_globale.periodo_anual %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:meta_anual_de_alumnos_de_licenciatura) %>:</strong></dt>
+  <dd><%= @metas_globale.meta_anual_de_alumnos_de_licenciatura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:meta_anual_de_enteros_de_licenciatura) %>:</strong></dt>
+  <dd><%= @metas_globale.meta_anual_de_enteros_de_licenciatura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:meta_anual_de_alumnos_de_posgrado) %>:</strong></dt>
+  <dd><%= @metas_globale.meta_anual_de_alumnos_de_posgrado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:meta_anual_de_enteros_de_posgrado) %>:</strong></dt>
+  <dd><%= @metas_globale.meta_anual_de_enteros_de_posgrado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:no_de_grupos_al_ano_de_licenciatura) %>:</strong></dt>
+  <dd><%= @metas_globale.no_de_grupos_al_ano_de_licenciatura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:no_de_grupos_al_ano_de_posgrado_local) %>:</strong></dt>
+  <dd><%= @metas_globale.no_de_grupos_al_ano_de_posgrado_local %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:no_de_grupos_al_ano_de_posgrado_foraneo) %>:</strong></dt>
+  <dd><%= @metas_globale.no_de_grupos_al_ano_de_posgrado_foraneo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:total_de_grupos_al_ano) %>:</strong></dt>
+  <dd><%= @metas_globale.total_de_grupos_al_ano %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:metas_establecidas_por) %>:</strong></dt>
+  <dd><%= @metas_globale.metas_establecidas_por %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_1) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_1).first
+    %>
+    <%=elPrograma.nombre%>
+    </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_1) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_1) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_1) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_1) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_1) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_1) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_2) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_2).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_2) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_2) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_2) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_2) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_2) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_2) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_3) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_3).first
+    %>
+    <%=elPrograma.nombre%>
+
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_3) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_3) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_3) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_3) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_3) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_3) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_4) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_4).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_4) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_4 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_4) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_4 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_4) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_4 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_4) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_4 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_4) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_4 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_4) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_4 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_5) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_5).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_5) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_5 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_5) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_5 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_5) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_5 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_5) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_5 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_5) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_5 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_5) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_5 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_6) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_6).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_6) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_6 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_6) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_6 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_6) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_6 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_6) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_6 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_6) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_6 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_6) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_6 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_7) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_7).first
+    %>
+    <%=elPrograma.nombre%>
+
+</dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_7) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_7 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_7) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_7 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_7) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_7 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_7) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_7 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_7) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_7 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_7) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_7 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_8) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_8).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_8) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_8 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_8) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_8 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_8) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_8 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_8) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_8 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_8) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_8 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_8) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_8 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_9) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_9).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_9) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_9 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_9) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_9 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_9) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_9 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_9) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_9 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_9) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_9 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_9) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_9 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_10) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_10).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_10) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_10 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_10) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_10 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_10) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_10 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_10) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_10 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_10) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_10 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_10) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_10 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_11) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_11).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_11) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_11 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_11) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_11 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_11) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_11 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_11) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_11 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_11) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_11 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_11) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_11 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_12) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_12).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:mes_ano_12) %>:</strong></dt>
+  <dd><%= @metas_globale.mes_ano_12 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_licenciatura_12) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_licenciatura_12 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_licenciatura_12) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_licenciatura_12 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_alumnos_inscritos_de_Posgrado_12) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_alumnos_inscritos_de_Posgrado_12 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_mensual_de_enteros_inscritos_de_posgrado_12) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_mensual_de_enteros_inscritos_de_posgrado_12 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:observaciones_12) %>:</strong></dt>
+  <dd><%= @metas_globale.observaciones_12 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id_anual) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@metas_globale.sede_id_anual).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_anual_de_alumnos_de_licenciatura) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_anual_de_alumnos_de_licenciatura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_anual_de_enteros_de_licenciatura) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_anual_de_enteros_de_licenciatura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_anual_de_alumnos_de_posgrado) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_anual_de_alumnos_de_posgrado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_anual_de_enteros_de_posgrado) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_anual_de_enteros_de_posgrado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_anual_de_grupos_abiertos_de_licenciatura) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_anual_de_grupos_abiertos_de_licenciatura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_anual_de_grupos_abiertos_de_posgrado_local) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_anual_de_grupos_abiertos_de_posgrado_local %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logro_anual_de_grupos_abiertos_de_posgrado_foraneo) %>:</strong></dt>
+  <dd><%= @metas_globale.logro_anual_de_grupos_abiertos_de_posgrado_foraneo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:total_de_grupos_abiertos) %>:</strong></dt>
+  <dd><%= @metas_globale.total_de_grupos_abiertos %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:indicador_de_resultados_anual_alumnos_de_licenciatura) %>:</strong></dt>
+  <dd><%= @metas_globale.indicador_de_resultados_anual_alumnos_de_licenciatura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:indicador_de_resultados_anual_enteros_de_licenciatura) %>:</strong></dt>
+  <dd><%= @metas_globale.indicador_de_resultados_anual_enteros_de_licenciatura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:indicador_de_resultados_anual_alumnos_de_posgrado) %>:</strong></dt>
+  <dd><%= @metas_globale.indicador_de_resultados_anual_alumnos_de_posgrado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:indicador_de_resultados_anual_enteros_de_posgrado) %>:</strong></dt>
+  <dd><%= @metas_globale.indicador_de_resultados_anual_enteros_de_posgrado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:metas_anuales_observaciones) %>:</strong></dt>
+  <dd><%= @metas_globale.metas_anuales_observaciones %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              metas_globales_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_metas_globale_path(@metas_globale), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              metas_globale_path(@metas_globale),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

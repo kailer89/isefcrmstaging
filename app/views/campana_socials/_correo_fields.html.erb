@@ -1,0 +1,9 @@
+<div class="well fields">
+  <fieldset>      
+    <%= f.input :nombredelmail, :label=>"Nombre del Correo"%>
+    <%= f.input :maildata , :input_html=>{:class=>"correobox"}, :label=>"Contenido del correo"%>
+    <%= f.input :fechaparaenviar, :label=>"Fecha para enviar" %>
+    <%= f.association :user,:label_method=>:username,:include_blank => false%>
+    <%= f.association :sede,:label_method=>:nombre,:include_blank => false%>  
+  </fieldset>
+</div>      

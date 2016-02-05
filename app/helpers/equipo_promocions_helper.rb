@@ -1,0 +1,2 @@
+module EquipoPromocionsHelper
+end

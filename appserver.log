@@ -1,0 +1,1776 @@
+=> Booting WEBrick
+=> Rails 3.1.4 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+Creating scope :page. Overwriting existing method Version.page.
+Creating scope :page. Overwriting existing method ActiveRecord::SessionStore::Session.page.
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method User.page.
+
+
+Started GET "/prospectos/28/edit" for 127.0.0.1 at 2012-11-25 10:11:21 -0600
+Creating scope :page. Overwriting existing method Prospecto.page.
+  Processing by ProspectosController#edit as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+--------------------------------0
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+--------------------------------6
+Creating scope :page. Overwriting existing method Role.page.
+--------------------------------7
+--------------------------------8
+edit
+Creating scope :page. Overwriting existing method RolePermision.page.
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'Admin' LIMIT 1
+--------------------------------9
+  [1m[36mRolePermision Load (1.0ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 8 AND "role_permisions"."objeto" = 'prospectos')) LIMIT 1[0m
+--------------------------------11
+--------------------------------12
+  [1m[35mProspecto Load (0.0ms)[0m  SELECT "prospectos".* FROM "prospectos" WHERE "prospectos"."id" = ? LIMIT 1  [["id", "28"]]
+Rendered shared/_breadcrumbs.html.erb (2.0ms)
+Creating scope :page. Overwriting existing method History.page.
+  [1m[36mHistory Load (0.0ms)[0m  [1mSELECT "histories".* FROM "histories" WHERE (("histories"."model_name" = 'prospectos' AND "histories"."model_id" = '28'))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+Rendered shared/_history.html.erb (57.6ms)
+Rendered prospectos/_prospectoNav.html.erb (60.6ms)
+Creating scope :page. Overwriting existing method MercadoMetum.page.
+  [1m[36mMercadoMetum Load (0.0ms)[0m  [1mSELECT "mercado_meta".* FROM "mercado_meta" [0m
+Creating scope :page. Overwriting existing method PlanDeVentum.page.
+  [1m[35mPlanDeVentum Load (0.0ms)[0m  SELECT "plan_de_venta".* FROM "plan_de_venta" 
+Creating scope :page. Overwriting existing method Programa.page.
+  [1m[36mPrograma Load (0.0ms)[0m  [1mSELECT "programas".* FROM "programas" [0m
+Creating scope :page. Overwriting existing method Nacionalidad.page.
+  [1m[35mNacionalidad Load (0.0ms)[0m  SELECT "nacionalidads".* FROM "nacionalidads" 
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+Creating scope :page. Overwriting existing method Sede.page.
+  [1m[35mSede Load (0.0ms)[0m  SELECT "sedes".* FROM "sedes" 
+Creating scope :page. Overwriting existing method Direccion.page.
+  [1m[36mDireccion Load (0.0ms)[0m  [1mSELECT "direccions".* FROM "direccions" WHERE "direccions"."prospecto_id" = 28[0m
+Creating scope :page. Overwriting existing method InteresBasico.page.
+  [1m[35mInteresBasico Load (1.0ms)[0m  SELECT "interes_basicos".* FROM "interes_basicos" WHERE "interes_basicos"."prospecto_id" = 28
+Creating scope :page. Overwriting existing method UltimoGradoDeEstudio.page.
+  [1m[36mUltimoGradoDeEstudio Load (0.0ms)[0m  [1mSELECT "ultimo_grado_de_estudios".* FROM "ultimo_grado_de_estudios" [0m
+Creating scope :page. Overwriting existing method PreparatoriaOUniversidadDeOrigen.page.
+  [1m[35mPreparatoriaOUniversidadDeOrigen Load (0.0ms)[0m  SELECT "preparatoria_o_universidad_de_origens".* FROM "preparatoria_o_universidad_de_origens" 
+Creating scope :page. Overwriting existing method MunicipioDeLaPreparatoriaOUniversidadDeOrigen.page.
+  [1m[36mMunicipioDeLaPreparatoriaOUniversidadDeOrigen Load (0.0ms)[0m  [1mSELECT "municipio_de_la_preparatoria_o_universidad_de_origens".* FROM "municipio_de_la_preparatoria_o_universidad_de_origens" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sedes".* FROM "sedes" 
+Creating scope :page. Overwriting existing method Subsede.page.
+  [1m[36mSubsede Load (1.0ms)[0m  [1mSELECT "subsedes".* FROM "subsedes" [0m
+Creating scope :page. Overwriting existing method ProgramaDeIntere.page.
+  [1m[35mProgramaDeIntere Load (1.0ms)[0m  SELECT "programa_de_interes".* FROM "programa_de_interes" 
+Creating scope :page. Overwriting existing method Nivel.page.
+  [1m[36mNivel Load (0.0ms)[0m  [1mSELECT "nivels".* FROM "nivels" [0m
+Creating scope :page. Overwriting existing method Modalidad.page.
+  [1m[35mModalidad Load (0.0ms)[0m  SELECT "modalidads".* FROM "modalidads" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programas".* FROM "programas" [0m
+Creating scope :page. Overwriting existing method Turno.page.
+  [1m[35mTurno Load (0.0ms)[0m  SELECT "turnos".* FROM "turnos" 
+Creating scope :page. Overwriting existing method PeriodoParaIngresar.page.
+  [1m[36mPeriodoParaIngresar Load (0.0ms)[0m  [1mSELECT "periodo_para_ingresars".* FROM "periodo_para_ingresars" [0m
+Creating scope :page. Overwriting existing method StatusDeInteresDeProspectoValidado.page.
+  [1m[35mStatusDeInteresDeProspectoValidado Load (0.0ms)[0m  SELECT "status_de_interes_de_prospecto_validados".* FROM "status_de_interes_de_prospecto_validados" 
+Creating scope :page. Overwriting existing method InteresAcademico.page.
+  [1m[36mInteresAcademico Load (0.0ms)[0m  [1mSELECT "interes_academicos".* FROM "interes_academicos" WHERE "interes_academicos"."prospecto_id" = 28[0m
+Creating scope :page. Overwriting existing method MedioDeContacto.page.
+  [1m[35mMedioDeContacto Load (0.0ms)[0m  SELECT "medio_de_contactos".* FROM "medio_de_contactos" WHERE "medio_de_contactos"."prospecto_id" = 28
+Creating scope :page. Overwriting existing method PlanDeDescuento.page.
+  [1m[36mPlanDeDescuento Load (1.0ms)[0m  [1mSELECT "plan_de_descuentos".* FROM "plan_de_descuentos" WHERE "plan_de_descuentos"."prospecto_id" = 28[0m
+Creating scope :page. Overwriting existing method Tarea.page.
+  [1m[35mTarea Load (0.0ms)[0m  SELECT "tareas".* FROM "tareas" WHERE (("tareas"."model_name" = 'prospectos' AND "tareas"."model_id" = 28))
+Rendered shared/_tareas.html.erb (1310.8ms)
+Creating scope :page. Overwriting existing method Llamada.page.
+  [1m[36mLlamada Load (1.0ms)[0m  [1mSELECT "llamadas".* FROM "llamadas" WHERE (("llamadas"."model_name" = 'prospectos' AND "llamadas"."model_id" = 28))[0m
+Rendered shared/_llamadas.html.erb (15.0ms)
+Creating scope :page. Overwriting existing method Correo.page.
+  [1m[35mCorreo Load (1.0ms)[0m  SELECT "correos".* FROM "correos" WHERE (("correos"."model_name" = 'prospectos' AND "correos"."model_id" = 28))
+Rendered shared/_correos.html.erb (16.0ms)
+Creating scope :page. Overwriting existing method Memo.page.
+  [1m[36mMemo Load (0.0ms)[0m  [1mSELECT "memos".* FROM "memos" WHERE (("memos"."model_name" = 'prospectos' AND "memos"."model_id" = 28))[0m
+Rendered shared/_memos.html.erb (19.0ms)
+Creating scope :page. Overwriting existing method Attachment.page.
+  [1m[35mAttachment Load (0.0ms)[0m  SELECT "attachments".* FROM "attachments" WHERE (("attachments"."model_name" = 'prospectos' AND "attachments"."model_id" = 28))
+Rendered shared/_attachments.html.erb (67.0ms)
+Rendered prospectos/_form.html.erb (3169.3ms)
+Rendered prospectos/edit.html.erb within layouts/application (3478.1ms)
+Rendered shared/_herramientas_upper.html.erb (1.0ms)
+Rendered shared/_upper_menu.html.erb (15.0ms)
+Creating scope :page. Overwriting existing method BarraFavorito.page.
+  [1m[36mBarraFavorito Load (0.0ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 12[0m
+Creating scope :page. Overwriting existing method Favorito.page.
+  [1m[35mFavorito Load (0.0ms)[0m  SELECT "favoritos".* FROM "favoritos" WHERE "favoritos"."id" = 2 LIMIT 1
+Rendered shared/_fav_menu.html.erb (358.3ms)
+Rendered shared/_side_menu.html.erb (5.0ms)
+Completed 200 OK in 4614ms (Views: 4422.3ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/prospectos/28/edit" for 127.0.0.1 at 2012-11-25 10:51:22 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Prospecto.page.
+  Processing by ProspectosController#edit as HTML
+  Parameters: {"id"=>"28"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+--------------------------------0
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+--------------------------------6
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'Admin' LIMIT 1
+--------------------------------7
+--------------------------------8
+Creating scope :page. Overwriting existing method RolePermision.page.
+--------------------------------9
+  [1m[36mRolePermision Load (0.0ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 8 AND "role_permisions"."objeto" = 'prospectos')) LIMIT 1[0m
+--------------------------------11
+--------------------------------12
+  [1m[35mProspecto Load (1.0ms)[0m  SELECT "prospectos".* FROM "prospectos" WHERE "prospectos"."id" = ? LIMIT 1  [["id", "28"]]
+Rendered shared/_breadcrumbs.html.erb (1.0ms)
+Creating scope :page. Overwriting existing method History.page.
+  [1m[36mHistory Load (0.0ms)[0m  [1mSELECT "histories".* FROM "histories" WHERE (("histories"."model_name" = 'prospectos' AND "histories"."model_id" = '28'))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+Rendered shared/_history.html.erb (18.0ms)
+Rendered prospectos/_prospectoNav.html.erb (21.0ms)
+Creating scope :page. Overwriting existing method MercadoMetum.page.
+  [1m[36mMercadoMetum Load (0.0ms)[0m  [1mSELECT "mercado_meta".* FROM "mercado_meta" [0m
+Creating scope :page. Overwriting existing method PlanDeVentum.page.
+  [1m[35mPlanDeVentum Load (0.0ms)[0m  SELECT "plan_de_venta".* FROM "plan_de_venta" 
+Creating scope :page. Overwriting existing method Programa.page.
+  [1m[36mPrograma Load (0.0ms)[0m  [1mSELECT "programas".* FROM "programas" [0m
+Creating scope :page. Overwriting existing method Nacionalidad.page.
+  [1m[35mNacionalidad Load (1.0ms)[0m  SELECT "nacionalidads".* FROM "nacionalidads" 
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+Creating scope :page. Overwriting existing method Sede.page.
+  [1m[35mSede Load (0.0ms)[0m  SELECT "sedes".* FROM "sedes" 
+Creating scope :page. Overwriting existing method Direccion.page.
+  [1m[36mDireccion Load (0.0ms)[0m  [1mSELECT "direccions".* FROM "direccions" WHERE "direccions"."prospecto_id" = 28[0m
+Creating scope :page. Overwriting existing method InteresBasico.page.
+  [1m[35mInteresBasico Load (0.0ms)[0m  SELECT "interes_basicos".* FROM "interes_basicos" WHERE "interes_basicos"."prospecto_id" = 28
+Creating scope :page. Overwriting existing method UltimoGradoDeEstudio.page.
+  [1m[36mUltimoGradoDeEstudio Load (0.0ms)[0m  [1mSELECT "ultimo_grado_de_estudios".* FROM "ultimo_grado_de_estudios" [0m
+Creating scope :page. Overwriting existing method PreparatoriaOUniversidadDeOrigen.page.
+  [1m[35mPreparatoriaOUniversidadDeOrigen Load (0.0ms)[0m  SELECT "preparatoria_o_universidad_de_origens".* FROM "preparatoria_o_universidad_de_origens" 
+Creating scope :page. Overwriting existing method MunicipioDeLaPreparatoriaOUniversidadDeOrigen.page.
+  [1m[36mMunicipioDeLaPreparatoriaOUniversidadDeOrigen Load (1.0ms)[0m  [1mSELECT "municipio_de_la_preparatoria_o_universidad_de_origens".* FROM "municipio_de_la_preparatoria_o_universidad_de_origens" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "sedes".* FROM "sedes" 
+Creating scope :page. Overwriting existing method Subsede.page.
+  [1m[36mSubsede Load (1.0ms)[0m  [1mSELECT "subsedes".* FROM "subsedes" [0m
+Creating scope :page. Overwriting existing method ProgramaDeIntere.page.
+  [1m[35mProgramaDeIntere Load (1.0ms)[0m  SELECT "programa_de_interes".* FROM "programa_de_interes" 
+Creating scope :page. Overwriting existing method Nivel.page.
+  [1m[36mNivel Load (0.0ms)[0m  [1mSELECT "nivels".* FROM "nivels" [0m
+Creating scope :page. Overwriting existing method Modalidad.page.
+  [1m[35mModalidad Load (0.0ms)[0m  SELECT "modalidads".* FROM "modalidads" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programas".* FROM "programas" [0m
+Creating scope :page. Overwriting existing method Turno.page.
+  [1m[35mTurno Load (1.0ms)[0m  SELECT "turnos".* FROM "turnos" 
+Creating scope :page. Overwriting existing method PeriodoParaIngresar.page.
+  [1m[36mPeriodoParaIngresar Load (0.0ms)[0m  [1mSELECT "periodo_para_ingresars".* FROM "periodo_para_ingresars" [0m
+Creating scope :page. Overwriting existing method StatusDeInteresDeProspectoValidado.page.
+  [1m[35mStatusDeInteresDeProspectoValidado Load (0.0ms)[0m  SELECT "status_de_interes_de_prospecto_validados".* FROM "status_de_interes_de_prospecto_validados" 
+Creating scope :page. Overwriting existing method InteresAcademico.page.
+  [1m[36mInteresAcademico Load (1.0ms)[0m  [1mSELECT "interes_academicos".* FROM "interes_academicos" WHERE "interes_academicos"."prospecto_id" = 28[0m
+Creating scope :page. Overwriting existing method MedioDeContacto.page.
+  [1m[35mMedioDeContacto Load (0.0ms)[0m  SELECT "medio_de_contactos".* FROM "medio_de_contactos" WHERE "medio_de_contactos"."prospecto_id" = 28
+Creating scope :page. Overwriting existing method PlanDeDescuento.page.
+  [1m[36mPlanDeDescuento Load (0.0ms)[0m  [1mSELECT "plan_de_descuentos".* FROM "plan_de_descuentos" WHERE "plan_de_descuentos"."prospecto_id" = 28[0m
+Creating scope :page. Overwriting existing method Tarea.page.
+  [1m[35mTarea Load (0.0ms)[0m  SELECT "tareas".* FROM "tareas" WHERE (("tareas"."model_name" = 'prospectos' AND "tareas"."model_id" = 28))
+Rendered shared/_tareas.html.erb (26.0ms)
+Creating scope :page. Overwriting existing method Llamada.page.
+  [1m[36mLlamada Load (1.0ms)[0m  [1mSELECT "llamadas".* FROM "llamadas" WHERE (("llamadas"."model_name" = 'prospectos' AND "llamadas"."model_id" = 28))[0m
+Rendered shared/_llamadas.html.erb (12.0ms)
+Creating scope :page. Overwriting existing method Correo.page.
+  [1m[35mCorreo Load (1.0ms)[0m  SELECT "correos".* FROM "correos" WHERE (("correos"."model_name" = 'prospectos' AND "correos"."model_id" = 28))
+Rendered shared/_correos.html.erb (13.0ms)
+Creating scope :page. Overwriting existing method Memo.page.
+  [1m[36mMemo Load (0.0ms)[0m  [1mSELECT "memos".* FROM "memos" WHERE (("memos"."model_name" = 'prospectos' AND "memos"."model_id" = 28))[0m
+Rendered shared/_memos.html.erb (15.0ms)
+Creating scope :page. Overwriting existing method Attachment.page.
+  [1m[35mAttachment Load (1.0ms)[0m  SELECT "attachments".* FROM "attachments" WHERE (("attachments"."model_name" = 'prospectos' AND "attachments"."model_id" = 28))
+Rendered shared/_attachments.html.erb (62.0ms)
+Rendered prospectos/_form.html.erb (919.6ms)
+Rendered prospectos/edit.html.erb within layouts/application (921.6ms)
+Rendered shared/_herramientas_upper.html.erb (0.0ms)
+Rendered shared/_upper_menu.html.erb (10.0ms)
+Creating scope :page. Overwriting existing method BarraFavorito.page.
+  [1m[36mBarraFavorito Load (0.0ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 12[0m
+Creating scope :page. Overwriting existing method Favorito.page.
+  [1m[35mFavorito Load (0.0ms)[0m  SELECT "favoritos".* FROM "favoritos" WHERE "favoritos"."id" = 2 LIMIT 1
+Rendered shared/_fav_menu.html.erb (36.0ms)
+Rendered shared/_side_menu.html.erb (1.0ms)
+Completed 200 OK in 1136ms (Views: 977.6ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 11:45:35 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" 
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+--------------------------------6
+  [1m[36mRole Load (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'Admin' LIMIT 1[0m
+--------------------------------7
+--------------------------------8
+Creating scope :page. Overwriting existing method RolePermision.page.
+--------------------------------9
+  [1m[35mRolePermision Load (0.0ms)[0m  SELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 8 AND "role_permisions"."objeto" = 'rpms')) LIMIT 1
+Completed 500 Internal Server Error in 154ms
+
+NoMethodError (undefined method `permiso' for nil:NilClass):
+  app/controllers/application_controller.rb:36:in `iswriteteable'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.0ms)
+Creating scope :page. Overwriting existing method Version.page.
+Creating scope :page. Overwriting existing method ActiveRecord::SessionStore::Session.page.
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "accion_estrategicas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "accion_promocional_1" varchar(255), "descipcion_de_la_accion_1" text, "status_de_la_accion_1" varchar(255), "fecha_para_llevarlo_a_cabo_1" date, "responsable_de_llevarlo_a_cabo_1" varchar(255), "comentarios_de_seguimiento_1" text, "accion_promocional_2" varchar(255), "descripcion_de_la_accion_2" text, "status_de_la_accion_2" varchar(255), "fecha_para_llevarlo_a_cabo_2" date, "responsable_de_llevarlo_a_cabo_2" varchar(255), "comentarios_de_seguimiento_2" text, "created_at" datetime, "updated_at" datetime, "prospecto_id" integer, "blank" varchar(255), "status_de_la_acion_1_id" integer) 
+  [1m[36m (47.0ms)[0m  [1mCREATE TABLE "achievments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "periodo_anual" varchar(255), "sede_id" integer, "clave_del_programa" varchar(255), "fecha_de_inicio" date, "nivel_id" integer, "programa_id" integer, "ciudad_de_apertura" varchar(255), "estado_de_apertura" varchar(255), "modalidad" varchar(255), "turno_id" integer, "horarios" varchar(255), "horarios_text" text, "lugar_donde_se_impartiran_las_clases" varchar(255), "asesor_a_cargo" integer, "status_de_fecha_de_apertura" varchar(255), "meta_de_alumnos" varchar(255), "meta_de_enteros" varchar(255), "viabilidad_de_la_apertura" varchar(255), "created_at" datetime, "updated_at" datetime, "fecha_exacta_que_abrio" date, "alumnos_de_nuevo_ingreso" varchar(255), "enteros_de_nuevo_ingreso" varchar(255), "indicador_de_resultados_alumnos" varchar(255), "indicador_de_resultados_enteros" varchar(255), "nombre_del_responsable_de_los_datos" varchar(255), "mis_logros_observaciones" text, "alumnos_al_termino_del_1er_trim_sem" varchar(255), "enteros_al_termino_del_1er_trim_sem" varchar(255), "porcentaje_de_desercion_alumnos_al_1er_trim_sem" varchar(255), "porcentaje_de_desercion_enteros_al_1er_trim_sem" varchar(255), "mis_logros_nombre_del_responsable_de_los_datos" varchar(255), "spv_observaciones_0" text, "alumnos_al_termino_del_2er_trim_sem" varchar(255), "enteros_al_termino_del_2er_trim_sem" varchar(255), "porcentaje_de_desercion_alumnos_al_2er_trim_sem" varchar(255), "porcentaje_de_desercion_enteros_al_2er_trim_sem" varchar(255), "spv_nombre_del_responsable_de_los_datos" text, "spv_observaciones_1" varchar(255), "user_id" integer) [0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "admitidos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_admision" varchar(255), "comentarios_de_la_direccion" text, "status_de_la_notificacion" varchar(255), "status_del_admitido" varchar(255), "cometnarios_de_notificacion" text, "solicitud_de_admision" boolean, "copia_del_acta_de_nacimiento" boolean, "copia_del_certificado_de_preparatoria_licenciatura" boolean, "fotografias_tamano_infantil_blanco_y_negro_papel_mate" boolean, "copia_del_comprobante_de_pago_de_inscripcion" boolean, "comentarios_documentacion" text, "created_at" datetime, "updated_at" datetime, "examinado_id" integer, "isinscrito" boolean, "inscrito_id" integer, "status_de_admision_id" integer, "status_de_la_notificacion_id" integer, "status_del_admitido_id" integer, "status_ref_pago_insc" integer, "fecha_lim_fpi" date, "status_ref_pago_insc_id" integer) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "attachments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "tarea_id" integer, "memo_id" integer, "created_at" datetime, "updated_at" datetime, "model_name" varchar(255), "model_id" integer, "created_by" integer, "user_id" integer, "sede_id" integer) [0m
+  [1m[35m (30.0ms)[0m  CREATE TABLE "authentications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "provider" varchar(255), "uid" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "barra_favoritos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "favorito_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "accion" varchar(255)) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "becacreditos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "solicitud_de_beca_credito" boolean, "porcentaje_de_beca_credito" float, "porcentaje_de_credito_solicitado" float, "estimado_de_pago_mensual_de_colegiatura" decimal, "status_de_ESE" varchar(255), "status_de_pago_ESE" varchar(255), "porcentaje_de_beca_sugerido_ESE" float, "fecha_limite_de_aplicacion_ESE" date, "fecha_limite_de_pago_ESE" date, "porcentaje_de_credito_sugerido_ESE" date, "comentarios" text, "status_del_tramite" varchar(255), "porcentaje_de_beca_concedido" float, "comentarios_dictamen_beca" text, "solicitante_id" integer, "created_at" datetime, "updated_at" datetime, "blank" varchar(255), "status_de_ese_id" integer, "status_de_pago_ese_id" integer, "status_del_tramite_de_beca_id" integer) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "campana_socials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "descripcion" text, "tipo" varchar(255), "proveedor" varchar(255), "created_at" datetime, "updated_at" datetime, "created_by" integer, "user_id" integer, "sede_id" integer) [0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "casos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "caso" varchar(255), "status_del_caso" varchar(255), "nombre_del_cliente" varchar(255), "fecha_que_se_presenta_el_problema" date, "fecha_estimada_de_resolucion" date, "ambito_del_problema" varchar(255), "sintoma_problema" text, "descripcion_del_sintoma_problema" text, "causa_del_problema" text, "alternativas_de_solucion" text, "solucion" text, "comentarios_de_seguimiento_al_problema" text, "atentido_por" varchar(255), "resuelto_por" varchar(255), "fecha_que_se_soluciono" date, "created_at" datetime, "updated_at" datetime, "programa_id" integer) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "colegiaturas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "periodo_anual" varchar(255), "sede_id" integer, "nivel_id" integer, "programa_id" integer, "cuota_de_inscripcion_para_esta_sede" varchar(255), "cuota_mensual_para_esta_sede" varchar(255), "tipo_y_no_de_pagos_de_inscripcion" varchar(255), "tipo_y_no_de_pagos_de_colegiatura" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "comentarios_estrategia" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comentario_del_seguimiento" text, "estrategia_promocional_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "compartidos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "prospecto_id" integer, "solicitante_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "contactos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre_completo" varchar(255), "organizacion" varchar(255), "cargo" varchar(255), "archivar_como" varchar(255), "correo_electronico" varchar(255), "pagina_web" varchar(255), "direccion_de_instant_messenger" varchar(255), "numeros_de_trabajo" varchar(255), "numero_particular" varchar(255), "numero_del_fax_del_trabajo" varchar(255), "numero_movil" varchar(255), "direccion_trabajo" text, "notas" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "correos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombredelmail" varchar(255), "maildata" text, "fechaparaenviar" datetime, "created_at" datetime, "updated_at" datetime, "sede_id" integer, "user_id" integer, "created_by" integer, "model_name" varchar(255), "model_id" integer, "campana_social_id" integer, "grupo_id" integer, "es_uno_a_uno" boolean, "mail_campana" varchar(255)) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "dashboards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "value" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "direccions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "calle" varchar(255), "no_interior" integer, "no_exterior" integer, "colonia" varchar(255), "delegacion_municipio" varchar(255), "comentarios" text, "created_at" datetime, "updated_at" datetime, "prospecto_id" integer, "blank" varchar(255), "latitude" float, "longitude" float, "codigo_postal" varchar(255), "estado" varchar(255), "pais" varchar(255)) [0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "division_territorials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "periodo_anual" varchar(255), "sede_id" integer, "estados_correspondientes" text, "estado_ciudad_con_grupo_abierto" varchar(255), "programa_id" integer, "fecha_de_inicio" date, "fecha_de_termino" date, "estado_ciudad_con_grupo_abierto_1" varchar(255), "programa_id_1" integer, "fecha_de_inicio_1" date, "fecha_de_termino_1" date, "estado_ciudad_con_grupo_abierto_2" varchar(255), "programa_id_2" integer, "fecha_de_inicio_2" date, "fecha_de_termino_2" date, "estado_ciudad_con_grupo_abierto_3" varchar(255), "programa_id_3" integer, "fecha_de_inicio_3" date, "fecha_de_termino_3" date, "estado_ciudad_con_grupo_abierto_4" varchar(255), "programa_id_4" integer, "fecha_de_inicio_4" date, "fecha_de_termino_4" date, "estado_ciudad_con_grupo_abierto_5" varchar(255), "programa_id_5" integer, "fecha_de_inicio_5" date, "fecha_de_termino_5" date, "info_sim_sede_id" integer, "estado_ciudad_con_mas_de_100_mil_habitantes" text, "acceso_directo_al_sim" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "employmentships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "empleado_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "engage_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "topic_id" integer NOT NULL, "body" text NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "engage_followings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "topic_id" integer NOT NULL, "token" varchar(255) DEFAULT '0' NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("engage_followings")
+  [1m[36m (32.0ms)[0m  [1mCREATE UNIQUE INDEX "index_engage_followings_on_user_id_and_topic_id" ON "engage_followings" ("user_id", "topic_id")[0m
+  [1m[35m (9.0ms)[0m  CREATE TABLE "engage_topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "message" text, "created_at" datetime, "updated_at" datetime, "style" varchar(16) DEFAULT 'question' NOT NULL, "user_id" integer NOT NULL, "string" varchar(255), "votes_count" integer DEFAULT 0 NOT NULL, "status" varchar(16) DEFAULT 'pending' NOT NULL, "comments_count" integer DEFAULT 0 NOT NULL, "followers_count" integer DEFAULT 0 NOT NULL, "private" boolean DEFAULT 'f' NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mPRAGMA index_list("engage_topics")[0m
+  [1m[35m (6.0ms)[0m  CREATE INDEX "index_engage_topics_on_comments_count" ON "engage_topics" ("comments_count")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("engage_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_comments_count')
+  [1m[36m (32.0ms)[0m  [1mCREATE INDEX "index_engage_topics_on_followers_count" ON "engage_topics" ("followers_count")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("engage_topics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_followers_count')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_comments_count')
+  [1m[36m (5.0ms)[0m  [1mCREATE INDEX "index_engage_topics_on_private" ON "engage_topics" ("private")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("engage_topics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_private')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_followers_count')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_comments_count')[0m
+  [1m[35m (12.0ms)[0m  CREATE INDEX "index_engage_topics_on_status" ON "engage_topics" ("status")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("engage_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_status')
+  [1m[36m (1.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_private')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_followers_count')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_comments_count')[0m
+  [1m[35m (5.0ms)[0m  CREATE INDEX "index_engage_topics_on_style" ON "engage_topics" ("style")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("engage_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_style')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_status')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_private')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_followers_count')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_comments_count')
+  [1m[36m (5.0ms)[0m  [1mCREATE INDEX "index_engage_topics_on_user_id" ON "engage_topics" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("engage_topics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_user_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_style')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_status')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_private')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_followers_count')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_comments_count')
+  [1m[36m (5.0ms)[0m  [1mCREATE INDEX "index_engage_topics_on_votes_count" ON "engage_topics" ("votes_count")[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "engage_user_profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "admin" boolean DEFAULT 'f' NOT NULL, "created_at" datetime, "updated_at" datetime, "username" varchar(255), "email" varchar(255)) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("engage_user_profiles")[0m
+  [1m[35m (6.0ms)[0m  CREATE INDEX "index_engage_user_profiles_on_user_id" ON "engage_user_profiles" ("user_id")
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "engage_votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "topic_id" integer NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("engage_votes")
+  [1m[36m (6.0ms)[0m  [1mCREATE INDEX "index_engage_votes_on_topic_id" ON "engage_votes" ("topic_id")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("engage_votes")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_votes_on_topic_id')[0m
+  [1m[35m (21.0ms)[0m  CREATE INDEX "index_engage_votes_on_user_id" ON "engage_votes" ("user_id")
+  [1m[36m (20.0ms)[0m  [1mCREATE TABLE "equipo_de_alto_rendimientos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "periodo_anual" varchar(255), "sede_id" integer, "nombre_completo" varchar(255), "cargo" varchar(255), "proyectos_a_cargo" text, "horario_laboral" text, "fecha_de_nacimiento" date, "modalidad_de_contratacion" text, "horas_semanales" text, "email_institucional" varchar(255), "telefono_de_oficina" varchar(255), "extension" varchar(255), "jefe_directo" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "equipo_promocions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "apellido_paterno" varchar(255), "apellido_materno" varchar(255), "sexo" boolean, "fecha_de_nacimiento" date, "nacionalidad" varchar(255), "cargo" varchar(255), "sede" varchar(255), "horas_laborales_semanales" float, "tipo_de_contrato" varchar(255), "fecha_de_ingreso" date, "jefe_directo" varchar(255), "cargo_del_jefe_directo" varchar(255), "telefono_particular" varchar(255), "movil" varchar(255), "otro_tel" varchar(255), "email_personal" varchar(255), "email_laboral" varchar(255), "modalidad_de_pago" varchar(255), "sueldo_bruto" decimal, "porcentaje_de_comision" float, "calle" varchar(255), "no_exterior" varchar(255), "no_interior" varchar(255), "colonia" varchar(255), "codigo_postal" varchar(255), "comentarios_direccion" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "estrategia_promocionals" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_de_la_estrategia" varchar(255), "fecha_para_llevarla_a_cabo" date, "reponsable_para_llevarla_a_cabo" varchar(255), "descripcion_detallada" text, "mercado_metum_id" integer, "created_at" datetime, "updated_at" datetime, "documento_path" varchar(255)) [0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "mensaje" varchar(255), "fecha_inicio" date, "fecha_fin" date, "donde" varchar(255), "whensaved" date, "created_by" integer, "user_id" integer, "sede_id" integer, "created_at" datetime, "updated_at" datetime, "campana_social_id" integer, "model_name" varchar(255), "model_id" integer) 
+  [1m[36m (37.0ms)[0m  [1mCREATE TABLE "examinados" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_del_examinado_paa" varchar(255), "puntuacion_verbal" float, "puntuacion_matematicas" float, "puntuacion_redaccion_indirecta" float, "puntaje_total_paa" float, "dictament_paa" varchar(255), "comentarios_evaluador_paa" text, "solicitante_id" integer, "created_at" datetime, "updated_at" datetime, "isadmitido" boolean, "admitido_id" integer, "status_del_examinado_paa_id" integer, "status_del_examinado_psico" integer, "puntuacion_MMPI" integer, "dictamen_psico" varchar(255), "comentarios_psico" varchar(255), "status_del_examinado_entrevista" integer, "dictamen_academico" varchar(255), "comentarios_coord" varchar(255), "comentarios_asesor" varchar(255), "status_del_examinado_entrevista_id" integer, "status_del_examinado_psico_id" integer, "status_del_examinado_entrevistum_id" integer) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "favoritos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "model" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "finalidad_cultivos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "finalidad_cultivo" varchar(255), "mercado_metum_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "grupos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "descripcion" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "histories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "model_name" varchar(255), "model_id" varchar(255), "action" text, "when" date, "created_at" datetime, "updated_at" datetime, "user_id" integer, "role" varchar(255)) [0m
+  [1m[35m (10.0ms)[0m  CREATE TABLE "homes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (38.0ms)[0m  [1mCREATE TABLE "imports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "module" varchar(255), "description" text, "whenimported" datetime, "created_at" datetime, "updated_at" datetime, "modu" varchar(255)) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "inscritos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "status_de_la_inscripcion" varchar(255), "fecha_limite_de_pago_de_inscripcion" date, "status_del_pago_de_inscripcion" varchar(255), "comentarios_del_coordinador_academico" text, "admitido_id" integer, "created_at" datetime, "updated_at" datetime, "status_de_la_inscripcion_id" integer, "status_del_pago_de_la_inscripcion_id" integer) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "interes_academicos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "opcion_1" text, "opcion_2" text, "opcion_3" text, "prospecto_id" integer, "created_at" datetime, "updated_at" datetime, "blank" varchar(255)) [0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE "interes_basicos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ultimo_grado_de_estudios" varchar(255), "preparatoria_universidad_de_origen" varchar(255), "municipio_de_la_preparatoria_universidad_de_origen" varchar(255), "ano_de_graduacion" integer, "sede_y_subsede_de_interes" varchar(255), "programa_de_interes" varchar(255), "nivel" varchar(255), "turno" varchar(255), "periodo_para_ingresar" varchar(255), "status_de_interes_del_prospecto_validado" varchar(255), "comentarios" text, "created_at" datetime, "updated_at" datetime, "prospecto_id" integer, "ultimo_grado_de_estudio_id" integer, "blank" varchar(255), "preparatoria_o_universidad_de_origen_id" integer, "municipio_de_la_preparatoria_o_universidad_de_origen_id" integer, "sede_id" integer, "programa_de_intere_id" integer, "nivel_id" integer, "turno_id" integer, "periodo_para_ingresar_id" integer, "status_de_interes_de_prospecto_validado_id" integer, "subsede_id" integer, "clave_del_programa" varchar(255), "programa_id" integer, "modalidad_id" integer) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "live_reports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE "llamadas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "asunto" varchar(255), "inicio_de_la_llamada" date, "tiempo_de_inicio" time, "fin_de_la_llamada" date, "tiempo_de_fin" time, "duracion" float, "estado" varchar(255), "aviso" boolean, "model_name" varchar(255), "model_id" integer, "created_at" datetime, "updated_at" datetime, "created_by" integer, "user_id" integer, "sede_id" integer) 
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "medio_de_contactos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "feria_universitaria_en_su_colegio" boolean, "visita_a_su_salon" boolean, "recomendacion_de_un_amigo_familiar" boolean, "recomendacion_de_un_egresado" boolean, "sitio_oficial_web_ISEF" boolean, "facebook" boolean, "twitter" boolean, "email_de_promocion_mailing" boolean, "impreso_flyer_folleto" boolean, "anuncio_publicacion_periodico_revista" boolean, "llamada_telefonica_de_un_asesor" boolean, "conferencia_platica_charla" boolean, "sesion_informativa" boolean, "visito_las_instalaciones" boolean, "convenio_con_su_institucion" boolean, "otro" boolean, "otro_texto" varchar(255), "comentarios" text, "created_at" datetime, "updated_at" datetime, "prospecto_id" integer, "blank" varchar(255)) [0m
+  [1m[35m (9.0ms)[0m  CREATE TABLE "memos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "descripcion" text, "created_at" datetime, "updated_at" datetime, "model_name" varchar(255), "model_id" integer, "created_by" integer, "user_id" integer, "sede_id" integer) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "mercado_meta" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre_de_la_institucion_meta" varchar(255), "contacto_principal" varchar(255), "email" varchar(255), "pag_web" varchar(255), "observaciones_del_mercado_meta" text, "giro" varchar(255), "cargo" varchar(255), "email_secundario" varchar(255), "telefono" varchar(255), "movil" varchar(255), "otro_telefono" varchar(255), "calle" varchar(255), "no_interior" varchar(255), "no_exterior" varchar(255), "colonia" varchar(255), "delegacion_municipio" varchar(255), "codigo_postal" varchar(255), "comentarios_direccion" text, "mapa_google_maps" varchar(255), "created_at" datetime, "updated_at" datetime, "latitude" float, "longitude" float) [0m
+  [1m[35m (26.0ms)[0m  CREATE TABLE "meta" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "periodo_anual" varchar(255), "sede_id" integer, "clave_del_programa" varchar(255), "fecha_de_inicio" date, "nivel_id" integer, "programa_id" integer, "ciudad_de_apertura" varchar(255), "estado_de_apertura" varchar(255), "modalidad" varchar(255), "turno_id" integer, "horarios" varchar(255), "horarios_text" text, "lugar_donde_se_impartiran_las_clases" varchar(255), "asesor_a_cargo" integer, "status_de_fecha_de_apertura" varchar(255), "meta_de_alumnos" varchar(255), "meta_de_enteros" varchar(255), "viabilidad_de_la_apertura" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE "metas_globales" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "periodo_anual" varchar(255), "sede_id" integer, "meta_anual_de_alumnos_de_licenciatura" varchar(255), "meta_anual_de_enteros_de_licenciatura" varchar(255), "meta_anual_de_alumnos_de_posgrado" varchar(255), "meta_anual_de_enteros_de_posgrado" varchar(255), "no_de_grupos_al_ano_de_licenciatura" varchar(255), "no_de_grupos_al_ano_de_posgrado_local" varchar(255), "no_de_grupos_al_ano_de_posgrado_foraneo" varchar(255), "total_de_grupos_al_ano" varchar(255), "metas_establecidas_por" varchar(255), "observaciones" text, "created_at" datetime, "updated_at" datetime, "sede_id_1" integer, "mes_ano_1" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_1" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_1" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_1" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_1" varchar(255), "observaciones_1" text, "sede_id_2" integer, "mes_ano_2" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_2" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_2" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_2" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_2" varchar(255), "observaciones_2" text, "sede_id_3" integer, "mes_ano_3" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_3" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_3" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_3" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_3" varchar(255), "observaciones_3" text, "sede_id_4" integer, "mes_ano_4" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_4" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_4" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_4" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_4" varchar(255), "observaciones_4" text, "sede_id_5" integer, "mes_ano_5" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_5" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_5" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_5" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_5" varchar(255), "observaciones_5" text, "sede_id_6" integer, "mes_ano_6" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_6" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_6" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_6" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_6" varchar(255), "observaciones_6" text, "sede_id_7" integer, "mes_ano_7" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_7" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_7" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_7" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_7" varchar(255), "observaciones_7" text, "sede_id_8" integer, "mes_ano_8" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_8" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_8" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_8" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_8" varchar(255), "observaciones_8" text, "sede_id_9" integer, "mes_ano_9" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_9" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_9" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_9" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_9" varchar(255), "observaciones_9" text, "sede_id_10" integer, "mes_ano_10" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_10" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_10" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_10" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_10" varchar(255), "observaciones_10" text, "sede_id_11" integer, "mes_ano_11" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_11" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_11" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_11" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_11" varchar(255), "observaciones_11" text, "sede_id_12" integer, "mes_ano_12" varchar(255), "logro_mensual_de_alumnos_inscritos_de_licenciatura_12" varchar(255), "logro_mensual_de_enteros_inscritos_de_licenciatura_12" varchar(255), "logro_mensual_de_alumnos_inscritos_de_Posgrado_12" varchar(255), "logro_mensual_de_enteros_inscritos_de_posgrado_12" varchar(255), "observaciones_12" text, "sede_id_anual" integer, "logro_anual_de_alumnos_de_licenciatura" varchar(255), "logro_anual_de_enteros_de_licenciatura" varchar(255), "logro_anual_de_alumnos_de_posgrado" varchar(255), "logro_anual_de_enteros_de_posgrado" varchar(255), "logro_anual_de_grupos_abiertos_de_licenciatura" varchar(255), "logro_anual_de_grupos_abiertos_de_posgrado_local" varchar(255), "logro_anual_de_grupos_abiertos_de_posgrado_foraneo" varchar(255), "total_de_grupos_abiertos" varchar(255), "indicador_de_resultados_anual_alumnos_de_licenciatura" varchar(255), "indicador_de_resultados_anual_enteros_de_licenciatura" varchar(255), "indicador_de_resultados_anual_alumnos_de_posgrado" varchar(255), "indicador_de_resultados_anual_enteros_de_posgrado" varchar(255), "metas_anuales_observaciones" text) [0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "mi_plan_estrategico_de_promocion_peps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "periodo_anual" varchar(255), "pep_para" integer, "nombre_de_la_institucion" varchar(255), "segmento" varchar(255), "tipo_especifico" varchar(255), "nse" varchar(255), "forma_parte_de_mi_mdo_meta" varchar(255), "tamano_de_mdo_que_aspira_abarcar" varchar(255), "mercado_meta_observaciones" text, "asesor_a_cargo" integer, "persona_de_contacto" varchar(255), "cargo" varchar(255), "telefono_de_oficina" varchar(255), "ext" varchar(255), "otro_telefono" varchar(255), "movil" varchar(255), "email" varchar(255), "pag_web" varchar(255), "calle" varchar(255), "no_exterior" varchar(255), "no_interior" varchar(255), "colonia" varchar(255), "codigo_postal" varchar(255), "delegacion_municipio" varchar(255), "estado" varchar(255), "pais" varchar(255), "google_maps" varchar(255), "latitude" varchar(255), "longitude" varchar(255), "created_at" datetime, "updated_at" datetime, "total_de_prospectos_obtenidos" integer, "no_solicitantes" integer, "nombre_de_los_solicitantes" text, "no_de_entrevistados_examinados" integer, "nombre_de_los_entrevistados_examinados" text, "no_de_admitidos" integer, "nombre_de_los_admitidos" text, "no_de_inscritos" integer, "nombre_de_los_inscritos" text, "observaciones" text, "user_id" integer) 
+  [1m[36m (32.0ms)[0m  [1mCREATE TABLE "modalidads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "municipio_de_la_preparatoria_o_universidad_de_origens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "nacional_de_aperturas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "periodo_actual" varchar(255), "sede_id" integer, "clave_del_programa" varchar(255), "fecha_de_inicio" date, "programa_id" integer, "ciudad_de_apertura" varchar(255), "estado_de_apertura" varchar(255), "modalidad" varchar(255), "turno" varchar(255), "horarios" text, "lugar_donde_se_impartiran_las_clases" varchar(255), "asesor_a_cargo" integer, "email_de_contacto" varchar(255), "status_de_la_fecha_de_apertura" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "nacionalidads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nacionalidad" varchar(255), "pais" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "nivels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "oferta_educativas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "periodo_anual" varchar(255), "sede_id" integer, "nivel_id" integer, "programa_id" integer, "tipo_de_validez" varchar(255), "tipo_de_reconocimiento" varchar(255), "sedes_en_las_que_se_oferta_este_programa" varchar(255), "modalidades_en_que_se_imparte" varchar(255), "horarios_en_que_se_imparte" varchar(255), "requisitos" text, "objetivo_del_programa" text, "perfil_de_ingreso" text, "perfil_de_egreso" text, "ambito_de_desempeno" text, "principales_beneficios_que_ofrece_el_programa" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "periodo_para_ingresars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "plan_de_descuentos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descuento_en_la_inscripcion" boolean, "porcentaje" integer, "fecha_de_caducidad" date, "otro_cual" varchar(255), "comentarios" text, "prospecto_id" integer, "created_at" datetime, "updated_at" datetime, "blank" varchar(255), "fecha_de_otorgamiento" date) 
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "plan_de_venta" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "programa" varchar(255), "cuota_de_inscripcion" decimal, "periodo_de_pago_de_inscripcion" varchar(255), "cuota_de_colegiatura" decimal, "meses_de_pago_de_colegiatura" varchar(255), "sede_id" integer, "subsede" varchar(255), "fecha_de_apertura" date, "periodo_Banner_de_apertura" varchar(255), "nombre_del_asesor_a_cargo" varchar(255), "comentarios_generalidades_de_apertura" text, "meta_de_enteros" varchar(255), "status_de_la_apertura" varchar(255), "avance_en_enteros" varchar(255), "porcentaje_de_cumplimiento_meta_vs_avance_en_enteros" varchar(255), "viabilidad_de_esta_apertura" varchar(255), "comentarios_meta" text, "medio_promocional" varchar(255), "descripcion_especificaciones_detalladas_del_medio_promocional" text, "cantidad" varchar(255), "inversion" decimal, "viaticos_de_promocion_estimados" decimal, "vales_de_gasolina" decimal, "total_de_inversion_en_medios_y_viaticos_para_esta_apertura" decimal, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (10.0ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "mensaje" varchar(255), "whensaved" date, "created_by" integer, "user_id" integer, "sede_id" integer, "created_at" datetime, "updated_at" datetime, "campana_social_id" integer, "model_name" varchar(255), "model_id" integer) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "pregunta" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ambito_de_la_pregunta" varchar(255), "pregunta" text, "causa_de_la_pregunta" text, "alternativas_de_respuestas" text, "respuesta" text, "pregunta_planteada_por" varchar(255), "resuelta_por" varchar(255), "pregunta_frecuente" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE "preparatoria_o_universidad_de_origens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE "programa_de_interes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "programas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nivel" varchar(255), "programa" varchar(255), "descripcion_detallada" text, "principales_caracteristicas" text, "principales_ventajas" text, "principales_beneficios" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "prospectos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "apellido_paterno" varchar(255), "apellido_materno" varchar(255), "sexo" boolean, "fecha_de_nacimiento" date, "nacionalidad" varchar(255), "telefono_particular" varchar(255), "telefono_movil" varchar(255), "otro_telefono" varchar(255), "email" varchar(255), "validado" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime, "issolicitante" boolean, "solicitante_id" integer, "nacionalidad_id" integer, "created_by" integer, "user_id" integer, "sede_id" integer, "programa_id" integer, "mercado_metum_id" integer, "plan_de_venta_id" integer, "territorio_id" integer, "plan_de_ventum_id" integer, "grupo_id" integer, "importado_revisado" boolean, "subsede_id" integer) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "purges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "reportlines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre_del_campo" varchar(255), "modulo" varchar(255), "report_id" integer, "campo" varchar(255), "filtro" varchar(255), "valorcampo" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "reportparams" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "fieldname" varchar(255), "fieldvalue" varchar(255), "created_at" datetime, "updated_at" datetime, "report_id" integer, "filter" varchar(255), "column_names" text, "date_value" varchar(255)) 
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "reports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "descripcion" text, "created_at" datetime, "updated_at" datetime, "table" varchar(255), "column_names" text, "por_pagina" integer) [0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE "reportsortbies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fieldname" varchar(255), "report_id" integer, "created_at" datetime, "updated_at" datetime, "orden" varchar(255)) 
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "role_permisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "objeto" varchar(255), "permiso" varchar(255), "user_id" integer, "role_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "descripcion" text, "nivel" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (26.0ms)[0m  [1mCREATE TABLE "rpms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime, "updated_at" datetime, "permalink" varchar(255), "prospectos" varchar(255), "usuarios" varchar(255), "sedes" varchar(255), "subsedes" varchar(255), "programas" varchar(255), "campanas" varchar(255), "rango_inicio" date, "rango_fin" date, "ordenar_por" varchar(255), "sede_id" varchar(255), "subsede_id" varchar(255), "nacionalidad_id" varchar(255), "ultimo_grado_de_estudio_id" varchar(255), "preparatoria_o_universidad_de_origen_id" varchar(255), "municipio_de_la_preparatoria_o_universidad_de_origen_id" varchar(255), "periodo_para_ingresar_id" varchar(255), "status_de_admision_id" varchar(255), "status_de_ese_id" varchar(255), "status_de_interes_de_prospecto_validado_id" varchar(255), "status_de_la_inscripcion_id" varchar(255), "status_de_la_notificacion_id" varchar(255), "status_de_pago_de_examen_de_admision_id" varchar(255), "status_de_pago_de_ese_id" varchar(255), "status_del_admitido_id" varchar(255), "status_del_examinado_paa_id" varchar(255), "status_del_pago_de_la_inscripcion_id" varchar(255), "status_del_tramite_de_beca_id" varchar(255), "tipo_de_admision_id" varchar(255), "turno_id" varchar(255), "modalidad_id" varchar(255), "grupo_id" varchar(255), "status_ref_pago_inscs_id" varchar(255), "status_del_examinado_psico_id" varchar(255), "status_del_examinado_entrevistum_id" varchar(255), "estado_validado" varchar(255), "validado_inicio" date, "validado_fin" date, "estado_solicitante" varchar(255), "solicitante_inicio" date, "solicitante_fin" date, "estado_examinado" varchar(255), "examinado_inicio" date, "examinado_fin" date, "estado_admitido" varchar(255), "admitido_inicio" date, "admitido_fin" date, "estado_inscrito" varchar(255), "inscrito_inicio" date, "inscrito_fin" date) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("rpms")
+  [1m[36m (7.0ms)[0m  [1mCREATE INDEX "index_rpms_on_permalink" ON "rpms" ("permalink")[0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "sedes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "sedes_users" ("sede_id" integer, "user_id" integer) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("sessions")[0m
+  [1m[35m (5.0ms)[0m  CREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("sessions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_sessions_on_session_id')
+  [1m[36m (5.0ms)[0m  [1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "solicitantes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "socilicita_PAA" boolean, "solicita_pscicometria" boolean, "solicita_entrevista_academica" boolean, "status_depago_examen_de_admision" varchar(255), "promedio" float, "tipo_de_admision" varchar(255), "fecha_programacion_para_PAA" date, "fecha_programacion_para_examenes_pscicomentricos" date, "fecha_programada_para_entrevistas" date, "fecha_de_limite_de_pago_examen_de_admision" date, "hora_programada_PAA" time, "hora_programada_pscicometrico" time, "hora_programada_entrevistas" time, "comentarios" text, "prospecto_id" integer, "created_at" datetime, "updated_at" datetime, "isexaminado" boolean, "examinado_id" integer, "status_de_pago_de_examen_de_admision_id" integer, "tipo_de_admision_id" integer) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "statics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (9.0ms)[0m  CREATE TABLE "status_de_admisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "status_de_eses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "status_de_interes_de_prospecto_validados" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "status_de_la_accion_1s" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "status_de_la_inscripcions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "status_de_la_notificacions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "status_de_pago_de_examen_de_admisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "status_de_pago_eses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (12.0ms)[0m  CREATE TABLE "status_del_admitidos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "status_del_examinado_entrevista" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "status_del_examinado_paas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE "status_del_examinado_psicos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (45.0ms)[0m  CREATE TABLE "status_del_pago_de_la_inscripcions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "status_del_tramite_de_becas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "status_ref_pago_inscs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "subsedes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "descripcion" text, "sede_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "tareas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "descripcion" text, "fecha_de_inicio_de_la_tarea" date, "hora_de_inicio" time, "fecha_de_fin_de_la_tarea" date, "hora_de_fin" time, "attachment" varchar(255), "created_at" datetime, "updated_at" datetime, "model_name" varchar(255), "model_id" integer, "created_by" integer, "user_id" integer, "sede_id" integer) 
+  [1m[36m (7.0ms)[0m  [1mCREATE TABLE "territorios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255), "sede_id" integer, "estado" varchar(255), "ciudad" varchar(255), "descripcion_detallada" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "tipo_de_admisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE "turnos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "valor" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (8.0ms)[0m  CREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tweet" varchar(255), "when_saved" date, "created_by" integer, "user_id" integer, "sede_id" integer, "model_id" integer, "model_name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "ultimo_grado_de_estudios" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "grado_de_estudio" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (26.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '', "encrypted_password" varchar(255) DEFAULT '', "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "confirmation_token" varchar(255), "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar(255), "created_at" datetime, "updated_at" datetime, "username" varchar(255), "role" varchar(255), "sede_id" integer, "avatar_url" varchar(255)) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (5.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_confirmation_token')
+  [1m[36m (11.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_confirmation_token')
+  [1m[36m (7.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "versions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_type" varchar(255) NOT NULL, "item_id" integer NOT NULL, "event" varchar(255) NOT NULL, "whodunnit" varchar(255), "object" text, "created_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("versions")[0m
+  [1m[35m (6.0ms)[0m  CREATE INDEX "index_versions_on_item_type_and_item_id" ON "versions" ("item_type", "item_id")
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36m (5.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121125001315')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120318174905')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120319153632')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120319174132')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120319183400')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120319214407')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120319225735')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120319231026')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120320001147')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120320001956')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120320015518')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120320020001')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120320023103')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120320025333')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120320025944')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120320031642')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120320042043')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120324153324')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120324153818')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120324154043')
+  [1m[36m (30.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120324163305')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120324175237')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120324205024')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120324224303')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120324231805')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120324234919')
+  [1m[36m (14.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120324235003')[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325005102')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325005521')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325005711')
+  [1m[36m (38.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325005751')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325034247')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325034437')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325040643')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325041209')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325053730')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325164926')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325165808')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325170048')[0m
+  [1m[35m (20.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325170147')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325170808')[0m
+  [1m[35m (22.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325175828')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325175959')[0m
+  [1m[35m (27.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325224520')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325230127')[0m
+  [1m[35m (34.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325230741')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325231202')[0m
+  [1m[35m (20.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120325234700')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120325234900')[0m
+  [1m[35m (20.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120401002118')
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120401002844')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120401011212')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120401011358')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120401150100')
+  [1m[36m (112.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120401151711')[0m
+  [1m[35m (22.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120401184045')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120401210807')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120401210933')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120401224322')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120401232052')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120402002529')[0m
+  [1m[35m (58.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120402031726')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120402182632')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120402182703')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120402182727')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120402182745')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120402182808')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120402182824')
+  [1m[36m (36.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120402182843')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120404170953')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120404171453')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120404213837')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120404214007')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120404225208')
+  [1m[36m (37.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405005414')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405153156')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405175503')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405181703')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405181746')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405181805')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405181825')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405181848')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405192516')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405204529')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405213234')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405213342')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405214254')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405214424')
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405214454')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405214809')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405214841')[0m
+  [1m[35m (26.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405215121')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405215148')[0m
+  [1m[35m (16.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405215348')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405215451')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405215708')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405215753')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405223123')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405223227')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405223551')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405223716')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405224113')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405224147')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405224411')
+  [1m[36m (15.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405224446')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405224926')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405225012')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405225328')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405225403')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405225724')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405225814')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405230725')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405230818')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405231113')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405231146')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405231418')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405231524')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405231808')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405231839')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405232123')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120405232219')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120405235221')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120406221101')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120517014105')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120519151823')[0m
+  [1m[35m (30.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120519155009')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120519155212')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120519232014')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120519233200')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120519234317')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120520022136')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120520042903')
+  [1m[36m (13.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120520045943')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120520061023')
+  [1m[36m (20.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120520061812')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120520140358')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120520141537')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120520221934')
+  [1m[36m (15.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120521012005')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120526154244')
+  [1m[36m (17.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120526221342')[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120526221653')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120526221944')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120526222218')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120526224446')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120526224526')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120603133515')[0m
+  [1m[35m (320.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120603145800')
+  [1m[36m (10920.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120603153215')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120603220956')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120603221029')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120603221100')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120603224720')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120603230615')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120609135952')[0m
+  [1m[35m (27.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120609140050')
+  [1m[36m (22.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120609140140')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120609140302')
+  [1m[36m (18.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120609140547')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120612231812')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120612231925')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120613012310')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120613014710')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120613015320')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120613015551')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120707133408')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120707145819')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120726003627')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120909235416')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120910235044')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120911001609')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120911005153')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120911005941')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120911010952')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120911011727')[0m
+  [1m[35m (11.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120911012411')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120911012747')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120911013045')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120911013338')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120911013713')
+  [1m[36m (24.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120911013842')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120913003141')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120913010028')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120913013455')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120913063039')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120913071457')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120913132047')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120913132048')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120913132049')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120913132050')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120913132051')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120916050856')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120916163323')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120916170240')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120916170424')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120916170551')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120916172925')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120916182954')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120918013007')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120918013543')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120918014746')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120918014945')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120918015330')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120918015633')
+  [1m[36m (11.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120925020845')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121013143512')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121013180029')[0m
+  [1m[35m (11.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121013180442')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121013231554')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121013234637')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121014012235')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121014022519')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121014034904')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121014132330')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121014140409')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121014171405')
+  [1m[36m (7.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121014182611')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121030011546')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121030012033')[0m
+  [1m[35m (2.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-25 11:47:59 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Home.page.
+  Processing by HomesController#force_redirect as HTML
+Creating scope :page. Overwriting existing method User.page.
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[36mRole Load (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+Completed 401 Unauthorized in 235ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-11-25 11:48:00 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+  Processing by Devise::SessionsController#new as HTML
+Creating scope :page. Overwriting existing method User.page.
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" 
+--------------------------------1
+--------------------------------2
+--------------------------------3
+Rendered devise/sessions/new.html.erb within layouts/application (24.0ms)
+Rendered shared/_herramientas_upper.html.erb (1.0ms)
+Rendered shared/_upper_menu.html.erb (14.0ms)
+Creating scope :page. Overwriting existing method BarraFavorito.page.
+  [1m[36mBarraFavorito Load (0.0ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" IS NULL[0m
+Rendered shared/_fav_menu.html.erb (23.0ms)
+Rendered shared/_side_menu.html.erb (0.0ms)
+Completed 200 OK in 217ms (Views: 95.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-11-25 11:48:05 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+  Processing by Devise::RegistrationsController#new as HTML
+Creating scope :page. Overwriting existing method User.page.
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" 
+--------------------------------1
+--------------------------------2
+--------------------------------3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+Creating scope :page. Overwriting existing method Sede.page.
+  [1m[35mSede Load (1.0ms)[0m  SELECT "sedes".* FROM "sedes" 
+Rendered devise/registrations/new.html.erb within layouts/application (300.2ms)
+Rendered shared/_herramientas_upper.html.erb (1.0ms)
+Rendered shared/_upper_menu.html.erb (20.0ms)
+Creating scope :page. Overwriting existing method BarraFavorito.page.
+  [1m[36mBarraFavorito Load (0.0ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" IS NULL[0m
+Rendered shared/_fav_menu.html.erb (24.0ms)
+Rendered shared/_side_menu.html.erb (0.0ms)
+Completed 200 OK in 569ms (Views: 414.3ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-11-25 11:48:20 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/i/lQuSSgkzbako0VDXd0TaEoUfjP9LRcEVvRTyXrmM=", "user"=>{"username"=>"israel", "email"=>"israel.valdez.89@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Creating scope :page. Overwriting existing method User.page.
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" 
+--------------------------------1
+--------------------------------2
+--------------------------------3
+WARNING: Can't mass-assign protected attributes: password_confirmation
+  [1m[36m (1.0ms)[0m  [1mSELECT 1 FROM "users" WHERE "users"."email" = 'israel.valdez.89@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("avatar_url", "confirmation_sent_at", "confirmation_token", "confirmed_at", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "role", "sede_id", "sign_in_count", "unconfirmed_email", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["avatar_url", nil], ["confirmation_sent_at", nil], ["confirmation_token", nil], ["confirmed_at", nil], ["created_at", Sun, 25 Nov 2012 17:48:21 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "israel.valdez.89@gmail.com"], ["encrypted_password", "$2a$10$lgBUdzq/ca.9JKj6WIZFyueFMiEiA7VWbpQG5qqEnj1M5l2g4i3Ga"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["role", nil], ["sede_id", nil], ["sign_in_count", 0], ["unconfirmed_email", nil], ["updated_at", Sun, 25 Nov 2012 17:48:21 UTC +00:00], ["username", "israel"]]
+  [1m[36m (0.0ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = '2012-11-25 17:48:21.630136', "current_sign_in_at" = '2012-11-25 17:48:21.630136', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2012-11-25 17:48:21.630136' WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 635ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-25 11:48:21 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Home.page.
+  Processing by HomesController#force_redirect as HTML
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[36mRole Load (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+Redirected to http://localhost:3000/home
+Completed 302 Found in 154ms
+
+
+Started GET "/home" for 127.0.0.1 at 2012-11-25 11:48:22 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Home.page.
+  Processing by HomesController#index as HTML
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[36mRole Load (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+Creating scope :page. Overwriting existing method Prospecto.page.
+Creating scope :page. Overwriting existing method Solicitante.page.
+  [1m[35mSolicitante Load (1.0ms)[0m  SELECT "solicitantes".* FROM "solicitantes" WHERE "solicitantes"."isexaminado" = 'f' LIMIT 5
+Creating scope :page. Overwriting existing method Examinado.page.
+  [1m[36mExaminado Load (0.0ms)[0m  [1mSELECT "examinados".* FROM "examinados" WHERE "examinados"."isadmitido" = 'f' LIMIT 5[0m
+Creating scope :page. Overwriting existing method Admitido.page.
+  [1m[35mAdmitido Load (0.0ms)[0m  SELECT "admitidos".* FROM "admitidos" WHERE "admitidos"."isinscrito" = 'f' LIMIT 5
+Creating scope :page. Overwriting existing method Inscrito.page.
+  [1m[36mInscrito Load (1.0ms)[0m  [1mSELECT "inscritos".* FROM "inscritos" LIMIT 5[0m
+Creating scope :page. Overwriting existing method Tarea.page.
+Creating scope :page. Overwriting existing method Memo.page.
+Creating scope :page. Overwriting existing method Llamada.page.
+  [1m[35m (1.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "tareas" WHERE "tareas"."user_id" = 1 LIMIT 5) subquery_for_count 
+  [1m[36mTarea Load (0.0ms)[0m  [1mSELECT "tareas".* FROM "tareas" WHERE "tareas"."user_id" = 1 ORDER BY "tareas"."fecha_de_inicio_de_la_tarea" LIMIT 5[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "memos" WHERE "memos"."user_id" = 1 LIMIT 5) subquery_for_count 
+  [1m[36mMemo Load (0.0ms)[0m  [1mSELECT "memos".* FROM "memos" WHERE "memos"."user_id" = 1 LIMIT 5[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "llamadas" WHERE "llamadas"."user_id" = 1 LIMIT 5) subquery_for_count 
+  [1m[36mLlamada Load (0.0ms)[0m  [1mSELECT "llamadas".* FROM "llamadas" WHERE "llamadas"."user_id" = 1 LIMIT 5[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "prospectos" WHERE "prospectos"."issolicitante" = 'f' AND (("prospectos"."validado" = 'f' AND "prospectos"."user_id" = 1)) LIMIT 5) subquery_for_count 
+  [1m[36mProspecto Load (0.0ms)[0m  [1mSELECT "prospectos".* FROM "prospectos" WHERE "prospectos"."issolicitante" = 'f' AND (("prospectos"."validado" = 'f' AND "prospectos"."user_id" = 1)) LIMIT 5[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "prospectos" WHERE "prospectos"."issolicitante" = 'f' AND (("prospectos"."validado" = 't' AND "prospectos"."user_id" = 1)) LIMIT 5) subquery_for_count 
+  [1m[36mProspecto Load (0.0ms)[0m  [1mSELECT "prospectos".* FROM "prospectos" WHERE "prospectos"."issolicitante" = 'f' AND (("prospectos"."validado" = 't' AND "prospectos"."user_id" = 1)) LIMIT 5[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."user_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."user_id" = 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-10-25 17:48:24.004707'
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-10-25 17:48:24.004707'[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-20 17:48:24.004707'
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-20 17:48:24.004707'[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-25 06:00:00'
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-25 06:00:00'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."user_id" = 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."user_id" = 1 AND "prospectos"."validado" = 't'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-10-25 17:48:24.004707'
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-10-25 17:48:24.004707' AND "prospectos"."validado" = 't'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-20 17:48:24.004707'
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-20 17:48:24.004707' AND "prospectos"."validado" = 't'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-25 06:00:00'
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-25 06:00:00' AND "prospectos"."validado" = 't'[0m
+Creating scope :page. Overwriting existing method Programa.page.
+  [1m[35mPrograma Load (0.0ms)[0m  SELECT "programas".* FROM "programas" 
+Rendered homes/index.html.erb within layouts/application (79.1ms)
+Rendered shared/_herramientas_upper.html.erb (1.0ms)
+Rendered shared/_upper_menu.html.erb (12.0ms)
+Creating scope :page. Overwriting existing method BarraFavorito.page.
+  [1m[36mBarraFavorito Load (0.0ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1[0m
+Rendered shared/_fav_menu.html.erb (16.0ms)
+Rendered shared/_side_menu.html.erb (1.0ms)
+Completed 200 OK in 577ms (Views: 130.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 11:48:28 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[36mRole Load (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+  [1m[35mRpm Load (0.0ms)[0m  SELECT "rpms".* FROM "rpms" WHERE "rpms"."permalink" = 'prospectos' LIMIT 1
+Rendered rpms/edit.html.erb within layouts/application (1605.1ms)
+Completed 500 Internal Server Error in 1818ms
+
+ActionView::Template::Error (undefined method `model_class' for #<ActionDispatch::Routing::RoutesProxy:0x79ede48>):
+    1: 
+    2: <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+    3:                                  :default => "Edit #{model_class.model_name.human}") %></h1>
+    4: <%= render :partial => 'form' %>
+  app/views/rpms/edit.html.erb:2:in `_app_views_rpms_edit_html_erb__1047065547_63920400'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.0ms)
+Creating scope :page. Overwriting existing method Version.page.
+Creating scope :page. Overwriting existing method ActiveRecord::SessionStore::Session.page.
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateProspectos (20120318174905)
+Migrating to DeviseCreateUsers (20120319153632)
+Migrating to AddUserNameToUsers (20120319174132)
+Migrating to CreateSedes (20120319183400)
+Migrating to AddSedesUsersTable (20120319214407)
+Migrating to CreateDireccions (20120319225735)
+Migrating to AddProspectoIdToDireccion (20120319231026)
+Migrating to CreateInteresBasicos (20120320001147)
+Migrating to AddProspectoIdToInteresBasico (20120320001956)
+Migrating to CreateMedioDeContactos (20120320015518)
+Migrating to AddProspectoIdToMedioDeContacto (20120320020001)
+Migrating to CreateInteresAcademicos (20120320023103)
+Migrating to CreateAccionEstrategicas (20120320025333)
+Migrating to AddProspectoIdToAccionEstrategica (20120320025944)
+Migrating to CreatePlanDeDescuentos (20120320031642)
+Migrating to CreateSolicitantes (20120320042043)
+Migrating to AddIsProspectoToSolicitante (20120324153324)
+Migrating to RemoveIsProspectoFromSolicitante (20120324153818)
+Migrating to AddIsSolicitanteToProspectos (20120324154043)
+Migrating to CreateCompartidos (20120324163305)
+Migrating to RenameSolicitanteId (20120324175237)
+Migrating to AddSolicitanteIdToProspectos (20120324205024)
+Migrating to CreateBecacreditos (20120324224303)
+Migrating to AddIsExaminadoToSolicitante (20120324231805)
+Migrating to CreateExaminados (20120324234919)
+Migrating to AddExaminadoIdToSolicitante (20120324235003)
+Migrating to CreateAdmitidos (20120325005102)
+Migrating to AddExaminadoIdToAdmitido (20120325005521)
+Migrating to AddIsAdmitidoToExaminado (20120325005711)
+Migrating to AddAdmitidoIdToExaminado (20120325005751)
+Migrating to AddIsInscritoToAdmitido (20120325034247)
+Migrating to CreateInscritos (20120325034437)
+Migrating to AddInscritoIdToAdmitido (20120325040643)
+Migrating to CreatePurges (20120325041209)
+Migrating to CreateHomes (20120325053730)
+Migrating to CreateMercadoMeta (20120325164926)
+Migrating to CreateEstrategiaPromocionals (20120325165808)
+Migrating to AddDocumentoPathToEstrategiaPromocional (20120325170048)
+Migrating to CreateComentariosEstrategia (20120325170147)
+Migrating to CreateFinalidadCultivos (20120325170808)
+Migrating to RenameMercadoMetaIdFromEstrategiaPromocional (20120325175828)
+Migrating to RenameMercadoMetaIdFromFinalidadCultivos (20120325175959)
+Migrating to CreatePlanDeVenta (20120325224520)
+Migrating to CreateTerritorios (20120325230127)
+Migrating to CreateProgramas (20120325230741)
+Migrating to CreateEquipoPromocions (20120325231202)
+Migrating to CreateCasos (20120325234700)
+Migrating to CreatePregunta (20120325234900)
+Migrating to CreateNacionalidads (20120401002118)
+Migrating to AddNacionalidadIdToProspectos (20120401002844)
+Migrating to CreateUltimoGradoDeEstudios (20120401011212)
+Migrating to AddUltimoGradoDeEstudiosIdToInteresBasicos (20120401011358)
+Migrating to CreateFavoritos (20120401150100)
+Migrating to CreateBarraFavoritos (20120401151711)
+Migrating to CreateTareas (20120401184045)
+Migrating to CreateAttachments (20120401210807)
+Migrating to CreateMemos (20120401210933)
+Migrating to AddModelINameAndModelIdToTareas (20120401224322)
+Migrating to AddModelINameAndModelIdToMemos (20120401232052)
+Migrating to AddModelNameAndModelIdToAttachments (20120402002529)
+Migrating to AddRoleToUsers (20120402031726)
+Migrating to AddBlankToBecaCredito (20120402182632)
+Migrating to AddBlankToDireccions (20120402182703)
+Migrating to AddBlankToInteresBasicos (20120402182727)
+Migrating to AddBlankToInteresAcademicos (20120402182745)
+Migrating to AddBlankToMedioDeContactos (20120402182808)
+Migrating to AddBlankToAccionEstrtegicas (20120402182824)
+Migrating to AddBlankToPlanDeDescuentos (20120402182843)
+Migrating to AddLatitudeAndLogitudeToDireccions (20120404170953)
+Migrating to AddLatitudeAndLogitudeToMercadoMeta (20120404171453)
+Migrating to CreatePreparatoriaOUniversidadDeOrigens (20120404213837)
+Migrating to AddPreparatoriaOUniversidadDeOrigenToInteresBasicos (20120404214007)
+Migrating to CreateLlamadas1 (20120404225208)
+Migrating to CreateDashboards (20120405005414)
+Migrating to CreateEmploymentships (20120405153156)
+Migrating to AddSedeIdToUsers (20120405175503)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToProspectos (20120405181703)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToMemos (20120405181746)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToLlamadass (20120405181805)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToTareas (20120405181825)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToAttachments (20120405181848)
+Migrating to ChangeColumnsAssignedTo (20120405192516)
+Migrating to AddAccionToBarraFavoritos (20120405204529)
+Migrating to CreateMunicipioDeLaPreparatoriaOUniversidadDeOrigens (20120405213234)
+Migrating to AddMunicipioDeLaPreparatoriaOUniversidadDeOrigenIdToInteresBasico (20120405213342)
+Migrating to AddSedeIdToInteresBasicos (20120405214254)
+Migrating to CreateProgramaDeInteres (20120405214424)
+Migrating to AddProgramaDeInteresIdToInteresBasicos (20120405214454)
+Migrating to CreateNivels (20120405214809)
+Migrating to AddNivelIdToInteresBasicos (20120405214841)
+Migrating to CreateTurnos (20120405215121)
+Migrating to AddTurnoIdToInteresBasico (20120405215148)
+Migrating to CreatePeriodoParaIngresars (20120405215348)
+Migrating to AddPeriodoParaIngresarIdToInteresBasicos (20120405215451)
+Migrating to CreateStatusDeInteresDeProspectoValidados (20120405215708)
+Migrating to AddStatusDeInteresDeProspectoValidadoIdToInteresBasicos (20120405215753)
+Migrating to CreateStatusDeLaAccion1s (20120405223123)
+Migrating to AddStatusDeLaAccion1ToAccionEstrategicas (20120405223227)
+Migrating to CreateStatusDePagoDeExamenDeAdmisions (20120405223551)
+Migrating to AddStatusDePagoDeExamenDeAdmisionIdToSolicitantes (20120405223716)
+Migrating to CreateTipoDeAdmisions (20120405224113)
+Migrating to AddTipoDeAdmisionIdToSolicitantes (20120405224147)
+Migrating to CreateStatusDeEses (20120405224411)
+Migrating to AddStatusDeEseIdToBecaCreditos (20120405224446)
+Migrating to CreateStatusDePagoEses (20120405224926)
+Migrating to AddStatusDePagoEseIdToBecacreditos (20120405225012)
+Migrating to CreateStatusDelTramiteDeBecas (20120405225328)
+Migrating to AddStatusDelTramiteDeBecaIdToBecacreditos (20120405225403)
+Migrating to CreateStatusDelExaminadoPaas (20120405225724)
+Migrating to AddStatusDelExaminadoPaaIdToExaminados (20120405225814)
+Migrating to CreateStatusDeAdmisions (20120405230725)
+Migrating to AddStatusDeAdmisionIdToAdmitido (20120405230818)
+Migrating to CreateStatusDeLaNotificacions (20120405231113)
+Migrating to AddStatusDeLaNoticiacionIdToAdmitidos (20120405231146)
+Migrating to CreateStatusDelAdmitidos (20120405231418)
+Migrating to AddStatusDelAdmitidoIdToAdmitidos (20120405231524)
+Migrating to CreateStatusDeLaInscripcions (20120405231808)
+Migrating to AddStatusDeLaInscripcionIdToInscritos (20120405231839)
+Migrating to CreateStatusDelPagoDeLaInscripcions (20120405232123)
+Migrating to AddStatusDelPagoDeLaInscripcionIdToInscritos (20120405232219)
+Migrating to AddAvatarUrlToUsers (20120405235221)
+Migrating to CreateLiveReports (20120406221101)
+Migrating to CreateCorreos (20120517014105)
+Migrating to CreateStatics (20120519151823)
+Migrating to AddSedeIdAndUserIdToCorreos (20120519155009)
+Migrating to AddCreatedByToCorreos (20120519155212)
+Migrating to CreateReports (20120519232014)
+Migrating to CreateReportparams (20120519233200)
+Migrating to AddReportIdToReportparams (20120519234317)
+Migrating to CreateReportsortbies (20120520022136)
+Migrating to AddTableToReport (20120520042903)
+Migrating to AddFilterToReportparams (20120520045943)
+Migrating to Jojojo (20120520061023)
+Migrating to Jojojo2 (20120520061812)
+Migrating to AddOrdenToParamsortbies (20120520140358)
+Migrating to AddPorPaginaToReport (20120520141537)
+Migrating to CreateImports (20120520221934)
+Migrating to AddModuToImports (20120521012005)
+Migrating to CreateAuthentications (20120526154244)
+Migrating to CreateCampanaSocials (20120526221342)
+Migrating to CreatePosts (20120526221653)
+Migrating to AddCreatedByAndUserIdAndSedeIdToCampanaSocial (20120526221944)
+Migrating to CreateEvents (20120526222218)
+Migrating to AddCampanaSocialIdToPosts (20120526224446)
+Migrating to AddCampanaSocialIdToEvents (20120526224526)
+Migrating to AddCodigoPostalToDireccions (20120603133515)
+Migrating to CreateSubsedes (20120603145800)
+Migrating to AddSessionsTable (20120603153215)
+Migrating to AddModelNameAndModelIdToCorreos (20120603220956)
+Migrating to AddModelNameAndModelIdToPosts (20120603221029)
+Migrating to AddModelNameAndModelIdToEvents (20120603221100)
+Migrating to AddCampanaSocialIdToCorreos (20120603224720)
+Migrating to CreateTweets (20120603230615)
+Migrating to AddProgramaIdToProspectos (20120609135952)
+Migrating to AddMecadoMetumIdToProspectos (20120609140050)
+Migrating to AddPlanDeVentaIdToProspectos (20120609140140)
+Migrating to AddTerritorioIdToProspectos (20120609140302)
+Migrating to AddPlanDeVentumIdToProspectos (20120609140547)
+Migrating to AddGrupoIdToProspectos (20120612231812)
+Migrating to CreateGrupos (20120612231925)
+Migrating to AddGrupoIdToCorreos (20120613012310)
+Migrating to AddEsUnoAUnoToCorreos (20120613014710)
+Migrating to AddMailCampana (20120613015320)
+Migrating to AddMailCampanaToCorreos (20120613015551)
+Migrating to AddProgramaIdToCasos (20120707133408)
+Migrating to CreateReportlines (20120707145819)
+Migrating to AddDateValueToReportparams (20120726003627)
+Migrating to CreateMeta (20120909235416)
+Migrating to CreateAchievments (20120910235044)
+Migrating to AddFechaExactaQueAbrioAndAlumnosDeNuevoIngresoToAchievments (20120911001609)
+Migrating to CreateMiPlanEstrategicoDePromocionPeps (20120911005153)
+Migrating to AddTotalDeProspectosObtenidosToMiPlanEstrategicoDePromocionPeps (20120911005941)
+Migrating to CreateOfertaEducativas (20120911010952)
+Migrating to CreateColegiaturas (20120911011727)
+Migrating to CreateDivisionTerritorials (20120911012411)
+Migrating to CreateNacionalDeAperturas (20120911012747)
+Migrating to CreateEquipoDeAltoRendimientos (20120911013045)
+Migrating to CreateContactos (20120911013338)
+Migrating to CreateMetasGlobales (20120911013713)
+Migrating to AddSedeDosToMetasGlobales (20120911013842)
+Migrating to AddEstadoAndPaisToDirections (20120913003141)
+Migrating to CreateRoles (20120913010028)
+Migrating to CreateRolePermisions (20120913013455)
+Migrating to AddStatusDelExaminadoPsicoAndPuntuacionMmpiAndDictamenPsicoAndComentariosPsicoAndStatusExaminadoEntrevistaAndDictamenAcademicoAndComentariosCoordAndComentariosAsesorToExaminados (20120913063039)
+Migrating to AddStatusRefPagoInscripcionAndFechaLimiteFpiToAdmitidos (20120913071457)
+Migrating to CreateEngageTopics (20120913132047)
+Migrating to CreateEngageUserProfiles (20120913132048)
+Migrating to CreateEngageComments (20120913132049)
+Migrating to CreateEngageVotes (20120913132050)
+Migrating to CreateEngageFollowings (20120913132051)
+Migrating to AddImportadoRevisadoToProspectos (20120916050856)
+Migrating to AddSubSedeIdToInteresBasicos (20120916163323)
+Migrating to CreateModalidads (20120916170240)
+Migrating to AddClaveDelProgramaToInteresBasicos (20120916170424)
+Migrating to AddProgramaIdToInteresBasicos (20120916170551)
+Migrating to AddModalidadIdToInteresBasicos (20120916172925)
+Migrating to AddFechaDeOtorgamientoToPlanDeDescuento (20120916182954)
+Migrating to AddStatusDelExaminadoEntrevistaIdToExaminados (20120918013007)
+Migrating to CreateStatusDelExaminadoEntrevista (20120918013543)
+Migrating to AddStatusDelExaminadoPsicoIdToExaminado (20120918014746)
+Migrating to CreateStatusDelExaminadoPsicos (20120918014945)
+Migrating to AddStatusRefPagoInscIdToAdmitidos (20120918015330)
+Migrating to CreateStatusRefPagoInscs (20120918015633)
+Migrating to AddStatusDelExaminadoEntrevistumIdToExaminados (20120925020845)
+Migrating to CreateHistories (20121013143512)
+Migrating to AddUserIdToHistory (20121013180029)
+Migrating to AddRoleToHistory (20121013180442)
+Migrating to CreateRpms (20121013231554)
+Migrating to AddPermalinkToRpms (20121013234637)
+Migrating to AddProspectosToRpms (20121014012235)
+Migrating to AddOrdenarPorToRpm (20121014022519)
+Migrating to AddSubsedeIdToProspecto (20121014034904)
+Migrating to AddSedeToRpm (20121014132330)
+Migrating to RenameRpmFields (20121014140409)
+Migrating to AddEstadoSeleccionadoToRpms (20121014171405)
+Migrating to ChangeRpms (20121014182611)
+Migrating to AddUserIdToAchievments (20121030011546)
+Migrating to AddUserIdTomiPlanEstrategicoDePromocionPep (20121030012033)
+Migrating to CreateVersions (20121125001315)
+Migrating to AddVersionToHistorial (20121125011649)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "historials" ADD "version" integer[0m
+SQLite3::SQLException: no such table: historials: ALTER TABLE "historials" ADD "version" integer
+Creating scope :page. Overwriting existing method Version.page.
+Creating scope :page. Overwriting existing method ActiveRecord::SessionStore::Session.page.
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateProspectos (20120318174905)
+Migrating to DeviseCreateUsers (20120319153632)
+Migrating to AddUserNameToUsers (20120319174132)
+Migrating to CreateSedes (20120319183400)
+Migrating to AddSedesUsersTable (20120319214407)
+Migrating to CreateDireccions (20120319225735)
+Migrating to AddProspectoIdToDireccion (20120319231026)
+Migrating to CreateInteresBasicos (20120320001147)
+Migrating to AddProspectoIdToInteresBasico (20120320001956)
+Migrating to CreateMedioDeContactos (20120320015518)
+Migrating to AddProspectoIdToMedioDeContacto (20120320020001)
+Migrating to CreateInteresAcademicos (20120320023103)
+Migrating to CreateAccionEstrategicas (20120320025333)
+Migrating to AddProspectoIdToAccionEstrategica (20120320025944)
+Migrating to CreatePlanDeDescuentos (20120320031642)
+Migrating to CreateSolicitantes (20120320042043)
+Migrating to AddIsProspectoToSolicitante (20120324153324)
+Migrating to RemoveIsProspectoFromSolicitante (20120324153818)
+Migrating to AddIsSolicitanteToProspectos (20120324154043)
+Migrating to CreateCompartidos (20120324163305)
+Migrating to RenameSolicitanteId (20120324175237)
+Migrating to AddSolicitanteIdToProspectos (20120324205024)
+Migrating to CreateBecacreditos (20120324224303)
+Migrating to AddIsExaminadoToSolicitante (20120324231805)
+Migrating to CreateExaminados (20120324234919)
+Migrating to AddExaminadoIdToSolicitante (20120324235003)
+Migrating to CreateAdmitidos (20120325005102)
+Migrating to AddExaminadoIdToAdmitido (20120325005521)
+Migrating to AddIsAdmitidoToExaminado (20120325005711)
+Migrating to AddAdmitidoIdToExaminado (20120325005751)
+Migrating to AddIsInscritoToAdmitido (20120325034247)
+Migrating to CreateInscritos (20120325034437)
+Migrating to AddInscritoIdToAdmitido (20120325040643)
+Migrating to CreatePurges (20120325041209)
+Migrating to CreateHomes (20120325053730)
+Migrating to CreateMercadoMeta (20120325164926)
+Migrating to CreateEstrategiaPromocionals (20120325165808)
+Migrating to AddDocumentoPathToEstrategiaPromocional (20120325170048)
+Migrating to CreateComentariosEstrategia (20120325170147)
+Migrating to CreateFinalidadCultivos (20120325170808)
+Migrating to RenameMercadoMetaIdFromEstrategiaPromocional (20120325175828)
+Migrating to RenameMercadoMetaIdFromFinalidadCultivos (20120325175959)
+Migrating to CreatePlanDeVenta (20120325224520)
+Migrating to CreateTerritorios (20120325230127)
+Migrating to CreateProgramas (20120325230741)
+Migrating to CreateEquipoPromocions (20120325231202)
+Migrating to CreateCasos (20120325234700)
+Migrating to CreatePregunta (20120325234900)
+Migrating to CreateNacionalidads (20120401002118)
+Migrating to AddNacionalidadIdToProspectos (20120401002844)
+Migrating to CreateUltimoGradoDeEstudios (20120401011212)
+Migrating to AddUltimoGradoDeEstudiosIdToInteresBasicos (20120401011358)
+Migrating to CreateFavoritos (20120401150100)
+Migrating to CreateBarraFavoritos (20120401151711)
+Migrating to CreateTareas (20120401184045)
+Migrating to CreateAttachments (20120401210807)
+Migrating to CreateMemos (20120401210933)
+Migrating to AddModelINameAndModelIdToTareas (20120401224322)
+Migrating to AddModelINameAndModelIdToMemos (20120401232052)
+Migrating to AddModelNameAndModelIdToAttachments (20120402002529)
+Migrating to AddRoleToUsers (20120402031726)
+Migrating to AddBlankToBecaCredito (20120402182632)
+Migrating to AddBlankToDireccions (20120402182703)
+Migrating to AddBlankToInteresBasicos (20120402182727)
+Migrating to AddBlankToInteresAcademicos (20120402182745)
+Migrating to AddBlankToMedioDeContactos (20120402182808)
+Migrating to AddBlankToAccionEstrtegicas (20120402182824)
+Migrating to AddBlankToPlanDeDescuentos (20120402182843)
+Migrating to AddLatitudeAndLogitudeToDireccions (20120404170953)
+Migrating to AddLatitudeAndLogitudeToMercadoMeta (20120404171453)
+Migrating to CreatePreparatoriaOUniversidadDeOrigens (20120404213837)
+Migrating to AddPreparatoriaOUniversidadDeOrigenToInteresBasicos (20120404214007)
+Migrating to CreateLlamadas1 (20120404225208)
+Migrating to CreateDashboards (20120405005414)
+Migrating to CreateEmploymentships (20120405153156)
+Migrating to AddSedeIdToUsers (20120405175503)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToProspectos (20120405181703)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToMemos (20120405181746)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToLlamadass (20120405181805)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToTareas (20120405181825)
+Migrating to AddCreatedByAndAssignedToIdAndSedeIdToAttachments (20120405181848)
+Migrating to ChangeColumnsAssignedTo (20120405192516)
+Migrating to AddAccionToBarraFavoritos (20120405204529)
+Migrating to CreateMunicipioDeLaPreparatoriaOUniversidadDeOrigens (20120405213234)
+Migrating to AddMunicipioDeLaPreparatoriaOUniversidadDeOrigenIdToInteresBasico (20120405213342)
+Migrating to AddSedeIdToInteresBasicos (20120405214254)
+Migrating to CreateProgramaDeInteres (20120405214424)
+Migrating to AddProgramaDeInteresIdToInteresBasicos (20120405214454)
+Migrating to CreateNivels (20120405214809)
+Migrating to AddNivelIdToInteresBasicos (20120405214841)
+Migrating to CreateTurnos (20120405215121)
+Migrating to AddTurnoIdToInteresBasico (20120405215148)
+Migrating to CreatePeriodoParaIngresars (20120405215348)
+Migrating to AddPeriodoParaIngresarIdToInteresBasicos (20120405215451)
+Migrating to CreateStatusDeInteresDeProspectoValidados (20120405215708)
+Migrating to AddStatusDeInteresDeProspectoValidadoIdToInteresBasicos (20120405215753)
+Migrating to CreateStatusDeLaAccion1s (20120405223123)
+Migrating to AddStatusDeLaAccion1ToAccionEstrategicas (20120405223227)
+Migrating to CreateStatusDePagoDeExamenDeAdmisions (20120405223551)
+Migrating to AddStatusDePagoDeExamenDeAdmisionIdToSolicitantes (20120405223716)
+Migrating to CreateTipoDeAdmisions (20120405224113)
+Migrating to AddTipoDeAdmisionIdToSolicitantes (20120405224147)
+Migrating to CreateStatusDeEses (20120405224411)
+Migrating to AddStatusDeEseIdToBecaCreditos (20120405224446)
+Migrating to CreateStatusDePagoEses (20120405224926)
+Migrating to AddStatusDePagoEseIdToBecacreditos (20120405225012)
+Migrating to CreateStatusDelTramiteDeBecas (20120405225328)
+Migrating to AddStatusDelTramiteDeBecaIdToBecacreditos (20120405225403)
+Migrating to CreateStatusDelExaminadoPaas (20120405225724)
+Migrating to AddStatusDelExaminadoPaaIdToExaminados (20120405225814)
+Migrating to CreateStatusDeAdmisions (20120405230725)
+Migrating to AddStatusDeAdmisionIdToAdmitido (20120405230818)
+Migrating to CreateStatusDeLaNotificacions (20120405231113)
+Migrating to AddStatusDeLaNoticiacionIdToAdmitidos (20120405231146)
+Migrating to CreateStatusDelAdmitidos (20120405231418)
+Migrating to AddStatusDelAdmitidoIdToAdmitidos (20120405231524)
+Migrating to CreateStatusDeLaInscripcions (20120405231808)
+Migrating to AddStatusDeLaInscripcionIdToInscritos (20120405231839)
+Migrating to CreateStatusDelPagoDeLaInscripcions (20120405232123)
+Migrating to AddStatusDelPagoDeLaInscripcionIdToInscritos (20120405232219)
+Migrating to AddAvatarUrlToUsers (20120405235221)
+Migrating to CreateLiveReports (20120406221101)
+Migrating to CreateCorreos (20120517014105)
+Migrating to CreateStatics (20120519151823)
+Migrating to AddSedeIdAndUserIdToCorreos (20120519155009)
+Migrating to AddCreatedByToCorreos (20120519155212)
+Migrating to CreateReports (20120519232014)
+Migrating to CreateReportparams (20120519233200)
+Migrating to AddReportIdToReportparams (20120519234317)
+Migrating to CreateReportsortbies (20120520022136)
+Migrating to AddTableToReport (20120520042903)
+Migrating to AddFilterToReportparams (20120520045943)
+Migrating to Jojojo (20120520061023)
+Migrating to Jojojo2 (20120520061812)
+Migrating to AddOrdenToParamsortbies (20120520140358)
+Migrating to AddPorPaginaToReport (20120520141537)
+Migrating to CreateImports (20120520221934)
+Migrating to AddModuToImports (20120521012005)
+Migrating to CreateAuthentications (20120526154244)
+Migrating to CreateCampanaSocials (20120526221342)
+Migrating to CreatePosts (20120526221653)
+Migrating to AddCreatedByAndUserIdAndSedeIdToCampanaSocial (20120526221944)
+Migrating to CreateEvents (20120526222218)
+Migrating to AddCampanaSocialIdToPosts (20120526224446)
+Migrating to AddCampanaSocialIdToEvents (20120526224526)
+Migrating to AddCodigoPostalToDireccions (20120603133515)
+Migrating to CreateSubsedes (20120603145800)
+Migrating to AddSessionsTable (20120603153215)
+Migrating to AddModelNameAndModelIdToCorreos (20120603220956)
+Migrating to AddModelNameAndModelIdToPosts (20120603221029)
+Migrating to AddModelNameAndModelIdToEvents (20120603221100)
+Migrating to AddCampanaSocialIdToCorreos (20120603224720)
+Migrating to CreateTweets (20120603230615)
+Migrating to AddProgramaIdToProspectos (20120609135952)
+Migrating to AddMecadoMetumIdToProspectos (20120609140050)
+Migrating to AddPlanDeVentaIdToProspectos (20120609140140)
+Migrating to AddTerritorioIdToProspectos (20120609140302)
+Migrating to AddPlanDeVentumIdToProspectos (20120609140547)
+Migrating to AddGrupoIdToProspectos (20120612231812)
+Migrating to CreateGrupos (20120612231925)
+Migrating to AddGrupoIdToCorreos (20120613012310)
+Migrating to AddEsUnoAUnoToCorreos (20120613014710)
+Migrating to AddMailCampana (20120613015320)
+Migrating to AddMailCampanaToCorreos (20120613015551)
+Migrating to AddProgramaIdToCasos (20120707133408)
+Migrating to CreateReportlines (20120707145819)
+Migrating to AddDateValueToReportparams (20120726003627)
+Migrating to CreateMeta (20120909235416)
+Migrating to CreateAchievments (20120910235044)
+Migrating to AddFechaExactaQueAbrioAndAlumnosDeNuevoIngresoToAchievments (20120911001609)
+Migrating to CreateMiPlanEstrategicoDePromocionPeps (20120911005153)
+Migrating to AddTotalDeProspectosObtenidosToMiPlanEstrategicoDePromocionPeps (20120911005941)
+Migrating to CreateOfertaEducativas (20120911010952)
+Migrating to CreateColegiaturas (20120911011727)
+Migrating to CreateDivisionTerritorials (20120911012411)
+Migrating to CreateNacionalDeAperturas (20120911012747)
+Migrating to CreateEquipoDeAltoRendimientos (20120911013045)
+Migrating to CreateContactos (20120911013338)
+Migrating to CreateMetasGlobales (20120911013713)
+Migrating to AddSedeDosToMetasGlobales (20120911013842)
+Migrating to AddEstadoAndPaisToDirections (20120913003141)
+Migrating to CreateRoles (20120913010028)
+Migrating to CreateRolePermisions (20120913013455)
+Migrating to AddStatusDelExaminadoPsicoAndPuntuacionMmpiAndDictamenPsicoAndComentariosPsicoAndStatusExaminadoEntrevistaAndDictamenAcademicoAndComentariosCoordAndComentariosAsesorToExaminados (20120913063039)
+Migrating to AddStatusRefPagoInscripcionAndFechaLimiteFpiToAdmitidos (20120913071457)
+Migrating to CreateEngageTopics (20120913132047)
+Migrating to CreateEngageUserProfiles (20120913132048)
+Migrating to CreateEngageComments (20120913132049)
+Migrating to CreateEngageVotes (20120913132050)
+Migrating to CreateEngageFollowings (20120913132051)
+Migrating to AddImportadoRevisadoToProspectos (20120916050856)
+Migrating to AddSubSedeIdToInteresBasicos (20120916163323)
+Migrating to CreateModalidads (20120916170240)
+Migrating to AddClaveDelProgramaToInteresBasicos (20120916170424)
+Migrating to AddProgramaIdToInteresBasicos (20120916170551)
+Migrating to AddModalidadIdToInteresBasicos (20120916172925)
+Migrating to AddFechaDeOtorgamientoToPlanDeDescuento (20120916182954)
+Migrating to AddStatusDelExaminadoEntrevistaIdToExaminados (20120918013007)
+Migrating to CreateStatusDelExaminadoEntrevista (20120918013543)
+Migrating to AddStatusDelExaminadoPsicoIdToExaminado (20120918014746)
+Migrating to CreateStatusDelExaminadoPsicos (20120918014945)
+Migrating to AddStatusRefPagoInscIdToAdmitidos (20120918015330)
+Migrating to CreateStatusRefPagoInscs (20120918015633)
+Migrating to AddStatusDelExaminadoEntrevistumIdToExaminados (20120925020845)
+Migrating to CreateHistories (20121013143512)
+Migrating to AddUserIdToHistory (20121013180029)
+Migrating to AddRoleToHistory (20121013180442)
+Migrating to CreateRpms (20121013231554)
+Migrating to AddPermalinkToRpms (20121013234637)
+Migrating to AddProspectosToRpms (20121014012235)
+Migrating to AddOrdenarPorToRpm (20121014022519)
+Migrating to AddSubsedeIdToProspecto (20121014034904)
+Migrating to AddSedeToRpm (20121014132330)
+Migrating to RenameRpmFields (20121014140409)
+Migrating to AddEstadoSeleccionadoToRpms (20121014171405)
+Migrating to ChangeRpms (20121014182611)
+Migrating to AddUserIdToAchievments (20121030011546)
+Migrating to AddUserIdTomiPlanEstrategicoDePromocionPep (20121030012033)
+Migrating to CreateVersions (20121125001315)
+  [1m[35m (3.0ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("accion_estrategicas")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("achievments")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("admitidos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("attachments")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("authentications")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("barra_favoritos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("becacreditos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("campana_socials")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("casos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("colegiaturas")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("comentarios_estrategia")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("compartidos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("contactos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("correos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("dashboards")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("direccions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("division_territorials")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("employmentships")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("engage_comments")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("engage_followings")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_followings_on_user_id_and_topic_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("engage_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_votes_count')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_user_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_style')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_status')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_private')
+  [1m[36m (1.0ms)[0m  [1mPRAGMA index_info('index_engage_topics_on_followers_count')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_topics_on_comments_count')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("engage_user_profiles")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_user_profiles_on_user_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("engage_votes")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_engage_votes_on_user_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_engage_votes_on_topic_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("equipo_de_alto_rendimientos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("equipo_promocions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("estrategia_promocionals")
+  [1m[36m (1.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("examinados")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("favoritos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("finalidad_cultivos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("grupos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("histories")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("homes")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("imports")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("inscritos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("interes_academicos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("interes_basicos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("live_reports")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("llamadas")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("medio_de_contactos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("memos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("mercado_meta")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("meta")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("metas_globales")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("mi_plan_estrategico_de_promocion_peps")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("modalidads")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("municipio_de_la_preparatoria_o_universidad_de_origens")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("nacional_de_aperturas")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("nacionalidads")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("nivels")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("oferta_educativas")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("periodo_para_ingresars")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("plan_de_descuentos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("plan_de_venta")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("pregunta")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("preparatoria_o_universidad_de_origens")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("programa_de_interes")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("programas")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("prospectos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("purges")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("reportlines")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("reportparams")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("reports")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("reportsortbies")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("role_permisions")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("roles")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("rpms")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_rpms_on_permalink')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("sedes")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("sedes_users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("sessions")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_sessions_on_session_id')
+  [1m[36m (1.0ms)[0m  [1mPRAGMA index_list("solicitantes")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("statics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("status_de_admisions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("status_de_eses")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("status_de_interes_de_prospecto_validados")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("status_de_la_accion_1s")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("status_de_la_inscripcions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("status_de_la_notificacions")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("status_de_pago_de_examen_de_admisions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("status_de_pago_eses")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("status_del_admitidos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("status_del_examinado_entrevista")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("status_del_examinado_paas")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("status_del_examinado_psicos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("status_del_pago_de_la_inscripcions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("status_del_tramite_de_becas")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("status_ref_pago_inscs")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("subsedes")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tareas")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("territorios")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tipo_de_admisions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("turnos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tweets")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("ultimo_grado_de_estudios")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_confirmation_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("versions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_versions_on_item_type_and_item_id')
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 11:52:55 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[35mRole Load (1.0ms)[0m  SELECT "roles".* FROM "roles" 
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+  [1m[36mRpm Load (0.0ms)[0m  [1mSELECT "rpms".* FROM "rpms" WHERE "rpms"."permalink" = 'prospectos' LIMIT 1[0m
+Rendered rpms/edit.html.erb within layouts/application (876.6ms)
+Completed 500 Internal Server Error in 992ms
+
+ActionView::Template::Error (undefined method `model_class' for #<ActionDispatch::Routing::RoutesProxy:0x8948a90>):
+    1: 
+    2: <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+    3:                                  :default => "Edit #{model_class.model_name.human}") %></h1>
+    4: <%= render :partial => 'form' %>
+  app/views/rpms/edit.html.erb:2:in `_app_views_rpms_edit_html_erb__1047065547_63920400'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/prospectos?validado=false" for 127.0.0.1 at 2012-11-25 11:55:22 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Prospecto.page.
+  Processing by ProspectosController#index as HTML
+  Parameters: {"validado"=>"false"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[36mRole Load (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+-----------------------
+#<User id: 1, email: "israel.valdez.89@gmail.com", encrypted_password: "$2a$10$lgBUdzq/ca.9JKj6WIZFyueFMiEiA7VWbpQG5qqEnj1M...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2012-11-25 17:48:21", last_sign_in_at: "2012-11-25 17:48:21", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil, created_at: "2012-11-25 17:48:21", updated_at: "2012-11-25 17:48:21", username: "israel", role: nil, sede_id: nil, avatar_url: nil>
+--------------------
+Completed 500 Internal Server Error in 112ms
+
+NoMethodError (undefined method `upcase' for nil:NilClass):
+  app/controllers/prospectos_controller.rb:12:in `index'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 11:55:29 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[36mRole Load (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+  [1m[35mRpm Load (1.0ms)[0m  SELECT "rpms".* FROM "rpms" WHERE "rpms"."permalink" = 'prospectos' LIMIT 1
+Rendered rpms/_form.html.erb (6.0ms)
+Rendered rpms/edit.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 187ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%if params[:id] == "prospectos"%>
+    2: 	<%= simple_form_for @rpm, :html => { :class => 'form-horizontal' } do |f| %>
+    3: 			<div class="tabbable tabs-left">
+    4:               <ul class="nav nav-tabs">
+    5:                 <li class="active"><a href="#paramGlobal" data-toggle="tab">Parametros Globales</a></li>
+  app/views/rpms/_form.html.erb:2:in `_app_views_rpms__form_html_erb___226890932_66844008'
+  app/views/rpms/edit.html.erb:3:in `_app_views_rpms_edit_html_erb__1047065547_66727944'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 11:56:02 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" 
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+  [1m[36mRpm Load (0.0ms)[0m  [1mSELECT "rpms".* FROM "rpms" WHERE "rpms"."permalink" = 'prospectos' LIMIT 1[0m
+Rendered rpms/_form.html.erb (3.0ms)
+Rendered rpms/edit.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 119ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%if params[:id] == "prospectos"%>
+    2: 	<%= simple_form_for @rpm, :html => { :class => 'form-horizontal' } do |f| %>
+    3: 			<div class="tabbable tabs-left">
+    4:               <ul class="nav nav-tabs">
+    5:                 <li class="active"><a href="#paramGlobal" data-toggle="tab">Parametros Globales</a></li>
+  app/views/rpms/_form.html.erb:2:in `_app_views_rpms__form_html_erb___226890932_66844008'
+  app/views/rpms/edit.html.erb:3:in `_app_views_rpms_edit_html_erb__1047065547_66727944'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 11:56:41 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[36mRole Load (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+  [1m[35mRpm Load (0.0ms)[0m  SELECT "rpms".* FROM "rpms" WHERE "rpms"."permalink" = 'prospectos' LIMIT 1
+Rendered rpms/_form.html.erb (3.0ms)
+Rendered rpms/edit.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 115ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%if params[:id] == "prospectos"%>
+    2: 	<%= simple_form_for @rpm, :html => { :class => 'form-horizontal' } do |f| %>
+    3: 			<div class="tabbable tabs-left">
+    4:               <ul class="nav nav-tabs">
+    5:                 <li class="active"><a href="#paramGlobal" data-toggle="tab">Parametros Globales</a></li>
+  app/views/rpms/_form.html.erb:2:in `_app_views_rpms__form_html_erb___226890932_66844008'
+  app/views/rpms/edit.html.erb:3:in `_app_views_rpms_edit_html_erb__1047065547_66727944'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 11:57:07 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" 
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+  [1m[36mRpm Load (0.0ms)[0m  [1mSELECT "rpms".* FROM "rpms" WHERE "rpms"."permalink" = 'prospectos' LIMIT 1[0m
+Rendered rpms/_form.html.erb (3.0ms)
+Rendered rpms/edit.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 179ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%if params[:id] == "prospectos"%>
+    2: 	<%= simple_form_for @rpm, :html => { :class => 'form-horizontal' } do |f| %>
+    3: 			<div class="tabbable tabs-left">
+    4:               <ul class="nav nav-tabs">
+    5:                 <li class="active"><a href="#paramGlobal" data-toggle="tab">Parametros Globales</a></li>
+  app/views/rpms/_form.html.erb:2:in `_app_views_rpms__form_html_erb___226890932_66844008'
+  app/views/rpms/edit.html.erb:2:in `_app_views_rpms_edit_html_erb__1047065547_26437056'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 11:57:13 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[36mRole Load (1.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+  [1m[35mRpm Load (1.0ms)[0m  SELECT "rpms".* FROM "rpms" WHERE "rpms"."permalink" = 'prospectos' LIMIT 1
+Rendered rpms/edit.html.erb within layouts/application (0.0ms)
+Rendered shared/_herramientas_upper.html.erb (0.0ms)
+Rendered shared/_upper_menu.html.erb (11.0ms)
+Creating scope :page. Overwriting existing method BarraFavorito.page.
+  [1m[36mBarraFavorito Load (0.0ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1[0m
+Rendered shared/_fav_menu.html.erb (17.0ms)
+Rendered shared/_side_menu.html.erb (2.0ms)
+Completed 200 OK in 163ms (Views: 62.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 11:57:45 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[36mRole Load (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+  [1m[35mRpm Load (0.0ms)[0m  SELECT "rpms".* FROM "rpms" WHERE "rpms"."permalink" = 'prospectos' LIMIT 1
+Rendered rpms/_form.html.erb (4.0ms)
+Rendered rpms/edit.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 117ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%if params[:id] == "prospectos"%>
+    2: 	<%= simple_form_for @rpm, :html => { :class => 'form-horizontal' } do |f| %>
+    3: 			<div class="tabbable tabs-left">
+    4:               <ul class="nav nav-tabs">
+    5:                 <li class="active"><a href="#paramGlobal" data-toggle="tab">Parametros Globales</a></li>
+  app/views/rpms/_form.html.erb:2:in `_app_views_rpms__form_html_erb___226890932_66844008'
+  app/views/rpms/edit.html.erb:2:in `_app_views_rpms_edit_html_erb__1047065547_66699792'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/rpms/prospectos/edit" for 127.0.0.1 at 2012-11-25 12:00:50 -0600
+Creating scope :page. Overwriting existing method Engage::Topic.page.
+Creating scope :public. Overwriting existing method Engage::Topic.public.
+Creating scope :private. Overwriting existing method Engage::Topic.private.
+Creating scope :page. Overwriting existing method Engage::Comment.page.
+Creating scope :page. Overwriting existing method Engage::Following.page.
+Creating scope :page. Overwriting existing method Rpm.page.
+  Processing by RpmsController#edit as HTML
+  Parameters: {"id"=>"prospectos"}
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+--------------------------------0
+Creating scope :page. Overwriting existing method Role.page.
+  [1m[35mRole Load (0.0ms)[0m  SELECT "roles".* FROM "roles" 
+--------------------------------1
+--------------------------------2
+--------------------------------3
+--------------------------------4
+--------------------------------5
+  [1m[36mRpm Load (0.0ms)[0m  [1mSELECT "rpms".* FROM "rpms" WHERE "rpms"."permalink" = 'prospectos' LIMIT 1[0m
+Rendered rpms/_form.html.erb (3.0ms)
+Rendered rpms/edit.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 120ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%if params[:id] == "prospectos"%>
+    2: 	<%= simple_form_for @rpm, :html => { :class => 'form-horizontal' } do |f| %>
+    3: 			<div class="tabbable tabs-left">
+    4:               <ul class="nav nav-tabs">
+    5:                 <li class="active"><a href="#paramGlobal" data-toggle="tab">Parametros Globales</a></li>
+  app/views/rpms/_form.html.erb:2:in `_app_views_rpms__form_html_erb___226890932_66844008'
+  app/views/rpms/edit.html.erb:3:in `_app_views_rpms_edit_html_erb__1047065547_73179120'
+  config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered RAILS_ENV=production/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)

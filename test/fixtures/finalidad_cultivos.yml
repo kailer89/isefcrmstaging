@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  finalidad_cultivo: MyString
+  mercado_meta_id: 1
+
+two:
+  finalidad_cultivo: MyString
+  mercado_meta_id: 1

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  descripcion: MyText
+  fecha_de_inicio_de_la_tarea: 2012-04-01
+  hora_de_inicio: 2012-04-01 13:40:45
+  fecha_de_fin_de_la_tarea: 2012-04-01
+  hora_de_fin: 2012-04-01 13:40:45
+  attachment: MyString
+
+two:
+  nombre: MyString
+  descripcion: MyText
+  fecha_de_inicio_de_la_tarea: 2012-04-01
+  hora_de_inicio: 2012-04-01 13:40:45
+  fecha_de_fin_de_la_tarea: 2012-04-01
+  hora_de_fin: 2012-04-01 13:40:45
+  attachment: MyString

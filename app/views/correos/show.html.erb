@@ -1,0 +1,24 @@
+<h1>Correo</h1>
+
+<p>
+  <b>Nombredelmail</b><br>
+  <%= @correo.nombredelmail %>
+</p>
+
+<p>
+  <b>Maildata</b><br>
+  	<div class="well">
+  		<%= @correo.maildata.html_safe %>
+	</div>
+</p>
+
+<p>
+  <b>Fechaparaenviar</b><br>
+  <%= @correo.fechaparaenviar %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', correos_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_correo_path(@correo), :class => 'btn' %>
+  <%= link_to 'Delete', correo_path(@correo), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

@@ -1,0 +1,105 @@
+<%= simple_form_for @llamada, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+       <a href="/<%=@llamada.model_name%>/<%=@llamada.model_id%>/edit" class="btn">Cancel</a>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@llamada.id, :parent_model=>@llamada.model_name, :parent_id=>@llamada.model_id}%>
+
+<%rol = Role.where(:id=>current_user.role).first rescue nil%>
+              <%if ["D","ACRM","AL","A", "CP"].include?(rol.nombre) != true && request.path_parameters[:action] =="edit"  %>
+<div class="well">
+<h1>Llamada</h1>
+
+<p>
+  <b>Asunto</b><br>
+  <%= @llamada.asunto %>
+</p>
+
+<p>
+  <b>Inicio de la llamada</b><br>
+  <%= @llamada.inicio_de_la_llamada %>
+</p>
+
+<p>
+  <b>Tiempo de inicio</b><br>
+  <%= @llamada.tiempo_de_inicio.strftime('%H:%M %p') rescue nil%>
+</p>
+
+<p>
+  <b>Fin de la llamada</b><br>
+  <%= @llamada.fin_de_la_llamada %>
+</p>
+
+<p>
+  <b>Tiempo de fin</b><br>
+  <%= @llamada.tiempo_de_fin.strftime('%H:%M %p') rescue nil %>
+</p>
+
+<p>
+  <b>Duracion</b><br>
+  <%= @llamada.duracion %>
+</p>
+
+<p>
+  <b>Estado</b><br>
+  <%= @llamada.estado %>
+</p>
+
+<p>
+  <b>Aviso</b><br>
+  <%= @llamada.aviso %>
+</p>
+
+<p>
+  <b>Comentarios</b><br>
+  <%= @llamada.comentarios %>
+</p>
+</div>
+
+
+
+
+
+<%else%>
+  <div class="well">
+    <%=f.input :asunto%>
+    <%= f.input :inicio_de_la_llamada,:label=>"Fecha de la llamada: " do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :inicio_de_la_llamada%>
+  			   <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+    <%=f.input :duracion_texto, :label=>"Duración",:collection=>["1 minuto","5 minutos","10 minutos","15 minutos","20 minutos","25 minutos","30 minutos","45 minutos","1 hora","2 horas", "3 horas","5 horas"]%>
+    <%=f.input :estado%>
+    <%=f.input :efectividad, :label=>"Efectividad", :collection=>Efectividad.all,:label_method=>:valor%>
+
+      <%= f.hidden_field :created_by%>
+      <%= f.association :user, :collection => User.where(:id => @llamada.created_by), :label_method => :username, :value_method => :id , :disabled=>true,:label=>"Creado por"%>
+          <%=f.association :user,:label_method=>:username,:include_blank => false%>
+          <%=f.association :sede,:label_method=>:nombre,:include_blank => false%>
+    <%=f.hidden_field :model_name %>
+    <%=f.hidden_field :model_id %>
+    <%=f.hidden_field :pendiente %>
+    <%=f.input :comentarios%>
+  </div>
+<%end%>
+    <div class="form-actions">
+      <%if request.path_parameters[:action] == 'edit' %>
+      <%if @llamada != nil%>
+        <%if @llamada.pendiente == true%>
+          <%= link_to 'Quitar pendiente', "convertir_llamada",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-warning', :method=>'post', :id=>'convertir_llamada'%> 
+        <%else%>
+          <%= link_to 'Hacer pendiente', "convertir_llamada",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'convertir_llamada'%> 
+        <%end%> 
+      <%end%>     
+      <%end%>    
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+       <a href="/<%=@llamada.model_name%>/<%=@llamada.model_id%>/edit" class="btn">Cancel</a>
+    </div>
+<% end %>
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

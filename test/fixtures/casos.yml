@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  caso: MyString
+  status_del_caso: MyString
+  nombre_del_cliente: MyString
+  fecha_que_se_presenta_el_problema: 2012-03-25
+  fecha_estimada_de_resolucion: 2012-03-25
+  ambito_del_problema: MyString
+  sintoma_problema: MyText
+  descripcion_del_sintoma_problema: MyText
+  causa_del_problema: MyText
+  alternativas_de_solucion: MyText
+  solucion: MyText
+  comentarios_de_seguimiento_al_problema: MyText
+  atentido_por: MyString
+  resuelto_por: MyString
+  fecha_que_se_soluciono: 2012-03-25
+
+two:
+  caso: MyString
+  status_del_caso: MyString
+  nombre_del_cliente: MyString
+  fecha_que_se_presenta_el_problema: 2012-03-25
+  fecha_estimada_de_resolucion: 2012-03-25
+  ambito_del_problema: MyString
+  sintoma_problema: MyText
+  descripcion_del_sintoma_problema: MyText
+  causa_del_problema: MyText
+  alternativas_de_solucion: MyText
+  solucion: MyText
+  comentarios_de_seguimiento_al_problema: MyText
+  atentido_por: MyString
+  resuelto_por: MyString
+  fecha_que_se_soluciono: 2012-03-25

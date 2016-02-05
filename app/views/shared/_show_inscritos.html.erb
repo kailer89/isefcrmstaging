@@ -1,0 +1,37 @@
+
+<%
+  if not defined?(prospectoid)
+    prospectoid=""
+  end
+%>
+<%
+  if not defined?(isactive)
+    isactive = ""
+  end
+  if request.path_parameters[:controller] == "inscritos"
+    isactive = " in  active  "
+  end
+%>
+<div class="tab-pane fade<%=isactive%>" id="inscrito<%=prospectoid%>">
+  <fieldset>
+<p>
+  <%valor =f.status_del_pago_de_la_inscripcion.valor rescue nil%>
+  <%=printIfAvailable("Status del pago de Inscripción",valor)%>
+</p>
+      <p>
+        <%=printIfAvailable("Fecha de pago de inscripción",f.fecha_de_pago_de_inscripcion)%>
+      </p>
+            <p>
+        <%=printIfAvailable("ID de alumno",f.id_de_alumno)%>
+      </p>
+
+<p>
+  <%=printIfAvailable("Comentarios del coordinador academico",f.comentarios_del_coordinador_academico)%>
+</p>
+      <p>
+        <%=printIfAvailable("Archivado",f.archivado ? "Archivado": "")%>
+      </p>
+
+</fieldset>
+</div>
+<%=render :partial=>"shared/show_admitidos", :locals=>{:f=>f.admitidos.first,:prospectoid=>prospectoid}%>

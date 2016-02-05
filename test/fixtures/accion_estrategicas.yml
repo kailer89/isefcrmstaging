@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  accion_promocional_1: MyString
+  descipcion_de_la_accion_1: MyText
+  status_de_la_accion_1: MyString
+  fecha_para_llevarlo_a_cabo_1: 2012-03-19
+  responsable_de_llevarlo_a_cabo_1: MyString
+  comentarios_de_seguimiento_1: MyText
+  accion_promocional_2: MyString
+  descripcion_de_la_accion_2: MyText
+  status_de_la_accion_1: MyString
+  fecha_para_llevarlo_a_cabo_1: 2012-03-19
+  responsable_de_llevarlo_a_cabo_1: MyString
+  comentarios_de_seguimiento_1: MyText
+
+two:
+  accion_promocional_1: MyString
+  descipcion_de_la_accion_1: MyText
+  status_de_la_accion_1: MyString
+  fecha_para_llevarlo_a_cabo_1: 2012-03-19
+  responsable_de_llevarlo_a_cabo_1: MyString
+  comentarios_de_seguimiento_1: MyText
+  accion_promocional_2: MyString
+  descripcion_de_la_accion_2: MyText
+  status_de_la_accion_1: MyString
+  fecha_para_llevarlo_a_cabo_1: 2012-03-19
+  responsable_de_llevarlo_a_cabo_1: MyString
+  comentarios_de_seguimiento_1: MyText

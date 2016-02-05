@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombredelmail: MyString
+  maildata: MyText
+  fechaparaenviar: 2012-05-16 20:41:05
+
+two:
+  nombredelmail: MyString
+  maildata: MyText
+  fechaparaenviar: 2012-05-16 20:41:05

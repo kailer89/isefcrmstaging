@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre_del_campo: MyString
+  modulo: MyString
+  report_id: 1
+  campo: MyString
+  filtro: MyString
+  valorcampo: MyString
+
+two:
+  nombre_del_campo: MyString
+  modulo: MyString
+  report_id: 1
+  campo: MyString
+  filtro: MyString
+  valorcampo: MyString

@@ -1,0 +1,101 @@
+  <%if not request.path_parameters[:controller].include? "devise"%>
+<div class="row-fluid">
+    <div class="span10">
+		<ul class="breadcrumb" style="margin-bottom:0px;">
+			<li>
+				<a href="/"><i class="icon-home"></i> Home</a> <span class="divider">/</span>
+			</li>
+
+			<%if parent_model != nil%>
+				<li>
+					<a href="/<%=parent_model%>">
+						<%= parent_model.humanize%>
+					</a>
+					<span class="divider">/</span>
+				</li>	
+				<li>
+					<a href="/<%=parent_model%>/<%=parent_id%>/edit">
+						<%= parent_model.humanize.singularize%>
+					</a>
+					<span class="divider">/</span>
+				</li>
+			<%end%>
+		  <%if parent_model ==nil%>
+		  <li>
+			<a href="/<%=model_name%>">
+				<%= model_name.humanize%>
+			</a>
+			<span class="divider">/</span>
+		  </li>	
+		  <%end%>
+		  <li>
+			<a href="/<%=model_name%>/<%=model_id rescue nil%>">
+				<%= model_name.humanize.singularize%>
+			</a>
+			<span class="divider">/</span>
+		  </li>
+		  <li class="active">
+				<%=request.path_parameters[:action].camelize%> <%= model_name.humanize.singularize%>
+		  </li>  
+		</ul>
+		<h3><%
+			case model_name
+			when "prospectos"
+				prospecto = Prospecto.where(:id=>model_id).first
+				%><%=model_id rescue nil%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%
+			when "solicitantes"
+				prospecto = Prospecto.where(:id=>Solicitante.where(:id=>model_id).first.prospecto_id).first
+				%><%=model_id rescue nil%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%
+			when "examinados"
+				prospecto = Prospecto.where(:id=>Solicitante.where(:id=>Examinado.where(:id=>model_id).first.solicitante_id).first.prospecto_id).first
+				%><%=model_id rescue nil%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%
+			when "admitidos"
+				prospecto = Prospecto.where(:id=>Solicitante.where(:id=>Examinado.where(:id=>Admitido.where(:id=>model_id).first.examinado_id).first.solicitante_id).first.prospecto_id).first
+				%><%=model_id rescue nil%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%
+			when "inscritos"
+				prospecto = Prospecto.where(:id=>Solicitante.where(:id=>Examinado.where(:id=>Admitido.where(:id=>Inscrito.where(:id=>model_id).first.admitido_id).first.examinado_id).first.solicitante_id).first.prospecto_id).first				
+				%><%=model_id rescue nil%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%
+			when "llamadas", "tareas", "memos","correos","attachments"
+				case params[:model_name]
+				when "prospectos"
+					prospecto = Prospecto.where(:id=>params[:model_id]).first
+					%><%=params[:model_id]%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%
+				when "solicitantes"
+					prospecto = Prospecto.where(:id=>Solicitante.where(:id=>params[:model_id]).first.prospecto_id).first
+					%><%=params[:model_id]%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%
+				when "examinados"
+					prospecto = Prospecto.where(:id=>Solicitante.where(:id=>Examinado.where(:id=>params[:model_id]).first.solicitante_id).first.prospecto_id).first
+					%><%=params[:model_id]%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%
+				when "admitidos"
+					prospecto = Prospecto.where(:id=>Solicitante.where(:id=>Examinado.where(:id=>Admitido.where(:id=>params[:model_id]).first.examinado_id).first.solicitante_id).first.prospecto_id).first
+					%><%=params[:model_id]%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%
+				when "inscritos"
+					prospecto = Prospecto.where(:id=>Solicitante.where(:id=>Examinado.where(:id=>Admitido.where(:id=>Inscrito.where(:id=>params[:model_id]).first.admitido_id).first.examinado_id).first.solicitante_id).first.prospecto_id).first				
+					%><%=params[:model_id]%> - <%=prospecto.nombre rescue nil%> <%=prospecto.apellido_paterno rescue nil%> <%=prospecto.apellido_materno rescue nil%> - <%=prospecto.programa.nivel rescue nil%> <%=prospecto.programa.programa rescue nil%><%	
+				else
+					%><%=%><%
+				end
+			else
+				%><%=%><%
+				
+			end
+		%></h3>
+    </div>
+
+        <div class="span1">
+			<%if model_id != nil%>
+				<a href="#" class='btn btn-info printbox'  onclick="javascript:openPrint('<%=model_name%>','<%=model_id rescue nil%>')">
+					<i class="icon-print"></i> Imprimir
+				</a>
+			<%else%>
+				<a href="#" class='btn btn-info printbox'>
+					<i class="icon-print"></i> Imprimir
+				</a>	
+			<%end%>
+    	</div>
+  </div>
+<%end%>
+
+
+
+

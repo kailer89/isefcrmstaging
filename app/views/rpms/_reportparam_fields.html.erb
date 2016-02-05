@@ -1,0 +1,154 @@
+<div class="well fields">
+  
+  	<%	columnas=ActiveRecord::Base.connection.columns(@report.table)
+	  if @report.table == "prospectos"
+	    columnas= columnas + ActiveRecord::Base.connection.columns("direccions")
+	    columnas= columnas + ActiveRecord::Base.connection.columns("interes_basicos")
+	    columnas= columnas + ActiveRecord::Base.connection.columns("medio_de_contactos")
+	    columnas= columnas + ActiveRecord::Base.connection.columns("plan_de_descuentos")
+	    columnas = columnas.index_by {|r| r.name.humanize}.values
+	  end%>
+    <%= f.input_field  :fieldname, :collection=>columnas.map{|c| [c.name.humanize,c.name] }.sort,:include_blank=>false %>
+    <%= f.input_field :filter, :collection => [ "Igual a", "No Igual a", "Contiene", "Mas grande que", "Mas grande o igual a", "Mas chico que", "Mas chico o igual a"],:include_blank=>false %>
+    <!--<%= f.input_field :fieldvalue, :placeholder=>"Valor por defecto" %>-->
+
+	<%
+	global=[]
+	
+	
+	goup =[]
+
+	collection =[]
+	columnvalue=""
+	uno=0
+	columnas.each do |column| 
+		current=[]
+		perfield=[]
+		if uno == 0
+			perfield.push(Array.new(1," "))
+			current.push("Valor por defecto",perfield) 	
+			global.push(current)	
+			uno =1
+		end
+		case column.type.to_s
+			when "integer"
+				if column.name.include? "id" and column.name.size > 2
+					columnia=column.name.chomp('_id')
+					case columnia 
+						when "solicitante"
+							if @report.table == "prospectos"
+								""
+							end
+						when "nacionalidad"
+							tabla = Nacionalidad.all rescue nil
+								if tabla != nil && tabla.size > 0
+									tabla.each do |t|
+										perfield.push(Array.new(1,t.nacionalidad))
+										#perfield.push(Array.new(2,t.id))
+									end
+									current.push(column.name,perfield)
+									#collection.push(tabla.map{|a| [a.nacionalidad]})
+								end
+						when "user"
+							tabla = eval(columnia.camelize.singularize + ".all") rescue nil
+								if tabla != nil && tabla.size > 0
+									tabla.each do |t|
+										perfield.push(Array.new(1,t.username))
+										#perfield.push(Array.new(2,t.id))
+									end
+									current.push(column.name,perfield)
+								end							
+						when "sede","territorio","grupo"
+							tabla = eval(columnia.camelize.singularize + ".all") rescue nil
+								if tabla != nil && tabla.size > 0
+									tabla.each do |t|
+										perfield.push(Array.new(1,t.nombre))
+										#perfield.push(Array.new(2,t.id))
+									end
+									current.push(column.name,perfield)
+								end							
+						when "programa","plan_de_venta"
+							tabla = eval(columnia.camelize.singularize + ".all") rescue nil
+								if tabla != nil && tabla.size > 0
+									tabla.each do |t|
+										perfield.push(Array.new(1,t.programa))
+										#perfield.push(Array.new(2,t.id))
+									end
+									current.push(column.name,perfield)
+								end								
+						when "plan_de_ventum"
+							""
+						else
+							tabla=eval(columnia.camelize.singularize + ".all") rescue nil
+							if tabla != nil && tabla.size > 0
+								tabla.each do |t|
+									if t.respond_to?(:valor)
+										perfield.push(Array.new(1,t.valor))
+										#perfield.push(Array.new(2,t.id))
+									else
+										""
+									end
+									current.push(column.name,perfield)
+								end								
+							end
+					end
+					global.push(current)
+				end
+			when "float"
+				""
+			when "string"
+				""         
+			when "text"
+				""  				
+			when "boolean"
+				case column.name.to_s
+				when "sexo"
+					perfield.push(Array.new(1,"Masculino"))
+					perfield.push(Array.new(1,"Femenino"))
+					current.push("sexo",perfield)         
+				when "validado"		
+					perfield.push(Array.new(1,"Validado"))
+					perfield.push(Array.new(1,"No Validado"))
+					current.push("validado",perfield)				    
+				end    
+				global.push(current)
+			when "datetime"                              
+				""
+			when "date"                              
+				""
+			when "time"                              
+				""				
+			when "Nacionalidad"   
+				tabla=Nacionalidad.all
+				#collection.push(column,tabla)
+			else 
+				#tabla=eval(column.name.camelize.singularize + ".all").map{|a| [a.valor]}
+				#if tabla != nil
+				#	collection.push(column.name,tabla)
+				#end			
+		end		
+	end
+
+	global.delete_if{|i| i.empty?}
+	%> 
+	
+	<div class="input-append date datepicker" id="dp3" data-date-format="mm/dd/yyyy">
+		<%= f.input_field :date_value, :placeholder=>"Valor por defecto"%>
+		<span class="add-on"><i class="icon-th"></i></span>
+	</div>
+	<%= f.input_field :fieldvalue, :disabled=>true , :html => { :class => 'form-inline' }%> 
+	<%= f.select :fieldvalue, grouped_options_for_select(global,selected_key =:fieldvalue) , :html => { :class => 'form-inline' }%> 
+    <%= f.hidden_field :report_id, :disabled=>true %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to_function "Elminar Parametro", "if(confirm('Estas seguro?')){remove_fields(this)}", :class => 'btn btn-mini btn-danger' %>
+  
+</div>
+
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+	$('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

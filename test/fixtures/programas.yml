@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nivel: MyString
+  programa: MyString
+  descripcion_detallada: MyText
+  principales_caracteristicas: MyText
+  principales_ventajas: MyText
+  principales_beneficios: MyText
+
+two:
+  nivel: MyString
+  programa: MyString
+  descripcion_detallada: MyText
+  principales_caracteristicas: MyText
+  principales_ventajas: MyText
+  principales_beneficios: MyText

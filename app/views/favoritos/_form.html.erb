@@ -1,0 +1,16 @@
+<%= simple_form_for @favorito, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', favoritos_path, :class => 'btn' %>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@favorito.id, :parent_model=>nil, :parent_id=>nil}%>
+
+<div class="well">  <%=f.input :nombre%>
+  <%=f.input :model, :collection=>ActiveRecord::Base.connection.tables,:include_blank => false%></div>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@favorito.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@favorito.id}%>
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@favorito.id}%>
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@favorito.id}%> 
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', favoritos_path, :class => 'btn' %>
+    </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  opcion_1: MyText
+  opcion_2: MyText
+  opcion_3: MyText
+  prospecto_id: 1
+
+two:
+  opcion_1: MyText
+  opcion_2: MyText
+  opcion_3: MyText
+  prospecto_id: 1

@@ -1,0 +1,279 @@
+<%if request.path_parameters[:controller] == "solicitantes"%>
+  <div class="tab-pane fade in active" id="solicitante">
+
+      <fieldset>
+        <!--<legend><%= controller.action_name.capitalize %> Solicitante</legend>-->
+  <div>  
+  <div class="span6 well">       
+   		<%=f.input :socilicita_PAA, :label=>"Solicita PAA (Prueba de Aptitud Académica)"%>
+  		<%= f.input :fecha_programacion_para_PAA, :label=> "Fecha programación para PAA:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_programacion_para_PAA, :label=> "Fecha programación para PAA:" %>
+  			   <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+  		<%=f.input :hora_programada_PAA, :label=>"Hora Programada PAA:"%>
+          <%=f.input :solicita_pscicometria, :label=>"Solicita Psicometría:"%>
+  		<%= f.input :fecha_programacion_para_examenes_pscicomentricos, :label=> "Fecha programación para Exámenes Psicométricos:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_programacion_para_examenes_pscicomentricos, :label=> "Fecha programación para Examen Psicométrico:" %>
+  			   <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>		
+  		<%=f.input :hora_programada_pscicometrico, :label=>"Hora programada Psicométrico:"%>				
+          <%=f.input :solicita_entrevista_academica, :label=>"Solicita Entrevista Académica:"%>
+  		<%= f.input :fecha_programada_para_entrevistas, :label=> "Fecha programada Entrevista Académica:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_programada_para_entrevistas, :label=> "Fecha programada Entrevista Académica:"%>
+  			   <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+  		<%=f.input :hora_programada_entrevistas, :label=>"Hora programada Entrevista Académica:"%>
+          <%= f.association :status_de_pago_de_examen_de_admision,:include_blank => false, :label_method => :valor, :label=>"Status de pago de Examen de Admisión:" %>
+  		<%= f.input :fecha_de_limite_de_pago_examen_de_admision, :label=> " Fecha de límite de pago Examen de Admisión:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_de_limite_de_pago_examen_de_admision, :label=> " Fecha de límite de pago Examen de Admisión:"%>
+  			   <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+          <%=f.input :promedio, :label=>"Promedio:"%>
+          <%= f.association :tipo_de_admision,:include_blank => false, :label_method => :valor, :label=>"Tipo de Admisión:" %>
+          <%=f.input :comentarios, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios:"%>
+          <%=f.input :archivado%>
+        </div>
+        <div class="span6 well">
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+                <%=f.input :asistio_a_entrevista, :label=>"Asistió a la entrevista:"%>
+      <%= f.input :nueva_fecha_para_entrevista do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :nueva_fecha_para_entrevista, :label=> "Nueva fecha para entrevista:" %>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+      <%=f.input :nueva_hora_para_entrevista, :label=>"Nueva hora para entrevista:"%>
+        </div>
+             </div>
+      </fieldset>
+    </div>
+    <div class="tab-pane fade form-horizontal" id="becacredito">
+      <%=f.simple_fields_for :becacreditos , :html => { :class => 'form-horizontal' } do |builder| %>
+  <div  class="well">      
+  	  <%=builder.input :solicitud_de_beca_credito, :input_html=>{:value=>"0"}, :label=>"Solicitud de beca / crédito:"%>
+        <%=builder.input :porcentaje_de_beca_credito, :label=>"Porcentaje de Beca solicitado:"%>
+        <%=builder.input :porcentaje_de_credito_solicitado, :label=>"Porcentaje de Crédito solicitado:"%>
+        <%=builder.input :estimado_de_pago_mensual_de_colegiatura, :label=>"Estimado de pago mensual de colegiatura"%>
+         <%= builder.association :status_de_ese,:include_blank => false, :label_method => :valor , :label=>"Status de ESE:"%>
+      <%= builder.input :fecha_limite_de_aplicacion_ESE, :label=> "Fecha límite de aplicación ESE:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= builder.text_field :fecha_limite_de_aplicacion_ESE, :label=> "Fecha límite de aplicación ESE:" %>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>         
+         <%= builder.association :status_de_pago_ese,:include_blank => false, :label_method => :valor, :label=>"Status de pago ESE:" %>
+  	  <%= builder.input :fecha_limite_de_pago_ESE, :label=> "Fecha límite de pago ESE:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= builder.text_field :fecha_limite_de_pago_ESE, :label=> "Fecha límite de pago ESE:" %>
+  			   <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+
+             <%=builder.input :porcentaje_de_beca_sugerido_ESE, :label=>"Porcentaje de Beca sugerido ESE:"%>
+<div class="control-group date optional">
+  <label class="date optional control-label" for="solicitante_becacreditos_attributes_0_porcentaje_de_credito_sugerido_ESE_3i">Porcentaje de Crédito sugerido ESE:</label>  
+  <div class="controls">
+    
+    <%=builder.text_field :porcentaje_de_credito_sugerido_ESE, :input_html=>{:class=>"numeric float optional"}, :label=>"Porcentaje de Crédito sugerido ESE:"%>
+  </div>
+</div>             
+        
+        <%=builder.input :comentarios, :input_html=>{:cols=>50,:rows=>5}, :label=>"Comentarios:"%>
+         <%= builder.association :status_del_tramite_de_beca,:include_blank => false, :label_method => :valor , :label=>"Status de trámite de beca:"%>
+         <%
+  @rolepermisions  = RolePermision.where(:role_id=>current_user.role,:objeto=>"becacreditos").first
+  if @rolepermisions.permiso == "Escritura"
+  %>
+      <%=builder.input :porcentaje_de_beca_concedido, :label=>"Porcentaje de Beca Concedido:"%>
+  <%end%>
+  <%
+  @rolepermisions  = RolePermision.where(:role_id=>current_user.role,:objeto=>"becacreditos").first
+  if @rolepermisions.permiso == "Escritura"
+  %>
+  <%=builder.input :porcentaje_de_credito_concedido, :label=>"Porcentaje de Crédito concedido:"%>
+    <%end%>    
+        <%= builder.hidden_field :blank, :value=>"default"%>
+        <%
+  @rolepermisions  = RolePermision.where(:role_id=>current_user.role,:objeto=>"becacreditos").first
+  if @rolepermisions.permiso == "Escritura"
+  %>
+        <%=builder.input :comentarios_dictamen_beca, :as => :text ,:input_html => { :cols => 50, :rows => 3 } , :label=>"Comentarios:" %>
+  <%end%>
+
+      </div>
+      <%end%>
+    </div>  
+<%else%>
+<%= f.simple_fields_for :solicitantes, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <div class="tab-pane fade" id="solicitante">
+        <fieldset>
+         <!--<legend><%= controller.action_name.capitalize %> Solicitante</legend>-->
+  <div>  
+  <div class="span6 well">       
+      <%=f.input :socilicita_PAA, :label=>"Solicita PAA (Prueba de Aptitud Académica)"%>
+      <%= f.input :fecha_programacion_para_PAA, :label=> "Fecha programación para PAA:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_programacion_para_PAA, :label=> "Fecha programación para PAA:" %>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+      <%=f.input :hora_programada_PAA, :label=>"Hora Programada PAA:"%>
+          <%=f.input :solicita_pscicometria, :label=>"Solicita Psicometría:"%>
+      <%= f.input :fecha_programacion_para_examenes_pscicomentricos, :label=> "Fecha programación para Exámenes Psicométricos:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_programacion_para_examenes_pscicomentricos, :label=> "Fecha programación para Examen Psicométrico:" %>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>    
+      <%=f.input :hora_programada_pscicometrico, :label=>"Hora programada Psicométrico:"%>        
+          <%=f.input :solicita_entrevista_academica, :label=>"Solicita Entrevista Académica:"%>
+      <%= f.input :fecha_programada_para_entrevistas, :label=> "Fecha programada Entrevista Académica:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_programada_para_entrevistas, :label=> "Fecha programada Entrevista Académica:"%>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+      <%=f.input :hora_programada_entrevistas, :label=>"Hora programada Entrevista Académica:"%>
+          <%= f.association :status_de_pago_de_examen_de_admision,:include_blank => false, :label_method => :valor, :label=>"Status de pago de Examen de Admisión:" %>
+      <%= f.input :fecha_de_limite_de_pago_examen_de_admision, :label=> " Fecha de límite de pago Examen de Admisión:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_de_limite_de_pago_examen_de_admision, :label=> " Fecha de límite de pago Examen de Admisión:"%>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+          <%=f.input :promedio, :label=>"Promedio:"%>
+          <%= f.association :tipo_de_admision,:include_blank => false, :label_method => :valor, :label=>"Tipo de Admisión:" %>
+          <%=f.input :comentarios, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios:"%>
+          <%=f.input :archivado%>
+        </div>
+        <div class="span6 well">
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+                <%=f.input :asistio_a_entrevista, :label=>"Asistió a la entrevista:"%>
+      <%= f.input :nueva_fecha_para_entrevista, :label=> "Nueva fecha para entrevista:" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :nueva_fecha_para_entrevista, :label=> "Nueva fecha para entrevista:" %>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+      <%=f.input :nueva_hora_para_entrevista, :label=>"Nueva hora para entrevista:"%>
+        </div>
+             </div>
+        </fieldset>
+      </div>
+      <div class="tab-pane fade form-horizontal" id="becacredito">
+        <%=f.simple_fields_for :becacreditos , :html => { :class => 'form-horizontal' } do |builder| %>
+      <div  class="well">      
+        <%=builder.input :solicitud_de_beca_credito, :input_html=>{:value=>"0"}, :label=>"Solicitud de beca / crédito:"%>
+          <%=builder.input :porcentaje_de_beca_credito, :label=>"Porcentaje de Beca solicitado:"%>
+          <%=builder.input :porcentaje_de_credito_solicitado, :label=>"Porcentaje de Crédito solicitado:"%>
+          <%=builder.input :estimado_de_pago_mensual_de_colegiatura, :label=>"Estimado de pago mensual de colegiatura"%>
+           <%= builder.association :status_de_ese,:include_blank => false, :label_method => :valor , :label=>"Status de ESE:"%>
+        <%= builder.input :fecha_limite_de_pago_ESE, :label=> "Fecha límite de pago ESE:" do %>
+                 <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                   <%= builder.text_field :fecha_limite_de_pago_ESE%>
+             <span class="add-on"><i class="icon-th"></i></span>
+                 </div>  
+               <%end%>           
+           <%= builder.association :status_de_pago_ese,:include_blank => false, :label_method => :valor, :label=>"Status de pago ESE:" %>
+          <%=builder.input :porcentaje_de_beca_sugerido_ESE, :label=>"Porcentaje de Beca sugerido ESE:"%>
+        <%= builder.input :fecha_limite_de_aplicacion_ESE, :label=> "Fecha límite de aplicación ESE:" do %>
+                 <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                   <%= builder.text_field :fecha_limite_de_aplicacion_ESE%>
+             <span class="add-on"><i class="icon-th"></i></span>
+                 </div>  
+               <%end%>
+
+<div class="control-group date optional">
+  <label class="date optional control-label" for="solicitante_becacreditos_attributes_0_porcentaje_de_credito_sugerido_ESE_3i">Porcentaje de Crédito sugerido ESE:</label>
+  
+  <div class="controls">
+    <%=builder.text_field :porcentaje_de_credito_sugerido_ESE, :input_html=>{:class=>"numeric float optional"}, :label=>"Porcentaje de Crédito sugerido ESE:"%>
+  </div>
+</div> 
+          <%=builder.input :comentarios, :input_html=>{:cols=>50,:rows=>5}, :label=>"Comentarios:"%>
+           <%= builder.association :status_del_tramite_de_beca,:include_blank => false, :label_method => :valor , :label=>"Status de trámite de beca:"%>
+           <%
+            @rolepermisions  = RolePermision.where(:role_id=>current_user.role,:objeto=>"becacreditos").first
+            if @rolepermisions.permiso == "Escritura"
+            %>
+                <%=builder.input :porcentaje_de_beca_concedido, :label=>"Porcentaje de Beca Concedido:"%>
+            <%end%>
+            <%
+            @rolepermisions  = RolePermision.where(:role_id=>current_user.role,:objeto=>"becacreditos").first
+            if @rolepermisions.permiso == "Escritura"
+            %>
+            <%=builder.input :porcentaje_de_credito_concedido, :label=>"Porcentaje de Crédito concedido:"%>
+              <%end%>    
+          <%= builder.hidden_field :blank, :value=>"default"%>
+          <%@rolepermisions  = RolePermision.where(:role_id=>current_user.role,:objeto=>"becacreditos").first
+              if @rolepermisions.permiso == "Escritura"
+              %>
+                    <%=builder.input :comentarios_dictamen_beca, :as => :text ,:input_html => { :cols => 50, :rows => 3 } , :label=>"Comentarios:" %>
+              <%end%>
+
+        </div>
+        <%end%>
+      </div> 
+
+      <%=render :partial=>"shared/edit_prospectos", :locals=>{:f=>f}%>
+  <%end%>
+<%end%>

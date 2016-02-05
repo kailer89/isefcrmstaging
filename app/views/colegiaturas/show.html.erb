@@ -1,0 +1,33 @@
+<%- model_class = @colegiatura.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-vertical">
+  <dt><strong><%= model_class.human_attribute_name(:periodo_anual) %>:</strong></dt>
+  <dd><%= @colegiatura.periodo_anual %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id) %>:</strong></dt>
+  <dd><%= @colegiatura.sede.nombre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nivel_id) %>:</strong></dt>
+  <dd><%= @colegiatura.nivel.valor %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id) %>:</strong></dt>
+  <dd><%= @colegiatura.programa.nivel %> - <%= @colegiatura.programa.programa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cuota_de_inscripcion_para_esta_sede) %>:</strong></dt>
+  <dd><%= @colegiatura.cuota_de_inscripcion_para_esta_sede %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cuota_mensual_para_esta_sede) %>:</strong></dt>
+  <dd><%= @colegiatura.cuota_mensual_para_esta_sede %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tipo_y_no_de_pagos_de_inscripcion) %>:</strong></dt>
+  <dd><%= @colegiatura.tipo_y_no_de_pagos_de_inscripcion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tipo_y_no_de_pagos_de_colegiatura) %>:</strong></dt>
+  <dd><%= @colegiatura.tipo_y_no_de_pagos_de_colegiatura %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              colegiaturas_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_colegiatura_path(@colegiatura), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              colegiatura_path(@colegiatura),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

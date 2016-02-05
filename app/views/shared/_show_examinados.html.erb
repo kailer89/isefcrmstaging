@@ -1,0 +1,76 @@
+<%
+  if not defined?(prospectoid)
+    prospectoid=""
+  end
+%>
+<%
+  if not defined?(isactive)
+    isactive = ""
+  end
+  if request.path_parameters[:controller] == "examinados"
+    isactive = " in  active  "
+  end
+%>
+<div class="tab-pane fade<%=isactive%>" id="examinado<%=prospectoid%>">
+  <fieldset>
+<p>
+  <%valor=f.status_del_examinado_paa.valor rescue nil%>
+  <%=printIfAvailable("Dictamen PAA",valor)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Puntuación Verbal",f.puntuacion_verbal)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Puntuación Matemática",f.puntuacion_matematicas)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Puntuación Redacción Indirecta",f.puntuacion_redaccion_indirecta)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Puntaje total PAA",f.puntaje_total_paa)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Comentarios del Evaluador PAA",f.comentarios_evaluador_paa)%>
+</p>
+
+<p>
+  <%valor=f.status_del_examinado_psico.valor rescue nil %>
+  <%=printIfAvailable("Dictamen Psicométrico",valor)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Puntuación MMPI",f.puntuacion_MMPI)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Comentarios de la Psicóloga",f.comentarios_psico)%>
+</p>
+
+<p>
+  <%valor =f.status_del_examinado_entrevistum.valor rescue nil%>
+  <%=printIfAvailable("Dictamen Academico",valor)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Comentarios del Coordinador Académico",f.comentarios_coord)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Comentarios del Asesor de Promoción",f.comentarios_asesor)%>
+</p>
+
+      <p>
+        <%=printIfAvailable("Archivado",f.archivado ? "Archivado": "")%>
+      </p>
+</fieldset>
+
+
+
+</div>
+
+<%=render :partial=>"shared/show_solicitantes", :locals=>{:f=>f.solicitantes.first,:prospectoid=>prospectoid}%>

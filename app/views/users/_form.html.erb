@@ -1,0 +1,37 @@
+<ul class="breadcrumb centeredSignUp" style="margin-bottom:0px;">
+  <li>
+    <a href="/"><i class="icon-home"></i> Home</a> <span class="divider">/</span>
+  </li>
+  <li>
+  <a href="/dashboards">
+    Dashboard de Usuarios
+  </a>
+  <span class="divider">/</span>
+  </li> 
+  <li class="active">
+    <%=request.path_parameters[:action].camelize%> Usuario
+  </li>  
+</ul>
+
+<%= simple_form_for @user do |f| %>
+<div class="well centeredSignUp">	<%=f.input :username, :required => true, :autofocus => true %>
+	<%=f.input :email%>
+	<%=f.input :password%>
+	<%=f.input :password_confirmation%>
+  <%= f.input :current_password %>
+  <%= f.input :role, :collection=>Role.all.map{|c| [c.nombre + " - " + c.descripcion +  " - " + c.nivel ,c.id] },:include_blank=>false %>
+    <p>
+       <%= f.association :sede,:include_blank => false, :label_method => :nombre %>
+    </p>     
+    <p>
+      <%= f.label :empleado_tokens, "Empleados" %>
+      <%= f.text_field :empleado_tokens, "data-pre" => @user.empleados.map(&:attributes).to_json %>
+    </p>
+    <%=f.input :avatar_url%>
+    <div class="form-actions ">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', dashboards_path, :class => 'btn' %>
+  </div>     
+    </div>
+
+<%end%>

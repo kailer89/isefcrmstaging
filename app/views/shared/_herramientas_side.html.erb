@@ -1,0 +1,141 @@
+				<ul class="nav nav-list hidden-phone hidden-tablet">
+					<li class="nav-header">
+						Acciones
+					</li>
+					<li class="<%= (request.path_parameters[:controller]=="purges") ? "active" : "" %>">
+						<%= link_to purges_path do%>
+							<i class="icon-home"></i>
+							Purges
+						<%end%>
+					</li>					
+					<li class="<%= (request.path_parameters[:controller]=="sedes") ? "active" : "" %>">
+						<%= link_to sedes_path do%>
+							<i class="icon-home"></i>
+							Sedes
+						<%end%>
+					</li>	
+					<li class="nav-header">
+						Opciones
+					</li>
+					<li class="<%= (request.path_parameters[:controller]=="nacionalidads") ? "active" : "" %>">
+						<%= link_to nacionalidads_path do%>
+							<i class="icon-home"></i>
+							Nacionalidades
+						<%end%>
+					</li>	
+					<li class="<%= (request.path_parameters[:controller]=="ultimo_grado_de_estudios") ? "active" : "" %>">
+						<%= link_to ultimo_grado_de_estudios_path do%>
+							<i class="icon-home"></i>
+							Ultimo Grado de Estudios
+						<%end%>
+					</li>	
+					<li class="<%= (request.path_parameters[:controller]=="preparatoria_o_universidad_de_origens") ? "active" : "" %>">
+						<%= link_to preparatoria_o_universidad_de_origens_path do%>
+							<i class="icon-home"></i>
+							Preparatoria o Universidad de Origen
+						<%end%>
+					</li>		
+					<li class="<%= (request.path_parameters[:controller]=="municipio_de_la_preparatoria_o_universidad_de_origens") ? "active" : "" %>">
+						<%= link_to municipio_de_la_preparatoria_o_universidad_de_origens_path do%>
+							<i class="icon-home"></i>
+							Municipio de la preparatoria o universidad de orignen
+						<%end%>
+					</li>					
+					<li class="<%= (request.path_parameters[:controller]=="nivels") ? "active" : "" %>">
+						<%= link_to nivels_path do%>
+							<i class="icon-home"></i>
+							Nivel
+						<%end%>
+					</li>																					
+					<li class="<%= (request.path_parameters[:controller]=="periodo_para_ingresars") ? "active" : "" %>">
+						<%= link_to periodo_para_ingresars_path do%>
+							<i class="icon-home"></i>
+							Periodo Para Ingresar
+						<%end%>
+					</li>	
+					<li class="<%= (request.path_parameters[:controller]=="programa_de_interes") ? "active" : "" %>">
+						<%= link_to programa_de_interes_path do%>
+							<i class="icon-home"></i>
+							Programa de interes
+						<%end%>
+					</li>	
+					<li class="<%= (request.path_parameters[:controller]=="status_de_admisions") ? "active" : "" %>">
+						<%= link_to status_de_admisions_path do%>
+							<i class="icon-home"></i>
+							Status de admision
+						<%end%>
+					</li>																					
+					<li class="<%= (request.path_parameters[:controller]=="status_de_eses") ? "active" : "" %>">
+						<%= link_to status_de_eses_path do%>
+							<i class="icon-home"></i>
+							Status de ESE
+						<%end%>
+					</li>		
+					<li class="<%= (request.path_parameters[:controller]=="status_de_interes_de_prospecto_validados") ? "active" : "" %>">
+						<%= link_to status_de_interes_de_prospecto_validados_path do%>
+							<i class="icon-home"></i>
+							Status de Interes de prospectos validados
+						<%end%>
+					</li>		
+					<li class="<%= (request.path_parameters[:controller]=="status_de_la_inscripcions") ? "active" : "" %>">
+						<%= link_to status_de_la_inscripcions_path do%>
+							<i class="icon-home"></i>
+							Status de la inscripcion
+						<%end%>
+					</li>		
+					<li class="<%= (request.path_parameters[:controller]=="status_de_la_notificacions") ? "active" : "" %>">
+						<%= link_to status_de_la_notificacions_path do%>
+							<i class="icon-home"></i>
+							Status de la notificacion
+						<%end%>
+					</li>		
+					<li class="<%= (request.path_parameters[:controller]=="status_de_pago_de_examen_de_admisions") ? "active" : "" %>">
+						<%= link_to status_de_pago_de_examen_de_admisions_path do%>
+							<i class="icon-home"></i>
+							Status de pago de examen de admision
+						<%end%>
+					</li>		
+									<li class="<%= (request.path_parameters[:controller]=="status_de_pago_eses") ? "active" : "" %>">
+						<%= link_to status_de_pago_eses_path do%>
+							<i class="icon-home"></i>
+							Status de pago de ESE
+						<%end%>
+					</li>		
+									<li class="<%= (request.path_parameters[:controller]=="status_del_admitidos") ? "active" : "" %>">
+						<%= link_to status_del_admitidos_path do%>
+							<i class="icon-home"></i>
+							Status del admitido
+						<%end%>
+					</li>		
+					<li class="<%= (request.path_parameters[:controller]=="status_del_examinado_paas") ? "active" : "" %>">
+						<%= link_to status_del_examinado_paas_path do%>
+							<i class="icon-home"></i>
+							Status del examinado
+						<%end%>
+					</li>		
+					<li class="<%= (request.path_parameters[:controller]=="status_del_pago_de_la_inscripcions") ? "active" : "" %>">
+						<%= link_to status_del_pago_de_la_inscripcions_path do%>
+							<i class="icon-home"></i>
+							Status de pago de la inscripcion
+						<%end%>
+					</li>		
+					<li class="<%= (request.path_parameters[:controller]=="status_del_tramite_de_becas") ? "active" : "" %>">
+						<%= link_to status_del_tramite_de_becas_path do%>
+							<i class="icon-home"></i>
+							Status del tramite de beca
+						<%end%>
+					</li>		
+									<li class="<%= (request.path_parameters[:controller]=="tipo_de_admisions") ? "active" : "" %>">
+						<%= link_to tipo_de_admisions_path do%>
+							<i class="icon-home"></i>
+							Status de admision
+						<%end%>
+					</li>		
+									<li class="<%= (request.path_parameters[:controller]=="turnos") ? "active" : "" %>">
+						<%= link_to turnos_path do%>
+							<i class="icon-home"></i>
+							Turno
+						<%end%>
+					</li>		
+																																										  
+				</ul>		

@@ -1,0 +1,413 @@
+<%reporte = Rpm.find(params[:id])%>
+<ul class="nav nav-pills">
+  <li><%=link_to "Editar", edit_rpm_path(params[:id])%></a></li>
+  <li  class="active"><a href="#">Mostrar</a></li>
+  <li><%=link_to "Exportar a Excel", "/rpms/#{reporte.id}/imprimir.xls", :target => "_blank"%></a></li>
+</ul>
+
+<%        rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  %>
+
+	<%@AllProspectos =Prospecto.where{prospectos.created_at != nil} %>
+<%else%>
+	<%@AllProspectos =Prospecto.where{prospectos.created_at != nil}.where{:user_id==current_user.id}.where{:sede_id==current_user.sede_id} %>
+<%end%>
+<%
+#campos editables
+if reporte.nacionalidad_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{nacionalidad_id.like_any reporte.nacionalidad_id}
+end
+
+@AllProspectos = @AllProspectos.joins{interes_basicos}
+@AllProspectos = @AllProspectos.joins{direccions}
+@AllProspectos = @AllProspectos.joins{interes_academicos}
+@AllProspectos = @AllProspectos.joins{medio_de_contactos}
+@AllProspectos = @AllProspectos.joins{plan_de_descuentos}
+if reporte.ultimo_grado_de_estudio_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{interes_basicos.ultimo_grado_de_estudio_id.like_any reporte.ultimo_grado_de_estudio_id}
+end
+
+if reporte.preparatoria_o_universidad_de_origen_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{interes_basicos.preparatoria_o_universidad_de_origen_id.like_any reporte.preparatoria_o_universidad_de_origen_id}
+end
+
+if reporte.municipio_de_la_preparatoria_o_universidad_de_origen_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{interes_basicos.municipio_de_la_preparatoria_o_universidad_de_origen_id.like_any reporte.municipio_de_la_preparatoria_o_universidad_de_origen_id}
+end
+
+if reporte.sede_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{interes_basicos.sede_id.like_any reporte.sede_id}
+end
+
+if reporte.subsede_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{interes_basicos.subsede_id.like_any reporte.subsede_id}
+end
+
+if reporte.modalidad_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{interes_basicos.modalidad_id.like_any reporte.modalidad_id}
+end
+
+if reporte.turno_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{interes_basicos.turno_id.like_any reporte.turno_id}
+end
+
+if reporte.periodo_para_ingresar_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{interes_basicos.periodo_para_ingresar_id.like_any reporte.periodo_para_ingresar_id}
+end
+
+if reporte.status_de_interes_de_prospecto_validado_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{interes_basicos.status_de_interes_de_prospecto_validado_id.like_any reporte.status_de_interes_de_prospecto_validado_id}
+end
+
+if reporte.grupo_id.flatten.size > 1
+	@AllProspectos = @AllProspectos.where{prospectos.grupo_id.like_any reporte.grupo_id}
+end
+
+
+#campos normales
+
+#medio de contactos
+
+if reporte.medio_de_contactos_id.flatten.size > 1
+	reporte.medio_de_contactos_id.each do |medio|
+		case medio
+		when "feria_universitaria_en_su_colegio"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.feria_universitaria_en_su_colegio == true}
+		when "visita_a_su_salon"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.visita_a_su_salon == true}
+		when "recomendacion_de_un_amigo_familiar"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.recomendacion_de_un_amigo_familiar == true}
+		when "recomendacion_de_un_egresado"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.recomendacion_de_un_egresado == true}
+		when "sitio_oficial_web_ISEF"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.sitio_oficial_web_ISEF == true}
+		when "facebook"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.facebook == true}
+		when "twitter"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.twitter == true}
+		when "email_de_promocion_mailing"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.email_de_promocion_mailing == true}
+		when "impreso_flyer_folleto"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.impreso_flyer_folleto == true}
+		when "anuncio_publicacion_periodico_revista"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.anuncio_publicacion_periodico_revista == true}
+		when "llamada_telefonica_de_un_asesor"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.llamada_telefonica_de_un_asesor == true}
+		when "conferencia_platica_charla"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.conferencia_platica_charla == true}
+		when "sesion_informativa"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.sesion_informativa == true}
+		when "visito_las_instalaciones"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.visito_las_instalaciones == true}
+		when "convenio_con_su_institucion"
+			@AllProspectos = @AllProspectos.where{medio_de_contactos.convenio_con_su_institucion == true}
+		end
+	end
+end
+
+
+
+%>
+	<%firstitem=true%>
+	<div class="tabbable tabs-left">
+	  <ul class="nav nav-tabs">
+	    <li class="active" ><a href="#usuario" data-toggle="tab">Usuario</a></li>
+	    <li><a href="#sede" data-toggle="tab">Sede</a></li>
+	    <li><a href="#subsede" data-toggle="tab">SubSede</a></li>
+	    <li><a href="#programa" data-toggle="tab">Programa</a></li>
+	    <li><a href="#porEstado" data-toggle="tab">Por Estado</a></li>
+	  </ul>
+	  <div class="tab-content">
+	    <div class="tab-pane fade in active" id="usuario">
+			<!-- Ordenar por programa -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<%if reporte.usuarios != nil   and reporte.usuarios != ""%>
+				  	<%reporte.usuarios.each do |usuario|%>
+				  		<%usuario = User.where(:id=>usuario).first%>
+				  		<%if usuario != nil%>
+					  		<%if firstitem%>
+					  			<li class="active"><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>
+					  			<%firstitem = false%>
+					  		<%else%>
+					  			<li><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>		
+					  		<%end%>
+				  		<%end%>
+				  	<%end%>
+				<%else%>
+				  	<%User.all.each do |usuario|%>
+				  		<%if firstitem%>
+				  			<li class="active"><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>
+				  			<%firstitem = false%>
+				  		<%else%>
+				  			<li><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>		
+				  		<%end%>
+				  	<%end%>				
+			  	<%end%>
+			  	<%firstitem = true%>
+			  </ul>
+			  <div class="tab-content">
+			  	<%if reporte.usuarios != nil  and reporte.usuarios != ""%>
+			  		<%reporte.usuarios.each do |usuario|%>
+				  		<%usuario = User.where(:id=>usuario).first%>
+				  		<%if usuario != nil %>
+					  		<%@prospectos = @AllProspectos.where{prospectos.user_id==usuario.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%if firstitem%>
+					  			<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+					  			<%firstitem = false%>
+					  		<%else%>
+									<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>	
+					  		<%end%>	
+				  		<%end%>		
+					<%end%>
+				<%else%>
+			  		<%User.all.each do |usuario|%>
+			  			<%if usuario != nil %>
+					  		<%@prospectos = @AllProspectos.where{prospectos.user_id==usuario.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+							<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+				  			<%firstitem = false%>
+				  		<%else%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>		
+				  		<%end%>			
+					<%end%>				
+				<%end%>
+
+				<%firstitem = true%>
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->
+	    </div>
+	    <div class="tab-pane" id="sede">
+			<!-- Ordenar por programa -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<%if reporte.sedes != nil   and reporte.sedes != ""%>
+				  	<%reporte.sedes.each do |sede|%>
+				  		<%sede = Sede.where(:id=>sede).first%>
+				  		<%if sede != nil %>
+					  		<%if firstitem%>
+					  			<li class="active"><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>
+					  			<%firstitem = false%>
+					  		<%else%>
+					  			<li><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>		
+					  		<%end%>
+				  		<%end%>
+				  	<%end%>
+				<%else%>
+				  	<%Sede.all.each do |sede|%>
+				  		<%if firstitem%>
+				  			<li class="active"><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>
+				  			<%firstitem = false%>
+				  		<%else%>
+				  			<li><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>		
+				  		<%end%>
+				  	<%end%>				
+				<%end%>
+			  	<%firstitem = true%>
+			  </ul>
+			  <div class="tab-content">
+			  	<%if reporte.sedes != nil  and reporte.sedes != ""%>
+				  	<%reporte.sedes.each do |sede|%>
+				  		<%sede = Sede.where(:id=>sede).first%>
+				  		<%if sede != nil %>
+					  		<%@prospectos = @AllProspectos.where{prospectos.sede_id==sede.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%if firstitem%>
+								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+					  			<%firstitem = false%>
+					  		<%else%>
+							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
+					  		<%end%>			
+				  		<%end%>	
+					<%end%>
+				<%else%>
+					<%Sede.all.each do |sede|%>
+					  		<%@prospectos = @AllProspectos.where{prospectos.sede_id==sede.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+				  		<%if firstitem%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+				  			<%firstitem = false%>
+				  		<%else%>
+								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>	
+				  		<%end%>			
+					<%end%>				
+				<%end%>
+				<%firstitem = true%>
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->
+	    </div>
+	    <div class="tab-pane" id="subsede">
+			<!-- Ordenar por programa -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<%if reporte.subsedes != nil and reporte.subsedes != ""%>
+				  	<%reporte.subsedes.each do |subsede|%>
+				  		<%subsede = Subsede.where(:id=>subsede).first%>
+				  		<%if subsede != nil%>
+					  		<%if firstitem%>
+					  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>
+					  			<%firstitem = false%>
+					  		<%else%>
+					  			<li><a href="#<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>		
+					  		<%end%>
+				  		<%end%>
+				  	<%end%>
+			  	<%else%>
+			  		<%Subsede.all.each do |subsede|%>
+				  		<%if firstitem%>
+				  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>
+				  			<%firstitem = false%>
+				  		<%else%>
+				  			<li><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>		
+				  		<%end%>
+				  	<%end%>			  	
+			  	<%end%>
+			  	<%firstitem = true%>
+			  </ul>
+			  <div class="tab-content">
+			  	<%if reporte.subsedes != nil  and reporte.subsedes != ""%>
+				  	<%reporte.subsedes.each do |subsede|%>
+				  		<%subsede = Subsede.where(:id=>subsede).first%>
+				  		<%if subsede != nil%>
+					  		<%@prospectos = @AllProspectos.joins{interes_basicos}.where{interes_basicos.subsede_id==subsede.id}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%if firstitem%>
+								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+					  			<%firstitem = false%>
+					  		<%else%>
+							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>	
+					  		<%end%>			
+				  		<%end%>	
+					<%end%>
+				<%else%>
+				  	<%Subsede.all.each do |subsede|%>
+					  		<%@prospectos = @AllProspectos.joins{interes_basicos}.where{interes_basicos.subsede_id==subsede.id}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+				  		<%if firstitem%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+				  			<%firstitem = false%>
+				  		<%else%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>	
+				  		<%end%>			
+					<%end%>				
+				<%end%>
+				<%firstitem = true%>
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->
+	    </div>
+	    <div class="tab-pane" id="programa">
+			<!-- Ordenar por programa -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<%if reporte.programas != nil%>
+				  	<%reporte.programas.each do |programaid|%>
+				  		<%programa = Programa.where(:id=>programaid).first%>
+				  		<%if programa != nil%>
+					  		<%if firstitem%>
+					  			<li class="active"><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%></a></li>
+					  			<%firstitem = false%>
+					  		<%else%>
+					  			<li><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%></a></li>		
+					  		<%end%>
+				  		<%end%>
+				  	<%end%>
+				<%else%>
+				  	<%Programa.all.each do |programa|%>
+				  		<%if firstitem%>
+				  			<li class="active"><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%></a></li>
+				  			<%firstitem = false%>
+				  		<%else%>
+				  			<li><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%></a></li>		
+				  		<%end%>
+				  	<%end%>				
+				<%end%>
+			  	<%firstitem = true%>
+			  </ul>
+			  <div class="tab-content">
+			  	<%if reporte.programas != nil%>
+					<%reporte.programas.each do |programaid|%>
+						<%programa = Programa.where(:id=>programaid).first%>
+						<%if programa != nil%>
+							<%@prospectos = @AllProspectos.where{prospectos.programa_id==programaid}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%if firstitem%>
+							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+					  			<%firstitem = false%>
+					  		<%else%>
+							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>						    			
+					  		<%end%>			
+				  		<%end%>	
+					<%end%>
+				<%else%>
+					<%Programa.all.each do |programa|%>
+							<%@prospectos = @AllProspectos.where{prospectos.programa_id==programaid}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+				  		<%if firstitem%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+				  			<%firstitem = false%>
+				  		<%else%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
+				  		<%end%>			
+					<%end%>				
+				<%end%>
+				<%firstitem = true%>
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->
+	    </div>
+	    <div class="tab-pane" id="porEstado">
+			<!-- Ordenar por estado -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<li class="active"><a href="#validados" data-toggle="tab">Validados</a></li>
+				<li><a href="#solicitantes" data-toggle="tab">Solicitantes</a></li>		
+				<li><a href="#examinados" data-toggle="tab">Examinados</a></li>		
+				<li><a href="#admitidos" data-toggle="tab">Admitidos</a></li>		
+				<li><a href="#inscritos" data-toggle="tab">Inscritos</a></li>		
+			  </ul>
+			  <div class="tab-content">
+<%logger.debug "---------------------------aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-----0"%>
+					<%inicio = DateTime.parse('2010-09-6')%>
+					<%fin = DateTime.parse('2020-09-6')%>
+			  		<%historial = History.where("created_at >= ?",reporte.validado_inicio).where("created_at <= ?",reporte.validado_fin).where("action like '%alidado%'").all.map{|p|p.model_id}
+			  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
+			  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"validados",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+
+			  		<%if reporte.show_solicitantes%>
+				  		<%historial = History.where("created_at >= ?",inicio).where("created_at <= ?",fin).where("action like '%icitante%'").all.map{|p|p.model_id}
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
+
+				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"solicitantes",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
+				  	<%else%>
+				  	<div class="tab-pane active" id="solicitantes">
+				  	</div>
+			  		<%end%>
+			  		<%if reporte.show_examinados%>
+				  		<%historial = History.where("created_at >= ?",inicio).where("created_at <= ?",fin).where("action like '%xaminado%'").all.map{|p|p.model_id}
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
+				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"examinados",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
+				  	<%else%>
+				  	<div class="tab-pane active" id="examinados">
+				  	</div>				  		
+			  		<%end%>
+			  		<%if reporte.show_admitidos%>
+				  		<%historial = History.where("created_at >= ?",inicio).where("created_at <= ?",fin).where("action like '%dmitido%'").all.map{|p|p.model_id}
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
+				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"admitidos",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
+				  	<%else%>
+				  	<div class="tab-pane active" id="admitidos">
+				  	</div>					  		
+			  		<%end%>
+			  		<%if reporte.show_inscritos%>
+				  		<%historial = History.where("created_at >= ?",inicio).where("created_at <= ?",fin).where("action like '%nscrito%'").all.map{|p|p.model_id}
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
+				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"inscritos",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
+				  	<%else%>
+				  	<div class="tab-pane active" id="inscritos">
+				  	</div>						  		
+			  		<%end%>
+<%logger.debug "---------------------------aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-----0"%>			  		
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->	    
+	    </div>
+
+	  </div>
+	</div>

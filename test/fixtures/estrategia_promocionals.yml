@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  status_de_la_estrategia: MyString
+  fecha_para_llevarla_a_cabo: 2012-03-25
+  reponsable_para_llevarla_a_cabo: MyString
+  descripcion_detallada: MyText
+  mercado_meta_id: 1
+
+two:
+  status_de_la_estrategia: MyString
+  fecha_para_llevarla_a_cabo: 2012-03-25
+  reponsable_para_llevarla_a_cabo: MyString
+  descripcion_detallada: MyText
+  mercado_meta_id: 1

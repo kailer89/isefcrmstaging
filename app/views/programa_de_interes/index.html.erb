@@ -1,0 +1,26 @@
+<h1>Programa De Interes</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Valor</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @programa_de_interes.each do |programa_de_intere| %>
+      <tr>
+        <td><%= programa_de_intere.id %></td>
+        <td><%= link_to programa_de_intere.valor, programa_de_intere_path(programa_de_intere) %></td>
+        <td><%= programa_de_intere.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_programa_de_intere_path(programa_de_intere), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', programa_de_intere_path(programa_de_intere), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_programa_de_intere_path, :class => 'btn btn-primary' %>

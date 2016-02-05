@@ -1,0 +1,40 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@preguntum.id, :parent_model=>nil, :parent_id=>nil}%>
+<div class="well"><h1>Pregunta</h1>
+
+
+<p>
+  <b>Ambito de la pregunta</b><br>
+  <%= @preguntum.ambito_de_la_pregunta %>
+</p>
+
+<p>
+  <b>Pregunta</b><br>
+  <%= @preguntum.pregunta %>
+</p>
+
+
+<p>
+  <b>Respuesta</b><br>
+  <%= @preguntum.respuesta %>
+</p>
+
+<p>
+  <b>Pregunta planteada por</b><br>
+  <%= @preguntum.pregunta_planteada_por %>
+</p>
+
+<p>
+  <b>Resuelta por</b><br>
+  <%= @preguntum.resuelta_por %>
+</p>
+
+<p>
+  <b>Pregunta frecuente</b><br>
+  <%= @preguntum.pregunta_frecuente %>
+</p></div>
+
+<div class="form-actions">
+  <%= link_to 'Back', pregunta_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_preguntum_path(@preguntum), :class => 'btn' %>
+  <%= link_to 'Delete', preguntum_path(@preguntum), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

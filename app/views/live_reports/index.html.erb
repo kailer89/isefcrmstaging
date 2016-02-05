@@ -1,0 +1,23 @@
+<h1>Listing live_reports</h1>
+
+<table>
+  <tr>
+    <th>Valor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @live_reports.each do |live_report| %>
+  <tr>
+    <td><%= live_report.valor %></td>
+    <td><%= link_to 'Show', live_report %></td>
+    <td><%= link_to 'Edit', edit_live_report_path(live_report) %></td>
+    <td><%= link_to 'Destroy', live_report, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Live report', new_live_report_path %>

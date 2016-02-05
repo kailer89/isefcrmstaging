@@ -1,0 +1,22 @@
+<h1>Reportparam</h1>
+
+<p>
+  <b>Nombre</b><br>
+  <%= @reportparam.nombre %>
+</p>
+
+<p>
+  <b>Fieldname</b><br>
+  <%= @reportparam.fieldname %>
+</p>
+
+<p>
+  <b>Fieldvalue</b><br>
+  <%= @reportparam.fieldvalue %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', reportparams_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_reportparam_path(@reportparam), :class => 'btn' %>
+  <%= link_to 'Delete', reportparam_path(@reportparam), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

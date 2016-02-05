@@ -1,0 +1,2 @@
+module ComentariosEstrategiaHelper
+end

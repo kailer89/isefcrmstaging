@@ -1,0 +1,90 @@
+nombre,apellido_paterno,apellido_materno,sexo,fecha_de_nacimiento,nacionalidad,telefono_particular,telefono_movil,otro_telefono,email,facebook,twitter,calle,no_interior,no_exterior,colonia,delegacion_municipio,estado,pais,codigo_postal,ultimo_grado_de_estudio,preparatoria_o_universidad_de_origen,municipio_de_la_preparatoria_o_universidad_de_origen,ano_de_graduacion,programa,nivel,modalidad,turno,periodo_para_ingresar,interes_academico_1,interes_academico_2,interes_academico_3,medio_de_contacto,commentarios
+*Nombre(s):,* Apellido Paterno:,Apellido Materno:,*Sexo,Fecha de nacimiento,Nacionalidad,Teléfono Particular:,Teléfono Móvil:,Otro Teléfono:,*E-mail:,Alias Facebook:,Twitter:@,Calle:,No. Interior:,No. Exterior:,Colonia:,Delegación/Municipio:,Estado,Pais,Código Postal:,Último grado de estudios:,Preparatoria/Universidad de procedencia:,Municipio de la Preparatoria/Universidadde procedencia:,Año de Graduación:,Programa de Interés:,Nivel:,Modalidad:,Turno:,Periodo para Ingresar:,Opción 1: otro posgrado/carrera de interés,Opción 2: otro posgrado/carrera de interés,Opción 3: otro posgrado/carrera de interés,Medio de contacto,Comentarios:
+Sandra Angélica,Hernández,,Femenino,,Mexicana,24.91.22.08.08.,00.00.00.00.00.,00.00.00.00.00.,pilargonzalezcatalan@gmail.com,,,,,,,Puebla,Puebla,Mexico,,,,,,,,,,,,,,,la canaliza Mague después de que escribió correo al buzón. no ha respondido
+Diniosio,Montiel,García,Masculino,,Mexicana,55.32.38.3956,00.00.00.00.00.,00.00.00.00.00.,iglesiacatote@hotmail.com,,,,,,,,,Mexico,,,,,,,,,,,,,,,"P. Mario, rito oriental, monasterios en argentina.guatemala, 3 años.santo sepulcro. "
+Jessica,Rodríguez,,Femenino,,Mexicana,55.18.37.75.78.,00.00.00.00.00.,00.00.00.00.00.,jezzyrdgz@gmail.com,,,,,,,,,Mexico,,,,,,,,,,,,,,,"Señora con dos hijas que trabaja en la escuelas de sus niñas, se le dificulta estudiar en la mañana y necesita una buena beca para poderlo hacer."
+Nicole,Rocha,Carrillo,Femenino,,Mexicana,66.77.52.24.05.,00.00.00.00.00.,00.00.00.00.00.,ana_carrilloa@hotmail.com,,,,,,,Culiacán,Sinaloa,Mexico,,,,,,,,,,,,,,,Entraría en 2016 la mamá es la más interesada y quizás si le gusta
+Ximena,Cuevas,Mendoza,Femenino,,Mexicana,55.51.44.63.34.,00.00.00.00.00.,00.00.00.00.00.,ximecuevasm91@hotmail.com,,,,,,,,,Mexico,,,,,,,,,,,,,,,Quiere iniciar en Agosoto 2016
+Regina,Blise,Cisneros,Femenino,,Mexicana,74.41.00.74.24.,00.00.00.00.00.,00.00.00.00.00.,vacio@vacio.com,,,,,,,Acapulco,Guerrero,Mexico,,,,,,,,,,,,,,,Termina carrera en dos años y se viene a vivir a huixquilucan 2017
+María,Ruenes,Soto,Femenino,,Mexicana,55.58.08.23.08.,55.23.09.45.27.,00.00.00.00.00.,mariarueso@gmail.com,,,,,,,,,Mexico,,,,,,,,,,,,,,,Sale de preparatoria en 2016 y puede starinteresada en la Lic en Ciencias de la Fam
+Rosa Martha,,,Femenino,,Mexicana,42.71.26.33.46.,00.00.00.00.00.,00.00.00.00.00.,rosamarthasg@hotmail.com,,,,,,,Santiago Queretaro,Queretaro,Mexico,,,,,,,,,,,,,,,Sale de preparatoria en 2016 y puede starinteresada en la Lic en Ciencias de la Fam
+Regina,Barredo,,Femenino,,Mexicana,55.34.36.64.01.,00.00.00.00.00.,00.00.00.00.00.,regina_bato@hotmail.com,,,,,,,Santiago Queretaro,Queretaro,Mexico,,,,,,,,,,,,,,,Sale de preparatoria en 2016 y puede starinteresada en la Lic en Ciencias de la Fam
+Karla,Valverde,,Femenino,,Mexicana,44.22.19.85.49.,00.00.00.00.00.,00.00.00.00.00.,vacio@vacio.com,,,,,,,Santiago Queretaro,Queretaro,Mexico,,,,,,,,,,,,,,,Sale de preparatoria en 2016 y puede starinteresada en la Lic en Ciencias de la Fam
+Daniela,Del Castillo,,Femenino,,Mexicana,44.24.75.38.72.,00.00.00.00.00.,00.00.00.00.00.,daniela.dlc@hotmail.com,,,,,,,Santiago Queretaro,Queretaro,Mexico,,,,,,,,,,,,,,,Sale de preparatoria en 2016 y puede starinteresada en la Lic en Ciencias de la Fam
+Rosario,Madrazo,,Femenino,,Mexicana,55.65.76.92.22.,55.41.71.29.88.,00.00.00.00.00.,rosemadrazo@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,Su hermano es Ricardo Madrazo estaba estudiando la carrera y se cambio a derecha. Ella esta entre diseño industrial o psicologia
+Maru,Ruesga,,Femenino,,Mexicana,55.52.59.43.76.,55.43.46.12.87.,00.00.00.00.00.,m.ruloz@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,no sabe que estudiar pero quiere ayudar a los demas
+Susana,Faudoa,,Femenino,,Mexicana,55.83.38.21.96.,81.10.22.07.87.,00.00.00.00.00.,susanafaudoa@gmail.com,,,,,,,Monterrey,Nuevo Leon,Mexico,,,,,,,,,,,,,,,Interesada en la parte humana
+Gabriela,Cardenas,,Femenino,,Mexicana,55.25.91.02.60.,55.29.22.63.41.,00.00.00.00.00.,gaby_cardenass@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,"Quiere relaciones internacionales, admon. publica, derecho, psicología porque quiere hacer un cambio positivo en el mundo desde el lado humano"
+Rebeca,Garcia,,Femenino,,Mexicana,55.83.03.61.23.,81.81.87.76.64.,00.00.00.00.00.,rebecagmtz@hotmail.com,,,,,,,Monterrey,Nuevo Leon,Mexico,,,,,,,,,,,,,,,su mamá estudió la maestría
+Regina,Valdés,,Femenino,,Mexicana,00.00.00.00.00.,00.00.00.00.00.,00.00.00.00.00.,regvs17@live.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,Centro Estudiantil
+Valeria,Gonzalez,,Femenino,,Mexicana,55.52.95.18.44.,55.16.48.12.62.,00.00.00.00.00.,pesadilla_uvita@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,Muy interesada
+Monserrat,Rodriguez,,Femenino,,Mexicana,46.20.21.40.18.,00.00.00.00.00.,00.00.00.00.00.,marichoule@hotmail.com,,,,,,,Irapuato,Guanajuato,Mexico,,,,,,,,,,,,,,,
+Regina,Negrete,,Femenino,,Mexicana,00.00.00.00.00.,46.17.02.05.35.,00.00.00.00.00.,regi_nch97@hotmail.com,,,,,,,Irapuato,Guanajuato,Mexico,,,,,,,,,,,,,,,
+Ana Sofia,Teran,,Femenino,,Mexicana,55.51.33.67.36.,55.85.48.87.18.,00.00.00.00.00.,anasofia.teran@yahoo.com.mx,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Melissa,Lopez,,Femenino,,Mexicana,00.00.00.00.00.,55.27.69.30.37.,00.00.00.00.00.,melissa.lopz99@gmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Valeria,Cardenas,,Femenino,,Mexicana,47.72.40.92.27.,00.00.00.00.00.,00.00.00.00.00.,valeria_cabralc@hotmail.com,,,,,,,Leòn,Guanajuato,Mexico,,,,,,,,,,,,,,,
+Jacquelin,Vazquez,,Femenino,,Mexicana,55.22.30.82.00.,00.00.00.00.00.,00.00.00.00.00.,jakky2319@gmail.com,,,,,,,Chalco,Mexico,Mexico,,,,,,,,,,,,,,,
+Carolina,Dominguez,,Femenino,,Mexicana,72.27.02.49.67.,00.00.00.00.00.,00.00.00.00.00.,carodp09@hotmail.com,,,,,,,Toluca,Mexico,Mexico,,,,,,,,,,,,,,,
+Diana,Aguilera,,Femenino,,Mexicana,55.53.64.73.06.,00.00.00.00.00.,00.00.00.00.00.,dam98@prodigy.net.mx,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Maria Fernanda,Lara,,Femenino,,Mexicana,84.41.79.91.02.,00.00.00.00.00.,00.00.00.00.00.,marifer.928@hotmail.com,,,,,,,Saltillo,Coahuila,Mexico,,,,,,,,,,,,,,,
+Arlette,Ochoa,,Femenino,,Mexicana,00.00.00.00.00.,27.21.04.99.11.,00.00.00.00.00.,arletteochoa@hotmail.com,,,,,,,Orizaba,Veracruz,Mexico,,,,,,,,,,,,,,,Se va de colab
+Mariela,O'Neill,,Femenino,,Mexicana,99.92.34.64.14.,00.00.00.00.00.,00.00.00.00.00.,marielaoneill09@hotmail.com,,,,,,,Merida,Yucatán,Mexico,,,,,,,,,,,,,,,Va en 2ndo año de ´reá
+Sara,Lopez,,Femenino,,Mexicana,34.81.05.35.74.,00.00.00.00.00.,00.00.00.00.00.,sara.lopez@outlook.com,,,,,,,Guadalajara,Jalisco,Mexico,,,,,,,,,,,,,,,
+Isabel,Aguilar,,Femenino,,Mexicana,41.11.63.91.51.,00.00.00.00.00.,00.00.00.00.00.,isa_ao_98@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Cristy,Gallardo,,Femenino,,Mexicana,00.00.00.00.00.,00.00.00.00.00.,00.00.00.00.00.,cristy_gallardo99@hotmail.com,,,,,,,Celaya,Guanajuato,Mexico,,,,,,,,,,,,,,,
+Antonio,Valdés,,Masculino,,Mexicana,84.41.60.68.31.,00.00.00.00.00.,00.00.00.00.00.,antoniovaldesc@icloud.com,,,,,,,Saltillo,Coahuila,Mexico,,,,,,,,,,,,,,,
+Marella,Carvallo,,Femenino,,Mexicana,55.48.41.93.66.,00.00.00.00.00.,00.00.00.00.00.,marecarvallo@gmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Monika,Escobar,,Femenino,,Mexicana,55.10.69.48.24.,00.00.00.00.00.,00.00.00.00.00.,monikaescobardumas@gmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Ileana,Cuevas,,Femenino,,Mexicana,55.55.62.70.94.,55.28.59.25.15.,00.00.00.00.00.,ile0497@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+César,Santana,,Masculino,,Mexicana,55.43.94.46.00.,00.00.00.00.00.,00.00.00.00.00.,cesarsantana04@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Isabella,Londoño,,Femenino,,Mexicana,55.34.55.25.52.,00.00.00.00.00.,00.00.00.00.00.,isabellalondono@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Ana Tere,Rodríguez,,Femenino,,Mexicana,84.48.08.12.06.,00.00.00.00.00.,00.00.00.00.00.,anatererh@outlook.com,,,,,,,Saltillo,Coahuila,Mexico,,,,,,,,,,,,,,,
+Montserrat,Valdez,,Femenino,,Mexicana,55.85.34.81.78.,00.00.00.00.00.,00.00.00.00.00.,gujiv@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,2ndo de prepa 8/4/2015
+Maria José,Mier,,Femenino,,Mexicana,55.34.20.52.06.,00.00.00.00.00.,00.00.00.00.00.,marijomier@gmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,2ndo de prepa 8/4/2015
+Natalia,del Real,,Femenino,,Mexicana,00.00.00.00.00.,87.11.61.12.40.,00.00.00.00.00.,natidelr@hotmail.com,,,,,,,Torreon,Coahuila,Mexico,,,,,,,,,,,,,,,
+Aylen,Pavón,,Femenino,,Mexicana,00.00.00.00.00.,00.00.00.00.00.,00.00.00.00.00.,ayleneri@hotmail.com,,,,,,,Tabasco,Villahermosa,Mexico,,,,,,,,,,,,,,,
+Regina,Perez,,Femenino,,Mexicana,49.29.22.98.09.,49.21.75.54.49.,00.00.00.00.00.,reginaperezz46@gmail.com,,,,,,,Zacatetcas,Zacatetcas,Mexico,,,,,,,,,,,,,,,
+Maria Inés,Rodríguez,,Femenino,,Mexicana,72.21.21.65.33.,00.00.00.00.00.,00.00.00.00.00.,nesyrodri@hotmail.com,,,,,,,Toluca,Mexico,Mexico,,,,,,,,,,,,,,,
+Carolina,Castañedas,,Femenino,,Mexicana,00.00.00.00.00.,46.21.07.87.34.,00.00.00.00.00.,carocatame@gmail.com,,,,,,,Irapuato,Guanajuato,Mexico,,,,,,,,,,,,,,,
+Natalia,Tendilla,,Femenino,,Mexicana,55.36.12.39.35.,33.10.64.65.29.,00.00.00.00.00.,nataliatendilla@hotmail.com,,,,,,,Guadalajara,Jalisco,Mexico,,,,,,,,,,,,,,,
+Emilia,delgado,,Femenino,,Mexicana,00.00.00.00.00.,00.00.00.00.00.,00.00.00.00.00.,emilia_2217@hotmail.com,,,,,,,Zacatecas,Zacatecas,Mexico,,,,,,,,,,,,,,,
+Isabel,Gutierrez,,Femenino,,Mexicana,55.55.62.73.26.,55.63.19.82.99.,00.00.00.00.00.,isagutlor@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Ixchell,Gutierrez,,Femenino,,Mexicana,55.55.62.73.26.,55.63.19.72.97.,00.00.00.00.00.,ixchellg@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Martha Ivanna,Montibeller,,Femenino,,Mexicana,46.21.14.51.66.,46.21.71.79.44.,00.00.00.00.00.,ivannamonti@gmail.com,,,,,,,Irapuato,Guanajuato,Mexico,,,,,,,,,,,,,,,
+Mariana,Garrido,,Femenino,,Mexicana,00.00.00.00.00.,87.11.37.73.12.,00.00.00.00.00.,marigaro99@hotmail.com,,,,,,,Torreon,Coahuila,Mexico,,,,,,,,,,,,,,,
+Ileana,Cuevas,,Femenino,,Mexicana,55.55.62.70.94.,55.28.59.25.15.,00.00.00.00.00.,ile497@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Natalia,del Real,,Femenino,,Mexicana,00.00.00.00.00.,87.11.61.12.40.,00.00.00.00.00.,natidelr@hotmail.com,,,,,,,Torreon,Coahuila,Mexico,,,,,,,,,,,,,,,
+Aylen,Pavón,,Femenino,,Mexicana,00.00.00.00.00.,00.00.00.00.00.,00.00.00.00.00.,ayleneri@hotmail.com,,,,,,,Tabasco,Villahermosa,Mexico,,,,,,,,,,,,,,,
+Regina,Perez,,Femenino,,Mexicana,49.29.22.98.09.,49.21.75.54.49.,00.00.00.00.00.,reginaperezz46@gmail.com,,,,,,,Zacatecas,Zacatecas,Mexico,,,,,,,,,,,,,,,
+Maria Inés,Rodríguez,,Femenino,,Mexicana,72.21.21.65.33.,00.00.00.00.00.,00.00.00.00.00.,nesyrodri@hotmail.com,,,,,,,Toluca,Mexico,Mexico,,,,,,,,,,,,,,,
+Carolina,Castañedas,,Femenino,,Mexicana,00.00.00.00.00.,46.21.07.87.34.,00.00.00.00.00.,carocatame@gmail.com,,,,,,,Irapuato,Guanajuato,Mexico,,,,,,,,,,,,,,,
+Natalia,Tendilla,,Femenino,,Mexicana,00.00.00.00.00.,33.10.64.65.29.,00.00.00.00.00.,nataliatendilla@hotmail.com,,,,,,,Guadalajara,Jalisco,Mexico,,,,,,,,,,,,,,,
+Emilia,delgado,,Femenino,,Mexicana,00.00.00.00.00.,00.00.00.00.00.,00.00.00.00.00.,emilia_2217@hotmail.com,,,,,,,Zacatecas,Zacatecas,Mexico,,,,,,,,,,,,,,,
+Isabel,Gutierrez,,Femenino,,Mexicana,55.55.62.73.26.,55.63.19.82.99.,00.00.00.00.00.,isagutlor@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Ixchell,Gutierrez,,Femenino,,Mexicana,55.55.62.73.26.,55.63.19.72.97.,00.00.00.00.00.,ixchellg@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Martha Ivanna,Montibeller,,Femenino,,Mexicana,46.21.14.51.66.,46.21.71.79.44.,00.00.00.00.00.,ivannamonti@gmail.com,,,,,,,Irapuato,Guanajuato,Mexico,,,,,,,,,,,,,,,
+Mariana,Garrido,,Femenino,,Mexicana,00.00.00.00.00.,87.11.37.73.12.,00.00.00.00.00.,marigaro99@hotmail.com,,,,,,,Torreon,Coahuila,Mexico,,,,,,,,,,,,,,,
+Ileana,Cuevas,,Femenino,,Mexicana,55.55.62.70.94.,55.28.59.25.15.,00.00.00.00.00.,ile497@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Anael,Nuño,,Femenino,,Mexicana,00.00.00.00.00.,55.34.43.25.71.,00.00.00.00.00.,anaelnubu@gmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Andrea,Cuevas,,Femenino,,Mexicana,55.55.62.70.94.,55.25.09.15.20.,00.00.00.00.00.,andifeb26@hotmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Alexandra,Zepulveda,,Femenino,,Mexicana,00.00.00.00.00.,55.45.30.16.10.,00.00.00.00.00.,alesepulveda1997@gmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Regina,Diaz,,Femenino,,Mexicana,55.50.19.39.86.,55.34.36.64.01.,00.00.00.00.00.,rediazcastanares@gmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Maria Lucia,Castañeda,,Femenino,,Mexicana,66.42.51.39.91.,00.00.00.00.00.,00.00.00.00.00.,malucaslu@hotmail.com,,,,,,,Tijuana,Bajo California,Mexico,,,,,,,,,,,,,,,
+Monica,Tejedo,,Femenino,,Mexicana,55.26.70.42.56.,00.00.00.00.00.,00.00.00.00.00.,monitejedo@gmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Lindsay,Ortiz,,Femenino,,Mexicana,00.00.00.00.00.,84.46.07.77.72.,00.00.00.00.00.,lindsaybonita@live.com.mx,,,,,,,Saltillo,Coahuila,Mexico,,,,,,,,,,,,,,,
+Barbara,Sanchez,,Femenino,,Mexicana,84.44.31.02.71.,84.44.19.00.68.,00.00.00.00.00.,barby.2705@hotmail.com,,,,,,,Saltillo,Coahuila,Mexico,,,,,,,,,,,,,,,
+Ana Luisa,Noriega,,Femenino,,Mexicana,55.48.66.84.24.,00.00.00.00.00.,00.00.00.00.00.,ana_n_g@live.com.mx,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Marcos Emilio,Garcia,,Masculino,,Mexicana,55.43.57.80.09.,55.22.22.25.09.,00.00.00.00.00.,mrcs.grc.avnd@gmail.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Ana Paula,Rosas,,Femenino,,Mexicana,00.00.00.00.00.,55.24.00.58.73.,00.00.00.00.00.,paulicarosas@icloud.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+Maria Paula,Rosado,,Femenino,,Mexicana,00.00.00.00.00.,84.41.06.96.54.,00.00.00.00.00.,mariapaulara@live.com.mx,,,,,,,Saltillo,Coahuila,Mexico,,,,,,,,,,,,,,,
+Melanie,Gomez,,Femenino,,Mexicana,99.32.07.05.94.,00.00.00.00.00.,00.00.00.00.00.,melaniefloresg@hotmail.com,,,,,,,Tabasco,Villahermosa,Mexico,,,,,,,,,,,,,,,
+Maria del Pilar,Fernandez,,Femenino,,Mexicana,00.00.00.00.00.,99.33.23.13.28.,00.00.00.00.00.,mapiferpilgram@hotmail.com,,,,,,,Tabasco,Villahermosa,Mexico,,,,,,,,,,,,,,,
+Fernanda,Hernandez,,Femenino,,Mexicana,00.00.00.00.00.,84.41.22.27.41.,00.00.00.00.00.,fer.hernandez99@outlook.com,,,,,,,Saltillo,Coahuila,Mexico,,,,,,,,,,,,,,,
+Karen,Ayoub,,Femenino,,Mexicana,55.55.68.22.51.,55.36.55.44.59.,00.00.00.00.00.,karenayoubkaram@hotmail.com,,,,,,,,,Mexico,,,,,,,,,,,,,,,
+Mariana,Brun,,Femenino,,Mexicana,00.00.00.00.00.,00.00.00.00.00.,00.00.00.00.00.,marianabrum97@hotmail.com,,,,,,,,,Mexico,,,,,,,,,,,,,,,
+Adriana,Aguirre,,Femenino,,Mexicana,00.00.00.00.00.,84.48.80.48.80.,00.00.00.00.00.,adrianaagri@hotmail.com,,,,,,,Saltillo,Coahuila,Mexico,,,,,,,,,,,,,,,
+Mitzi,Contreras,,Femenino,,Mexicana,55.30.91.16.82.,55.91.44.89.23.,00.00.00.00.00.,mitzideymy@live.com,,,,,,,Mexico,Mexico,Mexico,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,11 @@
+# app/views/comments/_comment.html.erb
+<div class="well fields">
+  <fieldset>
+    <%= f.input_field :title%>
+    <%= f.input :body%>
+    <%= f.input_field :commentable_id%>
+    <%= f.input_field :commentable_type%>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to_function "Elminar Commentario por", "if(confirm('Estas seguro?')){remove_fields(this)}", :class => 'btn btn-mini btn-danger' %>
+  </fieldset>
+</div>

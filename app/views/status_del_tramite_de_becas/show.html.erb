@@ -1,0 +1,12 @@
+<h1>Status Del Tramite De Beca</h1>
+
+<p>
+  <b>Valor</b><br>
+  <%= @status_del_tramite_de_beca.valor %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', status_del_tramite_de_becas_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_status_del_tramite_de_beca_path(@status_del_tramite_de_beca), :class => 'btn' %>
+  <%= link_to 'Delete', status_del_tramite_de_beca_path(@status_del_tramite_de_beca), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

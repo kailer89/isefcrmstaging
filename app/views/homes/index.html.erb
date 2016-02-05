@@ -1,0 +1,1283 @@
+<%
+    modelo = Configuracione.where(:user_id=>current_user.id).first rescue nil
+    archivado=false
+    if modelo != nil
+      archivado = modelo.mostrar_archivados
+    else
+      Configuracione.create(:user_id=>current_user.id,:mostrar_archivados=>false)
+    end  
+%>
+
+
+				<div class="hero-unit  hidden-phone hidden-tablet">
+				  <h1>Bienvenid@ <%=current_user.username%>!</h1>
+				  <p>Selecciona alguna de las opciones para ver mas informacion.</p>
+				</div>	
+				<div class="well visible-phone visible-tablet">
+					<h1>Bienvenid@ <%=current_user.username%>!</h1>
+				</div>
+				
+<ul id="tab" class="nav nav-tabs">
+  <li class="active"><a href="#principal" data-toggle="tab">Principal</a></li>
+  <li><a href="#metricas" data-toggle="tab">Cono de Ventas</a></li>
+  <li><a href="#campanas" data-toggle="tab">Estadísticas</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="container-fluid tab-pane fade in active" id="principal">
+        <!-- Example row of columns -->
+        <div class="row-fluid">
+          <div class="span4">
+            <div class="thumbnail">
+              <h2>Prospectos</h2>
+              <p>     <%if @prospectosnovalidados != nil%>
+                Tienes <%=@prospectosnovalidados.size%> Prospectos no validados. <br/>
+                       <table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+                        <thead>
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% @prospectosnovalidados.each do |prospecto| %>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"prospectos").where(:model_id=>prospecto.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"prospectos").where(:model_id=>prospecto.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>  
+                            <%tareas = Memo.where(:model_name=>"prospectos").where(:model_id=>prospecto.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>
+                            <tr class="<%=tareastatus%>">
+                              <td><%= link_to prospecto.nombre, prospecto_path(prospecto) %></td>
+                              <td><%= link_to prospecto.apellido_paterno, prospecto_path(prospecto) %></td>
+                              <td>
+                              <%if tareastatus != ""%>
+                                <%= link_to '<i class="icon-info-sign"></i>'.html_safe, edit_prospecto_path(prospecto,:anchor=>"tareas"),:rel=>"tooltip","data-original-title"=>"Acciones Pendientes",:class=>'btn btn-warning btn-mini zero2'%>
+                              <%end%>                                
+                                <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_prospecto_path(prospecto),:rel=>"tooltip","data-original-title"=>"Editar", :class => 'btn btn-mini zero2' %>
+                                <%= link_to '<i class="icon-list-alt"></i>'.html_safe, resumen_path(prospecto),:rel=>"tooltip","data-original-title"=>"Resumen",:class=>'btn btn-success btn-mini zero2'%>
+                              <a href="#" class='btn btn-info btn-mini zero2' rel="tooltip" data-original-title="Imprimir" onclick="javascript:openPrint('prospectos','<%=prospecto.id%>')"><i class="icon-print"></i>
+                              </a>
+                              </td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>       
+                <%end%> </p>
+                <p>
+                  <p><%=link_to 'Ver Mas &raquo;'.html_safe, prospectos_path(:validado=>false),:class=>"btn"%></p>
+                <%if @prospectosvalidados != nil%>
+                Tienes <%=@prospectosvalidados.size%> Prospectos validados.<br/>
+                       <table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+                        <thead>
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% @prospectosvalidados.each do |prospecto| %>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"prospectos").where(:model_id=>prospecto.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"prospectos").where(:model_id=>prospecto.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+
+                                    <%end%>
+                                <%end%>
+                            <%end%> 
+                            <%tareas = Memo.where(:model_name=>"prospectos").where(:model_id=>prospecto.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>                            
+                            <tr class="<%=tareastatus%>">
+                              <td><%= link_to prospecto.nombre, prospecto_path(prospecto) %></td>
+                              <td><%= link_to prospecto.apellido_paterno, prospecto_path(prospecto) %></td>
+                              <td>
+                              <%if tareastatus != ""%>
+                                <%= link_to '<i class="icon-info-sign"></i>'.html_safe, edit_prospecto_path(prospecto,:anchor=>"tareas"),:rel=>"tooltip","data-original-title"=>"Acciones Pendientes",:class=>'btn btn-warning btn-mini zero2'%>
+                              <%end%>                                
+                                <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_prospecto_path(prospecto),:rel=>"tooltip","data-original-title"=>"Editar", :class => 'btn btn-mini zero2' %>
+                                <%= link_to '<i class="icon-list-alt"></i>'.html_safe, resumen_path(prospecto),:rel=>"tooltip","data-original-title"=>"Resumen",:class=>'btn btn-success btn-mini zero2'%>
+                              <a href="#" class='btn btn-info btn-mini zero2' rel="tooltip" data-original-title="Imprimir" onclick="javascript:openPrint('prospectos','<%=prospecto.id%>')"><i class="icon-print"></i>
+                              </a>
+                              </td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>             
+                <%end%>
+                </p>
+              <p><%=link_to 'Ver Mas &raquo;'.html_safe, prospectos_path(:validado=>true),:class=>"btn"%></p>
+            </div>
+          </div>
+          <div class="span4">
+            <div class="thumbnail">
+              <h2>Solicitantes</h2>
+               <p>     <%if @solicitantes != nil%>
+                Tienes <%=@solicitantes.size%> Solicitantes.
+                <table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido Paterno</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @solicitantes.each do |solicitante| %>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"solicitantes").where(:model_id=>solicitante.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"solicitantes").where(:model_id=>solicitante.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+
+                                    <%end%>
+                                <%end%>
+                            <%end%> 
+                            <%tareas = Memo.where(:model_name=>"solicitantes").where(:model_id=>solicitante.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>                                 
+                            <tr class="<%=tareastatus%>">
+                              <%logger.debug "here!!!!!!!!!!!!!!!!!!!!!!1111111"%>
+                            <%logger.debug solicitante.prospectos.first%>
+                        <td><%= link_to solicitante.prospectos.first.nombre, solicitante_path(solicitante) %></td>
+                        <td><%= link_to solicitante.prospectos.first.apellido_paterno, solicitante_path(solicitante) %></td>
+                        <td>
+                        <%if tareastatus != ""%>
+                          <%= link_to '<i class="icon-info-sign"></i>'.html_safe, edit_solicitante_path(solicitante,:anchor=>"tareas"),:rel=>"tooltip","data-original-title"=>"Acciones Pendientes",:class=>'btn btn-warning btn-mini zero2'%>
+                        <%end%>                            
+                        <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_solicitante_path(solicitante),:rel=>"tooltip","data-original-title"=>"Editar", :class => 'btn btn-mini zero2' %>
+                        <%= link_to '<i class="icon-plus"></i>'.html_safe, solicitante_path(solicitante),:rel=>"tooltip","data-original-title"=>"Mostrar", :class => 'btn btn-mini zero2' %>                      
+                        <%= link_to '<i class="icon-list-alt"></i>'.html_safe, resumen_path(solicitante.prospectos.first.id),:rel=>"tooltip","data-original-title"=>"Resumen",:class=>'btn btn-success btn-mini zero2'%>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>              
+                <%end%>  </p>
+              <p><%=link_to 'Ver Mas &raquo;'.html_safe, solicitantes_path,:class=>"btn"%></p>
+            </div>
+         </div>
+         <div class="span4">
+            <div class="thumbnail">
+              <h2>Examinados</h2>
+               <p>     <%if @examinados != nil%>
+                Tienes <%=@examinados.size%> Examinados.
+                <table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido paterno</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @examinados.each do |examinado| %>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"examinados").where(:model_id=>examinado.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"examinados").where(:model_id=>examinado.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+
+                                    <%end%>
+                                <%end%>
+                            <%end%> 
+                            <%tareas = Memo.where(:model_name=>"examinados").where(:model_id=>examinado.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>                                  
+                            <tr class="<%=tareastatus%>">
+                        <td><%= link_to examinado.solicitantes.first.prospectos.first.nombre, examinado_path(examinado) %></td>
+                        <td><%= link_to examinado.solicitantes.first.prospectos.first.apellido_paterno, examinado_path(examinado) %></td>                        
+                        <td>
+                        <%if tareastatus != ""%>
+                          <%= link_to '<i class="icon-info-sign"></i>'.html_safe, edit_examinado_path(examinado,:anchor=>"tareas"),:rel=>"tooltip","data-original-title"=>"Acciones Pendientes",:class=>'btn btn-warning btn-mini zero2'%>
+                        <%end%>                            
+                          <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_examinado_path(examinado),:rel=>"tooltip","data-original-title"=>"Editar", :class => 'btn btn-mini zero2' %>
+                        <%= link_to '<i class="icon-plus"></i>'.html_safe, examinado_path(examinado),:rel=>"tooltip","data-original-title"=>"Mostrar", :class => 'btn btn-mini zero2' %>                      
+                        <%= link_to '<i class="icon-list-alt"></i>'.html_safe, resumen_path(examinado.solicitantes.first.prospectos.first.id),:rel=>"tooltip","data-original-title"=>"Resumen",:class=>'btn btn-success btn-mini zero2'%>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>            
+                <%end%>  </p>
+              <p><%=link_to 'Ver Mas &raquo;'.html_safe, examinados_path,:class=>"btn"%></p>
+            </div> 
+         </div>       
+        </div>
+        <hr>
+        <div class="row-fluid">
+          <div class="span4">
+           <div class="thumbnail">
+              <h2>Admitidos</h2>
+              <p>     <%if @admitidos != nil%>
+                Tienes <%=@admitidos.size%> Admitidos. <br/>
+                <table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Status</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @admitidos.each do |admitido| %>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"admitidos").where(:model_id=>admitido.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"admitidos").where(:model_id=>admitido.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+
+                                    <%end%>
+                                <%end%>
+                            <%end%> 
+                            <%tareas = Memo.where(:model_name=>"examinados").where(:model_id=>admitido.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>                                   
+                            <tr class="<%=tareastatus%>">
+                        <td><%= link_to "#{admitido.examinados.first.solicitantes.first.prospectos.first.nombre} #{admitido.examinados.first.solicitantes.first.prospectos.first.apellido_paterno}", admitido_path(admitido) %></td>
+                        <td><%= link_to admitido.status_de_admision.valor, admitido_path(admitido) rescue nil %></td>                
+                        <td>
+                        <%if tareastatus != ""%>
+                          <%= link_to '<i class="icon-info-sign"></i>'.html_safe, edit_admitido_path(admitido,:anchor=>"tareas"),:rel=>"tooltip","data-original-title"=>"Acciones Pendientes",:class=>'btn btn-warning btn-mini zero2'%>
+                        <%end%>                             
+                        <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_admitido_path(admitido),:rel=>"tooltip","data-original-title"=>"Editar", :class => 'btn btn-mini zero2' %>
+                        <%= link_to '<i class="icon-plus"></i>'.html_safe, solicitante_path(admitido),:rel=>"tooltip","data-original-title"=>"Mostrar", :class => 'btn btn-mini zero2' %>                      
+                        <%= link_to '<i class="icon-list-alt"></i>'.html_safe, resumen_path(admitido.examinados.first.solicitantes.first.prospectos.first.id),:rel=>"tooltip","data-original-title"=>"Resumen",:class=>'btn btn-success btn-mini zero2'%>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+               <%end%> </p>
+              <p><%=link_to 'Ver Mas &raquo;'.html_safe, admitidos_path,:class=>"btn"%></p>
+            </div>            
+          </div>
+          <div class="span4">
+            <div class="thumbnail">
+              <h2>Inscritos</h2>
+              <p>     <%if @inscritos != nil%>
+                Tienes <%=@inscritos.size%> Inscritos.
+                <table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Apellido Paterno</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @inscritos.each do |inscrito| %>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"inscritos").where(:model_id=>inscrito.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"inscritos").where(:model_id=>inscrito.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+
+                                    <%end%>
+                                <%end%>
+                            <%end%> 
+                            <%tareas = Memo.where(:model_name=>"examinados").where(:model_id=>inscrito.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>                               
+                            <tr class="<%=tareastatus%>">
+                        <td><%= link_to inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.nombre, inscrito_path(inscrito) %></td>
+                        <td><%= link_to inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.apellido_paterno, inscrito_path(inscrito) %></td>        
+                        <td>
+                        <%if tareastatus != ""%>
+                          <%= link_to '<i class="icon-info-sign"></i>'.html_safe, edit_inscrito_path(inscrito,:anchor=>"tareas"),:rel=>"tooltip","data-original-title"=>"Acciones Pendientes",:class=>'btn btn-warning btn-mini zero2'%>
+                        <%end%>                            
+                        <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_inscrito_path(inscrito),:rel=>"tooltip","data-original-title"=>"Editar", :class => 'btn btn-mini zero2' %>
+                        <%= link_to '<i class="icon-plus"></i>'.html_safe, inscrito_path(inscrito),:rel=>"tooltip","data-original-title"=>"Mostrar", :class => 'btn btn-mini zero2' %>                      
+                        <%= link_to '<i class="icon-list-alt"></i>'.html_safe, resumen_path(inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.id),:rel=>"tooltip","data-original-title"=>"Resumen",:class=>'btn btn-success btn-mini zero2'%>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>                
+                <%end%> </p>
+              <p><%=link_to 'Ver Mas &raquo;'.html_safe, inscritos_path,:class=>"btn"%></p>
+            </div>              
+          </div>
+          <div class="span4">
+          </div>                    
+        </div>
+
+        <hr>        
+        <br/><br/><br/>
+    </div>
+    <div class="tab-pane fade" id="metricas">
+      <div class="well">
+<p><h4>Prospectos No Validados</h4></p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido Materno</th>
+      <th>Apellido Paterno</th>
+      <th>Programa</th>          
+      <th>Run!</th>
+    </tr>
+  </thead>
+  <tbody> 
+    <%if @prospectosnovalidados != nil %>
+   <% @prospectosnovalidados.each do |prospectonovalidado| %>                                         
+      <tr>
+        <td><%=prospectonovalidado.nombre%></td>
+        <td><%=prospectonovalidado.apellido_paterno%></td>
+        <td><%=prospectonovalidado.apellido_materno%></td>
+        <td><%=prospectonovalidado.programa.nivel rescue nil%> - <%=prospectonovalidado.programa.programa rescue nil%></td>                        
+        <td>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"prospectos").where(:model_id=>prospectonovalidado.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"prospectos").where(:model_id=>prospectonovalidado.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>  
+                            <%tareas = Memo.where(:model_name=>"prospectos").where(:model_id=>prospectonovalidado.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>
+        <%if tareastatus != ""%>
+          <%= link_to '<i class="icon-info-sign"></i> Acciones Pendientes'.html_safe, prospecto_path(prospectonovalidado),:class=>'btn btn-warning btn-mini zero2'%>
+        <%end%>                                       
+          <%= link_to 'Go', prospecto_path(prospectonovalidado), :class => 'btn btn-mini btn-info' %>
+        </td>
+      </tr>
+   <%end%>
+      <tr>
+        <td>Todos</td>
+        <td>
+          <%= link_to 'Go', prospectos_path(:validado=>false), :class => 'btn btn-mini btn-success' %>
+        </td>
+      </tr>  
+    <%end%> 
+  </tbody>
+</table>
+</div>
+<div class="well">
+<hr/>
+<p><h4>Prospectos Validados</h4></p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>      
+      <th>Apellido Materno</th>
+      <th>Programa</th>          
+      <th>Run!</th>
+    </tr>
+  </thead>
+  <tbody>      
+  <%if @prospectosvalidados != nil %>                                    
+   <% @prospectosvalidados.each do |prospectosvalidado| %>                                         
+      <tr>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"prospectos").where(:model_id=>prospectosvalidado.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"prospectos").where(:model_id=>prospectosvalidado.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>  
+                            <%tareas = Memo.where(:model_name=>"prospectos").where(:model_id=>prospectosvalidado.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>   
+        <td><%=prospectosvalidado.nombre%></td>
+        <td><%=prospectosvalidado.apellido_paterno%></td>
+        <td><%=prospectosvalidado.apellido_materno%></td>
+        <td><%=prospectosvalidado.programa.nivel rescue nil%> - <%=prospectosvalidado.programa.programa rescue nil%></td>           
+        <td>
+        <%if tareastatus != ""%>
+          <%= link_to '<i class="icon-info-sign"></i> Acciones Pendientes'.html_safe, prospecto_path(prospectosvalidado),:class=>'btn btn-warning btn-mini zero2'%>
+        <%end%>             
+          <%= link_to 'Go', prospecto_path(prospectosvalidado), :class => 'btn btn-mini btn-info' %>
+        </td>
+      </tr>
+   <%end%>
+      <tr>
+        <td>Todos</td>
+        <td>
+          <%= link_to 'Go', prospectos_path(:validado=>true), :class => 'btn btn-mini btn-success' %>
+        </td>
+      </tr> 
+      <%end%>   
+  </tbody>
+</table>
+</div>
+<hr/>
+<div class="well">
+<p><h4>Solicitantes</h4></p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>      
+      <th>Apellido Materno</th>
+      <th>Programa</th>   
+      <th>Run!</th>
+    </tr>
+  </thead>
+  <tbody>   
+  <%if @solicitantes != nil %>                                            
+   <% @solicitantes.each do |solicitante| %>                                         
+      <tr>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"solicitantes").where(:model_id=>solicitante.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"solicitantes").where(:model_id=>solicitante.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+
+                                    <%end%>
+                                <%end%>
+                            <%end%> 
+                            <%tareas = Memo.where(:model_name=>"solicitantes").where(:model_id=>solicitante.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>          
+        <td><%=solicitante.prospectos.first.nombre%></td>
+        <td><%=solicitante.prospectos.first.apellido_paterno%></td>
+        <td><%=solicitante.prospectos.first.apellido_materno%></td>
+        <td><%=solicitante.prospectos.first.programa.nivel rescue nil%> - <%=solicitante.prospectos.first.programa.programa rescue nil%></td>                        
+        <td>
+        <%if tareastatus != ""%>
+          <%= link_to '<i class="icon-info-sign"></i> Acciones Pendientes'.html_safe, solicitante_path(solicitante),:class=>'btn btn-warning btn-mini zero2'%>
+        <%end%>            
+          <%= link_to 'Go', solicitante_path(solicitante), :class => 'btn btn-mini btn-info' %>
+        </td>
+      </tr>
+   <%end%>
+      <tr>
+        <td>Todos</td>
+        <td>
+          <%= link_to 'Go', solicitantes_path, :class => 'btn btn-mini btn-success' %>
+        </td>
+      </tr>
+    <%end%>   
+  </tbody>
+</table>
+</div>
+<hr/>
+<div class="well">
+<p><h4>Examinados</h4></p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>      
+      <th>Apellido Materno</th>
+      <th>Programa</th>   
+      <th>Run!</th>
+    </tr>
+  </thead>
+  <tbody>       
+  <%if @examinados != nil %>                                      
+   <% @examinados.each do |examinado| %>                                         
+      <tr>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"examinados").where(:model_id=>examinado.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"examinados").where(:model_id=>examinado.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+
+                                    <%end%>
+                                <%end%>
+                            <%end%> 
+                            <%tareas = Memo.where(:model_name=>"examinados").where(:model_id=>examinado.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>          
+        <td><%=examinado.solicitantes.first.prospectos.first.nombre%></td>
+        <td><%=examinado.solicitantes.first.prospectos.first.apellido_paterno%></td>  
+        <td><%=examinado.solicitantes.first.prospectos.first.apellido_materno%></td>        
+        <td><%=examinado.solicitantes.first.prospectos.first.programa.nivel rescue nil%> - <%=examinado.solicitantes.first.prospectos.first.programa.programa rescue nil%></td>  
+        <td>
+        <%if tareastatus != ""%>
+          <%= link_to '<i class="icon-info-sign"></i> Acciones Pendientes'.html_safe, examinado_path(examinado),:class=>'btn btn-warning btn-mini zero2'%>
+        <%end%>           
+          <%= link_to 'Go', examinado_path(examinado), :class => 'btn btn-mini btn-info' %>
+        </td>
+      </tr>
+   <%end%>
+      <tr>
+        <td>Todos</td>
+        <td>
+          <%= link_to 'Go', examinados_path, :class => 'btn btn-mini btn-success' %>
+        </td>
+      </tr> 
+    <%end%>  
+  </tbody>
+</table>
+</div>
+<hr/>
+<div class="well">
+<p><h4>Admitidos</h4></p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>      
+      <th>Apellido Materno</th>
+      <th>Programa</th>   
+      <th>Run!</th>
+    </tr>
+  </thead>
+  <tbody>   
+  <%if @admitidos != nil %>                                        
+   <% @admitidos.each do |admitido| %>                                         
+      <tr>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"admitidos").where(:model_id=>admitido.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"admitidos").where(:model_id=>admitido.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+
+                                    <%end%>
+                                <%end%>
+                            <%end%> 
+                            <%tareas = Memo.where(:model_name=>"examinados").where(:model_id=>admitido.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>            
+        <td><%=admitido.examinados.first.solicitantes.first.prospectos.first.nombre%></td>
+        <td><%=admitido.examinados.first.solicitantes.first.prospectos.first.apellido_paterno%></td>
+        <td><%=admitido.examinados.first.solicitantes.first.prospectos.first.apellido_materno%></td>
+        <td><%=admitido.examinados.first.solicitantes.first.prospectos.first.programa.nivel rescue nil%> - <%=admitido.examinados.first.solicitantes.first.prospectos.first.programa.programa rescue nil%></td>
+        <td>
+        <%if tareastatus != ""%>
+          <%= link_to '<i class="icon-info-sign"></i> Acciones Pendientes'.html_safe, admitido_path(admitido),:class=>'btn btn-warning btn-mini zero2'%>
+        <%end%>             
+          <%= link_to 'Go', admitido_path(admitido), :class => 'btn btn-mini btn-info' %>
+        </td>
+      </tr>
+   <%end%>
+      <tr>
+        <td>Todos</td>
+        <td>
+          <%= link_to 'Go', admitidos_path, :class => 'btn btn-mini btn-success' %>
+        </td>
+      </tr>  
+    <%end%> 
+  </tbody>
+</table>
+</div>
+<hr/>
+<div class="well">
+<p><h4>Inscritos</h4></p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>      
+      <th>Apellido Materno</th>
+      <th>Programa</th>   
+      <th>Run!</th>
+    </tr>
+  </thead>
+  <tbody>    
+  <%if @inscritos != nil %>                                          
+   <% @inscritos.each do |inscrito| %>                                         
+      <tr>
+                          <%tareastatus=""%> 
+                          <%tareas = Tarea.where(:model_name=>"inscritos").where(:model_id=>inscrito.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+                                    <%end%>
+                                <%end%>
+                            <%end%>
+                          <%tareas = Llamada.where(:model_name=>"inscritos").where(:model_id=>inscrito.id,:pendiente=>true).all%>
+                            <%if tareas != nil%>
+                                <%tareas.each do |tarea|%>
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%>
+                                      <%tareastatus="redrow whitetigger"%>
+                                    <%end%>                
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%>
+                                      <%tareastatus="orangerow whitetigger"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%>
+                                      <% tareastatus="navyrow linkcolor"%>
+                                    <%end%>
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%>
+                                      <%tareastatus="stonerow linkcolor"%>
+
+                                    <%end%>
+                                <%end%>
+                            <%end%> 
+                            <%tareas = Memo.where(:model_name=>"examinados").where(:model_id=>inscrito.id,:pendiente=>true).size%>                                            
+                            <%if tareas > 0
+                                tareastatus="orangerow linkcolor"
+                              end%>           
+        <td><%=inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.nombre%></td>
+        <td><%=inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.apellido_paterno%></td>
+        <td><%=inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.apellido_materno%></td>
+        <td><%=inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.programa.nivel rescue nil%> - <%=inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.programa.programa rescue nil%></td>
+        <td>
+        <%if tareastatus != ""%>
+          <%= link_to '<i class="icon-info-sign"></i> Acciones Pendientes'.html_safe, inscrito_path(inscrito),:class=>'btn btn-warning btn-mini zero2'%>
+        <%end%>            
+          <%= link_to 'Go', inscrito_path(inscrito), :class => 'btn btn-mini btn-info' %>
+        </td>
+      </tr>
+   <%end%>
+      <tr>
+        <td>Todos</td>
+        <td>
+          <%= link_to 'Go', inscritos_path, :class => 'btn btn-mini btn-success' %>
+        </td>
+      </tr> 
+    <%end%>  
+  </tbody>
+</table>
+</div>
+      <hr/>
+
+    </div>
+    <div class="tab-pane fade" id="campanas">
+      <div class="">
+
+        <%
+        rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  
+          prospectos123 = Prospecto.where{created_at != nil}
+          prospectoultimomes = Prospecto.where{created_at >= 1.month.ago}
+          prospectoultimoscincodias = Prospecto.where{created_at>=5.days.ago}
+          prospectohoy = Prospecto.where{created_at>=DateTime.now.beginning_of_day}
+        else
+          prospectos123 = Prospecto.where{created_at != nil}.where(:user_id=>current_user.id)
+          prospectoultimomes = Prospecto.where{created_at >= 1.month.ago}.where(:user_id=>current_user.id)
+          prospectoultimoscincodias = Prospecto.where{created_at>=5.days.ago}.where(:user_id=>current_user.id)
+          prospectohoy = Prospecto.where{created_at>=DateTime.now.beginning_of_day}.where(:user_id=>current_user.id)          
+        end
+
+          gcNoValidados=GoogleChart::PieChart.new('520x200', "Estadisticas de Prospectos No Validados", false) do |pc| 
+            pc.data "Total [#{prospectos123.size}]", prospectos123.size
+            pc.data "Ultimo Mes [#{prospectoultimomes.size}]", prospectoultimomes.size
+            pc.data "Ultimos 5 dias [#{prospectoultimoscincodias.size}]", prospectoultimoscincodias.size 
+            pc.data "Hoy [#{prospectohoy.size}]", prospectohoy.size
+            pc.show_legend = true  
+          end
+
+          prospectos123V = prospectos123.where(:validado=>true)
+          prospectoultimomesV = prospectoultimomes.where(:validado=>true)
+          prospectoultimoscincodiasV = prospectoultimoscincodias.where(:validado=>true)
+          prospectohoyV = prospectohoy.where(:validado=>true)
+
+          gcValidados=GoogleChart::PieChart.new('520x200', "Estadisticas de Prospectos Validados", false) do |pc| 
+            pc.data "Total [#{prospectos123.size}]", prospectos123V.size
+            pc.data "Ultimo Mes [#{prospectoultimomes.size}]", prospectoultimomesV.size
+            pc.data "Ultimos 5 dias [#{prospectoultimoscincodias.size}]", prospectoultimoscincodiasV.size 
+            pc.data "Hoy [#{prospectohoy.size}]", prospectohoyV.size
+            pc.show_legend = true  
+          end
+
+          gc1= GoogleChart::LineChart.new("420x200", "My Results", false) do |lc|
+            lc.data "Line green", [3,5,1,9,0,2], '4d89f9'
+            lc.data "Line red", [2,4,0,6,9,3], 'ff0000'
+            lc.axis :y, :range => [0,10], :font_size => 10, :alignment => :center
+            lc.axis :x, :range => [1,2,3,4,5,6],:font_size => 10, :alignment => :center
+            lc.show_legend = true
+            lc.shape_marker :square, :color => '4d89f9', :data_set_index => 0, :data_point_index => -1, :pixel_size => 10
+          end      
+          bar_1_data = [350,110,700]
+          bar_2_data = [200,800,50]
+          color_1 = 'c53711'
+          color_2 = '0000ff'
+          names_array = ["Bob","Stella","Foo"]
+          gc2=GoogleChart::BarChart.new("600x150", "Stacked Bar Graph", :horizontal, false) do |bc|
+            bc.data "2011", bar_1_data, color_1
+            bc.data "2012", bar_2_data, color_2
+            bc.axis :y, :labels => names_array, :font_size => 10
+            bc.axis :x, :range => [0,1000]
+            bc.show_legend = true
+            bc.stacked = true
+            bc.data_encoding = :extended
+            bc.shape_marker :square, :color => '00ff00', :data_set_index => 0, :data_point_index => -1, :pixel_size => 10
+          end
+
+          gc3=GoogleChart::BarChart.new("600x300", "Horizontal Bar Graph", :horizontal, false) do |bc|
+            bc.data "2011", bar_1_data, color_1
+            bc.data "2012", bar_2_data, color_2
+            bc.axis :y, :labels => names_array, :font_size => 10
+            bc.axis :x, :range => [0,1000]
+            bc.show_legend = true
+            bc.stacked = false
+            bc.data_encoding = :extended
+            bc.shape_marker :square, :color => '00ff00', :data_set_index => 0, :data_point_index => -1, :pixel_size => 10
+          end
+          gc4=GoogleChart::BarChart.new("600x300", "Horizontal Bar Graph", :vertical, false) do |pc| 
+            pc.data "2011", bar_1_data, color_1
+            pc.data "2012", bar_2_data, color_2
+            pc.axis :y, :labels => names_array, :font_size => 10
+            pc.axis :x, :range => [0,1000]
+            pc.show_legend = true
+            pc.stacked = false
+            pc.data_encoding = :extended
+            pc.shape_marker :square, :color => '00ff00', :data_set_index => 0, :data_point_index => -1, :pixel_size => 10          
+          end
+         flc = GoogleChart::FinancialLineChart.new do |chart|
+            chart.data "", [3,10,20,37,40,25,68,75,89,99], "ff0000"
+         end  
+          sc = GoogleChart::ScatterChart.new('320x200',"Scatter Chart")
+          sc.data "Scatter Set", [[1,1,], [2,2], [3,3], [4,4]]
+          sc.point_sizes [10,15,30,55]          
+
+          vd = GoogleChart::VennDiagram.new("320x200", 'Venn Diagram')
+          vd.data "Blue", 100, '0000ff'
+          vd.data "Green", 80, '00ff00'
+          vd.data "Red",   60, 'ff0000'
+          vd.intersections 30,30,30,10  
+
+    modelo = Configuracione.where(:user_id=>current_user.id).first rescue nil
+    archivado=false
+    if modelo != nil
+      archivado = modelo.mostrar_archivados
+    else
+      Configuracione.create(:user_id=>current_user.id,:mostrar_archivados=>false)
+    end 
+    
+        %>
+            <div class="thumbnail">
+              <h2>Estadisticas</h2>
+               <p>
+                <table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+                  <thead>
+                    <tr>
+                      <th>Indicador</th>
+                      <th>Valor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+<%
+        rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  
+%>                    
+                      <tr>
+                        <td>Prospectos No Validados</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).where(:validado=>false).size rescue nil%></td>
+                      </tr> 
+                      <tr>
+                        <td>Prospectos Validados</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).where(:validado=>true).where(:issolicitante=>false).size rescue nil%></td>
+                      </tr>
+ 
+                      <tr>
+                        <td>Solicitantes</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Examinados/Entrevistados</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Admitidos</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Inscritos</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size rescue nil%></td>
+                      </tr>   
+              <%else%>    
+                      <tr>
+                        <td>Prospectos No Validados</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).where(:validado=>false).where(:user_id=>current_user.id).size rescue nil%></td>
+                      </tr>                                                                                                                     
+                      <tr>
+                        <td>Prospectos Validados</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).where(:validado=>true).where(:issolicitante=>false).where(:user_id=>current_user.id).size rescue nil%></td>
+                      </tr>
+
+                      <tr>
+                        <td>Solicitantes</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:user_id=>current_user.id).size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Examinados/Entrevistados</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:user_id=>current_user.id).size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Admitidos</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:user_id=>current_user.id).size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Inscritos</td>
+                        <td><%=Prospecto.where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:user_id=>current_user.id).size rescue nil%></td>
+                      </tr>                 
+              <%end%>
+                  </tbody>
+                </table>    
+                <br/>                        
+<canvas id="cvs" width="450" height="500">[No canvas support]</canvas>
+    <script>
+    /*
+    pagina de los charts
+    http://www.rgraph.net/examples/index.html
+    */
+
+<%
+@prospectosnovalidados = Prospecto.where(:validado=>false)
+@prospectosvalidados=Prospecto.where(:validado=>true)
+%>
+
+<%
+        rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  
+%>           
+                   var funnel = new RGraph.Funnel('cvs', [<%=@prospectosnovalidados.size + 1 %>,<%=@prospectosvalidados.size + 1 %>,<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size + 1 %>,<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size + 1 %>]);
+            funnel.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.size %>)','Prospectos Validados (<%=@prospectosvalidados.size %>)','Solicitantes (<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.size %>)','Examinados (<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size %>)',"Admitidos (<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size  %>)","Inscritos (<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size %>)"]);
+<%else%>     
+                   var funnel = new RGraph.Funnel('cvs', [<%=@prospectosnovalidados.where(:user_id=>current_user.id).size + 1 %>,<%=@prospectosvalidados.where(:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:user_id=>current_user.id).size + 1 %>]);
+            funnel.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.where(:user_id=>current_user.id).size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:user_id=>current_user.id).size %>)','Solicitantes (<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where(:user_id=>current_user.id).size %>)','Examinados (<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:user_id=>current_user.id).size %>)',"Admitidos (<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:user_id=>current_user.id).size  %>)","Inscritos (<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:user_id=>current_user.id).size %>)"]);
+<%end%>
+            funnel.Set('chart.gutter.left', 350);
+            funnel.Set('chart.labels.sticks', true);
+            funnel.Set('chart.strokestyle', 'rgba(0,0,0,0)');
+            funnel.Set('chart.text.boxed', true);
+            funnel.Set('chart.labels.x', 10);
+            funnel.Set('chart.shadow', true);
+            funnel.Set('chart.shadow.offsetx', 0);
+            funnel.Set('chart.shadow.offsety', 0);
+            funnel.Set('chart.shadow.blur', 15);
+            funnel.Set('chart.shadow.color', 'gray');
+            funnel.Set('chart.tooltips', ['<b>Prospectos No Validados</b><br />Los Prospectos No valdiados son aquellos que solo han sido introducidos al sistema.', '<b>Prospectos No Validados</b><br />Los Prospectos Valdiados son aquellos que han sido validados por un personal de rango.', '<b>Solictantes</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Examinados</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Admitidos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Inscritos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..']);
+            funnel.Draw();
+    </script>
+<%@programas = Programa.all
+  valor= true%>
+                             
+<%if @programas != nil%>
+<div class="tabbable tabs-left">
+
+    <ul class="nav nav-tabs" id="myTaba">
+      <%@programas.each do |programa|%>
+          <%if valor%>
+              <%valor = false%>
+              <li class="active"><a href="#<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue ""%> - <%=programa.programa%></a></li>
+          <%else%>
+              <li class=""><a href="#<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue ""%> - <%=programa.programa%></a></li>
+          <%end%>
+      <%end%>
+    </ul>
+    <%valor =true%>
+    <div class="tab-content">
+      <%@programas.each do |programa|%>
+          <%if valor%>
+              <%valor = false%>
+              <div class="tab-pane active" id="<%=programa.id%>">
+                 <canvas id="cvs<%=programa.id%>" width="450" height="500">[No canvas support]</canvas>
+                      <script>
+<%        rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  %>
+                              var funnel<%=programa.id%> = new RGraph.Funnel('cvs<%=programa.id%>', [<%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %>,<%=@prospectosvalidados.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size + 1 %>]);
+                              funnel<%=programa.id%>.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.where(:programa_id=>programa.id).size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:programa_id=>programa.id).size %>)','Solicitantes (<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size  %>)','Examinados (<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size %>)',"Admitidos (<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size %>)","Inscritos (<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size  %>)"]);
+                              funnel<%=programa.id%>.Set('chart.gutter.left', 350);
+                              funnel<%=programa.id%>.Set('chart.labels.sticks', true);
+                              funnel<%=programa.id%>.Set('chart.strokestyle', 'rgba(0,0,0,0)');
+                              funnel<%=programa.id%>.Set('chart.text.boxed', true);
+                              funnel<%=programa.id%>.Set('chart.labels.x', 10);
+                              funnel<%=programa.id%>.Set('chart.shadow', true);
+                              funnel<%=programa.id%>.Set('chart.shadow.offsetx', 0);
+                              funnel<%=programa.id%>.Set('chart.shadow.offsety', 0);
+                              funnel<%=programa.id%>.Set('chart.shadow.blur', 15);
+                              funnel<%=programa.id%>.Set('chart.shadow.color', 'gray');
+                              funnel<%=programa.id%>.Set('chart.tooltips', ['<b>Prospectos No Validados</b><br />Los Prospectos No valdiados son aquellos que solo han sido introducidos al sistema.<br /><%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %> Prospectos No validados para este programa (<%=programa.programa%>)', '<b>Prospectos No Validados</b><br />Los Prospectos Valdiados son aquellos que han sido validados por un personal de rango.', '<b>Solictantes</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Examinados</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Admitidos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Inscritos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..']);
+                              funnel<%=programa.id%>.Draw();
+<%else%>
+                              var funnel<%=programa.id%> = new RGraph.Funnel('cvs<%=programa.id%>', [<%=@prospectosnovalidados.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>,<%=@prospectosvalidados.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>]);
+                              funnel<%=programa.id%>.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.where(:programa_id=>programa.id,:user_id=>current_user.id).size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:programa_id=>programa.id,:user_id=>current_user.id).size %>)','Solicitantes (<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size  %>)','Examinados (<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size %>)',"Admitidos (<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size %>)","Inscritos (<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id,:user_id=>current_user.id).size  %>)"]);
+                              funnel<%=programa.id%>.Set('chart.gutter.left', 350);
+                              funnel<%=programa.id%>.Set('chart.labels.sticks', true);
+                              funnel<%=programa.id%>.Set('chart.strokestyle', 'rgba(0,0,0,0)');
+                              funnel<%=programa.id%>.Set('chart.text.boxed', true);
+                              funnel<%=programa.id%>.Set('chart.labels.x', 10);
+                              funnel<%=programa.id%>.Set('chart.shadow', true);
+                              funnel<%=programa.id%>.Set('chart.shadow.offsetx', 0);
+                              funnel<%=programa.id%>.Set('chart.shadow.offsety', 0);
+                              funnel<%=programa.id%>.Set('chart.shadow.blur', 15);
+                              funnel<%=programa.id%>.Set('chart.shadow.color', 'gray');
+                              funnel<%=programa.id%>.Set('chart.tooltips', ['<b>Prospectos No Validados</b><br />Los Prospectos No valdiados son aquellos que solo han sido introducidos al sistema.<br /><%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %> Prospectos No validados para este programa (<%=programa.programa%>)', '<b>Prospectos No Validados</b><br />Los Prospectos Valdiados son aquellos que han sido validados por un personal de rango.', '<b>Solictantes</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Examinados</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Admitidos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Inscritos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..']);
+                              funnel<%=programa.id%>.Draw();
+<%end%>
+                      </script>
+
+              </div>
+          <%else%>
+              <div class="tab-pane" id="<%=programa.id%>">
+                 <canvas id="cvs<%=programa.id%>" width="450" height="500">[No canvas support]</canvas>
+                      <script>
+<%        rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  %>
+                               var funnel<%=programa.id%> = new RGraph.Funnel('cvs<%=programa.id%>', [<%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %>,<%=@prospectosvalidados.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size + 1 %>]);
+                              funnel<%=programa.id%>.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.where(:programa_id=>programa.id).size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:programa_id=>programa.id).size %>)','Solicitantes (<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size  %>)','Examinados (<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size %>)',"Admitidos (<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size %>)","Inscritos (<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size  %>)"]);
+                              funnel<%=programa.id%>.Set('chart.gutter.left', 350);
+                              funnel<%=programa.id%>.Set('chart.labels.sticks', true);
+                              funnel<%=programa.id%>.Set('chart.strokestyle', 'rgba(0,0,0,0)');
+                              funnel<%=programa.id%>.Set('chart.text.boxed', true);
+                              funnel<%=programa.id%>.Set('chart.labels.x', 10);
+                              funnel<%=programa.id%>.Set('chart.shadow', true);
+                              funnel<%=programa.id%>.Set('chart.shadow.offsetx', 0);
+                              funnel<%=programa.id%>.Set('chart.shadow.offsety', 0);
+                              funnel<%=programa.id%>.Set('chart.shadow.blur', 15);
+                              funnel<%=programa.id%>.Set('chart.shadow.color', 'gray');
+                              funnel<%=programa.id%>.Set('chart.tooltips', ['<b>Prospectos No Validados</b><br />Los Prospectos No valdiados son aquellos que solo han sido introducidos al sistema.', '<b>Prospectos No Validados</b><br />Los Prospectos Valdiados son aquellos que han sido validados por un personal de rango.', '<b>Solictantes</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Examinados</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Admitidos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Inscritos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..']);
+                              funnel<%=programa.id%>.Draw();                             
+<%else%>
+                              var funnel<%=programa.id%> = new RGraph.Funnel('cvs<%=programa.id%>', [<%=@prospectosnovalidados.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>,<%=@prospectosvalidados.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id,:user_id=>current_user.id).where{solicitante.isexaminado==false}.size + 1 %>,<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id,:user_id=>current_user.id).size + 1 %>]);
+                              funnel<%=programa.id%>.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.where(:programa_id=>programa.id,:user_id=>current_user.id).size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:programa_id=>programa.id,:user_id=>current_user.id).size %>)','Solicitantes (<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id,:user_id=>current_user.id).where{solicitante.isexaminado==false}.size  %>)','Examinados (<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size %>)',"Admitidos (<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id,:user_id=>current_user.id).size %>)","Inscritos (<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id,:user_id=>current_user.id).size  %>)"]);
+                              funnel<%=programa.id%>.Set('chart.gutter.left', 350);
+                              funnel<%=programa.id%>.Set('chart.labels.sticks', true);
+                              funnel<%=programa.id%>.Set('chart.strokestyle', 'rgba(0,0,0,0)');
+                              funnel<%=programa.id%>.Set('chart.text.boxed', true);
+                              funnel<%=programa.id%>.Set('chart.labels.x', 10);
+                              funnel<%=programa.id%>.Set('chart.shadow', true);
+                              funnel<%=programa.id%>.Set('chart.shadow.offsetx', 0);
+                              funnel<%=programa.id%>.Set('chart.shadow.offsety', 0);
+                              funnel<%=programa.id%>.Set('chart.shadow.blur', 15);
+                              funnel<%=programa.id%>.Set('chart.shadow.color', 'gray');
+                              funnel<%=programa.id%>.Set('chart.tooltips', ['<b>Prospectos No Validados</b><br />Los Prospectos No valdiados son aquellos que solo han sido introducidos al sistema.', '<b>Prospectos No Validados</b><br />Los Prospectos Valdiados son aquellos que han sido validados por un personal de rango.', '<b>Solictantes</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Examinados</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Admitidos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Inscritos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..']);
+                              funnel<%=programa.id%>.Draw();                              
+<%end%>
+
+
+                      </script>
+              </div>
+          <%end%>      
+        
+      <%end%>
+
+      </div>
+    </div>
+<%end%>                                                       
+
+      </div>
+    </div>    
+<div> <!--End Container div-->
+
+

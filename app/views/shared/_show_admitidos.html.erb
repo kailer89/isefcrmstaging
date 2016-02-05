@@ -1,0 +1,101 @@
+<%
+  if not defined?(prospectoid)
+    prospectoid=""
+  end
+%>
+<%
+  if not defined?(isactive)
+    isactive = ""
+  end
+  if request.path_parameters[:controller] == "admitidos"
+    isactive = " in  active  "
+  end
+%>
+
+<div class="tab-pane fade<%=isactive%>" id="admitido<%=prospectoid%>">
+  <fieldset>
+<p>
+  <%valor=f.status_admision.valor rescue nil %>
+  <%=printIfAvailable("Status de Admisión",valor)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Comentarios",f.comentarios_documentacion)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Solicitud de Admisión",f.solicitud_de_admision)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Solicitud de beca",f.solicitud_de_beca)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Certificado de estudios",f.certificado_de_estudios)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Título profesional",f.titulo_profesional)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Cédula profesional",f.cedula_profesional)%>
+</p>
+
+<p>
+  <%=printIfAvailable("CURP",f.curp)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Copia del Certificado de preparatoria / licenciatura",f.copia_del_certificado_de_preparatoria_licenciatura)%>
+</p>
+
+
+<p>
+  <%=printIfAvailable("Acta de Nacimiento",f.copia_del_acta_de_nacimiento)%>
+</p>
+
+
+
+
+<p>
+  <%=printIfAvailable("6 fotos",f.fotografias_tamano_infantil_blanco_y_negro_papel_mate)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Identificación oficial",f.identificacion_oficial)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Curriculum vitae",f.curriculum_vitae)%>
+</p>
+
+<p>
+  <%=printIfAvailable("2 cartas recomendación",f.cartas_de_recomendacion)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Comprobante domicilio",f.comprobante_de_domicilio)%>
+</p>
+
+<p>
+  <%=printIfAvailable("Comprobante pago inscripción",f.copia_del_comprobante_de_pago_de_inscripcion)%>
+</p>
+
+
+
+<p>
+  <%=printIfAvailable("Fecha Pago de inscripcion",f.fecha_lim_fpi)%>
+</p>
+
+<p>
+  <%valor=f.periodo_para_ingresar.valor rescue nil%>
+  <%=printIfAvailable("Periodo para ingresar",valor)%>
+</p>
+      <p>
+        <%=printIfAvailable("Archivado",f.archivado ? "Archivado": "")%>
+      </p>
+</fieldset>
+</div>
+<%=render :partial=>"shared/show_examinados", :locals=>{:f=>f.examinados.first,:prospectoid=>prospectoid}%>

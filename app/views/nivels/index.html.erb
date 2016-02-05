@@ -1,0 +1,26 @@
+<h1>Nivels</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Valor</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @nivels.each do |nivel| %>
+      <tr>
+        <td><%= nivel.id %></td>
+        <td><%= link_to nivel.valor, nivel_path(nivel) %></td>
+        <td><%= nivel.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_nivel_path(nivel), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', nivel_path(nivel), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_nivel_path, :class => 'btn btn-primary' %>

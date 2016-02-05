@@ -1,0 +1,2 @@
+module StatusDeInteresDeProspectoValidadosHelper
+end

@@ -1,0 +1,42 @@
+<h1>Tweet</h1>
+
+<p>
+  <b>Tweet</b><br>
+  <%= @tweet.tweet %>
+</p>
+
+<p>
+  <b>When saved</b><br>
+  <%= @tweet.when_saved %>
+</p>
+
+<p>
+  <b>Created by</b><br>
+  <%= @tweet.created_by %>
+</p>
+
+<p>
+  <b>User</b><br>
+  <%= @tweet.user_id %>
+</p>
+
+<p>
+  <b>Sede</b><br>
+  <%= @tweet.sede_id %>
+</p>
+
+<p>
+  <b>Model</b><br>
+  <%= @tweet.model_id %>
+</p>
+
+<p>
+  <b>Model name</b><br>
+  <%= @tweet.model_name %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', tweets_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_tweet_path(@tweet), :class => 'btn' %>
+  <%= link_to 'Delete', tweet_path(@tweet), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

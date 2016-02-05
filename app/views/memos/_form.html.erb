@@ -1,0 +1,31 @@
+<%= simple_form_for @memo, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+       <a href="/<%=@memo.model_name%>/<%=@memo.model_id%>/edit" class="btn">Cancel</a>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@memo.id, :parent_model=>@memo.model_name, :parent_id=>@memo.model_id}%>
+
+<div class="well">  <%=f.input :nombre, :label=>"Nombre de la Nota:"%>
+  <%=f.input :descripcion, :label=>"Descripción:"%>
+    <%= f.hidden_field :created_by%>
+    <%= f.association :user, :collection => User.where(:id => @memo.created_by), :label_method => :username, :value_method => :id , :disabled=>true,:label=>"Creado por"%>
+        <%=f.association :user,:label_method=>:username,:include_blank => false%>
+        <%=f.association :sede,:label_method=>:nombre,:include_blank => false%>  
+  <%=f.hidden_field :model_name %>
+  <%=f.hidden_field :model_id %>
+  <%=f.hidden_field :pendiente %>
+  <%=f.input :comentarios%>
+</div>
+  <%=render :partial=>"shared/attachments", :locals=>{:model_id=>@memo.id}%> 
+    <div class="form-actions">
+      <%if request.path_parameters[:action] == 'edit' %>
+      <%if @memo != nil%>
+        <%if @memo.pendiente == true %>
+          <%= link_to 'Quitar pendiente', "convertir_memo",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-warning', :method=>'post', :id=>'convertir_memo'%> 
+        <%else%>
+          <%= link_to 'Hacer pendiente', "convertir_memo",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'convertir_memo'%> 
+        <%end%> 
+      <%end%>  
+      <%end%>             
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+       <a href="/<%=@memo.model_name%>/<%=@memo.model_id%>/edit" class="btn">Cancel</a>
+    </div>
+<% end %>

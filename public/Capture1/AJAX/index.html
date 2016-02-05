@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<html>
+<head>
+    <title>Como Crear un usuario nuevo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="imagetoolbar" content="no" />
+    <meta name="generator" content="ActivePresenter 3.7.1"/>
+    <meta name="author" content="israel2" />
+    <meta name="copyright" content=" " />
+    <meta name="description" content="Describe como crear un nuevo usuario con el administrador"/>
+	
+	<link rel="stylesheet" type="text/css" href="index.css" />
+
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="params.js"></script>
+	<script type="text/javascript" src="languages.js"></script>
+	<script type="text/javascript" src="rlplayer.common.js"></script>
+	<script type="text/javascript">
+	function OpenPrez(url)
+	{
+		try
+		{
+			var styles='channelmode=yes,location=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes';
+			var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+			if (is_chrome)
+				styles = 'top=0,left=0,width=' + screen.availWidth + ',height=' + screen.availHeight + ',' + styles;
+			var owin=window.open(encodeURI(url), '_blank', styles);
+			if (owin)
+				owin.focus();
+		}
+		catch (e)
+		{
+			alert(Lang.OpenPrezError + e);
+		}
+		return false;
+	};
+	var preloadImg01 = new Image();
+	preloadImg01.src = "images/demo.png";
+	var preloadImg02 = new Image();
+	preloadImg02.src = "images/tutorial.png";
+	var preloadImg03 = new Image();
+	preloadImg03.src = "images/practice.png";
+	var preloadImg04 = new Image();
+	preloadImg04.src = "images/test.png";
+	var preloadImg05 = new Image();
+	preloadImg05.src = "images/bg.png";
+	var preloadImg06 = new Image();
+	preloadImg06.src = "images/hover.png";
+	</script>
+</head>
+
+<body>
+	<div class="top_container">
+			<div class="sub_container">
+				<div class="layout_top">
+					<div class="info">
+						<h1>Como Crear un usuario nuevo</h1>
+						<table>
+							<tr>
+								<td><script type="text/javascript">document.write(Lang.Description)</script></td>
+								<td class="left_indent" >Describe como crear un nuevo usuario con el administrador</td>
+							</tr>
+							<tr>
+								<td><script type="text/javascript">document.write(Lang.Author)</script></td>
+								<td class="left_indent">israel2</td>
+							</tr>
+							<tr>
+								<td><script type="text/javascript">document.write(Lang.Copyright)</script></td>
+								<td class="left_indent"></td>
+							</tr>
+							<tr>
+								<td><script type="text/javascript">document.write(Lang.Homepage)</script></td>
+								<td class="left_indent"></td>
+							</tr>
+						</table>
+						<div class="static_line">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layout_bottom">
+				<script type="text/javascript">
+					<!--
+					var strButtonHTML="";
+					var strBtnMaskOpen = '<div class="operation_btn_mask">';
+					var strBtnMaskClose = '</div>';
+					if ((Options.opmodes & PlayModes.DEMO) == PlayModes.DEMO)
+					{
+						strButtonHTML += strBtnMaskOpen;
+						strButtonHTML += '<div class="operation_btn" style="background:url(images/demo.png) top left no-repeat;" onclick="return OpenPrez(\'demo.html\');" title="' + Lang.DemoIntro + '"><div class="btn_text">'+Lang.Demo+'</div></div>';
+						strButtonHTML += strBtnMaskClose;
+					};
+					if ((Options.opmodes & PlayModes.TUT) == PlayModes.TUT)
+					{
+						strButtonHTML += strBtnMaskOpen;
+						strButtonHTML += '<div class="operation_btn" style="background:url(images/tutorial.png) top left no-repeat;" onclick="return OpenPrez(\'tutorial.html\');" title="' + Lang.TutorialIntro + '"><div class="btn_text">'+Lang.Tutorial+'</div></div>';
+						strButtonHTML += strBtnMaskClose;
+					};
+					if ((Options.opmodes & PlayModes.PRAC) == PlayModes.PRAC)
+					{
+						strButtonHTML += strBtnMaskOpen;
+						strButtonHTML += '<div class="operation_btn" style="background:url(images/practice.png) top left no-repeat;" onclick="return OpenPrez(\'practice.html\');" title="' + Lang.PracticeIntro + '"><div class="btn_text">'+Lang.Practice+'</div></div>';
+						strButtonHTML += strBtnMaskClose;
+					};
+					if ((Options.opmodes & PlayModes.TEST) == PlayModes.TEST)
+					{
+						strButtonHTML += strBtnMaskOpen;
+						strButtonHTML += '<div class="operation_btn" style="background:url(images/test.png) top left no-repeat;" onclick="return OpenPrez(\'test.html\');" title="' + Lang.TestIntro + '"><div class="btn_text">'+Lang.Test+'</div></div>';
+						strButtonHTML += strBtnMaskClose;
+					};
+					document.write(strButtonHTML);
+					//-->
+				</script>
+			</div>
+	</div>
+</body>

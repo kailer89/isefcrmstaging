@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>ISEF CRM</title>
+   <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <!--Raphael stuff for live graphs--> 
+  <%= javascript_include_tag "application","dragtable", "sorttable","bootstrap-datepicker"%>
+	<%= stylesheet_link_tag    "bootstrap" %>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+	<%= stylesheet_link_tag    "bootstrap-responsive" %>
+  <%= stylesheet_link_tag    "application", :media => 'all' %>
+  
+  <%if current_user !=nil%>
+	<% if current_user.role == 'admin'%>
+		<%= stylesheet_link_tag "admin" %>
+	<%elsif current_user.role=="director"%>
+		<%= stylesheet_link_tag "director" %>
+	<%elsif current_user.role=="directorsede"%>
+		<%= stylesheet_link_tag "directorsede" %>
+	<%elsif current_user.role=="coordinadorapromocion"%>
+		<%= stylesheet_link_tag "coordinadorapromocion" %>
+	<%elsif current_user.role=="asesorpreuniversitario"%>
+		<%= stylesheet_link_tag "asesorpreuniversitario" %>
+	<%elsif current_user.role=="otrosdep"%>
+		<%= stylesheet_link_tag "otrosdep" %>
+	<%else%>
+		<%= stylesheet_link_tag "normal" %>	
+	<%end%>
+  <%else%>
+	<%= stylesheet_link_tag "admin" %>  
+  <%end%>
+
+    <script type="text/javascript">
+    $(function() {
+      <%= yield :document_ready %>
+    });
+
+this.Search = (function() {
+
+  function Search(templates) {
+    this.templates = templates != null ? templates : {};
+  }
+
+  Search.prototype.remove_fields = function(button) {
+    return $(button).closest('.fields').remove();
+  };
+
+  Search.prototype.add_fields = function(button, type, content) {
+    var new_id, regexp;
+    new_id = new Date().getTime();
+    regexp = new RegExp('new_' + type, 'g');
+    return $(button).before(content.replace(regexp, new_id));
+  };
+
+  Search.prototype.nest_fields = function(button, type) {
+    var id_regexp, new_id, object_name, sanitized_object_name, template;
+    new_id = new Date().getTime();
+    id_regexp = new RegExp('new_' + type, 'g');
+    template = this.templates[type];
+    object_name = $(button).closest('.fields').attr('data-object-name');
+    sanitized_object_name = object_name.replace(/\]\[|[^-a-zA-Z0-9:.]/g, '_').replace(/_$/, '');
+    template = template.replace(/new_object_name\[/g, object_name + "[");
+    template = template.replace(/new_object_name_/, sanitized_object_name + '_');
+    return $(button).before(template.replace(id_regexp, new_id));
+  };
+
+  return Search;
+
+})();
+
+    
+  </script>
+  <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="override_javascript_alert"></div>
+
+	<%= render :partial=>"shared/upper_menu"%>
+	  <%= render :partial=>"shared/fav_menu"%>
+		<%= render :partial=>"shared/side_menu"%>
+			<div class="span10 zero">		
+		      <!--Body content-->
+		      <%= yield %>
+		    </div><!--End Span10 Body Content-->
+	    </div><!--End Rowfluid-->
+	    <div class="clearfooter"></div>
+	</div><!--Container Fluid-->
+	<div id="toTop">^ Back to Top</div>
+</body>
+</html>
+
+  <script type="text/javascript">
+
+$().ready(function() {  
+  $('.zero2').tooltip()
+});
+
+
+</script>

@@ -1,0 +1,61 @@
+<%- model_class = @nacional_de_apertura.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-vertical">
+  <dt><strong><%= model_class.human_attribute_name(:periodo_actual) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.periodo_actual %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@nacional_de_apertura.sede_id).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:clave_del_programa) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.clave_del_programa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_inicio) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.fecha_de_inicio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Programa.where(:id=>@nacional_de_apertura.programa_id).first
+    %>
+    <%=elPrograma.nivel%>  - <%=elPrograma.programa%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:ciudad_de_apertura) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.ciudad_de_apertura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_de_apertura) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.estado_de_apertura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:modalidad) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.modalidad %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:turno) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.turno %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:horarios) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.horarios %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lugar_donde_se_impartiran_las_clases) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.lugar_donde_se_impartiran_las_clases %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:asesor_a_cargo) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = User.where(:id=>@nacional_de_apertura.asesor_a_cargo).first
+    %>
+    <%=elPrograma.username%>
+
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:email_de_contacto) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.email_de_contacto %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status_de_la_fecha_de_apertura) %>:</strong></dt>
+  <dd><%= @nacional_de_apertura.status_de_la_fecha_de_apertura %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              nacional_de_aperturas_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_nacional_de_apertura_path(@nacional_de_apertura), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              nacional_de_apertura_path(@nacional_de_apertura),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

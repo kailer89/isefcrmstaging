@@ -1,0 +1,12 @@
+<h1>Turno</h1>
+
+<p>
+  <b>Valor</b><br>
+  <%= @turno.valor %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', turnos_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_turno_path(@turno), :class => 'btn' %>
+  <%= link_to 'Delete', turno_path(@turno), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

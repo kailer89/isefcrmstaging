@@ -1,0 +1,21 @@
+#config/facebook.yml
+development:
+  app_id: '229738250462530'
+  client_id: '229738250462530' 
+  client_secret: '7202f4ac4addf6d65aee97e3d027f1a5' #your client secret
+  perms: offline_access,manage_pages
+  page_id: '246180548803181' #the facebook page id that you wish you pull events from
+
+test:
+  app_id: '229738250462530'
+  client_id: '229738250462530' 
+  client_secret: '7202f4ac4addf6d65aee97e3d027f1a5' #your client secret
+  perms: offline_access,manage_pages
+  page_id: '246180548803181' #the facebook page id that you wish you pull events from
+
+production:
+  app_id: '229738250462530'
+  client_id: '229738250462530' 
+  client_secret: '7202f4ac4addf6d65aee97e3d027f1a5' #your client secret
+  perms: offline_access,manage_pages
+  page_id: '246180548803181' #the facebook page id that you wish you pull events from

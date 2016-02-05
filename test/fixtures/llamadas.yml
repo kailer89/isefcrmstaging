@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  asunto: MyString
+  inicio_de_la_llamada: 2012-04-04
+  tiempo_de_inicio: 2012-04-04 17:38:33
+  fin_de_la_llamada: 2012-04-04
+  tiempo_de_fin: 2012-04-04 17:38:33
+  duracion: 1.5
+  estado: MyString
+  aviso: false
+
+two:
+  asunto: MyString
+  inicio_de_la_llamada: 2012-04-04
+  tiempo_de_inicio: 2012-04-04 17:38:33
+  fin_de_la_llamada: 2012-04-04
+  tiempo_de_fin: 2012-04-04 17:38:33
+  duracion: 1.5
+  estado: MyString
+  aviso: false

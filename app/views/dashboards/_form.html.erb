@@ -1,0 +1,17 @@
+<%= form_for @dashboard, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Dashboard</legend>
+
+    <div class="control-group">
+      <%= f.label :value, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :value, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', dashboards_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

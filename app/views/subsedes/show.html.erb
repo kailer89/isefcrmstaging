@@ -1,0 +1,22 @@
+<h1>Extensión</h1>
+
+<p>
+  <b>Nombre</b><br>
+  <%= @subsede.nombre %>
+</p>
+
+<p>
+  <b>Descripcion</b><br>
+  <%= @subsede.descripcion %>
+</p>
+
+<p>
+  <b>Sede</b><br>
+  <%= @subsede.sede.nombre %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', subsedes_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_subsede_path(@subsede), :class => 'btn' %>
+  <%= link_to 'Delete', subsede_path(@subsede), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

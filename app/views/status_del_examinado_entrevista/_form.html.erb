@@ -1,0 +1,10 @@
+<%= simple_form_for @status_del_examinado_entrevistum, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', status_del_examinado_paas_path, :class => 'btn' %>
+  <%= f.input :valor %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                status_del_examinado_entrevista_path, :class => 'btn' %>
+  </div>
+<% end %>

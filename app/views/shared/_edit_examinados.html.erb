@@ -1,0 +1,40 @@
+<%if request.path_parameters[:controller] == "examinados"%>
+    <div class="tab-pane fade in active" id="examinado">
+      <div  class="well">        
+              <%= f.association :status_del_examinado_paa,:include_blank => false, :label_method => :valor , :label=>"Dictamen PAA"%>
+              <%=f.input :puntuacion_verbal, :label=>"Puntuación Verbal:"%>
+              <%=f.input :puntuacion_matematicas, :label=>"Puntuación Matemática:"%>
+              <%=f.input :puntuacion_redaccion_indirecta, :label=>"Puntuación Redacción Indirecta:"%>
+              <%=f.input :puntaje_total_paa, :label=>"Puntaje total PAA:"%>
+              <%=f.input :comentarios_evaluador_paa, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios del Evaluador PAA:"%>
+              <%= f.association :status_del_examinado_psico,:include_blank => false, :label_method => :valor , :label=>"Dictamen Psicométria"%>
+          <%=f.input :puntuacion_MMPI, :label=>"Puntuación MMPI:"%>
+              <%=f.input :comentarios_psico, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios de la Psicóloga:"%>
+          <%= f.association :status_del_examinado_entrevistum,:include_blank => false, :label_method => :valor , :label=>"Dictamen Académico"%>
+              <%=f.input :comentarios_coord, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios del Coordinador Académico:"%>
+              <%=f.input :comentarios_asesor, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios del Asesor de Promoción:"%>    
+     <%=f.input :archivado%>
+          </div>
+      </div>
+<%else%>
+  <%= f.simple_fields_for :examinados, :html => { :class => 'form-horizontal' } do |f| %>
+    <div class="tab-pane fade" id="examinado">
+      <div  class="well">        
+                <%= f.association :status_del_examinado_paa,:include_blank => false, :label_method => :valor , :label=>"Dictamen PAA"%>
+              <%=f.input :puntuacion_verbal, :label=>"Puntuación Verbal:"%>
+              <%=f.input :puntuacion_matematicas, :label=>"Puntuación Matemática:"%>
+              <%=f.input :puntuacion_redaccion_indirecta, :label=>"Puntuación Redacción Indirecta:"%>
+              <%=f.input :puntaje_total_paa, :label=>"Puntaje total PAA:"%>
+              <%=f.input :comentarios_evaluador_paa, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios del Evaluador PAA:"%>
+              <%= f.association :status_del_examinado_psico,:include_blank => false, :label_method => :valor , :label=>"Dictamen Psicométria"%>
+              <%=f.input :puntuacion_MMPI, :label=>"Puntuación MMPI:"%>
+              <%=f.input :comentarios_psico, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios de la Psicóloga:"%>
+              <%= f.association :status_del_examinado_entrevistum,:include_blank => false, :label_method => :valor , :label=>"Dictamen Académico"%>              
+              <%=f.input :comentarios_coord, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios del Coordinador Académico:"%>
+              <%=f.input :comentarios_asesor, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios del Asesor de Promoción:"%>    
+              <%=f.input :archivado%>
+          </div>
+      </div>
+    <%=render :partial=>"shared/edit_solicitantes", :locals=>{:f=>f}%>
+  <%end%>
+<%end%>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  filename: MyString
+  module: MyString
+  description: MyText
+  whenimported: 2012-05-20 17:19:34
+
+two:
+  filename: MyString
+  module: MyString
+  description: MyText
+  whenimported: 2012-05-20 17:19:34

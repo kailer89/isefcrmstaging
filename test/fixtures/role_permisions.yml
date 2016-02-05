@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  objeto: MyString
+  permiso: MyString
+  user_id: 1
+  role_id: 1
+
+two:
+  objeto: MyString
+  permiso: MyString
+  user_id: 1
+  role_id: 1

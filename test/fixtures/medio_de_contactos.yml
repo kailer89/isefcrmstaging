@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  feria_universitaria_en_su_colegio: false
+  visita_a_su_salon: false
+  recomendacion_de_un_amigo_familiar: false
+  recomendacion_de_un_egresado: false
+  sitio_oficial_web_ISEF: false
+  facebook: false
+  twitter: false
+  email_de_promocion_mailing: false
+  impreso_flyer_folleto: false
+  anuncio_publicacion_periodico_revista: false
+  llamada_telefonica_de_un_asesor: false
+  conferencia_platica_charla: false
+  sesion_informativa: false
+  visito_las_instalaciones: false
+  convenio_con_su_institucion: false
+  otro: false
+  otro_texto: MyString
+  comentarios: MyText
+
+two:
+  feria_universitaria_en_su_colegio: false
+  visita_a_su_salon: false
+  recomendacion_de_un_amigo_familiar: false
+  recomendacion_de_un_egresado: false
+  sitio_oficial_web_ISEF: false
+  facebook: false
+  twitter: false
+  email_de_promocion_mailing: false
+  impreso_flyer_folleto: false
+  anuncio_publicacion_periodico_revista: false
+  llamada_telefonica_de_un_asesor: false
+  conferencia_platica_charla: false
+  sesion_informativa: false
+  visito_las_instalaciones: false
+  convenio_con_su_institucion: false
+  otro: false
+  otro_texto: MyString
+  comentarios: MyText

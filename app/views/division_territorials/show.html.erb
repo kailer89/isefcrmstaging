@@ -1,0 +1,114 @@
+<%- model_class = @division_territorial.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-vertical">
+  <dt><strong><%= model_class.human_attribute_name(:periodo_anual) %>:</strong></dt>
+  <dd><%= @division_territorial.periodo_anual %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id) %>:</strong></dt>
+  <dd><%= @division_territorial.sede.nombre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estados_correspondientes) %>:</strong></dt>
+  <dd><%= @division_territorial.estados_correspondientes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_ciudad_con_grupo_abierto) %>:</strong></dt>
+  <dd><%= @division_territorial.estado_ciudad_con_grupo_abierto %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Programa.where(:id=>@division_territorial.programa_id).first
+    %>
+    <%=elPrograma.nivel%>  - <%=elPrograma.programa%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_inicio) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_inicio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_termino) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_termino %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_ciudad_con_grupo_abierto_1) %>:</strong></dt>
+  <dd><%= @division_territorial.estado_ciudad_con_grupo_abierto_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id_1) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Programa.where(:id=>@division_territorial.programa_id_1).first
+    %>
+    <%=elPrograma.nivel%>  - <%=elPrograma.programa%>
+
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_inicio_1) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_inicio_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_termino_1) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_termino_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_ciudad_con_grupo_abierto_2) %>:</strong></dt>
+  <dd><%= @division_territorial.estado_ciudad_con_grupo_abierto_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id_2) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Programa.where(:id=>@division_territorial.programa_id_2).first
+    %>
+    <%=elPrograma.nivel%>  - <%=elPrograma.programa%>
+
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_inicio_2) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_inicio_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_termino_2) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_termino_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_ciudad_con_grupo_abierto_3) %>:</strong></dt>
+  <dd><%= @division_territorial.estado_ciudad_con_grupo_abierto_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id_3) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Programa.where(:id=>@division_territorial.programa_id_3).first
+    %>
+    <%=elPrograma.nivel%>  - <%=elPrograma.programa%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_inicio_3) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_inicio_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_termino_3) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_termino_3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_ciudad_con_grupo_abierto_4) %>:</strong></dt>
+  <dd><%= @division_territorial.estado_ciudad_con_grupo_abierto_4 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id_4) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Programa.where(:id=>@division_territorial.programa_id_4).first
+    %>
+    <%=elPrograma.nivel%>  - <%=elPrograma.programa%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_inicio_4) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_inicio_4 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_termino_4) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_termino_4 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_ciudad_con_grupo_abierto_5) %>:</strong></dt>
+  <dd><%= @division_territorial.estado_ciudad_con_grupo_abierto_5 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id_5) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Programa.where(:id=>@division_territorial.programa_id_5).first
+    %>
+    <%=elPrograma.nivel%>  - <%=elPrograma.programa%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_inicio_5) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_inicio_5 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_termino_5) %>:</strong></dt>
+  <dd><%= @division_territorial.fecha_de_termino_5 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:info_sim_sede_id) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@division_territorial.info_sim_sede_id).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_ciudad_con_mas_de_100_mil_habitantes) %>:</strong></dt>
+  <dd><%= @division_territorial.estado_ciudad_con_mas_de_100_mil_habitantes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:acceso_directo_al_sim) %>:</strong></dt>
+  <dd><%= @division_territorial.acceso_directo_al_sim %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              division_territorials_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_division_territorial_path(@division_territorial), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              division_territorial_path(@division_territorial),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

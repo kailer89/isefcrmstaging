@@ -1,0 +1,12 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@solicitante.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= render :partial => "solicitanteNav"%>
+<%=render :partial=>"shared/show_solicitantes", :locals=>{:f=>@solicitante,:isactive=>" in active "}%>
+
+<div class="form-actions">
+  <%= link_to 'Back', solicitantes_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_solicitante_path(@solicitante), :class => 'btn' %>
+        <%if not @solicitante.isexaminado?%>
+        <%= link_to 'Convertir en Examinado', convertir_solicitante_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+      <%end%>
+  <%= link_to 'Delete', solicitante_path(@solicitante), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

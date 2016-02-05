@@ -1,0 +1,20 @@
+<ul class="breadcrumb">
+  <li>
+    <a href="/"><i class="icon-home"></i> Home</a> <span class="divider">/</span>
+  </li>
+  <li>
+	<%= link_to inscritos_path do%>
+		Inscritos
+	<%end%>
+	<span class="divider">/</span>
+  </li>
+  <li>
+	<%= link_to inscrito_path(@inscrito)  do%>
+		Show
+	<%end%>
+	<span class="divider">/</span>
+  </li>
+  <li class="active">
+		Edit
+  </li>  
+</ul>

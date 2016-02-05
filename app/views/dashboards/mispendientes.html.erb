@@ -1,0 +1,61 @@
+<h1>Mis Pendientes</h1>
+
+<%
+    inscrito = Inscrito.where("admitido_id in (:admitidos)",:admitidos=>Admitido.where("examinado_id in (:examinados)",:examinados=>Examinado.where("solicitante_id in (:solicitantes)",:solicitantes=>Solicitante.where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.joins{solicitante}.where(:user_id=>current_user.id)))))
+    inscrito.each do |inscrito|
+        prospecto = inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first
+      if prospecto!=nil
+        @tareas1 = Tarea.where(:model_name=>"prospectos",:model_id=>prospecto.id)
+        @memos1 = Memo.where(:model_name=>"prospectos",:model_id=>prospecto.id)
+        @attachments1 = Attachment.where(:model_name=>"prospectos",:model_id=>prospecto.id)
+        @llamadas1 = Llamada.where(:model_name=>"prospectos",:model_id=>prospecto.id)
+        @correos1 = Correo.where(:model_name=>"prospectos",:model_id=>prospecto.id)
+        if prospecto.solicitante_id != nil
+          solicitante = Solicitante.find(prospecto.solicitante_id)
+          @llamadas2 = Llamada.where(:model_name=>"solicitantes",:model_id=>solicitante.id)
+          @correos2 = Correo.where(:model_name=>"solicitantes",:model_id=>solicitante.id)
+          @attachments2 = Attachment.where(:model_name=>"solicitantes",:model_id=>solicitante.id)
+          @memos2 = Memo.where(:model_name=>"solicitantes",:model_id=>solicitante.id)
+          @tareas2 = Tarea.where(:model_name=>"solicitantes",:model_id=>solicitante.id)
+          #check if he has a examinado
+          if solicitante.examinado_id !=nil
+            examinado = Examinado.find(solicitante.examinado_id)
+            @tareas3 = Tarea.where(:model_name=>"examinados",:model_id=>examinado.id)
+            @memos3 = Memo.where(:model_name=>"examinados",:model_id=>examinado.id)
+            @correos3 = Correo.where(:model_name=>"examinados",:model_id=>examinado.id)
+            @attachments3 = Attachment.where(:model_name=>"examinados",:model_id=>examinado.id)
+            @llamadas3 = Llamada.where(:model_name=>"examinados",:model_id=>examinado.id)
+            
+            #check if he has an admitido
+            if examinado.admitido_id !=nil
+              admitido = Admitido.find(examinado.admitido_id)
+              @tareas4 = Tarea.where(:model_name=>"admitidos",:model_id=>admitido.id)
+              @correos4 = Correo.where(:model_name=>"admitidos",:model_id=>admitido.id)
+              @attachments4 = Attachment.where(:model_name=>"admitidos",:model_id=>admitido.id)
+              @llamadas4 = Llamada.where(:model_name=>"admitidos",:model_id=>admitido.id)
+              @memos4 = Memo.where(:model_name=>"admitidos",:model_id=>admitido.id)
+              
+              #check if he has an inscrito
+              if admitido.inscrito_id !=nil
+                inscrito = Inscrito.find(admitido.inscrito_id)
+                @tareas5 = Tarea.where(:model_name=>"inscritos",:model_id=>inscrito.id)
+                @memos5 = Memo.where(:model_name=>"inscritos",:model_id=>inscrito.id)
+                @correos5 = Correo.where(:model_name=>"inscritos",:model_id=>inscrito.id)
+                @attachments5 = Attachment.where(:model_name=>"inscritos",:model_id=>inscrito.id)
+                @llamadas5 = Llamada.where(:model_name=>"inscritos",:model_id=>inscrito.id)
+                
+              end
+            end
+          end
+        end
+        end
+      end
+      @tareas=[@tareas1,@tareas2,@tareas3,@tareas4,@tareas5].flatten.compact.sort
+      @llamadas =[@llamadas1,@llamadas2,@llamadas3,@llamadas4,@llamadas5].flatten.compact.sort
+      @memos =[@memos1,@memos2,@memos3,@memos4,@memos5].flatten.compact.sort
+      @correos =[@correos1,@correos2,@correos3,@correos4,@correos5].flatten.compact.sort
+      @attachments =[@attachments1,@attachments2,@attachments3,@attachments4,@attachments5].flatten.compact.sort 
+
+%>
+<%=render :partial=>"shared/pendientes", :locals=>{:tareas=>@tareas,:memos=>@memos,:llamadas=>@llamadas,:correos=>@correos,:attachments=>@attachments}%>
+

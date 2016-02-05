@@ -1,0 +1,30 @@
+    <%= simple_form_for @prospecto, :html => { :class => 'form-horizontal',:onsubmit=>"return confirm('Estas seguro de querer continuar?');"} do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' ,:id=>"commit" %>
+      <%= link_to 'Cancel', prospectos_path(:validado=>@prospecto.validado),:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
+      <%if request.path_parameters[:action]== "edit" %>
+        <% if (@prospecto.validado == false) %>
+          <%= link_to 'Validar Prospecto',validar_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'validar',:rel=>'popover',:data => {:content => 'Usa este boton para convertir el prospecto en validado.',"origintal-title"=>'Test',:notooltip=>'true'}%>
+        <%else%>
+          <%if not @prospecto.issolicitante?%>
+            <%= link_to 'Convertir en Solicitante', convertir_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir' %>
+          <%end%>
+        <%end%>
+      <%end%>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@prospecto.id, :parent_model=>nil}%>
+<%= render :partial => "prospectoNav"%>
+
+<%=render :partial=>"shared/edit_prospectos", :locals=>{:g=>f}%>
+
+<%=render :partial=>"shared/tabed_actions", :locals=>{:prospecto_id=>@prospecto.id,:real_id=>@prospecto.id,:tareas=>@tareas,:memos=>@memos,:llamadas=>@llamadas,:correos=>@correos,:attachments=>@attachments}%>
+
+
+
+<% end %>
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

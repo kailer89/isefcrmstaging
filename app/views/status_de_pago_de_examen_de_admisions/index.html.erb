@@ -1,0 +1,26 @@
+<h1>Status De Pago De Examen De Admisions</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Valor</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @status_de_pago_de_examen_de_admisions.each do |status_de_pago_de_examen_de_admision| %>
+      <tr>
+        <td><%= status_de_pago_de_examen_de_admision.id %></td>
+        <td><%= link_to status_de_pago_de_examen_de_admision.valor, status_de_pago_de_examen_de_admision_path(status_de_pago_de_examen_de_admision) %></td>
+        <td><%= status_de_pago_de_examen_de_admision.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_status_de_pago_de_examen_de_admision_path(status_de_pago_de_examen_de_admision), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', status_de_pago_de_examen_de_admision_path(status_de_pago_de_examen_de_admision), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_status_de_pago_de_examen_de_admision_path, :class => 'btn btn-primary' %>

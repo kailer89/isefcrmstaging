@@ -1,0 +1,38 @@
+      <% flash.each do |name, msg| %>
+        <div class=" alert alert-<%=(name==:info) ? "info" : ( name == :notice ? "success" : "error") %>">
+          <h4 class="alert-heading"><%=(name==:info) ? "Información" : ( name == :notice ? "Acción" : "Ocurrio un error!") %></h4>
+          <a class="close" data-dismiss="alert">×</a>
+          <%= raw(msg) %>
+        </div>
+      <% end %>
+<%= simple_form_for @import, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', imports_path, :class => 'btn' %>
+
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Import</legend>
+
+    <div class="control-group">
+      <%= f.label "Archivo Csv", :class => 'control-label' %>
+      <div class="controls">
+        <% if @import.filename.to_s == nil %>
+          <%= f.file_field :filename %> 
+        <% else %>
+          <%= f.file_field :filename %>
+          <%=link_to "Descargar Attachment",@import.filename_url.to_s %>
+        <% end %>
+      </div>
+    </div>
+
+
+      <%=f.hidden_field :module%>
+      <%= f.hidden_field :modu%> 
+    
+    <%= f.input :description , :as => :text ,:input_html => { :cols => 50, :rows => 3 }   %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', imports_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

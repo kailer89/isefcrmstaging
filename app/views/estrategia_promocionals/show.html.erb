@@ -1,0 +1,38 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@estrategia_promocional.id, :parent_model=>nil, :parent_id=>nil}%>
+<div class="well"><h1>Estrategia Promocional</h1>
+
+<p>
+  <b>Status de la estrategia</b><br>
+  <%= @estrategia_promocional.status_de_la_estrategia %>
+</p>
+
+<p>
+  <b>Fecha para llevarla a cabo</b><br>
+  <%= @estrategia_promocional.fecha_para_llevarla_a_cabo %>
+</p>
+
+<p>
+  <b>Reponsable para llevarla a cabo</b><br>
+  <%= @estrategia_promocional.reponsable_para_llevarla_a_cabo %>
+</p>
+
+<p>
+  <b>Descripcion detallada</b><br>
+  <%= @estrategia_promocional.descripcion_detallada %>
+</p>
+
+<p>
+  <b>Mercado meta</b><br>
+  <%= @estrategia_promocional.mercado_meta_id %>
+</p>
+
+<p>
+  <b>Documento path</b><br>
+  <%= @estrategia_promocional.documento_path %>
+</p></div>
+
+<div class="form-actions">
+  <%= link_to 'Back', estrategia_promocionals_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_estrategia_promocional_path(@estrategia_promocional), :class => 'btn' %>
+  <%= link_to 'Delete', estrategia_promocional_path(@estrategia_promocional), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

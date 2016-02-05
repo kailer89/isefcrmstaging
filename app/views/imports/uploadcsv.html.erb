@@ -1,0 +1,47 @@
+<%nothaserror=true%>
+<%@errordetails = @errordetails%>
+<h1>Imports</h1>
+<%= link_to 'Prospectos', prospectos_path(:validado=>false), :class => 'btn btn-primary' %>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Prospectos Fallidos</th>
+      <th>Error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @errordetails.each do |error| %>
+    <%if (error[0].to_s.starts_with? 'Creado') == false%>
+      <%error.inspect%>
+      <%nothaserror=false%>
+        <tr>
+          <td><%= error[0] %></td>
+          <td><%= error[1] %></td>
+        </tr>
+      <% end %>
+    <%end%>
+  </tbody>
+</table>
+
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Prospectos Agregados</th>
+      <th>Acceso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @errordetails.each do |error| %>
+    <%if error[0].to_s.starts_with? 'Creado'%>
+      <%error.inspect%>
+      <%nothaserror=false%>
+        <tr>
+          <td><%= error[0] %></td>
+          <td><%= error[1] %></td>
+        </tr>
+      <% end %>
+    <%end%>
+  </tbody>
+</table>
+
+<%= link_to 'Prospectos', prospectos_path(:validado=>false), :class => 'btn btn-primary' %>

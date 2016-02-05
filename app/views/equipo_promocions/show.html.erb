@@ -1,0 +1,143 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@equipo_promocion.id, :parent_model=>nil, :parent_id=>nil}%>
+<div class="well"><h1>Equipo Promocion</h1>
+
+<p>
+  <b>Nombre</b><br>
+  <%= @equipo_promocion.nombre %>
+</p>
+
+<p>
+  <b>Apellido paterno</b><br>
+  <%= @equipo_promocion.apellido_paterno %>
+</p>
+
+<p>
+  <b>Apellido materno</b><br>
+  <%= @equipo_promocion.apellido_materno %>
+</p>
+
+<p>
+  <b>Sexo</b><br>
+  <%= @equipo_promocion.sexo %>
+</p>
+
+<p>
+  <b>Fecha de nacimiento</b><br>
+  <%= @equipo_promocion.fecha_de_nacimiento %>
+</p>
+
+<p>
+  <b>Nacionalidad</b><br>
+  <%= @equipo_promocion.nacionalidad %>
+</p>
+
+<p>
+  <b>Cargo</b><br>
+  <%= @equipo_promocion.cargo %>
+</p>
+
+<p>
+  <b>Sede</b><br>
+  <%= @equipo_promocion.sede %>
+</p>
+
+<p>
+  <b>Horas laborales semanales</b><br>
+  <%= @equipo_promocion.horas_laborales_semanales %>
+</p>
+
+<p>
+  <b>Tipo de contrato</b><br>
+  <%= @equipo_promocion.tipo_de_contrato %>
+</p>
+
+<p>
+  <b>Fecha de ingreso</b><br>
+  <%= @equipo_promocion.fecha_de_ingreso %>
+</p>
+
+<p>
+  <b>Jefe directo</b><br>
+  <%= @equipo_promocion.jefe_directo %>
+</p>
+
+<p>
+  <b>Cargo del jefe directo</b><br>
+  <%= @equipo_promocion.cargo_del_jefe_directo %>
+</p>
+
+<p>
+  <b>Telefono particular</b><br>
+  <%= @equipo_promocion.telefono_particular %>
+</p>
+
+<p>
+  <b>Movil</b><br>
+  <%= @equipo_promocion.movil %>
+</p>
+
+<p>
+  <b>Otro tel</b><br>
+  <%= @equipo_promocion.otro_tel %>
+</p>
+
+<p>
+  <b>Email personal</b><br>
+  <%= @equipo_promocion.email_personal %>
+</p>
+
+<p>
+  <b>Email laboral</b><br>
+  <%= @equipo_promocion.email_laboral %>
+</p>
+
+<p>
+  <b>Modalidad de pago</b><br>
+  <%= @equipo_promocion.modalidad_de_pago %>
+</p>
+
+<p>
+  <b>Sueldo bruto</b><br>
+  <%= @equipo_promocion.sueldo_bruto %>
+</p>
+
+<p>
+  <b>Porcentaje de comision</b><br>
+  <%= @equipo_promocion.porcentaje_de_comision %>
+</p>
+
+<p>
+  <b>Calle</b><br>
+  <%= @equipo_promocion.calle %>
+</p>
+
+<p>
+  <b>No exterior</b><br>
+  <%= @equipo_promocion.no_exterior %>
+</p>
+
+<p>
+  <b>No interior</b><br>
+  <%= @equipo_promocion.no_interior %>
+</p>
+
+<p>
+  <b>Colonia</b><br>
+  <%= @equipo_promocion.colonia %>
+</p>
+
+<p>
+  <b>Codigo postal</b><br>
+  <%= @equipo_promocion.codigo_postal %>
+</p>
+
+<p>
+  <b>Comentarios direccion</b><br>
+  <%= @equipo_promocion.comentarios_direccion %>
+</p>
+</div>
+<div class="form-actions">
+  <%= link_to 'Back', equipo_promocions_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_equipo_promocion_path(@equipo_promocion), :class => 'btn' %>
+  <%= link_to 'Delete', equipo_promocion_path(@equipo_promocion), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

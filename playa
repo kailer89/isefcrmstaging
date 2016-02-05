@@ -1,0 +1,102 @@
+2012-09-19T17:26:54+00:00 app[web.1]: cache: [POST /users] invalidate, pass
+2012-09-19T17:26:54+00:00 heroku[router]: POST tranquil-tundra-3192.herokuapp.com/users dyno=web.1 queue=0 wait=0ms service=174ms status=200 bytes=11756
+2012-09-19T17:27:12+00:00 app[web.1]: 
+2012-09-19T17:27:12+00:00 app[web.1]: 
+2012-09-19T17:27:12+00:00 app[web.1]: Started POST "/users" for 148.230.10.20 at 2012-09-19 17:27:12 +0000
+2012-09-19T17:27:12+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-19T17:27:12+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-19T17:27:12+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-19T17:27:12+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-19T17:27:12+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-19T17:27:12+00:00 app[web.1]: cache: [POST /users] invalidate, pass
+2012-09-19T17:27:12+00:00 heroku[router]: POST tranquil-tundra-3192.herokuapp.com/users dyno=web.1 queue=0 wait=0ms service=213ms status=200 bytes=11762
+2012-09-19T17:27:31+00:00 app[web.1]: 
+2012-09-19T17:27:31+00:00 app[web.1]: 
+2012-09-19T17:27:31+00:00 app[web.1]: Started POST "/users/sign_in" for 148.230.10.20 at 2012-09-19 17:27:31 +0000
+2012-09-19T17:27:31+00:00 app[web.1]: cache: [POST /users/sign_in] invalidate, pass
+2012-09-19T17:27:31+00:00 heroku[router]: POST tranquil-tundra-3192.herokuapp.com/users/sign_in dyno=web.1 queue=0 wait=0ms service=347ms status=302 bytes=108
+2012-09-19T17:27:31+00:00 app[web.1]: 
+2012-09-19T17:27:31+00:00 app[web.1]: 
+2012-09-19T17:27:31+00:00 app[web.1]: Started GET "/" for 148.230.10.20 at 2012-09-19 17:27:31 +0000
+2012-09-19T17:27:35+00:00 app[web.1]: NoMethodError (undefined method `id' for nil:NilClass):
+2012-09-19T17:27:35+00:00 app[web.1]:   app/controllers/application_controller.rb:19:in `iswriteteable'
+2012-09-19T17:27:35+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-09-19T17:27:35+00:00 app[web.1]: 
+2012-09-19T17:27:35+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/ dyno=web.1 queue=0 wait=0ms service=3744ms status=500 bytes=822
+2012-09-19T17:27:35+00:00 app[web.1]: 
+2012-09-19T17:27:35+00:00 app[web.1]: 
+2012-09-19T17:27:35+00:00 app[web.1]: cache: [GET /] miss
+2012-09-19T17:29:54+00:00 app[web.1]: 
+2012-09-19T17:29:54+00:00 app[web.1]: 
+2012-09-19T17:29:54+00:00 app[web.1]: Started GET "/" for 148.230.10.20 at 2012-09-19 17:29:54 +0000
+2012-09-19T17:29:54+00:00 app[web.1]: 
+2012-09-19T17:
+29:54+00:00 app[web.1]: NoMethodError (undefined method `id' for nil:NilClass):
+2012-09-19T17:29:54+00:00 app[web.1]:   app/controllers/application_controller.rb:19:in `iswriteteable'
+2012-09-19T17:29:54+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-09-19T17:29:54+00:00 app[web.1]: 
+2012-09-19T17:29:54+00:00 app[web.1]: 
+2012-09-19T17:29:54+00:00 app[web.1]: cache: [GET /] miss
+2012-09-19T17:29:54+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/ dyno=web.1 queue=0 wait=0ms service=556ms status=500 bytes=822
+2012-09-19T17:36:35+00:00 app[web.1]: 
+2012-09-19T17:36:35+00:00 app[web.1]: 
+2012-09-19T17:36:35+00:00 app[web.1]: Started GET "/" for 148.230.10.20 at 2012-09-19 17:36:35 +0000
+2012-09-19T17:36:35+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/ dyno=web.1 queue=0 wait=0ms service=193ms status=302 bytes=121
+2012-09-19T17:36:35+00:00 app[web.1]: cache: [GET /] miss
+2012-09-19T17:36:35+00:00 app[web.1]: 
+2012-09-19T17:36:35+00:00 app[web.1]: Started GET "/users/sign_in" for 148.230.10.20 at 2012-09-19 17:36:35 +0000
+2012-09-19T17:36:35+00:00 app[web.1]: 
+2012-09-19T17:36:35+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-19T17:36:35+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-19T17:36:35+00:00 app[web.1]: cache: [GET /users/sign_in] miss
+2012-09-19T17:36:35+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/users/sign_in dyno=web.1 queue=0 wait=0ms service=51ms status=200 bytes=11950
+2012-09-19T17:36:46+00:00 app[web.1]: 
+2012-09-19T17:36:46+00:00 app[web.1]: Started POST "/users/sign_in" for 148.230.10.20 at 2012-09-19 17:36:46 +0000
+2012-09-19T17:36:46+00:00 app[web.1]: 
+2012-09-19T17:36:46+00:00 heroku[router]: POST tranquil-tundra-3192.herokuapp.com/users/sign_in dyno=web.1 queue=0 wait=0ms service=167ms status=302 bytes=108
+2012-09-19T17:36:46+00:00 app[web.1]: cache: [POST /users/sign_in] invalidate, pass
+2012-09-19T17:36:46+00:00 app[web.1]: 
+2012-09-19T17:36:46+00:00 app[web.1]: 
+2012-09-19T17:36:46+00:00 app[web.1]: Started GET "/" for 148.230.10.20 at 2012-09-19 17:36:46 +0000
+2012-09-19T17:36:46+00:00 app[web.1]: NoMethodError (undefined method `id' for nil:NilClass):
+2012-09-19T17:36:46+00:00 app[web.1]:   app/controllers/application_controller.rb:19:in `iswriteteable'
+2012-09-19T17:36:46+00:00 app[web.1]: 
+2012-09-19T17:36:46+00:00 app[web.1]: 
+2012-09-19T17:36:46+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-09-19T17:36:46+00:00 app[web.1]: cache: [GET /] miss
+2012-09-19T17:36:46+00:00 app[web.1]: 
+2012-09-19T17:36:46+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/ dyno=web.1 queue=0 wait=0ms service=479ms status=500 bytes=822
+2012-09-19T18:46:05+00:00 heroku[web.1]: Idling
+2012-09-19T18:46:12+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2012-09-19T18:46:14+00:00 heroku[web.1]: Process exited with status 0
+2012-09-19T18:46:14+00:00 heroku[web.1]: State changed from up to down
+2012-09-20T00:48:55+00:00 heroku[web.1]: Unidling
+2012-09-20T00:48:55+00:00 heroku[web.1]: State changed from down to starting
+2012-09-20T00:49:15+00:00 heroku[web.1]: Starting process with command `bundle exec thin start -R config.ru -e production -p 55810`
+2012-09-20T00:49:41+00:00 app[web.1]: >> Thin web server (v1.3.1 codename Triple Espresso)
+2012-09-20T00:49:41+00:00 app[web.1]: >> Maximum connections set to 1024
+2012-09-20T00:49:41+00:00 app[web.1]: >> Listening on 0.0.0.0:55810, CTRL+C to stop
+2012-09-20T00:49:42+00:00 heroku[web.1]: State changed from starting to up
+2012-09-20T00:49:43+00:00 app[web.1]: Started GET "/" for 189.152.109.103 at 2012-09-20 00:49:43 +0000
+2012-09-20T00:49:43+00:00 app[web.1]: 
+2012-09-20T00:49:43+00:00 app[web.1]: 
+2012-09-20T00:49:44+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/ dyno=web.1 queue=0 wait=0ms service=360ms status=302 bytes=112
+2012-09-20T00:49:44+00:00 app[web.1]: cache: [GET /] miss
+2012-09-20T00:49:45+00:00 app[web.1]: 
+2012-09-20T00:49:45+00:00 app[web.1]: Started GET "/home" for 189.152.109.103 at 2012-09-20 00:49:45 +0000
+2012-09-20T00:49:45+00:00 app[web.1]: 
+2012-09-20T00:49:46+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-20T00:49:46+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-20T00:50:15+00:00 heroku[router]: Error H12 (Request timeout) -> GET tranquil-tundra-3192.herokuapp.com/home dyno=web.1 queue= wait= service=30000ms status=503 bytes=0
+2012-09-20T00:50:16+00:00 heroku[router]: Error H12 (Request timeout) -> GET tranquil-tundra-3192.herokuapp.com/ dyno=web.1 queue= wait= service=30000ms status=503 bytes=0
+2012-09-20T00:50:20+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-20T00:50:20+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-09-20T00:50:20+00:00 app[web.1]: cache: [GET /home] miss
+2012-09-20T00:50:20+00:00 app[web.1]: 
+2012-09-20T00:50:20+00:00 app[web.1]: Started GET "/" for 189.232.211.236 at 2012-09-20 00:50:20 +0000
+2012-09-20T00:50:20+00:00 app[web.1]: 
+2012-09-20T00:50:20+00:00 app[web.1]: cache: [GET /] miss
+2012-09-20T00:50:20+00:00 app[web.1]: cache: [GET /favicon.ico] miss
+2012-09-20T00:50:20+00:00 app[web.1]: cache: [GET /favicon.ico] miss, store
+2012-09-20T00:50:20+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/favicon.ico dyno=web.1 queue=0 wait=0ms service=3328ms status=200 bytes=0
+2012-09-20T00:50:20+00:00 heroku[router]: GET tranquil-tundra-3192.herokuapp.com/favicon.ico dyno=web.1 queue=0 wait=0ms service=4578ms status=200 bytes=0

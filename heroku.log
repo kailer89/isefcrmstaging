@@ -1,0 +1,1453 @@
+2012-12-13T23:57:54+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (25.2ms)
+2012-12-13T23:57:54+00:00 app[web.1]:   [1m[36mFavorito Load (1.1ms)[0m  [1mSELECT "favoritos".* FROM "favoritos" WHERE "favoritos"."id" = 1 LIMIT 1[0m
+2012-12-13T23:57:54+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (0.7ms)
+2012-12-13T23:57:54+00:00 app[web.1]: Completed 200 OK in 74ms (Views: 43.5ms | ActiveRecord: 14.1ms)
+2012-12-13T23:57:57+00:00 app[web.1]: 
+2012-12-13T23:57:57+00:00 app[web.1]: 
+2012-12-13T23:57:57+00:00 app[web.1]: Started GET "/reports" for 189.224.19.143 at 2012-12-13 23:57:57 +0000
+2012-12-13T23:57:57+00:00 app[web.1]:   [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+2012-12-13T23:57:57+00:00 app[web.1]: nil
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------3
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------0
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------1
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------4
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------5
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------8
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------9
+2012-12-13T23:57:57+00:00 app[web.1]:   [1m[35mRolePermision Load (0.9ms)[0m  SELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 9 AND "role_permisions"."objeto" = 'reports')) LIMIT 1
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------12
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------11
+2012-12-13T23:57:57+00:00 app[web.1]:   [1m[36mReport Load (0.8ms)[0m  [1mSELECT "reports".* FROM "reports" [0m
+2012-12-13T23:57:57+00:00 app[web.1]: Rendered reports/index.html.erb within layouts/application (0.9ms)
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------2
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------6
+2012-12-13T23:57:57+00:00 app[web.1]: --------------------------------79
+2012-12-13T23:57:57+00:00 app[web.1]:   Processing by ReportsController#index as HTML
+2012-12-13T23:57:57+00:00 app[web.1]:   [1m[35mRole Load (7.3ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'
+2012-12-13T23:57:57+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (0.5ms)
+2012-12-13T23:57:57+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (12.7ms)
+2012-12-13T23:57:57+00:00 app[web.1]:   [1m[35mFavorito Load (0.7ms)[0m  SELECT "favoritos".* FROM "favoritos" WHERE "favoritos"."id" = 1 LIMIT 1
+2012-12-13T23:57:57+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (1.2ms)
+2012-12-13T23:57:57+00:00 app[web.1]: Completed 200 OK in 44ms (Views: 18.8ms | ActiveRecord: 22.0ms)
+2012-12-13T23:57:57+00:00 app[web.1]:   [1m[36mBarraFavorito Load (0.9ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1[0m
+2012-12-13T23:57:57+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (4.7ms)
+2012-12-13T23:57:57+00:00 app[web.1]:   [1m[36mRole Load (10.3ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 9 LIMIT 1[0m
+2012-12-13T23:57:59+00:00 app[web.1]: 
+2012-12-13T23:57:59+00:00 app[web.1]: Started GET "/reports/new" for 189.224.19.143 at 2012-12-13 23:57:59 +0000
+2012-12-13T23:57:59+00:00 app[web.1]:   Processing by ReportsController#new as HTML
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------6
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------2
+2012-12-13T23:57:59+00:00 app[web.1]:   [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------3
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------1
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------4
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------8
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------5
+2012-12-13T23:57:59+00:00 app[web.1]:   [1m[35mRole Load (0.8ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 9 LIMIT 1
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------9
+2012-12-13T23:57:59+00:00 app[web.1
+]: --------------------------------79
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------11
+2012-12-13T23:57:59+00:00 app[web.1]:   [1m[36mRolePermision Load (0.9ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 9 AND "role_permisions"."objeto" = 'reports')) LIMIT 1[0m
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------12
+2012-12-13T23:57:59+00:00 app[web.1]: 
+2012-12-13T23:57:59+00:00 app[web.1]: nil
+2012-12-13T23:57:59+00:00 app[web.1]: --------------------------------0
+2012-12-13T23:57:59+00:00 app[web.1]: Rendered shared/_breadcrumbs.html.erb (1.1ms)
+2012-12-13T23:57:59+00:00 app[web.1]: Rendered reports/_form.html.erb (13.4ms)
+2012-12-13T23:57:59+00:00 app[web.1]: Rendered reports/new.html.erb within layouts/application (14.2ms)
+2012-12-13T23:57:59+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (5.9ms)
+2012-12-13T23:57:59+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (0.6ms)
+2012-12-13T23:57:59+00:00 app[web.1]:   [1m[35mRole Load (0.7ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'
+2012-12-13T23:57:59+00:00 app[web.1]:   [1m[35mFavorito Load (0.6ms)[0m  SELECT "favoritos".* FROM "favoritos" WHERE "favoritos"."id" = 1 LIMIT 1
+2012-12-13T23:57:59+00:00 app[web.1]: Completed 200 OK in 162ms (Views: 23.9ms | ActiveRecord: 15.3ms)
+2012-12-13T23:57:59+00:00 app[web.1]: Rendered shared/_
+fav_menu.html.erb (3.4ms)
+2012-12-13T23:57:59+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (1.2ms)
+2012-12-13T23:57:59+00:00 app[web.1]:   [1m[36mBarraFavorito Load (0.7ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1[0m
+2012-12-14T01:19:09+00:00 app[web.1]: DEPRECATION WARNING: Core extensions are deprecated and will be removed in Squeel 2.0. (called from /app/config/initializers/squeel.rb:4:in `block in <top (required)>')
+2012-12-14T01:19:10+00:00 app[web.1]: Creating scope :page. Overwriting existing method Version.page.
+2012-12-14T01:19:10+00:00 app[web.1]: Creating scope :page. Overwriting existing method ActiveRecord::SessionStore::Session.page.
+2012-12-14T01:19:12+00:00 app[web.1]: Creating scope :page. Overwriting existing method User.page.
+2012-12-14T01:19:14+00:00 app[web.1]: Creating scope :page. Overwriting existing method Achievment.page.
+2012-12-14T01:19:14+00:00 app[web.1]:   [1m[36m (1.4ms)[0m  [1mSHOW search_path[0m
+2012-12-14T01:19:14+00:00 app[web.1]: Creating scope :page. Overwriting existing method Admitido.page.
+2012-12-14T01:19:14+00:00 app[web.1]: Creating scope :page. Overwriting existing method Article.page.
+2012-12-14T01:19:14+00:00 app[web.1]: Creating scope :page. Overwriting existing method Attachment.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method Authentication.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method BarraFavorito.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method CampanaSocial.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method Colegiatura.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method Caso.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method ComentariosEstrategium.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method Comment.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method Contacto.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method Correo.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method DivisionTerritorial.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method Dashboard.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method Employmentship.page.
+2012-12-14T01:19:15+00:00 app[web.1]: Creating scope :page. Overwriting existing method EquipoDeAltoRendimiento.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method EquipoPromocion.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method EstrategiaPromocional.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Event.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Examinado.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Favorito.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method FinalidadCultivo.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Grupo.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method History.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Home.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Import.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Inscrito.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method LiveReport.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Llamada.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Memo.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method MercadoMetum.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page
+. Overwriting existing method MetasGlobale.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method MiPlanEstrategicoDePromocionPep.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method MunicipioDeLaPreparatoriaOUniversidadDeOrigen.page.
+2012-12-14T01:19:16+00:00 app[web.1]: Creating scope :page. Overwriting existing method Modalidad.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method NacionalDeApertura.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Nacionalidad.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Nivel.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method OfertaEducativa.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method PeriodoParaIngresar.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method PlanDeVentum.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Post.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Preguntum.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method PreparatoriaOUniversidadDeOrigen.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Programa.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method ProgramaDeIntere.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Prospecto.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Purge.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method ReportDirection.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Reportline.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Reportparam.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Report.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Reportsortby.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method RolePermision.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Role.page.
+2012-12-14T01:19:17+00:00 app[web.1]: Creating scope :page. Overwriting existing method Rpm.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method Sede.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method Solicitante.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method Static.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeAdmision.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeEse.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeInteresDeProspectoValidado.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeLaInscripcion.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeLaNotificacion.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDePagoDeExamenDeAdmision.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDePagoEse.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelAdmitido.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelExaminadoEntrevistum.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelExaminadoPaa.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelExaminadoPsico.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelPagoDeLaInscripcion.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelTramiteDeBeca.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusRefPagoInsc.page.
+2012-12-14T01:19:18+00:00 app[web.1]: Creating scope :page. Overwriting existing method Subsede.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method Tarea.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method Territorio.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method TipoDeAdmision.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method Turno.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method Tweet.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method UltimoGradoDeEstudio.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method AccionEstrategica.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method Becacredito.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method Compartido.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method Direccion.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method InteresBasico.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method MedioDeContacto.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method InteresAcademico.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method PlanDeDescuento.page.
+2012-12-14T01:19:19+00:00 app[web.1]: Creating scope :page. Overwriting existing method Meta.page.
+2012-12-14T01:19:21+00:00 app[web.1]: >> Listening on 0.0.0.0:36670, CTRL+C to stop
+2012-12-14T01:19:21+00:00 app[web.1]: >> Thin web server (v1.3.1 codename Triple Espresso)
+2012-12-14T01:19:21+00:00 app[web.1]: >> Maximum connections set to 1024
+2012-12-14T01:32:38+00:00 app[web.1]: DEPRECATION WARNING: Core extensions are deprecated and will be removed in Squeel 2.0. (called from /app/config/initializers/squeel.rb:4:in `block in <top (required)>')
+2012-12-14T01:32:40+00:00 app[web.1]: Creating scope :page. Overwriting existing method ActiveRecord::SessionStore::Session.page.
+2012-12-14T01:32:40+00:00 app[web.1]: Creating scope :page. Overwriting existing method Version.page.
+2012-12-14T01:32:44+00:00 app[web.1]: Creating scope :page. Overwriting existing method User.page.
+2012-12-14T01:32:46+00:00 app[web.1]:   [1m[36m (2.7ms)[0m  [1mSHOW search_path[0m
+2012-12-14T01:32:46+00:00 app[web.1]: Creating scope :page. Overwriting exis
+ting method Achievment.page.
+2012-12-14T01:32:46+00:00 app[web.1]: Creating scope :page. Overwriting existing method Admitido.page.
+2012-12-14T01:32:46+00:00 app[web.1]: Creating scope :page. Overwriting existing method Article.page.
+2012-12-14T01:32:46+00:00 app[web.1]: Creating scope :page. Overwriting existing method Attachment.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method Authentication.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method BarraFavorito.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method CampanaSocial.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method Caso.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method Colegiatura.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method ComentariosEstrategium.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method Comment.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method Contacto.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method Correo.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method Dashboard.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method DivisionTerritorial.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method Employmentship.page.
+2012-12-14T01:32:47+00:00 app[web.1]: Creating scope :page. Overwriting existing method EquipoDeAltoRendimiento.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method EquipoPromocion.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method EstrategiaPromocional.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method Event.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method Examinado.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method Favorito.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method FinalidadCultivo.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method Grupo.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method History.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method Memo.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method LiveReport.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method Nivel.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method Import.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method Home.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method Inscrito.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method MercadoMetum.page.
+2012-12-14T01:32:48+00:00 app[web.1]: Creating scope :page. Overwriting existing method Llamada.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method MunicipioDeLaPreparatoriaOUniversidadDeOrigen.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method OfertaEducativa.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method Nacionalidad.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method Modalidad.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method MetasGlobale.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method MiPlanEstrategicoDePromocionPep.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method NacionalDeApertura.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method Post.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method PlanDeVentum.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method PeriodoParaIngresar.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method Preguntum.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method PreparatoriaOUniversidadDeOrigen.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method ProgramaDeIntere.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method Programa.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method Prospecto.page.
+2012-12-14T01:32:49+00:00 app[web.1]: Creating scope :page. Overwriting existing method Purge.page.
+2012-12-14T01:32:50+00:00 app[web.1]: Creating scope :page. Overwriting existing method ReportDirection.page.
+2012-12-14T01:32:50+00:00 app[web.1]: Creating scope :page. Overwriting existing method Reportline.page.
+2012-12-14T01:32:50+00:00 app[web.1]: Creating scope :page. Overwriting existing method Reportparam.page.
+2012-12-14T01:32:50+00:00 app[web.1]: Creating scope :page. Overwriting existing method Report.page.
+2012-12-14T01:32:50+00:00 app[web.1]: Creating scope :page. Overwriting existing method Reportsortby.page.
+2012-12-14T01:32:50+00:00 app[web.1]: Creating scope :page. Overwriting existing method RolePermision.page.
+2012-12-14T01:32:50+00:00 app[web.1]: Creating scope :page. Overwriting existing method Role.page.
+2012-12-14T01:32:50+00:00 app[web.1]: Creating scope :page. Overwriting existing method Rpm.page.
+2012-12-14T01:32:50+00:00 app[web.1]: Creating scope :page. Overwriting existing method Sede.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method Solicitante.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method Static.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeAdmision.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeEse.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeInteresDeProspectoValidado.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeLaInscripcion.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDeLaNotificacion.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDePagoDeExamenDeAdmision.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDePagoEse.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelAdmitido.page.
+2012-12-14T01:32:51+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelExaminadoEntrevistum.page.
+2012-12-14T01:32:52+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelExaminadoPaa.page.
+2012-12-14T01:32:52+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelExaminadoPsico.page.
+2012-12-14T01:32:52+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelPagoDeLaInscripcion.page.
+2012-12-14T01:32:52+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusDelTramiteDeBeca.page.
+2012-12-14T01:32:52+00:00 app[web.1]: Creating scope :page. Overwriting existing method StatusRefPagoInsc.page.
+2012-12-14T01:32:53+00:00 app[web.1]: Creating scope :page. Overwriting existing method Subsede.page.
+2012-12-14T01:32:53+00:00 app[web.1]: Creating scope :page. Overwriting existing method Tarea.page.
+2012-12-14T01:32:53+00:00 app[web.1]: Creating scope :page. Overwriting existing method Territorio.page.
+2012-12-14T01:32:53+00:00 app[web.1]: Creating scope :page. Overwriting existing method TipoDeAdmision.page.
+2012-12-14T01:32:53+00:00 app[web.1]: Creating scope :page. Overwriting existing method Turno.page.
+2012-12-14T01:32:53+00:00 app[web.1]: Creating scope :page. Overwriting existing method Tweet.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method UltimoGradoDeEstudio.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method AccionEstrategica.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method Becacredito.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method Compartido.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method Direccion.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method InteresAcademico.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method InteresBasico.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method MedioDeContacto.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method Meta.page.
+2012-12-14T01:32:54+00:00 app[web.1]: Creating scope :page. Overwriting existing method PlanDeDescuento.page.
+2012-12-14T01:32:58+00:00 app[web.1]: >> Listening on 0.0.0.0:34919, CTRL+C to stop
+2012-12-14T01:32:58+00:00 app[web.1]: >> Maximum connections set to 1024
+2012-12-14T01:32:58+00:00 app[web.1]: >> Thin web server (v1.3.1 codename Triple Espresso)
+2012-12-14T01:38:12+00:00 app[web.1]: 
+2012-12-14T01:38:12+00:00 app[web.1]: Started GET "/" for 189.152.166.3 at 2012-12-14 01:38:12 +0000
+2012-12-14T01:38:12+00:00 app[web.1]: 
+2012-12-14T01:38:12+00:00 app[web.1]:   Processing by HomesCon
+troller#force_redirect as HTML
+2012-12-14T01:38:12+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:38:12+00:00 app[web.1]: nil
+2012-12-14T01:38:12+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:38:12+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:38:12+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:38:12+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:38:12+00:00 app[web.1]: Completed 401 Unauthorized in 24ms
+2012-12-14T01:38:13+00:00 app[web.1]: 
+2012-12-14T01:38:13+00:00 app[web.1]: 
+2012-12-14T01:38:13+00:00 app[web.1]: Started GET "/users/sign_in" for 189.152.166.3 at 2012-12-14 01:38:13 +0000
+2012-12-14T01:38:13+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:38:13+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:38:13+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:38:13+00:00 app[web.1]:   Processing by SessionsController#new as HTML
+2012-12-14T01:38:13+00:00 app[web.1]: nil
+2012-12-14T01:38:13+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:38:13+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:38:16+00:00 app[web.1]: Rendered devise/sessions/new.html.erb (2807.0ms)
+2012-12-14T01:38:16+00:00 app[web.1]: Completed 200 OK in 3137ms (Views: 3106.9ms | ActiveRecord: 6.3ms)
+2012-12-14T01:38:25+00:00 app[web.1]: 
+2012-12-14T01:38:25+00:00 app[web.1]: Started POST "/users/sign_in" for 189.152.166.3 at 2012-12-14 01:38:25 +0000
+2012-12-14T01:38:25+00:00 app[web.1]: 
+2012-12-14T01:38:25+00:00 app[web.1]:   Processing by SessionsController#create as HTML
+2012-12-14T01:38:25+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"EuY5OSkwVcqgiN2uFi//vy2hcwhpf4w8e5sr2WSKa8Y=", "user"=>{"username"=>"admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+2012-12-14T01:38:25+00:00 app[web.1]:   [1m[35mUser Load (3.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'admin' LIMIT 1
+2012-12-14T01:38:25+00:00 app[web.1]:   [1m[36m (2.1ms)[0m  [1mBEGIN[0m
+2012-12-14T01:38:25+00:00 app[web.1]:   [1m[35m (2.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2012-12-14 01:38:25.681542', "current_sign_in_at" = '2012-12-14 01:38:25.681542', "last_sign_in_ip" = '189.152.166.3', "current_sign_in_ip" = '189.152.166.3', "sign_in_count" = 1, "updated_at" = '2012-12-14 01:38:25.684578' WHERE "users"."id" = 1
+2012-12-14T01:38:25+00:00 app[web.1]:   [1m[36m (3.6ms)[0m  [1mCOMMIT[0m
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:38:25+00:00 app[web.1]: nil
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:38:25+00:00 app[web.1]:   [1m[35mRole Load (2.7ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:38:25+00:00 app[web.1]:   [1m[36mRolePermision Load (8.9ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'sessions')) LIMIT 1[0m
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:38:25+00:00 app[web.1]: --------------------------------12
+2012-12-14T01:38:25+00:00 app[web.1]: Redirected to http://tranquil-tundra-3192.herokuapp.com/
+2012-12-14T01:38:25+00:00 app[web.1]: Completed 302 Found in 205ms
+2012-12-14T01:38:26+00:00 app[web.1]: 
+2012-12-14T01:38:26+00:00 app[web.1]: 
+2012-12-14T01:38:26+00:00 app[web.1]: Started GET "/" for 189.152.166.3 at 2012-12-14 01:38:26 +0000
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mUser Load (2.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:38:26+00:00 app[web.1]:   Processing by HomesController#force_redirect as HTML
+2012-12-14T01:38:26+00:00 app[web.1]: nil
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mRole Load (2.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1[0m
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mRolePermision Load (2.3ms)[0m  SELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'homes')) LIMIT 1
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------12
+2012-12-14T01:38:26+00:00 app[web.1]: Completed 302 Found in 14ms
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:38:26+00:00 app[web.1]: Redirected to http://tranquil-tundra-3192.herokuapp.com/home
+2012-12-14T01:38:26+00:00 app[web.1]: 
+2012-12-14T01:38:26+00:00 app[web.1]: 
+2012-12-14T01:38:26+00:00 app[web.1]: Started GET "/home" for 189.152.166.3 at 2012-12-14 01:38:26 +0000
+2012-12-14T01:38:26+00:00 app[web.1]:   Processing by HomesController#index as HTML
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:38:26+00:00 app[web.1]: nil
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mRole Load (1.9ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mRolePermision Load (2.1ms)[0m  [1mSELECT "role_permisions".* F
+ROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'homes')) LIMIT 1[0m
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------12
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mSolicitante Load (2.5ms)[0m  SELECT "solicitantes".* FROM "solicitantes" WHERE "solicitantes"."isexaminado" = 'f' LIMIT 5
+2012-12-14T01:38:26+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mAdmitido Load (2.5ms)[0m  SELECT "admitidos".* FROM "admitidos" WHERE "admitidos"."isinscrito" = 'f' LIMIT 5
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mExaminado Load (2.5ms)[0m  [1mSELECT "examinados".* FROM "examinados" WHERE "examinados"."isadmitido" = 'f' LIMIT 5[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mInscrito Load (2.6ms)[0m  [1mSELECT "inscritos".* FROM "inscritos" LIMIT 5[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-12-09 01:38:26.531276'[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36m (2.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."user_id" = 1 AND "prospectos"."validado" = 't'[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-14 01:38:26.530773'
+2012-12-14T01:38:26+00:00 app[web.1]:   
+[1m[36m (1.9ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-14 01:38:26.530773' AND "prospectos"."validado" = 't'[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-12-09 01:38:26.531276'
+2012-12-14T01:38:26+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (8.6ms)
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mTarea Load (2.5ms)[0m  [1mSELECT "tareas".* FROM "tareas" WHERE "tareas"."user_id" = 1 ORDER BY "tareas"."fecha_de_inicio_de_la_tarea" LIMIT 5[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mProspecto Load (2.3ms)[0m  [1mSELECT "prospectos".* FROM "prospectos" WHERE "prospectos"."issolicitante" = 'f' AND (("prospectos"."validado" = 'f' AND "prospectos"."user_id" = 1)) LIMIT 5[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mProspecto Load (2.1ms)[0m  [1mSELECT "prospectos".* FROM "prospectos" WHERE "prospectos"."issolicitante" = 'f' AND (("prospectos"."validado" = 't' AND "prospectos"."user_id" = 1)) LIMIT 5[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35m (2.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "prospectos" WHERE "prospectos"."issolicitante" = 'f' AND (("prospectos"."validado" = 't' AND "prospectos"."user_id" = 1)) LIMIT 5) subquery_for_count 
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35m (2.8ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."user_id" = 1
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35m (2.1ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-12-14 00:00:00'
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36m (1.9ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-12-09 01:38:26.531276' AND "prospectos"."validado" = 't'[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-12-14 00:00:00'[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36m (7.9ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-12-14 00:00:00' AND "prospectos"."validado" = 't'[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."user_id" = 1
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-12-14 00:00:00'
+2012-12-14T01:38:26+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (1.3ms)
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mBarraFavorito Load (2.6ms)[0m  SELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1
+2012-12-14T01:38:26+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (9.2ms)
+2012-12-14T01:38:26+00:00 app[web.1]: Completed 200 OK in 300ms (Views: 218.2ms | ActiveRecord: 73.3ms)
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35m (2.7ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "tareas" WHERE "tareas"."user_id" = 1 LIMIT 5) subquery_for_count 
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mLlamada Load (2.3ms)[0m  [1mSELECT "llamadas".* FROM "llamadas" WHERE "llamadas"."user_id" = 1 LIMIT 5[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35m (3.8ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-14 01:38:26.530773'
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-11-14 01:38:26.530773'[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35mPrograma Load (3.6ms)[0m  SELECT "programas".* FROM "programas" 
+2012-12-14T01:38:26+00:00 app[web.1]: Rendered homes/index.html.erb within layouts/application (190.3ms)
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mRole Load (2.5ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35m (2.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "llamadas" WHERE "llamadas"."user_id" = 1 LIMIT 5) subquery_for_count 
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35m (2.6ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "prospectos" WHERE "prospectos"."issolicitante" = 'f' AND (("prospectos"."validado" = 'f' AND "prospectos"."user_id" = 1)) LIMIT 5) subquery_for_count 
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mMemo Load (2.1ms)[0m  [1mSELECT "memos".* FROM "memos" WHERE "memos"."user_id" = 1 LIMIT 5[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."user_id" = 1[0m
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35m (2.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "memos" WHERE "memos"."user_id" = 1 LIMIT 5) subquery_for_count 
+2012-12-14T01:38:26+00:00 app[web.1]:   [1m[35m (2.0ms)[0m  SELECT COUNT(*) FROM "prospectos" WHERE "prospectos"."created_at" >= '2012-12-09 01:38:26.531276'
+2012-12-14T01:38:26+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (14.9ms)
+2012-12-14T01:38:33+00:00 app[web.1]: 
+2012-12-14T01:38:33+00:00 app[web.1]: Started GET "/metas_globales" for 189.152.166.3 at 2012-12-14 01:38:33 +0000
+2012-12-14T01:38:33+00:00 app[web.1]: 
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:38:33+00:00 app[web.1]: nil
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:38:33+00:00 app[web.1]:   [1m[35mRole Load (2.0ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1
+2012-12-14T01:38:33+00:00 app[web.1]:   [1m[36mUser Load (2.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+2012-12-14T01:38:33+00:00 app[web.1]:   Processing by MetasGlobalesController#index as HTML
+2012-12-14T01:38:33+00:00 app[web.1]:   [1m[36mRolePermision Load (2.2ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'metas_globales')) LIMIT 1[0m
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------13
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------15
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------18
+2012-12-14T01:38:33+00:00 app[web.1]: --------------------------------19
+2012-12-14T01:38:33+00:00 app[web.1]:   [1m[35mMetasGlobale Load (3.6ms)[0m  SELECT "metas_globales".* FROM "metas_globales" 
+2012-12-14T01:38:33+00:00 app[web.1]: Rendered metas_globales/index.html.erb within layouts/application (4.4ms)
+2012-12-14T01:38:33+00:00 app[web.1]:   [1m[36mRole Load (2.3ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'[0m
+2012-12-14T01:38:33+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (9.9ms)
+2012-12-14T01:38:33+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (0.7ms)
+2012-12-14T01:38:33+00:00 app[web.1]:   [1m[35mBarraFavorito Load (7.2ms)[0m  SELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1
+2012-12-14T01:38:33+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (9.4ms)
+2012-12-14T01:38:33+00:00 app[web.1]: Completed 200 OK in 55ms (Views: 28.2ms | ActiveRecord: 19.6ms)
+2012-12-14T01:38:33+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (3.9ms)
+2012-12-14T01:38:36+00:00 app[web.1]: 
+2012-12-14T01:38:36+00:00 app[web.1]: Started GET "/metas_globales/new" for 189.152.166.3 at 2012-12-14 01:38:36 +0000
+2012-12-14T01:38:36+00:00 app[web.1]: 
+2012-12-14T01:38:36+00:00 app[web.1]:   Processing by MetasGlobalesController#new as HTML
+2012-12-14T01:38:36+00:00 app[web.1]: nil
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:38:36+00:00 app[web.1]:   [1m[35mRole Load (2.1ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1
+2012-12-14T01:38:36+00:00 app[web.
+1]: --------------------------------1
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:38:36+00:00 app[web.1]:   [1m[36mUser Load (2.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:38:36+00:00 app[web.1]: Completed 500 Internal Server Error in 16ms
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------13
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------14
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------15
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------20
+2012-12-14T01:38:36+00:00 app[web.1]: Redirected to 
+2012-12-14T01:38:36+00:00 app[web.1]: Redirected to http://tranquil-tundra-3192.herokuapp.com/metas_globales
+2012-12-14T01:38:36+00:00 app[web.1]:   [1m[36mRolePermision Load (2.2ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'metas_globales')) LIMIT 1[0m
+2012-12-14T01:38:36+00:00 app[web.1]: --------------------------------18
+2012-12-14T01:38:37+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.3ms)
+2012-12-14T01:38:37+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.0ms)
+2012-12-14T01:38:37+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_session.text.erb (0.9ms)
+2012-12-14T01:38:37+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_request.text.erb (1.0ms)
+2012-12-14T01:38:37+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_environment.text.erb (38.1ms)
+2012-12-14T01:38:37+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_backtrace.text.erb (1.0ms)
+2012-12-14T01:38:37+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.1ms)
+2012-12-14T01:38:37+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/exception_notification.text.erb (51.2ms)
+2012-12-14T01:38:37+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.2ms)
+2012-12-14T01:38:38+00:00 app[web.1]: Sent mail to israel.valdez.89@gmail.com, ngl_88@hotmail.com (1643ms)
+2012-12-14T01:38:38+00:00 app[web.1]: Subject: [ERROR] metas_globales#new (AbstractController::DoubleRenderError)
+2012-12-14T01:38:38+00:00 app[web.1]: To: israel.valdez.89@gmail.com, 
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:  "Render and/or redirect were called multiple times in...
+2012-12-14T01:38:38+00:00 app[web.1]: From: admin@protocrm.com
+2012-12-14T01:38:38+00:00 app[web.1]:  ngl_88@hotmail.com
+2012-12-14T01:38:38+00:00 app[web.1]: Content-Transfer-Encoding: 7bit
+2012-12-14T01:38:38+00:00 app[web.1]: An AbstractController::DoubleRenderError occurred in metas_globales#new:
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/redirecting.rb:61:in `redirect_to'
+2012-12-14T01:38:38+00:00 app[web.1]: Date: Fri, 14 Dec 2012 01:38:37 +0000
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]: Content-Type: text/plain;
+2012-12-14T01:38:38+00:00 app[web.1]: Mime-Version: 1.0
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   * Parameters: {"action"=>"new", "controller"=>"metas_globales"}
+2012-12-14T01:38:38+00:00 app[web.1]: Request:
+2012-12-14T01:38:38+00:00 app[web.1]: -------------------------------
+2012-12-14T01:38:38+00:00 app[web.1]: Message-ID: <50ca831d821b9_25df1382775e@ce2595e4-92bb-4dcc-9785-cc216d81c3be.mail>
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   * IP address: 189.152.166.3
+2012-12-14T01:38:38+00:00 app[web.1]:   * Timestamp : 2012-12-14 01:38:37 UTC
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]: -------------------------------
+2012-12-14T01:38:38+00:00 app[web.1]:   * GATEWAY_INTERFACE                         : CGI/1.2
+2012-12-14T01:38:38+00:00 app[web.1]:  charset=UTF-8
+2012-12-14T01:38:38+00:00 app[web.1]:   Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".
+2012-12-14T01:38:38+00:00 app[web.1]: -------------------------------
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_REFERER                              : http://tranquil-tundra-3192.herokuapp.com/metas_globales
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_ACCEPT_ENCODING                      : gzip,deflate,sdch
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_X_FORWARDED_PROTO                    : http
+2012-12-14T01:38:38+00:00 app[web.1]:    "warden.user.user.key"=>["User", [1], "$2a$10$murlRK3/qz1BSdM.GWYLp."]}
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_X_HEROKU_QUEUE_WAIT_TIME             : 0
+2012-12-14T01:38:38+00:00 app[web.1]:   * URL       : http://tranquil-tundra-3192.herokuapp.com/metas_globales/new
+2012-12-14T01:38:38+00:00 app[web.1]: -------------------------------
+2012-12-14T01:38:38+00:00 app[web.1]:   * SERVER_NAME                               : tranquil-tundra-3192.herokuapp.com
+2012-12-14T01:38:38+00:00 app[web.1]:   * SERVER_PORT                               : 80
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_HOST                                 : tranquil-tundra-3192.herokuapp.com
+2012-12-14T01:38:38+00:00 app[web.1]:   * PATH_INFO                                 : /metas_globales/new
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.show_exceptions           : true
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]: Session:
+2012-12-14T01:38:38+00:00 app[web.1]:   * exception_notifier.options                : {:sender_address=>"admin@protocrm.com", :exception_recipients=>"israel.valdez.89@gmail.com,ngl_88@hotmail.com", :email_prefix=>"[ERROR] ", :email_format=>:text, :sections=>["request", "session", "environment", "backtrace"], :background_sections=>["backtrace", "data"], :verbose_subject=>true, :normalize_subject=>false, :template_path=>"exception_notifier", :smtp_settings=>nil, :ignore_exceptions=>["ActiveRecord::RecordNotFound", "AbstractController::ActionNotFound", "ActionController::RoutingError"], :ignore_crawlers=>[], :ignore_if=>#<Proc:0x000000053db2d8@/app/vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier.rb:36 (lambda)>}
+2012-12-14T01:38:38+00:00 app[web.1]:   * SERVER_PROTOCOL                           : HTTP/1.1
+2012-12-14T01:38:38+00:00 app[web.1]:   * SERVER_SOFTWARE                           : thin 1.3.1 codename Triple Espresso
+2012-12-14T01:38:38+00:00 app[web.1]: -------------------------------
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_ACCEPT_CHARSET                       : ISO-8859-1,utf-8;q=0.7,*;q=0.3
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.multithread                          : false
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_controller.instance                : metas_globales#new
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.input                                : #<StringIO:0x000000083fd768>
+2012-12-14T01:38:38+00:00 app[web.1]:   * SCRIPT_NAME                               : 
+2012-12-14T01:38:38+00:00 app[web.1]: -------------------------------
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   * session id: "c2d464f65dc58378c39c9c780aa99586"
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.request.query_parameters  : {}
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.request.query_hash                   : {}
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_X_FORWARDED_FOR                      : 189.152.166.3
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.request.parameters        : {"action"=>"new", "controller"=>"metas_globales"}
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.routes                    : #<ActionDispatch::Routing::RouteSet:0x00000004321438>
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_USER_AGENT                           : Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.session.record                       : #<ActiveRecord::SessionStore::Session:0x000000083f62b0>
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.parameter_filter          : [:password, /RAW_POST_DATA/]
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.remote_ip                 : 189.152.166.3
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.run_once                             : false
+2012-12-14T01:38:38+00:00 app[web.1]:   * Server : ce2595e4-92bb-4dcc-9785-cc216d81c3be
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.request.flash_hash        : #<ActionDispatch::Flash::FlashHash:0x000000083b0968>
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_ACCEPT                               : text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.errors                               : #<IO:0x00000000bc41c0>
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.multiprocess                         : false
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.request.query_string                 : 
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_VERSION                              : HTTP/1.1
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.url_scheme                           : http
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]: -------------------------------
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.request.content_type      : 
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.request.formats           : [text/html]
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.request.request_parameters: {}
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/redirecting.rb:61:in `redirect_to'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `block in instrument'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:59:in `redirect_to'
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.request.path_parameters   : {:action=>"new", :controller=>"metas_globales"}
+2012-12-14T01:38:38+00:00 app[web.1]:   * async.close                               : #<EventMachine::DefaultDeferrable:0x000000083fca20>
+2012-12-14T01:38:38+00:00 app[web.1]:   * Rails root: /app
+2012-12-14T01:38:38+00:00 app[web.1]: Environment:
+2012-12-14T01:38:38+00:00 app[web.1]:   app/controllers/application_controller.rb:62:in `iswriteteable'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.4/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal.rb:236:in `block in action'
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_X_HEROKU_QUEUE_DEPTH                 : 0
+2012-12-14T01:38:38+00:00 app[web.1]: Backtrace:
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gem
+s/activesupport-3.1.4/lib/active_support/callbacks.rb:448:in `_run__4313785022285554481__process_action__420016358899266129__callbacks'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/params_wrapper.rb:201:in `process_action'
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `instrument'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.version                              : [1, 0]
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.request.cookie_string                : _session_id=c2d464f65dc58378c39c9c780aa99586
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:65:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:89:in `optimized_each'
+2012-12-14T01:38:38+00:00 app[web.1]:   * Process: 2
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/flash.rb:25:in `redirect_to'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:60:in `block in redirect_to'
+2012-12-14T01:38:38+00:00 app[web.1]: -------------------------------
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_X_FORWARDED_PORT                     : 80
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:532:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal.rb:193:in `dispatch'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:29:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-pjax-0.6.0/lib/rack/pjax.rb:12:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   * data: {"_csrf_token"=>"EuY5OSkwVcqgiN2uFi//vy2hcwhpf4w8e5sr2WSKa8Y=",
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_X_HEROKU_DYNOS_IN_USE                : 1
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/warden-1.2.1/lib/warden/manager.rb:34:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/conditionalget.rb:25:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:38:38+00:00 app[
+web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/etag.rb:23:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/abstract_controller/base.rb:121:in `process'
+2012-12-14T01:38:38+00:00 app[web.1]:   * ORIGINAL_FULLPATH                         : /metas_globales/new
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/abstract_controller/rendering.rb:45:in `process'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+2012-12-14T01:38:38+00:00 app[web.1]:   * QUERY_STRING                              : 
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_ACCEPT_LANGUAGE                      : es-ES,es;q=0.8
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_X_REQUEST_START                      : 1355449116610
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:195:in `context'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:477:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/sendfile.rb:101:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:190:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/cookies.rb:331:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/rack/logger.rb:13:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/runtime.rb:17:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:38:in `receive_data'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/eventmachine-1.0.0/lib/eventmachine.rb:187:in `run'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/flash.rb:247:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:81:in `run_callbacks'
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_CONNECTION                           : keep-alive
+2012-12-14T01:38:38+00:00 app[web.1]:   * HTTP_COOKIE                               : _session_id=c2d464f65dc58378c39c9c780aa99586
+2012-12-14T01:38:38+00:00 app[web.1]:   * action_dispatch.secret_token              : 7d8e56d9422834fb513b3f3a68f7d1dc18f187eda48bc02eda880ad454e3f2ed09093ac78dbcda517a6e3ace9d108d194410e01131cd11545326d793449998e7
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application.rb:143:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/static.rb:61:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:80:in `block in pre_process'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:78:in `catch'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/engine.rb:456:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/eventmachine-1.0.0/lib/eventmachine.rb:187:in `run_machine'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/lock.rb:15:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/railtie/configurable.rb:30:in `method_missing'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:78:in `pre_process'
+2012-12-14T01:38:38+00:00 app[web.1]:   * REMOTE_ADDR                               : 10.82.37.116
+2012-12-14T01:38:38+00:00 app[web.1]:   * REQUEST_METHOD                            : GET
+2012-12-14T01:38:38+00:00 app[web.1]:   * REQUEST_PATH                              : /metas_globales/new
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.session.options                      : {:key=>"_session_id", :path=>"/", :domain=>nil, :expire_after=>nil, :secure=>false, :httponly=>true, :defer=>false, :renew=>false, :id=>"c2d464f65dc58378c39c9c780aa99586"}
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:53:in `process'
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/backends/base.rb:61:in `start'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/server.rb:159:in `start'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/controllers/controller.rb:86:in `start'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/bin/thin:19:in `<main>'
+2012-12-14T01:38:38+00:00 app[web.1]:   * REQUEST_URI                               : /metas_globales/new
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/remotipart-1.0.2/lib/remotipart/middleware.rb:30:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/warden-1.2.1/lib/warden/manager.rb:34:in `catch'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   * async.callback                            : #<Method: Thin::Connection#post_process>
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.request.cookie_hash                  : {"_session_id"=>"c2d464f65dc58378c39c9c780aa99586"}
+2012-12-14T01:38:38+00:00 app[web.1]:   
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:151:in `run!'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:81:in `run_callbacks'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/bin/thin:6:in `<top (required)>'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/bin/thin:19:in `load'
+2012-12-14T01:38:38+00:00 app[web.1]:   * rack.session                              : {"_csrf_token"=>"EuY5OSkwVcqgiN2uFi//vy2hcwhpf4w8e5sr2WSKa8Y=", "warden.user.user.key"=>["User", [1], "$2a$10$murlRK3/qz1BSdM.GWYLp."]}
+2012-12-14T01:38:38+00:00 app[web.1]:   * warden                                    : Warden::Proxy:69183980 @config={:default_scope=>:user, :scope_defaults=>{}, :default_strategies=>{:user=>[:rememberable, :database_authenticatable]}, :intercept_401=>false, :failure_app=>#<Devise::Delegator:0x000000059d2bf0>}
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `instrument'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.4/lib/active_record/query_cache.rb:64:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]: 
+2012-12-14T01:38:38+00:00 app[web.1]:   app/controllers/application_controller.rb:62:in `iswriteteable'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/methodoverride.rb:24:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:185:in `run_command'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `block in instrument'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier.rb:40:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+2012-12-14T01:38:38+00:00 app[web.1]: AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+2012-12-14T01:38:38+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+2012-12-14T01:38:45+00:00 app[web.1]: 
+2012-12-14T01:38:45+00:00 app[web.1]: Started GET "/roles" for 189.152.166.3 at 2012-12-14 01:38:45 +0000
+2012-12-14T01:38:45+00:00 app[web.1]:   Processing by RolesController#index as HTML
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:38:45+00:00 app[web.1]:   [1m[35mUser Load (2.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:38:45+00:00 app[web.1]:   [1m[36mRole Load (2.7ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:38:45+00:00 app[web.1]: 
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:38:45+00:00 app[web.1]:   [1m[36mRole Load (2.6ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1[0m
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:38:45+00:00 app[web.1]: nil
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------21
+2012-12-14T01:38:45+00:00 app[web.1]:   [1m[35mRolePermision Load (2.2ms)[0m  SELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'roles')) LIMIT 1
+2012-12-14T01:38:45+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:38:45+00:00 app[web.1]: Rendered roles/index.html.erb within layouts/application (63.4ms)
+2012-12-14T01:38:45+00:00 app[web.1]:   [1m[35mRole Load (2.2ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'
+2012-12-14T01:38:45+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (0.7ms)
+2012-12-14T01:38:45+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (11.1ms)
+2012-12-14T01:38:45+00:00 app[web.1]:   [1m[36mBarraFavorito Load (2.0ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1[0m
+2012-12-14T01:38:45+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (3.5ms)
+2012-12-14T01:38:45+00:00 app[web.1]: Completed 200 OK in 108ms (Views: 86.4ms | ActiveRecord: 14.0ms)
+2012-12-14T01:38:45+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (1.4ms)
+2012-12-14T01:39:03+00:00 app[web.1]: 
+2012-12-14T01:39:03+00:00 app[web.1]: 
+2012-12-14T01:39:03+00:00 app[web.1]: Started GET "/reports" for 189.152.166.3 at 2012-12-14 01:39:03 +0000
+2012-12-14T01:39:03+00:00 app[web.1]:   Processing by ReportsController#index as HTML
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:39:03+00:00 app[web.1]:   [1m[35mUser Load (2.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:39:03+00:00 app[web.1]: nil
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------21
+2012-12-14T01:39:03+00:00 app[web.1]:   [1m[36mReport Load (2.2ms)[0m  [1mSELECT "reports".* FROM "reports" [0m
+2012-12-14T01:39:03+00:00 app[web.1]:   [1m[36mRole Load (8.4ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1[0m
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:39:03+00:00 app[web.1]:   [1m[35mRolePermision Load (2.1ms)[0m  SELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'reports')) LIMIT 1
+2012-12-14T01:39:03+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:39:03+00:00 app[web.1]:   [1m[36mBarraFavorito Load (2.2ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1[0m
+2012-12-14T01:39:03+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (9.8ms)
+2012-12-14T01:39:03+00:00 app[web.1]: Rendered reports/index.html.erb within layouts/application (1.2ms)
+2012-12-14T01:39:03+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (4.2ms)
+2012-12-14T01:39:03+00:00 app[web.1]:   [1m[35mRole Load (2.4ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'
+2012-12-14T01:39:03+00:00 app[web.1]: Rendered shared/_herramientas_up
+per.html.erb (0.8ms)
+2012-12-14T01:39:03+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (1.1ms)
+2012-12-14T01:39:03+00:00 app[web.1]: Completed 200 OK in 47ms (Views: 22.4ms | ActiveRecord: 19.8ms)
+2012-12-14T01:39:05+00:00 app[web.1]: Started GET "/reports/new" for 189.152.166.3 at 2012-12-14 01:39:05 +0000
+2012-12-14T01:39:05+00:00 app[web.1]: 
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:39:05+00:00 app[web.1]:   Processing by ReportsController#new as HTML
+2012-12-14T01:39:05+00:00 app[web.1]: 
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:39:05+00:00 app[web.1]:   [1m[36mRole Load (2.0ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1[0m
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------21
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:39:05+00:00 app[web.1]:   [1m[35mUser Load (2.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+2012-12-14T01:39:05+00:00 app[web.1]: nil
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:39:05+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:39:05+00:00 app[web.1]:   [1m[35mRolePermision Load (2.1ms)[0m  SELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'reports')) LIMIT 1
+2012-12-14T01:39:06+00:00 app[web.1]: Rendered shared/_breadcrumbs.html.erb (2.5ms)
+2012-12-14T01:39:06+00:00 app[web.1]: Rendered reports/_form.html.erb (26.4ms)
+2012-12-14T01:39:06+00:00 app[web.1]: Rendered reports/new.html.erb within layouts/application (27.5ms)
+2012-12-14T01:39:06+00:00 app[web.1]:   [1m[36mRole Load (2.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'[0m
+2012-12-14T01:39:06+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (0.7ms)
+2012-12-14T01:39:06+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (10.0ms)
+2012-12-14T01:39:06+00:00 app[web.1]:   [1m[35mBarraFavorito Load (2.4ms)[0m  SELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1
+2012-12-14T01:39:06+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (2.6ms)
+2012-12-14T01:39:06+00:00 app[web.1]: Completed 200 OK in 505ms (Views: 138.9ms | ActiveRecord: 31.3ms)
+2012-12-14T01:39:06+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (99.9ms)
+2012-12-14T01:39:18+00:00 app[web.1]: 
+2012-12-14T01:39:18+00:00 app[web.1]: Started POST "/reports" for 189.152.166.3 at 2012-12-14 01:39:18 +0000
+2012-12-14T01:39:18+00:00 app[web.1]: 
+2012-12-14T01:39:18+00:00 app[web.1]:   Processing by ReportsController#create as HTML
+2012-12-14T01:39:18+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"EuY5OSkwVcqgiN2uFi//vy2hcwhpf4w8e5sr2WSKa8Y=", "report"=>{"nombre"=>"Prospectos", "descripcion"=>"", "por_pagina"=>"5", "table"=>"prospectos"}, "commit"=>"Crear Report"}
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:39:18+00:00 app[web.1]: nil
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[35mRole Load (2.2ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[36mRolePermision Load (2.0ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'reports')) LIMIT 1[0m
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------21
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[35m (1.8ms)[0m  BEGIN
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO "reports" ("column_names", "created_at", "descripcion", "nombre", "por_pagina", "table", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["column_names", "--- \n"], ["created_at", Fri, 14 Dec 2012 01:39:18 UTC +00:00], ["descripcion", ""], ["nombre", "Prospectos"], ["por_pagina", 5], ["table", "prospectos"], ["updated_at", Fri, 14 Dec 2012 01:39:18 UTC +00:00]]
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[35m (3.5ms)[0m  COMMIT
+2012-12-14T01:39:18+00:00 app[web.1]: Redirected to http://tranquil-tundra-3192.herokuapp.com/reports/1/edit
+2012-12-14T01:39:18+00:00 app[web.1]: Completed 302 Found in 26ms
+2012-12-14T01:39:18+00:00 app[web.1]: Started GET "/reports/1/edit" for 189.152.166.3 at 2012-12-14 01:39:18 +0000
+2012-12-14T01:39:18+00:00 app[web.1]: 
+2012-12-14T01:39:18+00:00 app[web.1]: 
+2012-12-14T01:39:18+00:00 app[web.1]:   Processing by ReportsController#edit as HTML
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[36mUser Load (2.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+2012-12-14T01:39:18+00:00 app[web.1]:   Parameters: {"id"=>"1"}
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[35mRole Load (1.9ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[36mRolePermision Load (2.0ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'reports')) LIMIT 1[0m
+2012-12-14T01:39:18+00:00 app[web.1]: nil
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------21
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:39:18+00:00 app[web.1]: Rendered shared/_breadcrumbs.html.erb (0.9ms)
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[35mMercadoMetum Load (2.5ms)[0m  SELECT "mercado_meta".* FROM "mercado_meta" 
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[36mPrograma Load (2.0ms)[0m  [1mSELECT "programas".* FROM "programas" [0m
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[35mNivel Load (8.7ms)[0m  SELECT "nivels".* FROM "nivels" 
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[36mTurno Load (4.2ms)[0m  [1mSELECT "turnos".* FROM "turnos" [0m
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[35mProgramaDeIntere Load (2.3ms)[0m  SELECT "programa_de_interes".* FROM "programa_de_interes" 
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[35mModalidad Load (2.0ms)[0m  SELECT "modalidads".* FROM "modalidads" 
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[36mStatusDeInteresDeProspectoValidado Load (2.2ms)[0m  [1mSELECT "status_de_interes_de_prospecto_validados".* FROM "status_de_interes_de_prospecto_validados" [0m
+2012-12-14T01:39:18+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[36mReportparam Load (2.6ms)[0m  [1mSELECT "reportparams".* FROM "reportparams" WHERE "reportparams"."report_id" = 1[0m
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[35mNacionalidad Load (2.2ms)[0m  SELECT "nacionalidads".* FROM "nacionalidads" 
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[36mPlanDeVentum Load (2.5ms)[0m  [1mSELECT "plan_de_venta".* FROM "plan_de_venta" [0m
+2012-12-14T01:39:19+00:00 app[web.1]: Rendered reports/_reportparam_fields.html.erb (111.8ms)
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[35mTerritorio Load (2.3ms)[0m  SELECT "territorios".* FROM "territorios" 
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[36mGrupo Load (2.1ms)[0m  [1mSELECT "grupos".* FROM "grupos" [0m
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[35mSubsede Load (2.1ms)[0m  SELECT "subsedes".* FROM "subsedes" 
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[36mProspecto Load (2.1ms)[0m  [1mSELECT "prospectos".* FROM "prospectos" [0m
+2012-12-14T01:39:19+00:00 app[web.1]: Rendered reports/_reportsortby_fields.html.erb (6.9ms)
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[35mPreparatoriaOUniversidadDeOrigen Load (2.0ms)[0m  SELECT "preparatoria_o_universidad_de_origens".* FROM "preparatoria_o_universidad_de_origens" 
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[35mPeriodoParaIngresar Load (2.3ms)[0m  SELECT "periodo_para_ingresars".* FROM "periodo_para_ingresars" 
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[36mUltimoGradoDeEstudio Load (2.4ms)[0m  [1mSELECT "ultimo_grado_de_estudios".* FROM "ultimo_grado_de_estudios" [0m
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[36mReportsortby Load (2.6ms)[0m  [1mSELECT "reportsortbies".* FROM "reportsortbies" WHERE "reportsortbies"."report_id" = 1[0m
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[35mReportline Load (2.6ms)[0m  SELECT "reportlines".* FROM "reportlines" WHERE "reportlines"."report_id" = 1
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[36mMunicipioDeLaPreparatoriaOUniversidadDeOrigen Load (2.1ms)[0m  [1mSELECT "municipio_de_la_preparatoria_o_universidad_de_origens".* FROM "municipio_de_la_preparatoria_o_universidad_de_origens" [0m
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[35mReport Load (4.0ms)[0m  SELECT "reports".* FROM "reports" WHERE "reports"."id" = $1 LIMIT 1  [["id", "1"]]
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[36mUser Load (8.3ms)[0m  [1mSELECT "users".* FROM "users" [0m
+2012-12-14T01:39:18+00:00 app[web.1]:   [1m[35mSede Load (2.1ms)[0m  SELECT "sedes".* FROM "sedes" 
+2012-12-14T01:39:19+00:00 app[web.1]: Rendered reports/edit.html.erb within layouts/application (190.5ms)
+2012-12-14T01:39:19+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (0.8ms)
+2012-12-14T01:39:19+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (9.5ms)
+2012-12-14T01:39:19+00:00 app[web.1]: Rendered reports/_form.html.erb (189.5ms)
+2012-12-14T01:39:19+00:00 app[web.1]: Rendered reports/_reportline_fields.html.erb (6.8ms)
+2012-12-14T01:39:19+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (3.8ms)
+2012-12-14T01:39:19+00:00 app[web.1]: Completed 200 OK in 226ms (Views: 110.3ms | ActiveRecord: 111.1ms)
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[35mBarraFavorito Load (2.1ms)[0m  SELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1
+2012-12-14T01:39:19+00:00 app[web.1]:   [1m[36mRole Load (2.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'[0m
+2012-12-14T01:39:19+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (1.8ms)
+2012-12-14T01:39:19+00:00 app[web.1]: /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/core_ext/string/output_safety.rb:23: warning: regexp match /.../n against to UTF-8 string
+2012-12-14T01:39:48+00:00 app[web.1]: Started GET "/roles" for 189.152.166.3 at 2012-12-14 01:39:48 +0000
+2012-12-14T01:39:48+00:00 app[web.1]: 
+2012-12-14T01:39:48+00:00 app[web.1]: 
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:39:48+00:00 app[web.1]: nil
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:39:48+00:00 app[web.1]:   Processing by RolesController#index as HTML
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:39:48+00:00 app[web.1]:   [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+2012-12-14T01:39:48+00:00 app[web.1]:   [1m[35mRole Load (2.0ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------21
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:39:48+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:39:48+00:00 app[web.1]:   [1m[36mRolePermision Load (5.8ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'roles')) LIMIT 1[0m
+2012-12-14T01:39:48+00:00 app[web.1]:   [1m[35mRole Load (2.7ms)[0m  SELECT "roles".* FROM "roles" 
+2012-12-14T01:39:48+00:00 app[web.1]:   
+[1m[36mRole Load (2.3ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'[0m
+2012-12-14T01:39:48+00:00 app[web.1]: Rendered roles/index.html.erb within layouts/application (131.8ms)
+2012-12-14T01:39:48+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (0.6ms)
+2012-12-14T01:39:48+00:00 app[web.1]:   [1m[35mBarraFavorito Load (2.7ms)[0m  SELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1
+2012-12-14T01:39:48+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (8.4ms)
+2012-12-14T01:39:48+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (4.6ms)
+2012-12-14T01:39:48+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (1.0ms)
+2012-12-14T01:39:48+00:00 app[web.1]: Completed 200 OK in 168ms (Views: 145.2ms | ActiveRecord: 17.6ms)
+2012-12-14T01:40:01+00:00 app[web.1]: 
+2012-12-14T01:40:01+00:00 app[web.1]: 
+2012-12-14T01:40:01+00:00 app[web.1]: Started GET "/roles/4/edit" for 189.152.166.3 at 2012-12-14 01:40:01 +0000
+2012-12-14T01:40:01+00:00 app[web.1]:   Processing by RolesController#edit as HTML
+2012-12-14T01:40:01+00:00 app[web.1]:   Parameters: {"id"=>"4"}
+2012-12-14T01:40:01+00:00 app[web.1]:   [1m[36mUser Load (2.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:40:01+00:00 app[web.1]: nil
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:40:01+00:00 app[web.1]:   [1m[35mRole Load (2.0ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:40:01+00:00 app[web.1]:   [1m[36mRolePermision Load (2.1ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'roles')) LIMIT 1[0m
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:40:01+00:00 app[web.1]: --------------------------------21
+2012-12-14T01:40:01+00:00 app[web.1]:   [1m[35mRole Load (4.0ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT 1  [["id", "4"]]
+2012-12-14T01:40:01+00:00 app[web.1]: Rendered shared/_breadcrumbs.html.erb (1.0ms)
+2012-12-14T01:40:01+00:00 app[web.1]:   [1m[36mRolePermision Load (5.9ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE "role_permisions"."role_id" = 4[0m
+2012-12-14T01:40:01+00:00 app[web.1]: Rendered roles/_form.html.erb (264.4ms)
+2012-12-14T01:40:01+00:00 app[web.1]: Rendered roles/edit.html.erb within layouts/application (267.0ms)
+2012-12-14T01:40:01+00:00 app[web.1]:   [1m[35mRole Load (2.4ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'
+2012-12-14T01:40:01+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (0.6ms)
+2012-12-14T01:40:01+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (8.2ms)
+2012-12-14T01:40:01+00:00 app[web.1]:   [1m[36mBarraFavorito Load (2.3ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1[0m
+2012-12-14T01:40:01+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (6.4ms)
+2012-12-14T01:40:01+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (1.4ms)
+2012-12-14T01:40:01+00:00 app[web.1]: Completed 200 OK in 303ms (Views: 276.7ms | ActiveRecord: 21.2ms)
+2012-12-14T01:49:21+00:00 app[web.1]: 
+2012-12-14T01:49:21+00:00 app[web.1]: 
+2012-12-14T01:49:21+00:00 app[web.1]: Started GET "/metas_globales" for 189.152.166.3 at 2012-12-14 01:49:21 +0000
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:49:21+00:00 app[web.1]:   Processing by MetasGlobalesController#index as HTML
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:49:21+00:00 app[web.1]: nil
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------15
+2012-12-14T01:49:21+00:00 app[web.1]:   [1m[35mUser Load (2.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------19
+2012-12-14T01:49:21+00:00 app[web.1]:   [1m[36mRole Load (1.9ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1[0m
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------18
+2012-12-14T01:49:21+00:00 app[web.1]:   [1m[36mMetasGlobale Load (3.0ms)[0m  [1mSELECT "metas_globales".* FROM "metas_globales" [0m
+2012-12-14T01:49:21+00:00 app[web.1]: Rendered metas_globales/index.html.erb within layouts/application (1.8ms)
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:49:21+00:0
+0 app[web.1]:   [1m[35mRolePermision Load (2.1ms)[0m  SELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'metas_globales')) LIMIT 1
+2012-12-14T01:49:21+00:00 app[web.1]:   [1m[35mRole Load (2.1ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."nombre" = 'A'
+2012-12-14T01:49:21+00:00 app[web.1]: --------------------------------13
+2012-12-14T01:49:21+00:00 app[web.1]: Rendered shared/_herramientas_upper.html.erb (0.7ms)
+2012-12-14T01:49:21+00:00 app[web.1]: Rendered shared/_upper_menu.html.erb (103.8ms)
+2012-12-14T01:49:21+00:00 app[web.1]:   [1m[36mBarraFavorito Load (2.2ms)[0m  [1mSELECT "barra_favoritos".* FROM "barra_favoritos" WHERE "barra_favoritos"."user_id" = 1[0m
+2012-12-14T01:49:21+00:00 app[web.1]: Rendered shared/_fav_menu.html.erb (4.9ms)
+2012-12-14T01:49:21+00:00 app[web.1]: Completed 200 OK in 134ms (Views: 115.2ms | ActiveRecord: 13.8ms)
+2012-12-14T01:49:21+00:00 app[web.1]: Rendered shared/_side_menu.html.erb (4.8ms)
+2012-12-14T01:49:38+00:00 app[web.1]: 
+2012-12-14T01:49:38+00:00 app[web.1]: 
+2012-12-14T01:49:38+00:00 app[web.1]: Started GET "/metas_globales/new" for 189.152.166.3 at 2012-12-14 01:49:38 +0000
+2012-12-14T01:49:38+00:00 app[web.1]:   Processing by MetasGlobalesController#new as HTML
+2012-12-14T01:49:38+00:00 app[web.1]: nil
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------2
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------4
+2012-12-14T01:49:38+00:00 app[web.1]:   [1m[36mRole Load (1.9ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1[0m
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------74
+2012-12-14T01:49:38+00:00 app[web.1]:   [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------0
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------8
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------1
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------5
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------9
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------3
+2012-12-14T01:49:38+00:00 app[web.1]:   [1m[35mRolePermision Load (2.0ms)[0m  SELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'metas_globales')) LIMIT 1
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------6
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------15
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------14
+2012-12-14T01:49:38+00:00 app[web.1]: Redirected to http://tranquil-tundra-3192.herokuapp.com/metas_globales
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------11
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------18
+2012-12-14T01:49:38+00:00 app[web.1]: Completed 500 Internal Server Error in 10ms
+2012-12-14T01:49:38+00:00 app[web.1]: Redirected to 
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------13
+2012-12-14T01:49:38+00:00 app[web.1]: --------------------------------20
+2012-12-14T01:49:38+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_request.text.erb (0.4ms)
+2012-12-14T01:49:38+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.0ms)
+2012-12-14T01:49:38+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_session.text.erb (0.6ms)
+2012-12-14T01:49:38+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.1ms)
+2012-12-14T01:49:38+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_environment.text.erb (43.4ms)
+2012-12-14T01:49:38+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.1ms)
+2012-12-14T01:49:38+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.0ms)
+2012-12-14T01:49:38+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_backtrace.text.erb (0.2ms)
+2012-12-14T01:49:38+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/exception_notification.text.erb (50.3ms)
+2012-12-14T01:49:39+00:00 app[web.1]: From: admin@protocrm.com
+2012-12-14T01:49:39+00:00 app[web.1]: To: israel.valdez.89@gmail.com, 
+2012-12-14T01:49:39+00:00 app[web.1]: Date: Fri, 14 Dec 2012 01:49:38 +0000
+2012-12-14T01:49:39+00:00 app[web.1]:  ngl_88@hotmail.com
+2012-12-14T01:49:39+00:00 app[web.1]:  "Render and/or redirect were called multiple times in...
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]: Message-ID: <50ca85b289709_25df1382784c@ce2595e4-92bb-4dcc-9785-cc216d81c3be.mail>
+2012-12-14T01:49:39+00:00 app[web.1]: Mime-Version: 1.0
+2012-12-14T01:49:39+00:00 app[web.1]: Content-Type: text/plain;
+2012-12-14T01:49:39+00:00 app[web.1]:  charset=UTF-8
+2012-12-14T01:49:39+00:00 app[web.1]: Content-Transfer-Encoding: 7bit
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]: An AbstractController::DoubleRenderError occurred in metas_globales#new:
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]:   Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/redirecting.rb:61:in `redirect_to'
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]: Request:
+2012-12-14T01:49:39+00:00 app[web.1]: -------------------------------
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]:   * URL       : http://tranquil-tundra-3192.herokuapp.com/metas_globales/new
+2012-12-14T01:49:39+00:00 app[web.1]:   * Parameters: {"action"=>"new", "controller"=>"metas_globales"}
+2012-12-14T01:49:39+00:00 app[web.1]: -------------------------------
+2012-12-14T01:49:39+00:00 app[web.1]:   * IP address: 189.152.166.3
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]: Session:
+2012-12-14T01:49:39+00:00 app[web.1]:   * session id: "c2d464f65dc58378c39c9c780aa99586"
+2012-12-14T01:49:39+00:00 app[web.1]: -------------------------------
+2012-12-14T01:49:39+00:00 app[web.1]: -------------------------------
+2012-12-14T01:49:39+00:00 app[web.1]:   * data: {"_csrf_token"=>"EuY5OSkwVcqgiN2uFi//vy2hcwhpf4w8e5sr2WSKa8Y=",
+2012-12-14T01:49:39+00:00 app[web.1]:    "warden.user.user.key"=>["User", [1], "$2a$10$murlRK3/qz1BSdM.GWYLp."]}
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]: -------------------------------
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_ACCEPT                               : text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_ACCEPT_CHARSET                       : ISO-8859-1,utf-8;q=0.7,*;q=0.3
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_ACCEPT_ENCODING                      : gzip,deflate,sdch
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_ACCEPT_LANGUAGE                      : es-ES,es;q=0.8
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_CONNECTION                           : keep-alive
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_COOKIE                               : _session_id=c2d464f65dc58378c39c9c780aa99586
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_HOST                                 : tranquil-tundra-3192.herokuapp.com
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_REFERER                              : http://tranquil-tundra-3192.herokuapp.com/metas_globales
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_USER_AGENT                           : Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_X_FORWARDED_PORT                     : 80
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_X_HEROKU_DYNOS_IN_USE                : 1
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_X_FORWARDED_FOR                      : 189.152.166.3
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_X_FORWARDED_PROTO                    : http
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_VERSION                              : HTTP/1.1
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_X_HEROKU_QUEUE_WAIT_TIME             : 3
+2012-12-14T01:49:39+00:00 app[web.1]: Environment:
+2012-12-14T01:49:39+00:00 app[web.1]: -------------------------------
+2012-12-14T01:49:39+00:00 app[web.1]:   * ORIGINAL_FULLPATH                         : /metas_globales/new
+2012-12-14T01:49:39+00:00 app[web.1]:   * SERVER_NAME                               : tranquil-tundra-3192.herokuapp.com
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]:   * GATEWAY_INTERFACE                         : CGI/1.2
+2012-12-14T01:49:39+00:00 app[web.1]:   * SERVER_SOFTWARE                           : thin 1.3.1 codename Triple Espresso
+2012-12-14T01:49:39+00:00 app[web.1]:   * SCRIPT_NAME                               : 
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.remote_ip                 : 189.152.166.3
+2012-12-14T01:49:39+00:00 app[web.1]:   * REQUEST_METHOD                            : GET
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_controller.instance                : metas_globales#new
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_X_REQUEST_START                      : 1355449778463
+2012-12-14T01:49:39+00:00 app[web.1]:   * PATH_INFO                                 : /metas_globales/new
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.request.content_type      : 
+2012-12-14T01:49:39+00:00 app[web.1]:   * QUERY_STRING                              : 
+2012-12-14T01:49:39+00:00 app[web.1]:   * REQUEST_URI                               : /metas_globales/new
+2012-12-14T01:49:39+00:00 app[web.1]:   * REMOTE_ADDR                               : 10.44.59.135
+2012-12-14T01:49:39+00:00 app[web.1]:   * SERVER_PORT                               : 80
+2012-12-14T01:49:39+00:00 app[web.1]:   * SERVER_PROTOCOL                           : HTTP/1.1
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.request.formats           : [text/html]
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.request.flash_hash        : #<ActionDispatch::Flash::FlashHash:0x0000000842b078>
+2012-12-14T01:49:39+00:00 app[web.1]: Sent mail to israel.valdez.89@gmail.com, ngl_88@hotmail.com (1402ms)
+2012-12-14T01:49:39+00:00 app[web.1]: Subject: [ERROR] metas_globales#new (AbstractController::DoubleRenderError)
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.request.parameters        : {"action"=>"new", "controller"=>"metas_globales"}
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.request.path_parameters   : {:action=>"new", :controller=>"metas_globales"}
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.request.query_parameters  : {}
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.routes                    : #<ActionDispatch::Routing::RouteSet:0x00000004321438>
+2012-12-14T01:49:39+00:00 app[web.1]:   * async.callback                            : #<Method: Thin::Connection#post_process>
+2012-12-14T01:49:39+00:00 app[web.1]:   * async.close                               : #<EventMachine::DefaultDeferrable:0x00000008456020>
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.secret_token              : 7d8e56d9422834fb513b3f3a68f7d1dc18f187eda48bc02eda880ad454e3f2ed09093ac78dbcda517a6e3ace9d108d194410e01131cd11545326d793449998e7
+2012-12-14T01:49:39+00:00 app[web.1]:   * exception_notifier.options                : {:sender_address=>"admin@protocrm.com", :exception_recipients=>"israel.valdez.89@gmail.com,ngl_88@hotmail.com", :email_prefix=>"[ERROR] ", :email_format=>:text, :sections=>["request", "session", "environment", "backtrace"], :background_sections=>["backtrace", "data"], :verbose_subject=>true, :normalize_subject=>false, :template_path=>"exception_notifier", :smtp_settings=>nil, :ignore_exceptions=>["ActiveRecord::RecordNotFound", "AbstractController::ActionNotFound", "ActionController::RoutingError"], :ignore_crawlers=>[], :ignore_if=>#<Proc:0x000000053db2d8@/app/vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier.rb:36 (lambda)>}
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.request.request_parameters: {}
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.input                                : #<StringIO:0x00000008456f48>
+2012-12-14T01:49:39+00:00 app[web.1]:   * warden                                    : Warden::Proxy:69362080 @config={:default_scope=>:user, :scope_defaults=>{}, :default_strategies=>{:user=>[:rememberable, :database_authenticatable]}, :intercept_401=>false, :failure_app=>#<Devise::Delegator:0x000000059d2bf0>}
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.multiprocess                         : false
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.multithread                          : false
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.session                              : {"_csrf_token"=>"EuY5OSkwVcqgiN2uFi//vy2hcwhpf4w8e5sr2WSKa8Y=", "warden.user.user.key"=>["User", [1], "$2a$10$murlRK3/qz1BSdM.GWYLp."]}
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.request.cookie_hash                  : {"_session_id"=>"c2d464f65dc58378c39c9c780aa99586"}
+2012-12-14T01:49:39+00:00 app[web.1]:   
+2012-12-14T01:49:39+00:00 app[web.1]:   * Process: 2
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.request.cookie_string                : _session_id=c2d464f65dc58378c39c9c780aa99586
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.request.query_string                 : 
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.run_once                             : false
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.session.options                      : {:key=>"_session_id", :path=>"/", :domain=>nil, :expire_after=>nil, :secure=>false, :httponly=>true, :defer=>false, :renew=>false, :id=>"c2d464f65dc58378c39c9c780aa99586"}
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.session.record                       : #<ActiveRecord::SessionStore::Session:0x0000000844d2b8>
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.url_scheme                           : http
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.version                              : [1, 0]
+2012-12-14T01:49:39+00:00 app[web.1]:   * Server : ce2595e4-92bb-4dcc-9785-cc216d81c3be
+2012-12-14T01:49:39+00:00 app[web.1]:   * Rails root: /app
+2012-12-14T01:49:39+00:00 app[web.1]:   * Timestamp : 2012-12-14 01:49:38 UTC
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]:   * HTTP_X_HEROKU_QUEUE_DEPTH                 : 0
+2012-12-14T01:49:39+00:00 app[web.1]:   * REQUEST_PATH                              : /metas_globales/new
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.parameter_filter          : [:password, /RAW_POST_DATA/, /RAW_POST_DATA/]
+2012-12-14T01:49:39+00:00 app[web.1]:   * action_dispatch.show_exceptions           : true
+2012-12-14T01:49:39+00:00 app[web.1]:   * rack.errors                               : #<IO:0x00000000bc41c0>
+2012-12-14
+T01:49:39+00:00 app[web.1]:   * rack.request.query_hash                   : {}
+2012-12-14T01:49:39+00:00 app[web.1]: Backtrace:
+2012-12-14T01:49:39+00:00 app[web.1]: -------------------------------
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]: -------------------------------
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/redirecting.rb:61:in `redirect_to'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/flash.rb:25:in `redirect_to'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `block in instrument'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:59:in `redirect_to'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:60:in `block in redirect_to'
+2012-12-14T01:49:39+00:00 app[web.1]:   app/controllers/application_controller.rb:62:in `iswriteteable'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:448:in `_run__4313785022285554481__process_action__420016358899266129__callbacks'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:81:in `run_callbacks'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `block in instrument'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `instrument'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `instrument'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/params_wrapper.rb:201:in `process_action'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.4/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/abstract_controller/base.rb:121:in `process'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/abstract_controller/rendering.rb:45:in `process'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal.rb:193:in `dispatch'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal.rb:236:in `block in action'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:65:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:29:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:89:in `optimized_each'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:532:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-pjax-0.6.0/lib/rack/pjax.rb:12:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/warden-1.2.1/lib/warden/manager.rb:34:in `catch'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier.rb:40:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/warden-1.2.1/lib/warden/manager.rb:34:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/etag.rb:23:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/conditionalget.rb:25:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/remotipart-1.0.2/lib/remotipart/middleware.rb:30:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/flash.rb:247:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:195:in `context'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:190:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/cookies.rb:331:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.4/lib/active_record/query_cache.rb:64:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:477:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:81:in `run_callbacks'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/sendfile.rb:101:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/rack/logger.rb:13:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/methodoverride.rb:24:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/runtime.rb:17:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/static.rb:61:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/lock.rb:15:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application.rb:143:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/engine.rb:456:in `call'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:80:in `block in pre_process'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/railtie/configurable.rb:30:in `method_missing'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:78:in `catch'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:38:in `receive_data'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/eventmachine-1.0.0/lib/eventmachine.rb:187:in `run_machine'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/backends/base.rb:61:in `start'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:78:in `pre_process'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/server.rb:159:in `start'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:53:in `process'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/eventmachine-1.0.0/lib/eventmachine.rb:187:in `run'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:185:in `run_command'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:151:in `run!'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/bin/thin:6:in `<top (required)>'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/bin/thin:19:in `load'
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/bin/thin:19:in `<main>'
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/controllers/controller.rb:86:in `start'
+2012-12-14T01:49:39+00:00 app[web.1]: AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]:   app/controllers/application_controller.rb:62:in `iswriteteable'
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T01:49:39+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-12-14T01:49:39+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: Started GET "/metas_globales/new" for 189.152.166.3 at 2012-12-14 02:04:29 +0000
+2012-12-14T02:04:29+00:00 app[web.1]:   Processing by MetasGlobalesController#new as HTML
+2012-12-14T02:04:29+00:00 app[web.1]:   [1m[36mUser Load (2.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------5
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------1
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------3
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------0
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------2
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------4
+2012-12-14T02:04:29+00:00 app[web.1]: nil
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------6
+2012-12-14T02:04:29+00:00 app[web.1]:   [1m[35mRole Load (2.0ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = 4 LIMIT 1
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------74
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------8
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------9
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------14
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------13
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------11
+2012-12-14T02:04:29+00:00 app[web.1]:   [1m[36mRolePermision Load (2.0ms)[0m  [1mSELECT "role_permisions".* FROM "role_permisions" WHERE (("role_permisions"."role_id" = 4 AND "role_permisions"."objeto" = 'metas_globales')) LIMIT 1[0m
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------15
+2012-12-14T02:04:29+00:00 app[web.1]: Redirected to http://tranquil-tundra-3192.herokuapp.com/metas_globales
+2012-12-14T02:04:29+00:00 app[web.1]: Redirected to 
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------20
+2012-12-14T02:04:29+00:00 app[web.1]: --------------------------------18
+2012-12-14T02:04:29+00:00 app[web.1]: Completed 500 Internal Server Error in 18ms
+2012-12-14T02:04:29+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_request.text.erb (0.5ms)
+2012-12-14T02:04:29+00:00 app[web.1]: Re
+ndered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.1ms)
+2012-12-14T02:04:29+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_session.text.erb (0.7ms)
+2012-12-14T02:04:29+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.0ms)
+2012-12-14T02:04:29+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_environment.text.erb (35.0ms)
+2012-12-14T02:04:29+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.1ms)
+2012-12-14T02:04:29+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_backtrace.text.erb (0.2ms)
+2012-12-14T02:04:29+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/_title.text.erb (0.1ms)
+2012-12-14T02:04:29+00:00 app[web.1]: Rendered vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier/views/exception_notifier/exception_notification.text.erb (41.9ms)
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: Sent mail to israel.valdez.89@gmail.com, ngl_88@hotmail.com (571ms)
+2012-12-14T02:04:29+00:00 app[web.1]: Date: Fri, 14 Dec 2012 02:04:29 +0000
+2012-12-14T02:04:29+00:00 app[web.1]: From: admin@protocrm.com
+2012-12-14T02:04:29+00:00 app[web.1]: To: israel.valdez.89@gmail.com, 
+2012-12-14T02:04:29+00:00 app[web.1]:  ngl_88@hotmail.com
+2012-12-14T02:04:29+00:00 app[web.1]: Message-ID: <50ca892d5374e_25df13827911@ce2595e4-92bb-4dcc-9785-cc216d81c3be.mail>
+2012-12-14T02:04:29+00:00 app[web.1]: Subject: [ERROR] metas_globales#new (AbstractController::DoubleRenderError)
+2012-12-14T02:04:29+00:00 app[web.1]:  "Render and/or redirect were called multiple times in...
+2012-12-14T02:04:29+00:00 app[web.1]: Mime-Version: 1.0
+2012-12-14T02:04:29+00:00 app[web.1]: Content-Transfer-Encoding: 7bit
+2012-12-14T02:04:29+00:00 app[web.1]:   * URL       : http://tranquil-tundra-3192.herokuapp.com/metas_globales/new
+2012-12-14T02:04:29+00:00 app[web.1]:  charset=UTF-8
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: Content-Type: text/plain;
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: An AbstractController::DoubleRenderError occurred in metas_globales#new:
+2012-12-14T02:04:29+00:00 app[web.1]: -------------------------------
+2012-12-14T02:04:29+00:00 app[web.1]:   * IP address: 189.152.166.3
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_ACCEPT_CHARSET                       : ISO-8859-1,utf-8;q=0.7,*;q=0.3
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_HOST                                 : tranquil-tundra-3192.herokuapp.com
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".
+2012-12-14T02:04:29+00:00 app[web.1]: -------------------------------
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_CONNECTION                           : keep-alive
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_COOKIE                               : _session_id=c2d464f65dc58378c39c9c780aa99586
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: -------------------------------
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_ACCEPT                               : text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_USER_AGENT                           : Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   * Rails root: /app
+2012-12-14T02:04:29+00:00 app[web.1]:   * session id: "c2d464f65dc58378c39c9c780aa99586"
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: Request:
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/redirecting.rb:61:in `redirect_to'
+2012-12-14T02:04:29+00:00 app[web.1]:   * Timestamp : 2012-12-14 02:04:29 UTC
+2012-12-14T02:04:29+00:00 app[web.1]:    "warden.user.user.key"=>["User", [1], "$2a$10$murlRK3/qz1BSdM.GWYLp."]}
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_X_FORWARDED_PROTO                    : http
+2012-12-14T02:04:29+00:00 app[web.1]:   * Parameters: {"action"=>"new", "controller"=>"metas_globales"}
+2012-12-14T02:04:29+00:00 app[web.1]: -------------------------------
+2012-12-14T02:04:29+00:00 app[web.1]: -------------------------------
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_VERSION                              : HTTP/1.1
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_X_FORWARDED_PORT                     : 80
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_ACCEPT_ENCODING                      : gzip,deflate,sdch
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_X_FORWARDED_FOR                      : 189.152.166.3
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_X_HEROKU_DYNOS_IN_USE                : 1
+2012-12-14T02:04:29+00:00 app[web.1]: Session:
+2012-12-14T02:04:29+00:00 app[web.1]:   * data: {"_csrf_token"=>"EuY5OSkwVcqgiN2uFi//vy2hcwhpf4w8e5sr2WSKa8Y=",
+2012-12-14T02:04:29+00:00 app[web.1]:   * GATEWAY_INTERFACE                         : CGI/1.2
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_ACCEPT_LANGUAGE                      : es-ES,es;q=0.8
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_REFERER                              : http://tranquil-tundra-3192.herokuapp.com/metas_globales
+2012-12-14T02:04:29+00:00 app[web.1]: Environment:
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_CACHE_CONTROL                        : max-age=0
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_X_HEROKU_QUEUE_DEPTH                 : 0
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_X_HEROKU_QUEUE_WAIT_TIME             : 0
+2012-12-14T02:04:29+00:00 app[web.1]:   * HTTP_X_REQUEST_START                      : 1355450669240
+2012-12-14T02:04:29+00:00 app[web.1]: -------------------------------
+2012-12-14T02:04:29+00:00 app[web.1]:   * QUERY_STRING                              : 
+2012-12-14T02:04:29+00:00 app[web.1]:   * REMOTE_ADDR                               : 10.71.77.29
+2012-12-14T02:04:29+00:00 app[web.1]:   * REQUEST_METHOD                            : GET
+2012-12-14T02:04:29+00:00 app[web.1]:   * ORIGINAL_FULLPATH                         : /metas_globales/new
+2012-12-14T02:04:29+00:00 app[web.1]:   * PATH_INFO                                 : /metas_globales/new
+2012-12-14T02:04:29+00:00 app[web.1]:   * SERVER_NAME                               : tranquil-tundra-3192.herokuapp.com
+2012-12-14T02:04:29+00:00 app[web.1]:   * SERVER_PORT                               : 80
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.parameter_filter          : [:password, /RAW_POST_DATA/, /RAW_POST_DATA/, /RAW_POST_DATA/]
+2012-12-14T02:04:29+00:00 app[web.1]:   * REQUEST_URI                               : /metas_globales/new
+2012-12-14T02:04:29+00:00 app[web.1]:   * REQUEST_PATH                              : /metas_globales/new
+2012-12-14T02:04:29+00:00 app[web.1]:   * SCRIPT_NAME                               : 
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.remote_ip                 : 189.152.166.3
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.request.flash_hash        : #<ActionDispatch::Flash::FlashHash:0x00000006d84810>
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.routes                    : #<ActionDispatch::Routing::RouteSet:0x00000004321438>
+2012-12-14T02:04:29+00:00 app[web.1]:   * SERVER_SOFTWARE                           : thin 1.3.1 codename Triple Espresso
+2012-12-14T02:04:29+00:00 app[web.1]:   * SERVER_PROTOCOL                           : HTTP/1.1
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.request.parameters        : {"action"=>"new", "controller"=>"metas_globales"}
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.request.content_type      : 
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.secret_token              : 7d8e56d9422834fb513b3f3a68f7d1dc18f187eda48bc02eda880ad454e3f2ed09093ac78dbcda517a6e3ace9d108d194410e01131cd11545326d793449998e7
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.show_exceptions           : true
+2012-12-14T02:04:29+00:00 app[web.1]:   * async.callback                            : #<Method: Thin::Connection#post_process>
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_controller.instance                : metas_globales#new
+2012-12-14T02:04:29+00:00 app[web.1]:   * exception_notifier.options                : {:sender_address=>"admin@protocrm.com", :exception_recipients=>"israel.valdez.89@gmail.com,ngl_88@hotmail.com", :email_prefix=>"[ERROR] ", :email_format=>:text, :sections=>["request", "session", "environment", "backtrace"], :background_sections=>["backtrace", "data"], :verbose_subject=>true, :normalize_subject=>false, :template_path=>"exception_notifier", :smtp_settings=>nil, :ignore_exceptions=>["ActiveRecord::RecordNotFound", "AbstractController::ActionNotFound", "ActionController::RoutingError"], :ignore_crawlers=>[], :ignore_if=>#<Proc:0x000000053db2d8@/app/vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier.rb:36 (lambda)>}
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.errors                               : #<IO:0x00000000bc41c0>
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.request.query_parameters  : {}
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.request.formats           : [text/html]
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.multithread                          : false
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.multiprocess                         : false
+2012-12-14T02:04:29+00:00 app[web.1]:   * async.close                               : #<EventMachine::DefaultDeferrable:0x00000006eae1c8>
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.request.request_parameters: {}
+2012-12-14T02:04:29+00:00 app[web.1]:   * action_dispatch.request.path_parameters   : {:action=>"new", :controller=>"metas_globales"}
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.request.cookie_hash                  : {"_session_id"=>"c2d464f65dc58378c39c9c780aa99586"}
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.request.cookie_string                : _session_id=c2d464f65dc58378c39c9c780aa99586
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.request.query_string                 : 
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.request.query_hash                   : {}
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.run_once                             : false
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.session.options                      : {:key=>"_session_id", :path=>"/", :domain=>nil, :expire_after=>nil, :secure=>false, :httponly=>true, :defer=>false, :renew=>false, :id=>"c2d464f65dc58378c39c9c780aa99586"}
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.session.record                       : #<ActiveRecord::SessionStore::Session:0x00000006e7f300>
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:60:in `block in redirect_to'
+2012-12-14T02:04:29+00:00 app[web.1]: Backtrace:
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.url_scheme                           : http
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/flash.rb:25:in `redirect_to'
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.version                              : [1, 0]
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `instrument'
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.session                              : {"_csrf_token"=>"EuY5OSkwVcqgiN2uFi//vy2hcwhpf4w8e5sr2WSKa8Y=", "warden.user.user.key"=>["User", [1], "$2a$10$murlRK3/qz1BSdM.GWYLp."]}
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: -------------------------------
+2012-12-14T02:04:29+00:00 app[web.1]:   * Process: 2
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+2012-12-14T02:04:29+00:00 app[web.1]:   * warden                                    : Warden::Proxy:57922760 @config={:default_scope=>:user, :scope_defaults=>{}, :default_strategies=>{:user=>[:rememberable, :database_authenticatable]}, :intercept_401=>false, :failure_app=>#<Devise::Delegator:0x000000059d2bf0>}
+2012-12-14T02:04:29+00:00 app[web.1]:   app/controllers/application_controller.rb:62:in `iswriteteable'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `block in instrument'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `instrument'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications.rb:53:in `block in instrument'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:448:in `_run__4313785022285554481__process_action__420016358899266129__callbacks'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:81:in `run_callbacks'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+2012-12-14T02:04:29+00:00 app[web.1]:   
+2012-12-14T02:04:29+00:00 app[web.1]:   * Server : ce2595e4-92bb-4dcc-9785-cc216d81c3be
+2012-12-14T02:04:29+00:00 app[web.1]: -------------------------------
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/abstract_controller/rendering.rb:45:in `process'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/instrumentation.rb:59:in `redirect_to'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.4/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4
+/lib/abstract_controller/base.rb:121:in `process'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal.rb:236:in `block in action'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/rescue.rb:17:in `process_action'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:65:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/redirecting.rb:61:in `redirect_to'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal.rb:193:in `dispatch'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:532:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_controller/metal/params_wrapper.rb:201:in `process_action'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:89:in `optimized_each'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/remotipart-1.0.2/lib/remotipart/middleware.rb:30:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/bundler/gems/exception_notification-048fc6be9721/lib/exception_notifier.rb:40:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/cookies.rb:331:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/methodoverride.rb:24:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:29:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/conditionalget.rb:25:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/flash.rb:247:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/warden-1.2.1/lib/warden/manager.rb:34:in `catch'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/etag.rb:23:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/lock.rb:15:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/eventmachine-1.0.0/lib/eventmachine.rb:187:in `run'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/head.rb:14:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.4/lib/active_record/query_cache.rb:64:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:477:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/sendfile.rb:101:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/railtie/configurable.rb:30:in `method_missing'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:190:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/runtime.rb:17:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:80:in `block in pre_process'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/rack/logger.rb:13:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:53:in `process'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/backends/base.rb:61:in `start'
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/session/abstract/id.rb:195:in `context'
+2012-12-14T02:04:29+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:78:in `catch'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/engine.rb:456:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application.rb:143:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/server.rb:159:in `start'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:185:in `run_command'
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:78:in `pre_process'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/controllers/controller.rb:86:in `start'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/static.rb:61:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]: AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/connection.rb:38:in `receive_data'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/bin/thin:19:in `load'
+2012-12-14T02:04:29+00:00 app[web.1]:   config/initializers/quiet_assets.rb:6:in `call_with_quiet_assets'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/eventmachine-1.0.0/lib/eventmachine.rb:187:in `run_machine'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/bin/thin:19:in `<main>'
+2012-12-14T02:04:29+00:00 app[web.1]: 
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:151:in `run!'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/bin/thin:6:in `<top (required)>'
+2012-12-14T02:04:29+00:00 app[web.1]:   app/controllers/application_controller.rb:62:in `iswriteteable'
+2012-12-14T02:04:29+00:00 app[web.1]:   * rack.input                                : #<StringIO:0x00000006eb3ec0>
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-pjax-0.6.0/lib/rack/pjax.rb:12:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/warden-1.2.1/lib/warden/manager.rb:34:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+2012-12-14T02:04:29+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/callbacks.rb:81:in `run_callbacks'

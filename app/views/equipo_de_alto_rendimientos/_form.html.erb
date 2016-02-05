@@ -1,0 +1,40 @@
+<%= simple_form_for @equipo_de_alto_rendimiento, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                equipo_de_alto_rendimientos_path, :class => 'btn' %>
+
+  <%= f.input :periodo_anual %>
+    <%= f.input :sede_id do %>
+    <%= f.select :sede_id, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :nombre_completo %>
+  <%= f.input :cargo %>
+  <%= f.input :proyectos_a_cargo %>
+  <%= f.input :horario_laboral %>
+<%= f.input :fecha_de_nacimiento do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_nacimiento%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :modalidad_de_contratacion %>
+  <%= f.input :horas_semanales %>
+  <%= f.input :email_institucional %>
+  <%= f.input :telefono_de_oficina %>
+  <%= f.input :extension %>
+  <%= f.input :jefe_directo %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                equipo_de_alto_rendimientos_path, :class => 'btn' %>
+  </div>
+       <%=render :partial=>"shared/attachments", :locals=>{:model_id=>@equipo_de_alto_rendimiento.id}%>  
+<% end %>
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

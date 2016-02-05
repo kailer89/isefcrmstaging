@@ -1,0 +1,37 @@
+<div class="centeredSignUp">
+<h2>Sign up</h2>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :username, :required => true, :autofocus => true %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+<%= f.input :role, :collection=>Role.all.map{|c| [c.nombre + " - " + c.descripcion ,c.id] },:include_blank=>false %> 
+    <p>
+       <%= f.association :sede,:include_blank => false, :label_method => :nombre %>
+    </p>     
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Sign in", new_user_session_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to "Forgot your password?", new_user_password_path %><br />
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path %><br />
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "Didn't receive unlock instructions?", new_user_unlock_path %><br />
+<% end -%>
+</div>

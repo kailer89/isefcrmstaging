@@ -1,0 +1,241 @@
+  <%= simple_form_for @correo, :html => { :class => 'form-horizontal', :id=>"Correos"} do |f| %>
+      <%= f.button :submit, :class => 'btn-primary' %>
+      <%= link_to 'Cancel', correos_path, :class => 'btn' %>
+      <% if request.path_parameters[:action] =="edit" %>
+        <%= link_to 'Enviar Correo', send_correo_path(@correo),:class=>"btn btn-success"%>
+      <%end%>
+  <%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@correo.id, :parent_model=>@correo.model_name, :parent_id=>@correo.model_id}%>
+    <div id="wizard">
+      <ol>
+        <li>Asignar datos del correo</li>
+        <li>Establecer tipo de Campana</li>
+        <li>Establecer contenido del correo</li>
+        <%if  @correo.es_uno_a_uno == true %>
+  <%else%>
+        <li>A quien enviar</li>
+        <li>Datos Adicionales</li>
+        <%end%>
+        <li>Guardar/Enviar</li>
+      </ol>
+  <div>
+    <legend>Asignar datos del correo </legend>
+    <%=f.hidden_field :model_name%>
+    <%=f.hidden_field :model_id%>
+    <%=f.hidden_field :created_by%>
+    <%=f.hidden_field :user_id%>
+    <%=f.hidden_field :sede_id%>
+    <%
+
+logger.debug "action111"
+logger.debug @correo.model_id
+logger.debug "action1111"
+%>
+    <%= f.input :nombredelmail, :label=>"Titulo del correo",:hint=>"Es indispensable salvar el template de correo antes de enviarlo (subject del correo)."%>
+<%    if @correo.es_uno_a_uno == true  
+
+        if params[:model_id] == nil
+          @prospecto=Prospecto.find_by_id(@correo.model_id)
+            if params[:model_name] == "solicitantes"
+              @prospecto = Prospecto.find_by_id(Solicitante.find_by_id(@correo.model_id).prospectos.first)
+            end
+            if params[:model_name] == "examinados"
+              @prospecto = Prospecto.find_by_id(Examinado.find_by_id(@correo.model_id).solicitantes.first.prospectos.first)
+            end
+            if params[:model_name] == "admitidos"
+              @prospecto = Prospecto.find_by_id(Admitido.find_by_id(@correo.model_id).examinados.first.solicitantes.first.prospectos.first)
+            end
+            if params[:model_name] == "inscritos"
+              @prospecto = Prospecto.find_by_id(Inscrito.find_by_id(@correo.model_id).admitidos.first.examinados.first.solicitantes.first.prospectos.first)
+            end          
+        else
+          @prospecto=Prospecto.find_by_id(params[:model_id])
+          if @prospecto == nil
+            if params[:model_name] == "solicitantes"
+              @prospecto = Prospecto.find_by_id(Solicitante.find_by_id(params[:model_id]).prospectos.first)
+            end
+            if params[:model_name] == "examinados"
+              @prospecto = Prospecto.find_by_id(Examinado.find_by_id(params[:model_id]).solicitantes.first.prospectos.first)
+            end
+            if params[:model_name] == "admitidos"
+              @prospecto = Prospecto.find_by_id(Admitido.find_by_id(params[:model_id]).examinados.first.solicitantes.first.prospectos.first)
+            end
+            if params[:model_name] == "inscritos"
+              @prospecto = Prospecto.find_by_id(Inscrito.find_by_id(params[:model_id]).admitidos.first.examinados.first.solicitantes.first.prospectos.first)
+            end
+          end
+        end
+
+    end%>
+    </div>
+    <div>
+      <legend>Establecer tipo de Campana</legend>
+    <%if @correo.es_uno_a_uno == true and @prospecto != nil%>
+      <%= f.input :es_uno_a_uno,:label=>"Es uno a uno",:hint=>"Seleccione esta casilla para enviar el mail solo a el prospecto seleccionado.",:input_html => { :checked=>"checked" } %>    
+      <%= f.input :mail_campana,:label=>"Mail uno a uno",:hint=>"Escriba un email aqui para enviar si se selecciona Uno a Uno, puedes escribir multiples separando los correos por comas",:input_html => { :value=> @prospecto.email} %>      
+    <%else%>
+      <%= f.input :es_uno_a_uno,:label=>"Es Uno a Uno",:hint=>"Seleccione esta casilla para enviar el mail solo a el prospecto seleccionado."%>    
+      <%= f.input :mail_campana,:label=>"Mail Uno a Uno",:hint=>"Escriba un email aqui para enviar si se selecciona Uno a Uno, puedes escribir multiples separando los correos por comas"%>
+    <%end%>
+  </div>
+  <div>
+    <legend>Establecer contenido del correo</legend>
+    <p class="help-block">Por favor utilize la funcion de agregar adjuntos y copie la direccion del adjunto para agregar imagenes NO use copy&paste.</p>
+    <%= f.input :maildata , :input_html=>{:class=>"correobox"}, :label=>"Contenido del correo"%>
+  </div>
+  <%if  @correo.es_uno_a_uno == true%>
+  <%else%>
+  <div>
+    <legend>Seleccionar a quien enviar el correo</legend>
+
+    <%=f.input :a_quien_enviarle_correo,:checked => @correo.a_quien_enviarle_correo, :collection=>[["A todos","a_todos"],["Por Usuarios","por_usuarios"],["Por Sedes","por_sedes"],["Por Grupos","por_grupos"],["Por Programa","por_programa"],["Por periodo","por_periodo"],["Por Estado","por_estado"]],:as=>:check_boxes%>
+  </div>
+  <div>
+    <legend>Datos Adicionales</legend>
+    <%= f.input :fechaparaenviar do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fechaparaenviar%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>	
+    <%= f.hidden_field :created_by%>
+    
+      <%= f.association :user, :collection => User.where(:id => @correo.created_by), :label_method => :username, :value_method => :id , :disabled=>true,:label=>"Creado por"%>
+    
+    <div id="por_usuarios">
+      <%= f.association :user,:label_method=>:username,:include_blank => true%>
+    </div>
+    <div id="por_sedes">
+      <%= f.association :sede,:label_method=>:nombre,:include_blank => true%>   
+    </div>
+    <div id="por_grupos">
+      <%= f.association :grupo,:label_method=>:nombre,:include_blank => true,:hint=>"Seleccione un grupo para enviar este correo en masa"%>  
+    </div>
+    <div id="por_programa">
+      <%=f.input :programa_id,:label=>"Programa" do%>
+        <%= f.select :programa_id , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa, c.id] },:include_blank=>true%>
+      <%end%> 
+    </div>
+    <div id="por_periodo">
+      <%=f.input :por_periodo,:label=>"Periodo" do%>
+        <%= f.select :por_periodo , PeriodoParaIngresar.all.map{ |c| [ c.valor, c.id] },:include_blank=>true%>
+      <%end%> 
+    </div>                
+    <div id="por_estado">
+      <%=f.input :por_estado, :as=>:check_boxes,:collection=>[["Prospectos","prospectos"],["Solicitantes","solicitantes"],["Admitidos","admitidos"],["Examinados","examinados"],["Inscritos","inscritos"]],:checked => @correo.por_estado%>
+    </div>
+          </div>
+        <%=f.hidden_field :model_name %>
+    <%=f.hidden_field :model_id %> 
+
+  <%end%>
+  <div>
+<legend>Guardar/Enviar</legend>
+    <div class="form-actions">
+      <%= f.button :submit, :class => 'btn-primary' %>
+      <%= link_to 'Cancel', correos_path, :class => 'btn' %>
+      <% if request.path_parameters[:action] =="edit" %>
+        <%= link_to 'Enviar Correo', send_correo_path(@correo),:class=>"btn btn-success"%>
+      <%end%>
+    </div>
+</div>
+
+</div>
+     
+<% end %>
+
+<%if params[:action] == "edit"%>
+  <%=render :partial=>"shared/attachments", :locals=>{:model_id=>@correo.id}%> 
+<%end%>
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+  $("#wizard").bwizard();
+
+ 
+  
+
+  $("#correo_sede_id").val($("#correo_sede_id option:first").val());
+  $("#correo_user_id").val($("#correo_user_id option:first").val());
+      $("#por_usuarios").hide();
+      $("#por_sedes").hide();
+      $("#por_grupos").hide();
+      $("#por_periodo").hide();
+      $("#por_estado").hide();
+      $("#por_programa").hide();
+  $(" input[name='correo[a_quien_enviarle_correo][]']").click(function()
+  {
+    switch($(this).val())
+    {
+    case "a_todos":
+      $("#por_usuarios").hide();
+      $("#por_sedes").hide();
+      $("#por_grupos").hide();
+      $("#por_periodo").hide();
+      $("#por_estado").hide();
+      $("#por_programa").hide();
+      break;
+    case "por_usuarios":
+      $("#por_usuarios").show();
+      break;
+    case "por_sedes":
+      $("#por_sedes").show();
+      break;
+    case "por_grupos":
+      $("#por_grupos").show();
+      break;            
+    case "por_periodo":
+      $("#por_periodo").show();
+      break;      
+    case "por_estado":
+      $("#por_estado").show();
+      break;   
+    case "por_programa":
+      $("#por_programa").show();
+      break;                 
+    default:
+      
+    }
+
+  });
+  $("#test").click(function(){
+    var values = new Array();
+    $.each($(" input[name='correo[a_quien_enviarle_correo][]']:checked"), function() {
+      values.push($(this).val());
+      alert($(this).val());
+      // or you can do something to the actual checked checkboxes by working directly with  'this'
+      // something like $(this).hide() (only something useful, probably) :P
+    });
+
+  });
+
+  <%if @correo.user != nil%>
+    $("#por_usuarios").show();
+  <%end%>
+
+  <%if @correo.sede != nil%>
+    $("#por_sedes").show();
+  <%end%>  
+
+  <%if @correo.grupo != nil%>
+    $("#por_grupos").show();
+  <%end%>  
+  
+  <%if @correo.programa_id != nil%>
+    $("#por_programa").show();
+  <%end%> 
+
+  <%if @correo.por_periodo != nil%>
+    $("#por_periodo").show();
+  <%end%> 
+
+  <%if @correo.por_estado != nil%>
+    $("#por_estado").show();
+  <%end%>
+
+});
+})(jQuery);
+
+
+
+</script>
