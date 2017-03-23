@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!
+  
   def send_post
 
     @post = Post.find(params[:id])
@@ -92,8 +93,21 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+
     @post = Post.find(params[:id])
     @post.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+   
 
     respond_to do |format|
       format.html { redirect_to "/#{@post.model_name}/#{@post.model_id}/edit/", notice: 'Post was successfully created.' }

@@ -1,0 +1,194 @@
+<%
+
+	current_user = User.where(id: 1).first
+
+    @prospecto = Prospecto.new
+    @prospecto.created_by = current_user.id
+    @prospecto.user_id =current_user.id
+    @prospecto.sede_id =current_user.sede_id
+    @prospecto.direccions.build
+    @prospecto.interes_basicos.build
+    @prospecto.medio_de_contactos.build
+    @prospecto.interes_academicos.build
+    @prospecto.accion_estrategicas.build
+    @prospecto.plan_de_descuentos.build
+    @prospecto.importado_revisado=true
+    @prospecto.validado=false
+    @prospecto.issolicitante =false
+
+
+%>
+
+<%
+rol = Role.where(:id=>current_user.role).first
+if rol.nombre == "DN" or rol.nombre == "ACRM" 
+  sedesParaElCombo = Sede.order(:nombre)
+else
+  sedesParaElCombo = Sede.where(:id=>current_user.sede)
+end
+%>
+
+<%= simple_form_for @prospecto, :html => { :class => 'form-horizontal',:onsubmit=>"return confirm('Estas seguro de querer continuar?');"} do |g| %>
+
+          <!--<legend><%= controller.action_name.capitalize %> Prospecto</legend>-->
+  <div  class="well">        
+      <%= g.input :nombre, :label=>"Nombre(s):" %>
+          <%= g.input :apellido_paterno, :label=>"Apellido Paterno:"  %>
+          <%= g.input :apellido_materno, :label=>"Apellido Materno:" %>
+          <%= g.input :sexo, :collection => {"Masculino" => true, "Femenino" => false}, :include_blank=>false %>
+      <%= g.input :fecha_de_nacimiento,:hint=>"AAAA/MM/DD" do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= g.text_field :fecha_de_nacimiento%>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+          <!-- como usar associations
+              :label_method => :nacionalidad
+              :label_method => lambda { |owner| "#{owner.name} | #{owner.subtype_name}" }
+          -->
+              <%=g.input :programa_id,:label=>"Programa" do%>
+                <%= g.select :programa_id , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa , c.id] }%>
+              <%end%>  
+          <%= g.association :nacionalidad, :include_blank => false, :label_method => :nacionalidad %>
+          <%= g.input :telefono_particular, :label=>"Teléfono Particular:"%>
+          <%= g.input :telefono_movil, :label=>"Teléfono Móvil:" %>
+          <%= g.input :otro_telefono, :label=>"Otro Teléfono:"  %>
+          <%= g.input :email  , :label=>"E-mail:"%>
+          <%= g.input :facebook  , :label=>"Facebook:"%>
+          <%= g.input :twitter  , :label=>"Twitter:"%>
+          <%=g.hidden_field :created_by%>
+          <%rol = Role.where(:id=>current_user.role).first%>
+          <%if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"%>           
+            <%=g.association :user,:label_method=>:username,:include_blank => false,:label=>"Asignado a:"%>
+          <%else%>
+            <%=g.hidden_field :user,:label_method=>:username,:include_blank => false,:label=>"Asignado a:",:disabled=>true%>
+          <%end%>
+
+<%
+if rol.nombre == "DN" or rol.nombre == "ACRM" 
+  %>
+<%=g.association :sede,:label_method=>:nombre,:include_blank => false, :label=>"Sede:"%>
+  <%
+else
+  sedesParaElCombo = Sede.where(:id=>current_user.sede)
+  %>
+<%=g.association :sede,:label_method=>:nombre,:include_blank => false, :label=>"Sede de interés:",collection: sedesParaElCombo, :selected=> sedesParaElCombo%>
+  <%
+end
+%>
+          <%=g.association :grupo,:label_method=>:nombre,:include_blank => false%>
+          <%=g.hidden_field :issolicitante%>
+          <%= g.hidden_field :validado, :value=>false%>
+          <%= g.input :importado_revisado%>
+          <%=g.input :archivado%>
+ </div>
+
+
+  <%= g.simple_fields_for :direccions , :html => { :class => 'form-horizontal' } do |builder| %>
+  <div  class="well"> <%= builder.input :calle, :label=>"Calle:"%>
+                     <%= builder.input :no_interior, :label=>"No. Interior:"  %>
+                     <%= builder.input :no_exterior, :label=>"No. Exterior:"  %>
+                     <%= builder.input :colonia , :label=>"Colonia:" %>
+                     <%= builder.input :delegacion_municipio , :label=>"Delegación/Municipio:" %>
+                     <%= builder.input :estado, :label=>"Estado" %>
+                     <%= builder.input :pais, :label=>"País" %>
+                     <%= builder.input :codigo_postal , :label=>"Código Postal:"%> 
+                     <%= builder.hidden_field :blank, :value=>"default"%>
+                     <%= builder.input :comentarios, :as => :text ,:input_html => { :cols => 50, :rows => 3 } , :label=>"Comentarios:" %>
+            <%= builder.hidden_field :latitude%>
+            <%= builder.hidden_field :longitude%>
+            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@prospecto.direccions.first.latitude}%2C#{@prospecto.direccions.first.longitude}" %>                   
+                       </div>       
+          <% end %>    
+
+
+          <%= g.simple_fields_for :interes_basicos  , :html => { :class => 'form-horizontal' } do |builder| %>
+  <div  class="well">          
+              <%= builder.association :ultimo_grado_de_estudio,:include_blank => false, :label_method => :grado_de_estudio, :label=>"Último grado de estudios:"%>
+              <%= builder.association :preparatoria_o_universidad_de_origen,:include_blank => false, :label_method => :valor , :label=>"Preparatoria/Universidad de procedencia:" %>
+              <%= builder.association :municipio_de_la_preparatoria_o_universidad_de_origen,:include_blank => false, :label_method => :valor , :label=>"Municipio de la Preparatoria / Universidad de procedencia:" %>
+              <%= builder.input :ano_de_graduacion , :label=>"Año de Graduación:"%>
+
+<%
+if rol.nombre == "DN" or rol.nombre == "ACRM" 
+  %>
+ 
+<%=builder.association :sede,:label_method=>:nombre,:include_blank => false, :label=>"Sede de interés:"%>
+  <%
+else
+  sedesParaElCombo = Sede.where(:id=>current_user.sede)
+  %>
+
+<%=builder.association :sede,:label_method=>:nombre,:include_blank => false, :label=>"Sede de interés:",collection: sedesParaElCombo, :selected=> sedesParaElCombo%>
+  <%
+end
+%>
+  <%=builder.input :subsede_id, collection: sedesParaElCombo, as: :grouped_select, group_method: :subsedes, group_label_method: :nombre,:label_method=>:nombre,:include_blank => false, :label=>"Extensión de interés:" %>
+
+              <%=builder.association :modalidad,:label_method=>:valor,:include_blank => false, :label=>"Modalidad:"%>
+               <%= builder.association :turno,:include_blank => false, :label_method => :valor  , :label=>"Turno:"%>
+               <%= builder.association :periodo_para_ingresar,:include_blank => false, :label_method => :valor, :label=>"Periodo para ingresar:" %>
+               <%= builder.association :status_de_interes_de_prospecto_validado,:include_blank => false, :label_method => :valor, :label=>"Status de Interés del prospecto validado:" %>
+              <%= builder.hidden_field :blank, :value=>"default"%>
+              <%= builder.input :comentarios, :input_html => { :cols => 50, :rows => 3 }, :label=>"Comentarios:"%><br/></div>
+          <% end %>  
+
+
+  <%= g.simple_fields_for :interes_academicos, :html => { :class => 'form-horizontal' }  do |builder| %>
+  <div  class="well">
+            <%=builder.input :opcion_1, :input_html => { :cols => 50, :rows => 3 }, :label=>"Opción 1: otro posgrado/carrera de interés" %>
+            <%=builder.input :opcion_2, :input_html => { :cols => 50, :rows => 3 }, :label=>"Opción 2: otro posgrado/carrera de interés"%>
+            <%= builder.hidden_field :blank, :value=>"default"%>
+            <%=builder.input :opcion_3, :input_html => { :cols => 50, :rows => 3 }, :label=>"Opción 3: otro posgrado/carrera de interés"%></div>
+          <%end%>
+
+ <%= g.simple_fields_for :medio_de_contactos , :html => { :class => 'form-horizontal' } do |builder| %>
+  <div  class="well">            <p>
+              <%= builder.input :feria_universitaria_en_su_colegio, :label=>"Feria universitaria"%><br/>
+              <%= builder.input :visita_a_su_salon, :label=>"Plática en su salón"%><br/>
+              <%= builder.input :recomendacion_de_un_amigo_familiar, :label=>"Recomendación de un amigo / familiar"%><br/>
+              <%= builder.input :recomendacion_de_un_egresado, :label=>"Recomendación de un egresado"%><br/>
+              <%= builder.input :sitio_oficial_web_ISEF, :label=>"Web del Instituto"%><br/>
+              <%= builder.input :facebook, :label=>"Facebook"%><br/>
+              <%= builder.input :twitter, :label=>"Twitter"%><br/>
+              <%= builder.input :email_de_promocion_mailing, :label=>"E-mail de promoción/mailing"%><br/>
+              <%= builder.input :impreso_flyer_folleto, :label=>"Impreso; flyer/folleto"%><br/>
+              <%= builder.input :anuncio_publicacion_periodico_revista, :label=>raw("Anuncio/Publicación/<br/>Periódico/Revista")%><br/>
+              <%= builder.input :llamada_telefonica_de_un_asesor, :label=>"Llamada teléfonica de un Asesor"%><br/>
+              <%= builder.input :conferencia_platica_charla, :label=>"Conferencia/Plática/Charla"%><br/>
+              <%= builder.input :sesion_informativa, :label=>"Sesión Informativa"%><br/>
+              <%= builder.input :visito_las_instalaciones, :label=>"Visitó las instalaciones"%><br/>
+              <%= builder.input :convenio_con_su_institucion, :label=>"Convenio con su Institución"%><br/>
+              <%= builder.input :otro_texto,:label=>"Otro ¿Cuál?"%><br/>
+              <%= builder.hidden_field :blank, :value=>"default"%>
+              <%= builder.input :comentarios,:input_html => { :cols => 50, :rows => 3 }, :label=>"Comentarios:"%>
+<%= builder.input :Referido,:label=>"Referido interno",:collection=>Prospecto.all.map{|c| [c.nombre + ' ' + ((c.apellido_paterno == nil) ? '' : c.apellido_paterno ) + ' ' + ((c.apellido_materno == nil) ? '' : c.apellido_materno),c.id] }.sort,:include_blank=>true%>
+              <%= builder.input :referido_externo,:label=>"Referido externo"%><br/>
+            </div>
+          <% end %>  
+
+
+
+ <%= g.simple_fields_for :plan_de_descuentos , :html => { :class => 'form-horizontal' } do |builder| %>   
+  <div  class="well">          <%=builder.input :descuento_en_la_inscripcion, :label=>"Descuento en la Inscripción"%>
+            <%=builder.input :porcentaje%>
+        <%= builder.input :fecha_de_caducidad do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= builder.text_field :fecha_de_caducidad%>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+            <%=builder.input :otro_cual, :label=>"Otro ¿Cuál?"%>
+            <%= builder.hidden_field :blank, :value=>"default"%>
+        <%= builder.input :fecha_de_otorgamiento do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= builder.text_field :fecha_de_otorgamiento%>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+            <%=builder.input :comentarios,:input_html => { :cols => 50, :rows => 3 }, :label=>"Comentarios:"%></div>
+          <%end%>
+<%= hidden_field_tag(:fromwhere, 'web') %>
+       <%= g.submit nil, :class => 'btn btn-primary .center' ,:id=>"commit" %>
+
+   <%end%>

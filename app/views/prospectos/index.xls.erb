@@ -35,7 +35,8 @@
           <Cell><Data ss:Type="String">Preparatoria / Universidad de origen</Data></Cell>
           <Cell><Data ss:Type="String">Municipio de la Preparatoria / Universidad de origen</Data></Cell>
           <Cell><Data ss:Type="String">Año de graduación</Data></Cell>
-          <Cell><Data ss:Type="String">Sede y subsede de interés</Data></Cell>
+          <Cell><Data ss:Type="String">Sede</Data></Cell>
+          <Cell><Data ss:Type="String">Extension de interés</Data></Cell>
           <Cell><Data ss:Type="String">Nivel</Data></Cell>
           <Cell><Data ss:Type="String">Turno</Data></Cell>
           <Cell><Data ss:Type="String">Periodo para ingresar</Data></Cell>
@@ -98,6 +99,7 @@
           <Cell><Data ss:Type="String">municipio_de_la_preparatoria_o_universidad_de_origen</Data></Cell>
           <Cell><Data ss:Type="String">ano_de_graduacion</Data></Cell>
           <Cell><Data ss:Type="String">sede</Data></Cell>
+          <Cell><Data ss:Type="String">subsede</Data></Cell>
           <Cell><Data ss:Type="String">nivel</Data></Cell>
           <Cell><Data ss:Type="String">turno</Data></Cell>
           <Cell><Data ss:Type="String">periodo_para_ingresar</Data></Cell>
@@ -159,7 +161,8 @@
       <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.preparatoria_o_universidad_de_origen.valor rescue nil%><%=printValue("Preparatoria / Universidad de origen",valor)%></Data></Cell>
       <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.municipio_de_la_preparatoria_o_universidad_de_origen.valor rescue nil%><%=printValue("Municipio de la Preparatoria / Universidad de origen",valor)%></Data></Cell>
       <Cell><Data ss:Type="String"><%=printValue("Año de graduación",prospecto.interes_basicos.first.ano_de_graduacion)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%valor =prospecto.interes_basicos.first.sede.nombre rescue nilvalor = valor + " - " + prospecto.interes_basicos.first.subsede.nombre rescue nil %><%=printValue("Sede y subsede de interés",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%valor =prospecto.interes_basicos.first.sede.nombre rescue nilvalor = valor + " - " + prospecto.interes_basicos.first.subsede.nombre rescue nil %><%=printValue("Sede",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.subsede.nombre rescue nil %><%=printValue("Extension de interés",valor)%></Data></Cell>
       <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.nivel.valor rescue nil %><%=printValue("Nivel",valor)%></Data></Cell>
       <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.turno.valor rescue nil %><%=printValue("Turno",valor)%></Data></Cell>
       <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.periodo_para_ingresar.valor rescue nil %><%=printValue("Periodo para ingresar",valor)%> </Data></Cell>

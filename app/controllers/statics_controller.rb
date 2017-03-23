@@ -1,5 +1,6 @@
 class StaticsController < ApplicationController
 before_filter :authenticate_user!
+
   def miscorreos
     # @prospectos = Prospecto.all
     # or (current_user.role =="director")

@@ -1,5 +1,6 @@
 class StatusDeInteresDeProspectoValidadosController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /status_de_interes_de_prospecto_validados
   # GET /status_de_interes_de_prospecto_validados.json
   def index
@@ -73,9 +74,21 @@ class StatusDeInteresDeProspectoValidadosController < ApplicationController
   # DELETE /status_de_interes_de_prospecto_validados/1
   # DELETE /status_de_interes_de_prospecto_validados/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+   
     @status_de_interes_de_prospecto_validado = StatusDeInteresDeProspectoValidado.find(params[:id])
     @status_de_interes_de_prospecto_validado.destroy
 
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+  
     respond_to do |format|
       format.html { redirect_to status_de_interes_de_prospecto_validados_url }
       format.json { head :ok }

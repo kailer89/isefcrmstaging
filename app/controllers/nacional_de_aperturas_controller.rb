@@ -1,5 +1,6 @@
 class NacionalDeAperturasController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /nacional_de_aperturas
   # GET /nacional_de_aperturas.json
   def index
@@ -79,8 +80,21 @@ class NacionalDeAperturasController < ApplicationController
   # DELETE /nacional_de_aperturas/1
   # DELETE /nacional_de_aperturas/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+    
     @nacional_de_apertura = NacionalDeApertura.find(params[:id])
     @nacional_de_apertura.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+    
 
     respond_to do |format|
       format.html { redirect_to nacional_de_aperturas_url }

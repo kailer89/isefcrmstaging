@@ -1,5 +1,6 @@
 class EquipoPromocionsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /equipo_promocions
   # GET /equipo_promocions.json
   def index
@@ -73,8 +74,19 @@ class EquipoPromocionsController < ApplicationController
   # DELETE /equipo_promocions/1
   # DELETE /equipo_promocions/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
     @equipo_promocion = EquipoPromocion.find(params[:id])
     @equipo_promocion.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+  
 
     respond_to do |format|
       format.html { redirect_to equipo_promocions_url }

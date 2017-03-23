@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 	before_filter :iswriteteable
   protect_from_forgery
 
+
   layout :layout_by_resource
 
   protected
@@ -24,6 +25,10 @@ class ApplicationController < ActionController::Base
       logger.debug request.path_parameters[:controller].include? "admin"
       
       logger.debug "--------------------------------1"
+if request.path_parameters[:action].include? "web" 
+  return true
+end
+
       if not request.path_parameters[:controller].include? "efectividad" 
       if not request.path_parameters[:controller].include? "console" 
       if not request.path_parameters[:controller].include? "configuraciones" 

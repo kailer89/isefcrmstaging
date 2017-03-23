@@ -1,5 +1,6 @@
 class ConfiguracionesController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /configuraciones
   # GET /configuraciones.json
   def index
@@ -74,8 +75,21 @@ class ConfiguracionesController < ApplicationController
   # DELETE /configuraciones/1
   # DELETE /configuraciones/1.json
   def destroy
+rol = Role.where(:id=>current_user.role).first
+
+
+        if rol.nombre == "ACRM"
+
+
+    
     @configuracione = Configuracione.find(params[:id])
     @configuracione.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
 
     respond_to do |format|
       format.html { redirect_to configuraciones_url }

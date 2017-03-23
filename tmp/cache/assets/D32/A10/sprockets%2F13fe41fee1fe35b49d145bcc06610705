@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1443359910.11505:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1490228549.138758:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%6974bd943ffe16119cdcdff16ccc04e9I"logical_path;
+F"%804a2ee08bde06ef1b800cb9cd83024fI"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,15 +9,19 @@ TI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2015-09-27T08:13:02-05:00;
+FI"2017-03-17T18:41:06-06:00;
 FI"	body;
-FI"|M/*
+FI"mW/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
 
 */
 /* Base class */
+
+
+
+
 
 .bs-docs-example {
   position: relative;
@@ -138,6 +142,130 @@ form.bs-docs-example {
   width: 260px;
   margin: 20px;
 }
+
+
+
+
+.ts-docs-example {
+  position: relative;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  *padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+/* Echo out a label for the example */
+.ts-docs-example:after {
+  content: "Registro en linea";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  -webkit-border-radius: 4px 0 4px 0;
+     -moz-border-radius: 4px 0 4px 0;
+          border-radius: 4px 0 4px 0;
+}
+
+/* Remove spacing between an example and it's code */
+.ts-docs-example + .prettyprint {
+  margin-top: -20px;
+  padding-top: 15px;
+}
+
+/* Tweak examples
+------------------------- */
+.ts-docs-example > p:last-child {
+  margin-bottom: 0;
+}
+.ts-docs-example .table,
+.ts-docs-example .progress,
+.ts-docs-example .well,
+.ts-docs-example .alert,
+.ts-docs-example .hero-unit,
+.ts-docs-example .pagination,
+.ts-docs-example .navbar,
+.ts-docs-example > .nav,
+.ts-docs-example blockquote {
+  margin-bottom: 5px;
+}
+.ts-docs-example .pagination {
+  margin-top: 0;
+}
+.ts-navbar-top-example,
+.ts-navbar-bottom-example {
+  z-index: 1;
+  padding: 0;
+  height: 90px;
+  overflow: hidden; /* cut the drop shadows off */
+}
+.ts-navbar-top-example .navbar-fixed-top,
+.ts-navbar-bottom-example .navbar-fixed-bottom {
+  margin-left: 0;
+  margin-right: 0;
+}
+.ts-navbar-top-example {
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+}
+.ts-navbar-top-example:after {
+  top: auto;
+  bottom: -1px;
+  -webkit-border-radius: 0 4px 0 4px;
+     -moz-border-radius: 0 4px 0 4px;
+          border-radius: 0 4px 0 4px;
+}
+.ts-navbar-bottom-example {
+  -webkit-border-radius: 4px 4px 0 0;
+     -moz-border-radius: 4px 4px 0 0;
+          border-radius: 4px 4px 0 0;
+}
+.ts-navbar-bottom-example .navbar {
+  margin-bottom: 0;
+}
+form.ts-docs-example {
+  padding-bottom: 19px;
+}
+
+/* Images */
+.ts-docs-example-images img {
+  margin: 10px;
+  display: inline-block;
+}
+
+/* Tooltips */
+.ts-docs-tooltip-examples {
+  text-align: center;
+  margin: 0 0 10px;
+  list-style: none;
+}
+.ts-docs-tooltip-examples li {
+  display: inline;
+  padding: 0 10px;
+}
+
+/* Popovers */
+.ts-docs-example-popover {
+  padding-bottom: 24px;
+  background-color: #f9f9f9;
+}
+.ts-docs-example-popover .popover {
+  position: relative;
+  display: block;
+  float: left;
+  width: 400px;
+  margin: 20px;
+}
+
 
 
 #toTop {
@@ -638,20 +766,20 @@ F[b{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 TI"
 mtime;
-FIu:	TimeÓà€  °	:@_zoneI"#Central Daylight Time (Mexico);
-T:offsetiþ°¹I"hexdigest;
-F"%451983bdcfde52bf2c0209c3932ccd31{I"	path;
+FIu:	Time@J€  PŸ:@_zoneI"#Central Standard Time (Mexico);
+T:offsetiþ «I"hexdigest;
+F"%611308d637c5108b51770044979bd529{I"	path;
 FI"!$root/app/assets/stylesheets;
 TI"
 mtime;
-FIu;mã€   4;I"#Central Daylight Time (Mexico);
-T;iþ°¹I"hexdigest;
+FIu;¡€  €;I"#Central Standard Time (Mexico);
+T;iþ «I"hexdigest;
 F"%30006eed509122db3e0d9500b67047e4{I"	path;
 FI"($root/app/assets/stylesheets/images;
 TI"
 mtime;
-FIu;‘¤€  0ž;I"#Central Daylight Time (Mexico);
-T;iþ°¹I"hexdigest;
+FIu;¡€  €;I"#Central Standard Time (Mexico);
+T;iþ «I"hexdigest;
 F"%708675ea524a29eefdca28b05fcc1a14{I"	path;
 FI"{C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/jquery-ui-rails-3.0.1/vendor/assets/stylesheets/jquery.ui.core.css.erb;
 TI"
@@ -1124,9 +1252,9 @@ F"%3de435a5068e23abd024ce839ccf8110{I"	path;
 FI",$root/app/assets/stylesheets/normal.css;
 TI"
 mtime;
-FIu;ÀŠ€   ï;I"#Central Standard Time (Mexico);
+FIu;@J€  `¤;I"#Central Standard Time (Mexico);
 T;iþ «I"hexdigest;
-F"%1a4061930b1818c1babec127ac8c6326{I"	path;
+F"%262a387d66c1483310b672b91be8d0cd{I"	path;
 FI".$root/app/assets/stylesheets/otrosdep.css;
 TI"
 mtime;

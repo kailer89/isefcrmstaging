@@ -1,5 +1,6 @@
 ProtoCRM3::Application.routes.draw do
 
+match "web" => "prospectos#webtest", as: :web
   resources :searches
 
   resources :efectividads
@@ -23,6 +24,8 @@ ProtoCRM3::Application.routes.draw do
   resources :articles do
     resources :comments
   end
+
+  
 
 
   resources :rpms
@@ -185,8 +188,9 @@ resources :prospectos, only: :index do
   end
 
   resources :sedes
-
+ devise_for :prospectos, :skip => [:webtest] 
   root :to => "homes#force_redirect"
+ 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",:sessions => "sessions" }
   resources :users
   

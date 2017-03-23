@@ -1,5 +1,7 @@
 class PurgesController < ApplicationController
+  before_filter :authenticate_user!
   #before_filter :authenticate_user!
+
   # GET /purges
   # GET /purges.json
   def index

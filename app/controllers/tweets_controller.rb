@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_filter :authenticate_user!
+  
   def send_tweet
     @tweet = Tweet.find(params[:id])
       atoken = session['twitterinfo']['extra']['access_token'].token
@@ -92,8 +93,18 @@ class TweetsController < ApplicationController
   # DELETE /tweets/1
   # DELETE /tweets/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+    
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
 
     respond_to do |format|
       format.html { redirect_to "/#{@tweet.model_name}/#{@tweet.model_id}/edit/", notice: 'tweet was successfully created.' }

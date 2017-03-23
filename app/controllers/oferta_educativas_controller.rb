@@ -1,5 +1,6 @@
 class OfertaEducativasController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /oferta_educativas
   # GET /oferta_educativas.json
   def index
@@ -79,9 +80,20 @@ class OfertaEducativasController < ApplicationController
   # DELETE /oferta_educativas/1
   # DELETE /oferta_educativas/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+
+    
     @oferta_educativa = OfertaEducativa.find(params[:id])
     @oferta_educativa.destroy
 
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
     respond_to do |format|
       format.html { redirect_to oferta_educativas_url }
       format.json { head :ok }

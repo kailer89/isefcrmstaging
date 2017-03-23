@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  
   before_filter :authenticate_user!
 require 'will_paginate/array'
    def update_column_names
@@ -446,8 +447,19 @@ require 'will_paginate/array'
   # DELETE /reports/1
   # DELETE /reports/1.json
   def destroy
+
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
     @report = Report.find(params[:id])
     @report.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
 
     respond_to do |format|
       format.html { redirect_to reports_url }

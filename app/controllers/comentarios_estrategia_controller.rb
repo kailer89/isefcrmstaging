@@ -1,6 +1,7 @@
 class ComentariosEstrategiaController < ApplicationController
   before_filter :authenticate_user!
-  helper_method :sort_column, :sort_direction  
+  helper_method :sort_column, :sort_direction
+    
   # GET /comentarios_estrategia
   # GET /comentarios_estrategia.json
   def index
@@ -74,9 +75,21 @@ class ComentariosEstrategiaController < ApplicationController
   # DELETE /comentarios_estrategia/1
   # DELETE /comentarios_estrategia/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "ACRM"
+
+
+    
     @comentarios_estrategium = ComentariosEstrategium.find(params[:id])
     @comentarios_estrategium.destroy
 
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
     respond_to do |format|
       format.html { redirect_to comentarios_estrategia_url }
       format.json { head :ok }

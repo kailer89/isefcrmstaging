@@ -1,5 +1,6 @@
 class AchievmentsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /achievments
   # GET /achievments.json
   def index
@@ -83,8 +84,18 @@ class AchievmentsController < ApplicationController
   # DELETE /achievments/1
   # DELETE /achievments/1.json
   def destroy
+      rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "ACRM"
+
+
     @achievment = Achievment.find(params[:id])
     @achievment.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
 
     respond_to do |format|
       format.html { redirect_to achievments_url }

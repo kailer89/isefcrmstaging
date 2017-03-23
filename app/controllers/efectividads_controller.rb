@@ -1,4 +1,5 @@
 class EfectividadsController < ApplicationController
+  
   # GET /efectividads
   # GET /efectividads.json
   def index
@@ -72,9 +73,22 @@ class EfectividadsController < ApplicationController
   # DELETE /efectividads/1
   # DELETE /efectividads/1.json
   def destroy
+
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+
+
+    
     @efectividad = Efectividad.find(params[:id])
     @efectividad.destroy
 
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
     respond_to do |format|
       format.html { redirect_to efectividads_url }
       format.json { head :ok }

@@ -961,7 +961,7 @@
         <%
         rol = Role.where(:id=>current_user.role).first
 
-        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  
+        if rol.nombre == "ACRM"  
           prospectos123 = Prospecto.where{created_at != nil}
           prospectoultimomes = Prospecto.where{created_at >= 1.month.ago}
           prospectoultimoscincodias = Prospecto.where{created_at>=5.days.ago}
@@ -1074,7 +1074,7 @@
 <%
         rol = Role.where(:id=>current_user.role).first
 
-        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  
+        if rol.nombre == "ACRM"  
 %>                    
                       <tr>
                         <td>Prospectos No Validados</td>
@@ -1146,7 +1146,7 @@
 <%
         rol = Role.where(:id=>current_user.role).first
 
-        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  
+        if rol.nombre == "ACRM"  
 %>           
                    var funnel = new RGraph.Funnel('cvs', [<%=@prospectosnovalidados.size + 1 %>,<%=@prospectosvalidados.size + 1 %>,<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size + 1 %>,<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size + 1 %>]);
             funnel.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.size %>)','Prospectos Validados (<%=@prospectosvalidados.size %>)','Solicitantes (<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.size %>)','Examinados (<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size %>)',"Admitidos (<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size  %>)","Inscritos (<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size %>)"]);
@@ -1193,7 +1193,7 @@
                       <script>
 <%        rol = Role.where(:id=>current_user.role).first
 
-        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  %>
+        if rol.nombre == "ACRM"  %>
                               var funnel<%=programa.id%> = new RGraph.Funnel('cvs<%=programa.id%>', [<%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %>,<%=@prospectosvalidados.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size + 1 %>]);
                               funnel<%=programa.id%>.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.where(:programa_id=>programa.id).size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:programa_id=>programa.id).size %>)','Solicitantes (<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size  %>)','Examinados (<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size %>)',"Admitidos (<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size %>)","Inscritos (<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size  %>)"]);
                               funnel<%=programa.id%>.Set('chart.gutter.left', 350);
@@ -1233,7 +1233,7 @@
                       <script>
 <%        rol = Role.where(:id=>current_user.role).first
 
-        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  %>
+        if rol.nombre == "ACRM"  %>
                                var funnel<%=programa.id%> = new RGraph.Funnel('cvs<%=programa.id%>', [<%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %>,<%=@prospectosvalidados.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size + 1 %>,<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size + 1 %>]);
                               funnel<%=programa.id%>.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.where(:programa_id=>programa.id).size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:programa_id=>programa.id).size %>)','Solicitantes (<%=Prospecto.joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size  %>)','Examinados (<%=Prospecto.joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size %>)',"Admitidos (<%=Prospecto.joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size %>)","Inscritos (<%=Prospecto.joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size  %>)"]);
                               funnel<%=programa.id%>.Set('chart.gutter.left', 350);

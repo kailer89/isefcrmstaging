@@ -1,4 +1,5 @@
 class ReportsortbiesController < ApplicationController
+  
   # GET /reportsortbies
   # GET /reportsortbies.json
   def index

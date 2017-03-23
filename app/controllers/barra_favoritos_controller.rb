@@ -1,5 +1,6 @@
 class BarraFavoritosController < ApplicationController
     before_filter :authenticate_user!
+    
   # GET /barra_favoritos
   # GET /barra_favoritos.json
   def index
@@ -73,8 +74,20 @@ class BarraFavoritosController < ApplicationController
   # DELETE /barra_favoritos/1
   # DELETE /barra_favoritos/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "ACRM"
+
+
     @barra_favorito = BarraFavorito.find(params[:id])
     @barra_favorito.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
 
     respond_to do |format|
       format.html { redirect_to barra_favoritos_url }

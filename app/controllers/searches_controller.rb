@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /searches
   # GET /searches.json
   def index
@@ -70,9 +71,21 @@ class SearchesController < ApplicationController
   # DELETE /searches/1
   # DELETE /searches/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+  
     @search = Search.find(params[:id])
     @search.destroy
 
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+    
     respond_to do |format|
       format.html { redirect_to searches_url }
       format.json { head :ok }

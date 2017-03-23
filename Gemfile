@@ -81,6 +81,7 @@ gem "exception_notification"
 #gem 'exception_notification'#, :require => 'exception_notifier', :git => "https://github.com/smartinez87/exception_notification.git"
 gem 'paper_trail', '~> 2'
 gem 'rails_admin'#, :git=>"git://github.com/sferik/rails_admin.git",:branch => "rails-3.x"
+#gem "rails_admin_import", "~> 1.2"
 gem "pdfkit"
 gem "wkhtmltopdf-heroku"#, :git => 'git://github.com/camdez/wkhtmltopdf-heroku.git'
 

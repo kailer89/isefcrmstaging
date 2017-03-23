@@ -1,5 +1,6 @@
 class ColegiaturasController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /colegiaturas
   # GET /colegiaturas.json
   def index
@@ -78,9 +79,21 @@ class ColegiaturasController < ApplicationController
   # DELETE /colegiaturas/1
   # DELETE /colegiaturas/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "ACRM"
+
+
     @colegiatura = Colegiatura.find(params[:id])
     @colegiatura.destroy
 
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
     respond_to do |format|
       format.html { redirect_to colegiaturas_url }
       format.json { head :ok }

@@ -1,4 +1,6 @@
 class ReportDirectionsController < ApplicationController
+
+  
   # GET /report_directions
   # GET /report_directions.json
   def index

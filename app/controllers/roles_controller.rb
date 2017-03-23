@@ -1,5 +1,6 @@
 class RolesController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /roles
   # GET /roles.json
   def index
@@ -75,8 +76,19 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   # DELETE /roles/1.json
   def destroy
-    @role = Role.find(params[:id])
+
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+   @role = Role.find(params[:id])
     @role.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+  
 
     respond_to do |format|
       format.html { redirect_to roles_url }

@@ -23,6 +23,14 @@ body{
     left:35%;
     width:350px;
   }
+  .centeredSignUp2{
+    display:block;
+
+    /*set the div in the center of the screen*/
+    position:absolute;
+    left:35%;
+    width:520px;
+  }
   .favoritesBar
   {
     padding-top:0px;

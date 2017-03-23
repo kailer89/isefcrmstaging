@@ -1,5 +1,6 @@
 class NivelsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /nivels
   # GET /nivels.json
   def index
@@ -73,8 +74,18 @@ class NivelsController < ApplicationController
   # DELETE /nivels/1
   # DELETE /nivels/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+    
     @nivel = Nivel.find(params[:id])
     @nivel.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
 
     respond_to do |format|
       format.html { redirect_to nivels_url }

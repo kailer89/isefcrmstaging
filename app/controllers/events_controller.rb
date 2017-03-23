@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /events
   # GET /events.json
   def index
@@ -77,8 +78,19 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
     @event = Event.find(params[:id])
     @event.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
 
     respond_to do |format|
       format.html { redirect_to events_url }

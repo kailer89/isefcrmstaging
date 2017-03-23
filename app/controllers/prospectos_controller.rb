@@ -1,6 +1,8 @@
 
 class ProspectosController < ApplicationController
-  before_filter :authenticate_user!
+
+  skip_before_filter :authenticate_user!, :only => :web
+  
   # GET /prospectos
   # GET /prospectos.json
   def index
@@ -129,6 +131,12 @@ class ProspectosController < ApplicationController
     end
   end
 
+  def webtest
+    render :layout => "layout_for_show_only"
+
+
+  end
+
   # GET /prospectos/1/edit
   def edit
     @prospecto = Prospecto.find(params[:id])
@@ -214,25 +222,51 @@ class ProspectosController < ApplicationController
   # POST /prospectos.json
   def create
     @prospecto = Prospecto.new(params[:prospecto])
-    @prospecto.user_id=current_user.id
-    respond_to do |format|
-      if @prospecto.save
-        historial = History.new
-        historial.model_name = "prospectos"
-        historial.model_id = @prospecto.id
-        historial.user_id = current_user.id
-        historial.role = current_user.role
-        historial.action = "Agregado"
-        historial.save
-        #ProspectosMailer.nuevo_prospecto(@prospecto,current_user.email,current_user.username).deliver
-        format.html { redirect_to @prospecto, notice: 'Prospecto was successfully created. #{undo_link}' }
-        format.json { render json: @prospecto, status: :created, location: @prospecto }
-      else
-        flash[:error] = @prospecto.errors.full_messages.to_sentence
-        format.html { render action: "new" }
-        format.json { render json: @prospecto.errors, status: :unprocessable_entity }
+
+    if params[:fromwhere] != nil
+      if params[:fromwhere] = 'web'
+        if @prospecto.save
+          historial = History.new
+          historial.model_name = "prospectos"
+          historial.model_id = @prospecto.id
+
+          us =  User.where(id: params[:user_id]).first
+          if not us.nil?
+            historial.user_id = us.id
+            historial.role = us.role
+          end
+          historial.action = "Agregado desde web"
+          historial.save
+
+          redirect_to '/web', notice: 'Registro almacenado' 
+        end
       end
+    else
+
+      @prospecto.user_id=current_user.id
+      respond_to do |format|
+        if @prospecto.save
+          historial = History.new
+          historial.model_name = "prospectos"
+          historial.model_id = @prospecto.id
+          historial.user_id = current_user.id
+          historial.role = current_user.role
+          historial.action = "Agregado"
+          historial.save
+          #ProspectosMailer.nuevo_prospecto(@prospecto,current_user.email,current_user.username).deliver
+          format.html { redirect_to @prospecto, notice: 'Prospecto was successfully created. #{undo_link}' }
+          format.json { render json: @prospecto, status: :created, location: @prospecto }
+        else
+          flash[:error] = @prospecto.errors.full_messages.to_sentence
+          format.html { render action: "new" }
+          format.json { render json: @prospecto.errors, status: :unprocessable_entity }
+        end
+      end
+
+
     end
+
+  
   end
 
   # PUT /prospectos/1
@@ -255,12 +289,25 @@ class ProspectosController < ApplicationController
   # DELETE /prospectos/1
   # DELETE /prospectos/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
     @prospecto = Prospecto.find(params[:id])
 
 
 
     validado=@prospecto.validado
     @prospecto.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+   
+
+    
+  
 
     respond_to do |format|
       format.html { redirect_to prospectos_path(:validado=>validado) }

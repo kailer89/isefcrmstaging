@@ -1,5 +1,6 @@
 class ProgramasController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /programas
   # GET /programas.json
   def index
@@ -73,8 +74,20 @@ class ProgramasController < ApplicationController
   # DELETE /programas/1
   # DELETE /programas/1.json
   def destroy
-    @programa = Programa.find(params[:id])
+
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+  @programa = Programa.find(params[:id])
     @programa.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+   
 
     respond_to do |format|
       format.html { redirect_to programas_url }

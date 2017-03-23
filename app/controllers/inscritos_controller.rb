@@ -2,6 +2,7 @@ class InscritosController < ApplicationController
   before_filter :authenticate_user!
   
   helper_method :sort_column, :sort_direction  
+  
   # GET /inscritos
   # GET /inscritos.json
   def index
@@ -176,13 +177,24 @@ class InscritosController < ApplicationController
   # DELETE /inscritos/1
   # DELETE /inscritos/1.json
   def destroy
-    @inscrito = Inscrito.find(params[:id])
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+@inscrito = Inscrito.find(params[:id])
          @admitido = Admitido.find(@inscrito.admitido_id)
      @admitido.isinscrito=false
      @admitido.inscrito_id = nil
      @admitido.save
     @inscrito.destroy
 
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+    
+    
     respond_to do |format|
       format.html { redirect_to inscritos_url }
       format.json { head :ok }

@@ -1,5 +1,6 @@
 class StatusDeLaNotificacionsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /status_de_la_notificacions
   # GET /status_de_la_notificacions.json
   def index
@@ -73,8 +74,21 @@ class StatusDeLaNotificacionsController < ApplicationController
   # DELETE /status_de_la_notificacions/1
   # DELETE /status_de_la_notificacions/1.json
   def destroy
-    @status_de_la_notificacion = StatusDeLaNotificacion.find(params[:id])
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+     @status_de_la_notificacion = StatusDeLaNotificacion.find(params[:id])
     @status_de_la_notificacion.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+    
+  
 
     respond_to do |format|
       format.html { redirect_to status_de_la_notificacions_url }

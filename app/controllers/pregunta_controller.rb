@@ -1,5 +1,6 @@
 class PreguntaController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /pregunta
   # GET /pregunta.json
   def index
@@ -73,8 +74,23 @@ class PreguntaController < ApplicationController
   # DELETE /pregunta/1
   # DELETE /pregunta/1.json
   def destroy
-    @preguntum = Preguntum.find(params[:id])
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+
+     @preguntum = Preguntum.find(params[:id])
     @preguntum.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+   
+    
+  
 
     respond_to do |format|
       format.html { redirect_to pregunta_url }

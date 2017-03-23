@@ -1,5 +1,6 @@
 class ContactosController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /contactos
   # GET /contactos.json
   def index
@@ -73,9 +74,24 @@ class ContactosController < ApplicationController
   # DELETE /contactos/1
   # DELETE /contactos/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+
+
+        if rol.nombre == "ACRM"
+
+
+    
+
     @contacto = Contacto.find(params[:id])
     @contacto.destroy
 
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
     respond_to do |format|
       format.html { redirect_to contactos_url }
       format.json { head :ok }

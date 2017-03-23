@@ -1,5 +1,6 @@
 class MetasGlobalesController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /metas_globales
   # GET /metas_globales.json
   def index
@@ -79,8 +80,19 @@ class MetasGlobalesController < ApplicationController
   # DELETE /metas_globales/1
   # DELETE /metas_globales/1.json
   def destroy
-    @metas_globale = MetasGlobale.find(params[:id])
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+ @metas_globale = MetasGlobale.find(params[:id])
     @metas_globale.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+    
 
     respond_to do |format|
       format.html { redirect_to metas_globales_url }

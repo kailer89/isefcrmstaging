@@ -20,12 +20,16 @@ class InteresBasico < ActiveRecord::Base
 private
 def subsede_is_in_selected_sede
   logger.debug "--------------------------------11111111111111111111111111111111111111111"
+  logger.debug self.subsede.nil?
   #sede = Sede.where(:id=>self.interes_basicos.first.subsede.sede_id).first
-  subsede = Subsede.where(:id=>self.subsede.id).where(:sede_id=>self.sede.id).first
-  if subsede == nil
-  	sedeCorrecta = Sede.where(:id=>self.subsede.sede_id).first
-    errors.add :sede_id, "La Extension de la sede no es valida por favor seleccione la correcta: " + sedeCorrecta.nombre
-  end
+if not self.subsede.nil?
+
+	  subsede = Subsede.where(:id=>self.subsede.id).where(:sede_id=>self.sede.id).first
+	  if subsede == nil
+	  	sedeCorrecta = Sede.where(:id=>self.subsede.sede_id).first
+	    errors.add :sede_id, "La Extension de la sede no es valida por favor seleccione la correcta: " + sedeCorrecta.nombre
+	  end
+	end
 end
 
 end

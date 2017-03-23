@@ -1,5 +1,6 @@
 class TerritoriosController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /territorios
   # GET /territorios.json
   def index
@@ -73,8 +74,21 @@ class TerritoriosController < ApplicationController
   # DELETE /territorios/1
   # DELETE /territorios/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+
+    
     @territorio = Territorio.find(params[:id])
     @territorio.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+
 
     respond_to do |format|
       format.html { redirect_to territorios_url }

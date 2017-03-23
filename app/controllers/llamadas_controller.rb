@@ -1,5 +1,6 @@
 class LlamadasController < ApplicationController
   before_filter :authenticate_user!  
+  
   # GET /llamadas
   # GET /llamadas.json
   def index
@@ -88,8 +89,18 @@ class LlamadasController < ApplicationController
   # DELETE /llamadas/1
   # DELETE /llamadas/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
     @llamada = Llamada.find(params[:id])
     @llamada.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
 
     respond_to do |format|
       format.html { redirect_to "/#{@llamada.model_name}/#{@llamada.model_id}/edit/" }

@@ -1,5 +1,6 @@
 class FavoritosController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /favoritos
   # GET /favoritos.json
   def index
@@ -73,8 +74,20 @@ class FavoritosController < ApplicationController
   # DELETE /favoritos/1
   # DELETE /favoritos/1.json
   def destroy
-    @favorito = Favorito.find(params[:id])
+
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+  @favorito = Favorito.find(params[:id])
     @favorito.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+   
 
     respond_to do |format|
       format.html { redirect_to favoritos_url }

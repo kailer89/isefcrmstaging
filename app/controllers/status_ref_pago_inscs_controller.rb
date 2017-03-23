@@ -1,5 +1,6 @@
 class StatusRefPagoInscsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /status_ref_pago_inscs
   # GET /status_ref_pago_inscs.json
   def index
@@ -73,8 +74,19 @@ class StatusRefPagoInscsController < ApplicationController
   # DELETE /status_ref_pago_inscs/1
   # DELETE /status_ref_pago_inscs/1.json
   def destroy
-    @status_ref_pago_insc = StatusRefPagoInsc.find(params[:id])
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+   @status_ref_pago_insc = StatusRefPagoInsc.find(params[:id])
     @status_ref_pago_insc.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+    
+ 
 
     respond_to do |format|
       format.html { redirect_to status_ref_pago_inscs_url }

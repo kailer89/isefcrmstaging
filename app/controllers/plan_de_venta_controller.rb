@@ -1,5 +1,6 @@
 class PlanDeVentaController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /plan_de_venta
   # GET /plan_de_venta.json
   def index
@@ -73,8 +74,23 @@ class PlanDeVentaController < ApplicationController
   # DELETE /plan_de_venta/1
   # DELETE /plan_de_venta/1.json
   def destroy
-    @plan_de_ventum = PlanDeVentum.find(params[:id])
+
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+
+     @plan_de_ventum = PlanDeVentum.find(params[:id])
     @plan_de_ventum.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+    
+ 
 
     respond_to do |format|
       format.html { redirect_to plan_de_venta_url }

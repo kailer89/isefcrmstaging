@@ -1,5 +1,6 @@
 class AuthenticationsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /authentications
   # GET /authentications.json
   def index
@@ -61,8 +62,19 @@ class AuthenticationsController < ApplicationController
   # DELETE /authentications/1
   # DELETE /authentications/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "ACRM"
+
+
     @authentication = current_user.authentications.find(params[:id])
     @authentication.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
     flash[:notice] = "Successfully destroyed authentication."
     redirect_to authentications_url
   end

@@ -1,5 +1,6 @@
 class MiPlanEstrategicoDePromocionPepsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /mi_plan_estrategico_de_promocion_peps
   # GET /mi_plan_estrategico_de_promocion_peps.json
   def index
@@ -78,8 +79,19 @@ class MiPlanEstrategicoDePromocionPepsController < ApplicationController
   # DELETE /mi_plan_estrategico_de_promocion_peps/1
   # DELETE /mi_plan_estrategico_de_promocion_peps/1.json
   def destroy
-    @mi_plan_estrategico_de_promocion_pep = MiPlanEstrategicoDePromocionPep.find(params[:id])
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+ @mi_plan_estrategico_de_promocion_pep = MiPlanEstrategicoDePromocionPep.find(params[:id])
     @mi_plan_estrategico_de_promocion_pep.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+    
+    
 
     respond_to do |format|
       format.html { redirect_to mi_plan_estrategico_de_promocion_peps_url }

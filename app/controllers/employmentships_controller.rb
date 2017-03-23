@@ -1,5 +1,6 @@
 class EmploymentshipsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /employmentships
   # GET /employmentships.json
   def index
@@ -73,8 +74,21 @@ class EmploymentshipsController < ApplicationController
   # DELETE /employmentships/1
   # DELETE /employmentships/1.json
   def destroy
-    @employmentship = Employmentship.find(params[:id])
+
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+ @employmentship = Employmentship.find(params[:id])
     @employmentship.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+   
 
     respond_to do |format|
       format.html { redirect_to employmentships_url }

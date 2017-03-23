@@ -1,5 +1,6 @@
 class TareasController < ApplicationController
   before_filter :authenticate_user!
+  
 
   # GET /tareas
   # GET /tareas.json
@@ -110,8 +111,20 @@ logger.debug "///////////////////////////////////"
   # DELETE /tareas/1
   # DELETE /tareas/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+
     @tarea = Tarea.find(params[:id])
     @tarea.destroy
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+
 
     if @tarea.model_id != nil
       respond_to do |format|

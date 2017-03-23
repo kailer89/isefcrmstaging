@@ -1,5 +1,6 @@
 class StatusDelPagoDeLaInscripcionsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /status_del_pago_de_la_inscripcions
   # GET /status_del_pago_de_la_inscripcions.json
   def index
@@ -73,8 +74,18 @@ class StatusDelPagoDeLaInscripcionsController < ApplicationController
   # DELETE /status_del_pago_de_la_inscripcions/1
   # DELETE /status_del_pago_de_la_inscripcions/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+    
     @status_del_pago_de_la_inscripcion = StatusDelPagoDeLaInscripcion.find(params[:id])
     @status_del_pago_de_la_inscripcion.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
 
     respond_to do |format|
       format.html { redirect_to status_del_pago_de_la_inscripcions_url }

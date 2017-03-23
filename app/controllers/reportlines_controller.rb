@@ -1,4 +1,5 @@
 class ReportlinesController < ApplicationController
+  
   # GET /reportlines
   # GET /reportlines.json
   def index

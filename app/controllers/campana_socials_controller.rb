@@ -1,5 +1,6 @@
 class CampanaSocialsController < ApplicationController
 
+
 before_filter :authenticate_user!
 
 
@@ -87,9 +88,21 @@ before_filter :authenticate_user!
   # DELETE /campana_socials/1
   # DELETE /campana_socials/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "ACRM"
+
+
+    
+    
     @campana_social = CampanaSocial.find(params[:id])
     @campana_social.destroy
 
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
     respond_to do |format|
       format.html { redirect_to campana_socials_url }
       format.json { head :ok }

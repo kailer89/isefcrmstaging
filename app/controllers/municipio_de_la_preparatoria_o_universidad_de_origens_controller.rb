@@ -1,5 +1,6 @@
 class MunicipioDeLaPreparatoriaOUniversidadDeOrigensController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /municipio_de_la_preparatoria_o_universidad_de_origens
   # GET /municipio_de_la_preparatoria_o_universidad_de_origens.json
   def index
@@ -73,8 +74,17 @@ class MunicipioDeLaPreparatoriaOUniversidadDeOrigensController < ApplicationCont
   # DELETE /municipio_de_la_preparatoria_o_universidad_de_origens/1
   # DELETE /municipio_de_la_preparatoria_o_universidad_de_origens/1.json
   def destroy
-    @municipio_de_la_preparatoria_o_universidad_de_origen = MunicipioDeLaPreparatoriaOUniversidadDeOrigen.find(params[:id])
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+ @municipio_de_la_preparatoria_o_universidad_de_origen = MunicipioDeLaPreparatoriaOUniversidadDeOrigen.find(params[:id])
     @municipio_de_la_preparatoria_o_universidad_de_origen.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+    
 
     respond_to do |format|
       format.html { redirect_to municipio_de_la_preparatoria_o_universidad_de_origens_url }

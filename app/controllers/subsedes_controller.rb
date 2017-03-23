@@ -1,5 +1,6 @@
 class SubsedesController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /subsedes
   # GET /subsedes.json
   def index
@@ -73,8 +74,19 @@ class SubsedesController < ApplicationController
   # DELETE /subsedes/1
   # DELETE /subsedes/1.json
   def destroy
-    @subsede = Subsede.find(params[:id])
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+   @subsede = Subsede.find(params[:id])
     @subsede.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+    
+ 
 
     respond_to do |format|
       format.html { redirect_to subsedes_url }

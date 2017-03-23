@@ -1,5 +1,6 @@
 class HistoriesController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /histories
   # GET /histories.json
   def index
@@ -73,8 +74,19 @@ class HistoriesController < ApplicationController
   # DELETE /histories/1
   # DELETE /histories/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
     @history = History.find(params[:id])
     @history.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+
 
     respond_to do |format|
       format.html { redirect_to histories_url }

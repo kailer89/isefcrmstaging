@@ -1,5 +1,6 @@
 class ModalidadsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /modalidads
   # GET /modalidads.json
   def index
@@ -73,8 +74,18 @@ class ModalidadsController < ApplicationController
   # DELETE /modalidads/1
   # DELETE /modalidads/1.json
   def destroy
-    @modalidad = Modalidad.find(params[:id])
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+ @modalidad = Modalidad.find(params[:id])
     @modalidad.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+    
+   
 
     respond_to do |format|
       format.html { redirect_to modalidads_url }

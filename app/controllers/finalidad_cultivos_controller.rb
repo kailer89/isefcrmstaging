@@ -1,6 +1,7 @@
 class FinalidadCultivosController < ApplicationController
   before_filter :authenticate_user!
   helper_method :sort_column, :sort_direction  
+  
   # GET /finalidad_cultivos
   # GET /finalidad_cultivos.json
   def index
@@ -74,8 +75,19 @@ class FinalidadCultivosController < ApplicationController
   # DELETE /finalidad_cultivos/1
   # DELETE /finalidad_cultivos/1.json
   def destroy
-    @finalidad_cultivo = FinalidadCultivo.find(params[:id])
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+     @finalidad_cultivo = FinalidadCultivo.find(params[:id])
     @finalidad_cultivo.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+
 
     respond_to do |format|
       format.html { redirect_to finalidad_cultivos_url }

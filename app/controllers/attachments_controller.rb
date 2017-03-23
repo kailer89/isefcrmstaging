@@ -1,5 +1,6 @@
 class AttachmentsController < ApplicationController
     before_filter :authenticate_user!
+    
   # GET /attachments
   # GET /attachments.json
   def index
@@ -93,8 +94,20 @@ class AttachmentsController < ApplicationController
   # DELETE /attachments/1
   # DELETE /attachments/1.json
   def destroy
+
+      rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "ACRM"
+
     @attachment = Attachment.find(params[:id])
     @attachment.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
+
+    
     if @attachment.model_id != nil
       respond_to do |format|
         format.html { redirect_to "/#{@attachment.model_name}/#{@attachment.model_id}/edit/" }

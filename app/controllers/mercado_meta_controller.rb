@@ -1,6 +1,7 @@
 class MercadoMetaController < ApplicationController
   before_filter :authenticate_user!
-  helper_method :sort_column, :sort_direction  
+  helper_method :sort_column, :sort_direction 
+   
   # GET /mercado_meta
   # GET /mercado_meta.json
   def index
@@ -76,8 +77,19 @@ class MercadoMetaController < ApplicationController
   # DELETE /mercado_meta/1
   # DELETE /mercado_meta/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+    
     @mercado_metum = MercadoMetum.find(params[:id])
     @mercado_metum.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
 
     respond_to do |format|
       format.html { redirect_to mercado_meta_url }

@@ -1,5 +1,6 @@
 class StatusDeEsesController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /status_de_eses
   # GET /status_de_eses.json
   def index
@@ -73,9 +74,19 @@ class StatusDeEsesController < ApplicationController
   # DELETE /status_de_eses/1
   # DELETE /status_de_eses/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
     @status_de_ese = StatusDeEse.find(params[:id])
     @status_de_ese.destroy
 
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
     respond_to do |format|
       format.html { redirect_to status_de_eses_url }
       format.json { head :ok }

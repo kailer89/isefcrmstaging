@@ -1,4 +1,5 @@
 class ReportparamsController < ApplicationController
+  
   # GET /reportparams
   # GET /reportparams.json
   def index

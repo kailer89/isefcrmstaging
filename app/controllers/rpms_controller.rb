@@ -1,5 +1,6 @@
 class RpmsController < ApplicationController
 before_filter :authenticate_user!
+
   # GET /rpms
   # GET /rpms.json
   def index
@@ -80,8 +81,19 @@ before_filter :authenticate_user!
   # DELETE /rpms/1
   # DELETE /rpms/1.json
   def destroy
+
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+    
     @rpm = Rpm.find(params[:id])
     @rpm.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
 
     respond_to do |format|
       format.html { redirect_to rpms_url }

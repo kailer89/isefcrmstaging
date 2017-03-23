@@ -1,5 +1,6 @@
 class GruposController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /grupos
   # GET /grupos.json
   def index
@@ -80,8 +81,19 @@ class GruposController < ApplicationController
   # DELETE /grupos/1
   # DELETE /grupos/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+    
     @grupo = Grupo.find(params[:id])
     @grupo.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+
 
     respond_to do |format|
       format.html { redirect_to grupos_url }

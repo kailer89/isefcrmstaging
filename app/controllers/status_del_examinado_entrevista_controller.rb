@@ -1,5 +1,6 @@
 class StatusDelExaminadoEntrevistaController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /status_del_examinado_entrevista
   # GET /status_del_examinado_entrevista.json
   def index
@@ -73,8 +74,20 @@ class StatusDelExaminadoEntrevistaController < ApplicationController
   # DELETE /status_del_examinado_entrevista/1
   # DELETE /status_del_examinado_entrevista/1.json
   def destroy
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+
+ 
+    
     @status_del_examinado_entrevistum = StatusDelExaminadoEntrevistum.find(params[:id])
     @status_del_examinado_entrevistum.destroy
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
+   
 
     respond_to do |format|
       format.html { redirect_to status_del_examinado_entrevista_url }

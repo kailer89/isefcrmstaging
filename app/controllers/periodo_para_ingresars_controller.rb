@@ -1,5 +1,6 @@
 class PeriodoParaIngresarsController < ApplicationController
   before_filter :authenticate_user!
+  
   # GET /periodo_para_ingresars
   # GET /periodo_para_ingresars.json
   def index
@@ -73,9 +74,22 @@ class PeriodoParaIngresarsController < ApplicationController
   # DELETE /periodo_para_ingresars/1
   # DELETE /periodo_para_ingresars/1.json
   def destroy
+
+
+rol = Role.where(:id=>current_user.role).first
+        if rol.nombre == "ACRM"
+  
+
+    
     @periodo_para_ingresar = PeriodoParaIngresar.find(params[:id])
     @periodo_para_ingresar.destroy
 
+
+else
+  flash[:error] ='No tienes permiso para realizar esta accion'
+
+end
+    
     respond_to do |format|
       format.html { redirect_to periodo_para_ingresars_url }
       format.json { head :ok }

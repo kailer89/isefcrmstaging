@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
     redirect_to dashboards_path
   end
@@ -36,6 +38,9 @@ class UsersController < ApplicationController
   end
   
   def destroy
+
+
+    
     @user = User.find(params[:id])
 
     prospectosDelUser = Prospecto.where(:user_id => @user.id)
