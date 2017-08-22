@@ -1,8 +1,12 @@
 
 <%=render :partial=>"shared/save_search", :locals=>{:path_to_look_for=>prospectos_path, :renderForChange=>false}%>
 
- 
-        <%= link_to raw("<i class=""icon-arrow-down""></i>Exportar a Excel<i class=""icon-arrow-down""></i>"), prospectos_path(params.merge(format: 'xls')), :class => 'btn btn-mini btn-info' %>    
+<div class="form-inline">
+  <%= link_to "Importar Registros", new_import_path(:module=>"prospectos"), :class=>"btn btn-mini btn-primary"%>
+  <a href="../../../ImportarExcel.xlsx" class="btn btn-mini btn-info" target="_blank"><i class="icon-arrow-down"></i>Bajar archivo demo de importacion<i class="icon-arrow-down"></i></a>
+ <%= link_to raw("<i class=""icon-arrow-down""></i>Exportar a Excel<i class=""icon-arrow-down""></i>"), prospectos_path(params.merge(format: 'xls')), :class => 'btn btn-mini btn-info' %>  
+
+</div>
 
 
 <hr/>
