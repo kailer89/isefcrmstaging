@@ -98,8 +98,10 @@ rol = Role.where(:id=>current_user.role).first
     @memo = Memo.find(params[:id])
     @memo.destroy
 else
+   @memo = Memo.find(params[:id])
   flash[:error] ='No tienes permiso para realizar esta accion'
-
+redirect_to "/#{@memo.model_name}/#{@memo.model_id}/edit/"
+return
 end
     
    

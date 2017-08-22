@@ -1,0 +1,42 @@
+
+Enviados <b id="counter">0</b> correo(s) de <b><%=@mails.size   %></b>
+
+<script type="text/javascript">
+
+function callMail(valor)
+{
+    jQuery.ajax({
+     url: '<%=send_correo_individually_path(:id=>params[:id])%>' + encodeURI('?mailAEnviar=' + valor ),
+          success: function (result) {
+              if (result.isOk == false)
+                {
+                  alert(result.message);
+                }
+                else{
+                  $('#counter').html( parseInt($('#counter').text()) + 1 ) 
+                }
+          },
+          async: true
+      });
+
+}
+
+(function($) {
+$(document).ready(function(){
+
+<%
+
+    @mails.each do |mail|
+        if mail.email != ""
+          %>
+          callMail('<%=mail.email%>');
+        <%
+        end             
+      end
+        %>
+
+
+});
+})(jQuery);
+
+</script>

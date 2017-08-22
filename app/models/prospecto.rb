@@ -9,6 +9,18 @@ class Prospecto < ActiveRecord::Base
 	has_many :interes_academicos, :dependent => :destroy
 	has_many :accion_estrategicas, :dependent => :destroy
 	has_many :plan_de_descuentos, :dependent => :destroy
+  has_many :subsedes, :through =>:interes_basicos
+  has_many :programa_de_interes, :through =>:interes_basicos
+  has_many :ultimo_grado_de_estudios , :through =>:interes_basicos
+  has_many :preparatoria_o_universidad_de_origens , :through =>:interes_basicos
+  has_many :municipio_de_la_preparatoria_o_universidad_de_origens , :through =>:interes_basicos
+  has_many :nivels  , :through =>:interes_basicos
+  has_many :turnos , :through =>:interes_basicos
+  has_many :periodo_para_ingresars, :through =>:interes_basicos
+  has_many :status_de_interes_de_prospecto_validados, :through =>:interes_basicos
+  has_many :modalidads, :through =>:interes_basicos
+
+
 	belongs_to :user
 	belongs_to :sede
   belongs_to :subsede
@@ -23,8 +35,8 @@ class Prospecto < ActiveRecord::Base
 
 	validates :nombre, :presence => true	
 	validates :apellido_paterno, :presence => true
-  validates_uniqueness_of :nombre, :scope => [:apellido_paterno, :fecha_de_nacimiento, :sexo, :email]
   validates_presence_of :email
+  validates_uniqueness_of :nombre, :scope => [:apellido_paterno, :fecha_de_nacimiento, :sexo, :email]
   validate :any_present?
 
   validates_format_of :email, :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i , :if => lambda {self.email != nil}

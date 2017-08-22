@@ -1,4 +1,5 @@
 class ReportlinesController < ApplicationController
+  before_filter :authenticate_user!
   
   # GET /reportlines
   # GET /reportlines.json

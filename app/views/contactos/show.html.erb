@@ -11,6 +11,20 @@
   <dt><strong><%= model_class.human_attribute_name(:archivar_como) %>:</strong></dt>
   <dd><%= @contacto.archivar_como %></dd>
   <dt><strong><%= model_class.human_attribute_name(:correo_electronico) %>:</strong></dt>
+
+  <dt><strong>Sede:</strong></dt>
+  <dd>
+    <%name = "Sin Sede"
+
+    if @contacto.sede_id != nil
+       name= Sede.where(:id=>@contacto.sede_id).first.nombre
+    end
+    %>
+
+    <%= name rescue nil %></dd>
+
+
+
   <dd><%= @contacto.correo_electronico %></dd>
   <dt><strong><%= model_class.human_attribute_name(:pagina_web) %>:</strong></dt>
   <dd><%= @contacto.pagina_web %></dd>

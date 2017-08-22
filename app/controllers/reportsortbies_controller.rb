@@ -1,4 +1,5 @@
 class ReportsortbiesController < ApplicationController
+  before_filter :authenticate_user!
   
   # GET /reportsortbies
   # GET /reportsortbies.json

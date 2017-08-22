@@ -10,8 +10,21 @@
   <dd><%= @mi_plan_estrategico_de_promocion_pep.nombre_de_la_institucion %></dd>
   <dt><strong><%= model_class.human_attribute_name(:segmento) %>:</strong></dt>
   <dd><%= @mi_plan_estrategico_de_promocion_pep.segmento %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:tipo_especifico) %>:</strong></dt>
+  <dt><strong>Plantel:</strong></dt>
   <dd><%= @mi_plan_estrategico_de_promocion_pep.tipo_especifico %></dd>
+
+  <dt><strong>Sede:</strong></dt>
+  <dd>
+
+    <%name = "Sin Sede"
+
+    if @mi_plan_estrategico_de_promocion_pep.sede_id != nil
+       name= Sede.where(:id=>@mi_plan_estrategico_de_promocion_pep.sede_id).first.nombre
+    end
+    %>
+    <%= name rescue nil %></dd>
+
+
   <dt><strong><%= model_class.human_attribute_name(:nse) %>:</strong></dt>
   <dd><%= @mi_plan_estrategico_de_promocion_pep.nse %></dd>
   <dt><strong><%= model_class.human_attribute_name(:forma_parte_de_mi_mdo_meta) %>:</strong></dt>

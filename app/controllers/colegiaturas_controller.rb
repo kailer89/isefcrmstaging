@@ -5,7 +5,7 @@ class ColegiaturasController < ApplicationController
   # GET /colegiaturas.json
   def index
     rol = Role.where(:id=>current_user.role).first
-    if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"    or rol.nombre == "CP"  
+    if rol.nombre == "DN" or rol.nombre == "ACRM"
       @colegiaturas = Colegiatura.all
     else
       @colegiaturas = Colegiatura.where(:sede_id=>current_user.sede)

@@ -1,3 +1,4 @@
+<%GC::start%>
 <?xml version="1.0"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
   xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -7,6 +8,8 @@
   <Worksheet ss:Name="Sheet1">
     <Table>
       <Row>
+          <Cell><Data ss:Type="String">ID</Data></Cell>
+          <Cell><Data ss:Type="String">Usuario</Data></Cell>
           <Cell><Data ss:Type="String">Nombre(s)</Data></Cell>
           <Cell><Data ss:Type="String">Apellido paterno</Data></Cell>
           <Cell><Data ss:Type="String">Apellido materno</Data></Cell>
@@ -71,6 +74,8 @@
           <Cell><Data ss:Type="String">Comentarios</Data></Cell>                                   
       </Row>
       <Row>
+          <Cell><Data ss:Type="String">ID</Data></Cell>
+          <Cell><Data ss:Type="String">username</Data></Cell>
           <Cell><Data ss:Type="String">nombre</Data></Cell>
           <Cell><Data ss:Type="String">apellido_paterno</Data></Cell>
           <Cell><Data ss:Type="String">apellido_materno</Data></Cell>
@@ -134,7 +139,10 @@
           <Cell><Data ss:Type="String">comentarios</Data></Cell>                           
       </Row>
   <% @prospectos.each do |prospecto| %>
+  <%GC::start%>
     <Row>
+      <Cell><Data ss:Type="String"><%=printValue("ID",prospecto.id)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Usuario",prospecto.user.username)%></Data></Cell>
       <Cell><Data ss:Type="String"><%=printValue("Nombre(s)",prospecto.nombre)%></Data></Cell>
       <Cell><Data ss:Type="String"><%=printValue("Apellido paterno",prospecto.apellido_paterno)%></Data></Cell>
       <Cell><Data ss:Type="String"><%=printValue("Apellido materno",prospecto.apellido_materno)%></Data></Cell>
@@ -150,51 +158,71 @@
       <Cell><Data ss:Type="String"><%=printValue("Twitter",prospecto.twitter)%></Data></Cell>
       <Cell><Data ss:Type="String"><%=printValue(" ",prospecto.validado == true ? "Validado" : "No Validado")%></Data></Cell>
       <Cell><Data ss:Type="String"><%=printValue(" ",prospecto.importado_revisado == true ? "Revisada Importacion" : "Importacion No Revisada")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Calle",prospecto.direccions.first.calle)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("No interior",prospecto.direccions.first.no_interior)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("No exterior",prospecto.direccions.first.no_exterior)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Colonia",prospecto.direccions.first.colonia)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Delegación / Municipio",prospecto.direccions.first.delegacion_municipio)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Estado",prospecto.direccions.first.estado)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Pais",prospecto.direccions.first.pais)%></Data></Cell>    <Cell><Data ss:Type="String"><%=printValue("Código Postal",prospecto.direccions.first.codigo_postal)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Comentarios",prospecto.direccions.first.comentarios)%></Data></Cell> <Cell><Data ss:Type="String"><%valor=prospecto.interes_basicos.first.ultimo_grado_de_estudio.grado_de_estudio rescue nil%><%=printValue("Ultimo grado de estudios",valor)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.preparatoria_o_universidad_de_origen.valor rescue nil%><%=printValue("Preparatoria / Universidad de origen",valor)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.municipio_de_la_preparatoria_o_universidad_de_origen.valor rescue nil%><%=printValue("Municipio de la Preparatoria / Universidad de origen",valor)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Año de graduación",prospecto.interes_basicos.first.ano_de_graduacion)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%valor =prospecto.interes_basicos.first.sede.nombre rescue nilvalor = valor + " - " + prospecto.interes_basicos.first.subsede.nombre rescue nil %><%=printValue("Sede",valor)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.subsede.nombre rescue nil %><%=printValue("Extension de interés",valor)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.nivel.valor rescue nil %><%=printValue("Nivel",valor)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.turno.valor rescue nil %><%=printValue("Turno",valor)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.periodo_para_ingresar.valor rescue nil %><%=printValue("Periodo para ingresar",valor)%> </Data></Cell>
-      <Cell><Data ss:Type="String"><%valor = prospecto.interes_basicos.first.status_de_interes_de_prospecto_validado.valor rescue nil %><%=printValue("Status de interes del prospecto validado",valor)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Comentarios",prospecto.interes_basicos.first.comentarios)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Opción 1",prospecto.interes_academicos.first.opcion_1)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Opción 2",prospecto.interes_academicos.first.opcion_2)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Opción 3",prospecto.interes_academicos.first.opcion_3)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.feria_universitaria_en_su_colegio,"Feria universitaria")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.visita_a_su_salon,"Platica en su salón")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.recomendacion_de_un_amigo_familiar,"Recomendación de un amigo familiar")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.recomendacion_de_un_egresado,"Recomendación de un egresado")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.sitio_oficial_web_ISEF,"Sitio oficial web ISEF")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.facebook,"Facebook")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.twitter,"Twitter")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.email_de_promocion_mailing,"E-mail de promoción mailing")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.impreso_flyer_folleto,"Impreso; flyer/folleto")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.anuncio_publicacion_periodico_revista,"Anuncio/Publicación/Periódico/Revista")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.llamada_telefonica_de_un_asesor,"Llamada teléfonica de un Asesor")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.conferencia_platica_charla,"Conferencia/Plática/Charla")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.sesion_informativa,"Sesión Informativa")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.visito_las_instalaciones,"Visitó las instalaciones")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.convenio_con_su_institucion,"Convenio con su institucion")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printMedio( prospecto.medio_de_contactos.first.otro,"Otro")%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Otro texto",prospecto.medio_de_contactos.first.otro_texto)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Comentarios",prospecto.medio_de_contactos.first.comentarios)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%= printDescuento(prospecto.plan_de_descuentos.first.descuento_en_la_inscripcion) %></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Porcentaje",prospecto.plan_de_descuentos.first.porcentaje)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Fecha de caducidad",prospecto.plan_de_descuentos.first.fecha_de_caducidad)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Otro",prospecto.plan_de_descuentos.first.otro_cual)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Fecha de Otorgamiento",prospecto.plan_de_descuentos.first.fecha_de_otorgamiento)%></Data></Cell>
-      <Cell><Data ss:Type="String"><%=printValue("Comentarios",prospecto.plan_de_descuentos.first.comentarios)%></Data></Cell>
+
+      <%direcccion = prospecto.direccions.first%>
+
+      <Cell><Data ss:Type="String"><%=printValue("Calle",direcccion.calle)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("No interior",direcccion.no_interior)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("No exterior",direcccion.no_exterior)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Colonia",direcccion.colonia)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Delegación / Municipio",direcccion.delegacion_municipio)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Estado",direcccion.estado)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Pais",direcccion.pais)%></Data></Cell>    <Cell><Data ss:Type="String"><%=printValue("Código Postal",direcccion.codigo_postal)%></Data></Cell>
+
+      <%interes_basico1= prospecto.interes_basicos.first%>
+
+
+      <Cell><Data ss:Type="String"><%=printValue("Comentarios",direcccion.comentarios)%></Data></Cell> <Cell><Data ss:Type="String"><%valor=interes_basico1.ultimo_grado_de_estudio.grado_de_estudio rescue nil%><%=printValue("Ultimo grado de estudios",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%valor = interes_basico1.preparatoria_o_universidad_de_origen.valor rescue nil%><%=printValue("Preparatoria / Universidad de origen",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%valor = interes_basico1.municipio_de_la_preparatoria_o_universidad_de_origen.valor rescue nil%><%=printValue("Municipio de la Preparatoria / Universidad de origen",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Año de graduación",interes_basico1.ano_de_graduacion)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%valor =interes_basico1.sede.nombre rescue nilvalor = valor + " - " + interes_basico1.subsede.nombre rescue nil %><%=printValue("Sede",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%valor = interes_basico1.subsede.nombre rescue nil %><%=printValue("Extension de interés",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%valor = interes_basico1.nivel.valor rescue nil %><%=printValue("Nivel",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%valor = interes_basico1.turno.valor rescue nil %><%=printValue("Turno",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%valor = interes_basico1.periodo_para_ingresar.valor rescue nil %><%=printValue("Periodo para ingresar",valor)%> </Data></Cell>
+      <Cell><Data ss:Type="String"><%valor = interes_basico1.status_de_interes_de_prospecto_validado.valor rescue nil %><%=printValue("Status de interes del prospecto validado",valor)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Comentarios",interes_basico1.comentarios)%></Data></Cell>
+
+
+      <%interes_academico1 = prospecto.interes_academicos.first%>
+
+      <Cell><Data ss:Type="String"><%=printValue("Opción 1",interes_academico1.opcion_1)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Opción 2",interes_academico1.opcion_2)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Opción 3",interes_academico1.opcion_3)%></Data></Cell>
+
+
+      <%medio_deContactos = prospecto.medio_de_contactos.first%>
+
+
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.feria_universitaria_en_su_colegio,"Feria universitaria")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.visita_a_su_salon,"Platica en su salón")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.recomendacion_de_un_amigo_familiar,"Recomendación de un amigo familiar")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.recomendacion_de_un_egresado,"Recomendación de un egresado")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.sitio_oficial_web_ISEF,"Sitio oficial web ISEF")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.facebook,"Facebook")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.twitter,"Twitter")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.email_de_promocion_mailing,"E-mail de promoción mailing")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.impreso_flyer_folleto,"Impreso; flyer/folleto")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.anuncio_publicacion_periodico_revista,"Anuncio/Publicación/Periódico/Revista")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.llamada_telefonica_de_un_asesor,"Llamada teléfonica de un Asesor")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.conferencia_platica_charla,"Conferencia/Plática/Charla")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.sesion_informativa,"Sesión Informativa")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.visito_las_instalaciones,"Visitó las instalaciones")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.convenio_con_su_institucion,"Convenio con su institucion")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printMedio( medio_deContactos.otro,"Otro")%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Otro texto",medio_deContactos.otro_texto)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Comentarios",medio_deContactos.comentarios)%></Data></Cell>
+
+
+      <%plan_desc = prospecto.plan_de_descuentos.first%>
+
+      <Cell><Data ss:Type="String"><%= printDescuento(plan_desc.descuento_en_la_inscripcion) %></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Porcentaje",plan_desc.porcentaje)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Fecha de caducidad",plan_desc.fecha_de_caducidad)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Otro",plan_desc.otro_cual)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Fecha de Otorgamiento",plan_desc.fecha_de_otorgamiento)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Comentarios",plan_desc.comentarios)%></Data></Cell>
     </Row>
   <%end%>      
     </Table>

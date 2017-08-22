@@ -16,6 +16,13 @@
 //= require bwizard
 //= require jquery.metadata
 //= require jquery.tablesorter
+
+//= require ./wysihtml5x-toolbar.js
+//= require ./handlebars.runtime.min.js
+//= require ./templates.js
+//= require ./bootstrap3-wysihtml5.js
+//= require ./commands.js
+//= require ./es-AR.js
 //= require_tree .
 
 $( document ).ready(function() {
@@ -110,8 +117,64 @@ $(window).bind("load", function() {
 
 
 
+
+
+});
+/*
+    $(document).ready(function () {
+
+
+          $(".btn").click(function (e) {
+            if(!$(this).hasClass("printbox") && $(this).prop('nodeName') != "INPUT"  && $(this).prop('nodeName') == "A" 
+              && ($(this).text().toLowerCase().indexOf("validar")  != -1 || $(this).text().toLowerCase().indexOf("convertir")!= -1)
+              )
+            {
+              e.preventDefault();
+              //disable the submit button
+              $(this).attr("disabled", true);
+              $(this).attr("data-confirm", null);
+              //$(this).attr("data-method", null);
+            }
+            return true;
+
+        });
+    });
+
+
+*/
+
+$(document).ready(function(){
+
+
+$.wait = function(ms) {
+    var defer = $.Deferred();
+    setTimeout(function() { defer.resolve(); }, ms);
+    return defer;
+};
+
+$('.avoid').click(function(){ 
+
+  if($(this).hasClass('clicked'))
+    { 
+      $(this).attr("disabled", true);
+      return false;
+  }
+  else { 
+    $(this).addClass('clicked'); 
+    $(this).attr("disabled", true);
+    var overlay = jQuery('<div id="overlay"> </div>');
+    overlay.appendTo(document.body);
+
+    var mess = jQuery('<div class="hero-unit centeredSignUp3"> <p> <h1>Procesando ...</h1> <div class="alert alert-error ">  <button type="button" class="close" data-dismiss="alert">×</button> <strong>Por favor espere!<br/></strong> Por favor no presione el boton de actualizar de su explorador.</div>  </p> </div>');
+    mess.appendTo(document.body);
+
+
+
+
+    return true;
+  }
 });
 
 
-
+});
 

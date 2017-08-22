@@ -4,7 +4,14 @@ class ContactosController < ApplicationController
   # GET /contactos
   # GET /contactos.json
   def index
-    @contactos = Contacto.all
+
+    rol = Role.where(:id=>current_user.role).first
+
+      if rol.nombre == "DN" or rol.nombre == "ACRM" 
+        @contactos = Contacto.all
+      else
+        @contactos = Contacto.where(:sede_id=>current_user.sede_id)
+      end
 
     respond_to do |format|
       format.html # index.html.erb

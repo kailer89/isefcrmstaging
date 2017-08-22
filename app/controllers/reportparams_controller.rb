@@ -1,4 +1,5 @@
 class ReportparamsController < ApplicationController
+  before_filter :authenticate_user!
   
   # GET /reportparams
   # GET /reportparams.json

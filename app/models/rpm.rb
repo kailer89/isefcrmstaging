@@ -38,4 +38,8 @@ class Rpm < ActiveRecord::Base
 
 	serialize :columnas
 	serialize :columnas_seleccionadas
+
+	validates_presence_of :rango_inicio
+	validates_presence_of :rango_fin
+	
 end

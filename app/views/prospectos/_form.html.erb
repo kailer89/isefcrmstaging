@@ -3,10 +3,10 @@
       <%= link_to 'Cancel', prospectos_path(:validado=>@prospecto.validado),:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
       <%if request.path_parameters[:action]== "edit" %>
         <% if (@prospecto.validado == false) %>
-          <%= link_to 'Validar Prospecto',validar_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'validar',:rel=>'popover',:data => {:content => 'Usa este boton para convertir el prospecto en validado.',"origintal-title"=>'Test',:notooltip=>'true'}%>
+          <%= link_to 'Validar Prospecto',validar_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success avoid', :method=>'post', :id=>'validar',:rel=>'popover',:data => {:content => 'Usa este boton para convertir el prospecto en validado.',"origintal-title"=>'Test',:notooltip=>'true'}%>
         <%else%>
           <%if not @prospecto.issolicitante?%>
-            <%= link_to 'Convertir en Solicitante', convertir_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir' %>
+            <%= link_to 'Convertir en Solicitante', convertir_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info avoid', :method=>'post', :id=>'convertir' %>
           <%end%>
         <%end%>
       <%end%>

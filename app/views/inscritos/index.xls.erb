@@ -7,6 +7,8 @@
   <Worksheet ss:Name="Sheet1">
     <Table>
       <Row>
+          <Cell><Data ss:Type="String">ID</Data></Cell>
+          <Cell><Data ss:Type="String">Usuario</Data></Cell>
           <Cell><Data ss:Type="String">Nombre(s)</Data></Cell>
           <Cell><Data ss:Type="String">Apellido paterno</Data></Cell>
           <Cell><Data ss:Type="String">Apellido materno</Data></Cell>
@@ -131,6 +133,8 @@
 
   <% @inscritos.each do |inscrito| %>
     <Row>
+      <Cell><Data ss:Type="String"><%=printValue("ID",inscrito.id)%></Data></Cell>
+      <Cell><Data ss:Type="String"><%=printValue("Usuario",inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.user.username)%></Data></Cell>
       <Cell><Data ss:Type="String"><%=printValue("Nombre(s)",inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.nombre)%></Data></Cell>
       <Cell><Data ss:Type="String"><%=printValue("Apellido paterno",inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.apellido_paterno)%></Data></Cell>
       <Cell><Data ss:Type="String"><%=printValue("Apellido materno",inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.apellido_materno)%></Data></Cell>

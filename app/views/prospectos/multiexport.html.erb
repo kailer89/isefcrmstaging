@@ -1,0 +1,74 @@
+
+<%
+
+  archivado = false
+      modelo = Configuracione.where(:user_id=>current_user.id).first rescue nil
+      if modelo != nil
+        archivado = modelo.mostrar_archivados
+      end
+
+    rol = Role.where(:id=>current_user.role).first
+
+    if rol == nil
+      prsopectos =  Prospecto.where(:archivado=>archivado).where(:sede_id=>current_user.sede).where(:user_id=>current_user.id)
+    else
+      if rol.nombre == "DN" or rol.nombre == "ACRM" 
+        prsopectos =  Prospecto.where(:archivado=>archivado)
+      else
+        if rol.nombre == "D" or rol.nombre == "CP"
+
+          prsopectos =  Prospecto.where(:archivado=>archivado).where(:sede_id=>current_user.sede)
+        else
+
+          prsopectos =  Prospecto.where(:archivado=>archivado).where(:sede_id=>current_user.sede).where(:user_id=>current_user.id)
+        end #end director
+      end #end else rol nombre
+    end #end else nil
+
+prsopectos = prsopectos.map{|c| [c.id] }.sort
+#.each_slice(3).to_a
+finals = []
+arrays = prsopectos.each_slice(100).to_a
+
+arrays.each do |a|
+	new_state = Itemn.new
+	new_state.maximo = a.max
+	new_state.minimo = a.min
+	finals.push(new_state)
+end
+
+as1 = 0
+%>
+<div class="page-header hidden-phone hidden-tablet">
+  <h1><small>Por favor seleccione el rango de elementos a exportar.</small></h1>
+</div>
+
+<table class="table table-condensed table-hover table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Inicio</th>
+      <th>Fin</th>
+      <th>Descarga</th>
+    </tr>
+  </thead>
+  <tbody>
+<% finals.each do |f| %>
+	<% 
+mn = f.minimo
+mx = f.maximo
+	%>
+
+
+
+    <tr>
+    	<%as1 = as1 + 1%>
+      <td><%=as1%></td>
+      <td><%=f.minimo[0]%></td>
+      <td><%=f.maximo[0]%></td>
+      <td><%= link_to raw("<i class=""icon-arrow-down""></i>Exportar a Excel<i class=""icon-arrow-down""></i>"), prospectos_path(format: 'xls',:inicio=>f.minimo[0],:final=>f.maximo[0]), :class => 'btn btn-mini btn-info' %> </td>
+    </tr>
+
+<%end%>
+  </tbody>
+</table>

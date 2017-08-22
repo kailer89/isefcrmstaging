@@ -3,7 +3,7 @@
     <%= link_to 'Cancel', examinados_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
     <%if request.path_parameters[:action]== "edit" %>
       <%if not @examinado.isadmitido?%>
-        <%= link_to 'Convertir en Admitido', convertir_examinado_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+        <%= link_to 'Convertir en Admitido', convertir_examinado_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info avoid', :method=>'post', :id=>'convertir'%> 
       <%end%>
     <%end%>
     <%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@examinado.id, :parent_model=>nil, :parent_id=>nil}%>
@@ -16,7 +16,7 @@
         <%= link_to 'Cancel', examinados_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
         <%if request.path_parameters[:action]== "edit" %>
           <%if not @examinado.isadmitido?%>
-            <%= link_to 'Convertir en Admitido', convertir_examinado_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+            <%= link_to 'Convertir en Admitido', convertir_examinado_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info avoid', :method=>'post', :id=>'convertir'%> 
           <%end%>
         <%end%>
     </div>   
@@ -26,7 +26,7 @@
     <%= link_to 'Cancel', examinados_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
     <%if request.path_parameters[:action]== "edit" %>
       <%if not @examinado.isadmitido?%>
-        <%= link_to 'Convertir en Admitido', convertir_examinado_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+        <%= link_to 'Convertir en Admitido', convertir_examinado_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info avoid', :method=>'post', :id=>'convertir'%> 
       <%end%>
     <%end%>
 </div>    

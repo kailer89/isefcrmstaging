@@ -1,0 +1,997 @@
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+<%=render :partial=>"shared/save_search", :locals=>{:path_to_look_for=>mostrarmultiple_path, :renderForChange=>true}%> 
+
+
+
+ 
+
+
+
+<%=@prospectos.size%> registros de un total de <%=@prospectos.total_entries%> 
+
+
+
+ 
+
+
+
+ 
+
+
+
+<%= simple_form_for cambiarmultiple_path,:url=>cambiarmultiple_path(:q=>params[:q]), :html => { :class => 'form-horizontal',:onsubmit=>"return confirm('Estas seguro de querer continuar?');"} do |f| %> 
+
+
+
+ 
+
+
+
+<fieldset> 
+
+
+
+        <legend>Parametros</legend> 
+
+
+
+<div class="well fields"> 
+
+
+
+   
+
+
+
+  	<%	columnas=ActiveRecord::Base.connection.columns("prospectos") 
+
+
+
+	    #columnas= columnas + ActiveRecord::Base.connection.columns("direccions") 
+
+
+
+	    #columnas= columnas + ActiveRecord::Base.connection.columns("interes_basicos") 
+
+
+
+	    #columnas= columnas + ActiveRecord::Base.connection.columns("medio_de_contactos") 
+
+
+
+	    #columnas= columnas + ActiveRecord::Base.connection.columns("plan_de_descuentos") 
+
+
+
+	    columnas = columnas.index_by {|r| r.name.humanize}.values 
+
+
+
+ 
+
+
+
+	    %> 
+
+
+
+    <%= f.input_field  :fieldname, :collection=>columnas.map{|c| [c.name.humanize,c.name] }.sort,:include_blank=>false %> 
+
+
+
+ 
+
+
+
+	<% 
+
+
+
+	global=[] 
+
+
+
+	 
+
+
+
+	 
+
+
+
+	goup =[] 
+
+
+
+ 
+
+
+
+	collection =[] 
+
+
+
+	columnvalue="" 
+
+
+
+	uno=0 
+
+
+
+	columnas.each do |column|  
+
+
+
+		current=[] 
+
+
+
+		perfield=[] 
+
+
+
+		if uno == 0 
+
+
+
+			perfield.push(Array.new(1," ")) 
+
+
+
+			current.push("Valor por defecto",perfield) 	 
+
+
+
+			global.push(current)	 
+
+
+
+			uno =1 
+
+
+
+		end 
+
+
+
+		case column.type.to_s 
+
+
+
+			when "integer" 
+
+
+
+				if column.name.include? "id" and column.name.size > 2 
+
+
+
+					columnia=column.name.chomp('_id') 
+
+
+
+					case columnia  
+
+
+
+						when "solicitante" 
+
+
+
+							if "prospectos" == "prospectos" 
+
+
+
+								"" 
+
+
+
+							end 
+
+
+
+						when "nacionalidad" 
+
+
+
+							tabla = Nacionalidad.all rescue nil 
+
+
+
+								if tabla != nil && tabla.size > 0 
+
+
+
+									tabla.each do |t| 
+
+
+
+										perfield.push(Array.new(1,t.nacionalidad)) 
+
+
+
+										#perfield.push(Array.new(2,t.id)) 
+
+
+
+									end 
+
+
+
+									current.push(column.name,perfield) 
+
+
+
+									#collection.push(tabla.map{|a| [a.nacionalidad]}) 
+
+
+
+								end 
+
+
+
+						when "user" 
+
+
+
+							tabla = eval(columnia.camelize.singularize + ".all") rescue nil 
+
+
+
+								if tabla != nil && tabla.size > 0 
+
+
+
+									tabla.each do |t| 
+
+
+
+										perfield.push(Array.new(1,t.username)) 
+
+
+
+										#perfield.push(Array.new(2,t.id)) 
+
+
+
+									end 
+
+
+
+									current.push(column.name,perfield) 
+
+
+
+								end							 
+
+
+
+						when "sede","territorio","grupo" 
+
+
+
+							tabla = eval(columnia.camelize.singularize + ".all") rescue nil 
+
+
+
+								if tabla != nil && tabla.size > 0 
+
+
+
+									tabla.each do |t| 
+
+
+
+										perfield.push(Array.new(1,t.nombre)) 
+
+
+
+										#perfield.push(Array.new(2,t.id)) 
+
+
+
+									end 
+
+
+
+									current.push(column.name,perfield) 
+
+
+
+								end							 
+
+
+
+						when "programa","plan_de_venta" 
+
+
+
+							tabla = eval(columnia.camelize.singularize + ".all") rescue nil 
+
+
+
+								if tabla != nil && tabla.size > 0 
+
+
+
+									tabla.each do |t| 
+
+
+
+										perfield.push(Array.new(1,t.programa)) 
+
+
+
+										#perfield.push(Array.new(2,t.id)) 
+
+
+
+									end 
+
+
+
+									current.push(column.name,perfield) 
+
+
+
+								end								 
+
+
+
+						when "plan_de_ventum" 
+
+
+
+							"" 
+
+
+
+						else 
+
+
+
+							tabla=eval(columnia.camelize.singularize + ".all") rescue nil 
+
+
+
+							if tabla != nil && tabla.size > 0 
+
+
+
+								tabla.each do |t| 
+
+
+
+									if t.respond_to?(:valor) 
+
+
+
+										perfield.push(Array.new(1,t.valor)) 
+
+
+
+										#perfield.push(Array.new(2,t.id)) 
+
+
+
+									else 
+
+
+
+										"" 
+
+
+
+									end 
+
+
+
+									current.push(column.name,perfield) 
+
+
+
+								end								 
+
+
+
+							end 
+
+
+
+					end 
+
+
+
+					global.push(current) 
+
+
+
+				end 
+
+
+
+			when "float" 
+
+
+
+				"" 
+
+
+
+			when "string" 
+
+
+
+				""          
+
+
+
+			when "text" 
+
+
+
+				""  				 
+
+
+
+			when "boolean" 
+
+
+
+				case column.name.to_s 
+
+
+
+				when "sexo" 
+
+
+
+					perfield.push(Array.new(1,"Masculino")) 
+
+
+
+					perfield.push(Array.new(1,"Femenino")) 
+
+
+
+					current.push("sexo",perfield)          
+
+
+
+				when "validado"		 
+
+
+
+					perfield.push(Array.new(1,"Validado")) 
+
+
+
+					perfield.push(Array.new(1,"No Validado")) 
+
+
+
+					current.push("validado",perfield)				     
+
+
+
+				end     
+
+
+
+				global.push(current) 
+
+
+
+			when "datetime"                               
+
+
+
+				"" 
+
+
+
+			when "date"                               
+
+
+
+				"" 
+
+
+
+			when "time"                               
+
+
+
+				""				 
+
+
+
+			when "Nacionalidad"    
+
+
+
+				tabla=Nacionalidad.all 
+
+
+
+				#collection.push(column,tabla) 
+
+
+
+			else  
+
+
+
+				#tabla=eval(column.name.camelize.singularize + ".all").map{|a| [a.valor]} 
+
+
+
+				#if tabla != nil 
+
+
+
+				#	collection.push(column.name,tabla) 
+
+
+
+				#end			 
+
+
+
+		end		 
+
+
+
+	end 
+
+
+
+ 
+
+
+
+	global.delete_if{|i| i.empty?} 
+
+
+
+	%>  
+
+
+
+	<%= f.input_field :fieldvaluetext , :html => { :class => 'form-inline' }%>   
+
+
+
+</div> 
+
+
+
+ <%= f.submit "Cambiar", :class => 'btn btn-danger' ,:id=>"commit" %> 
+
+
+
+</fieldset> 
+
+
+
+ 
+
+
+
+<%end%> 
+
+
+
+ 
+
+
+
+ 
+
+
+
+<table class="table table-striped table-bordered table-condensed" id="MyTable"> 
+
+
+
+  <thead> 
+
+
+
+    <tr> 
+
+
+
+      <th><%= sort_link @q, :id, {}%></th> 
+
+
+
+      <th><%= sort_link @q, :nombre, {}%></th> 
+
+
+
+      <th><%= sort_link @q, :apellido_paterno%></th> 
+
+
+
+      <th><%= sort_link @q, :apellido_materno, {} %></th> 
+
+
+
+      <th><%= sort_link @q, :programa, {} %></th> 
+
+
+
+      <th><%= sort_link @q, :importado_revisado, {}%></th> 
+
+
+
+      <th><%= sort_link @q, :validado, {}%></th> 
+
+
+
+      <th><%= sort_link @q, :created_at, {}%></th> 
+
+
+
+      <th>Acciones</th> 
+
+
+
+    </tr> 
+
+
+
+  </thead> 
+
+
+
+  <tbody> 
+
+
+
+    <% @prospectos.each do |prospecto| %> 
+
+
+
+                          <%tareastatus=""%>  
+
+
+
+                          <%tareas = Tarea.where(:model_name=>"prospectos").where(:model_id=>prospecto.id,:pendiente=>true).all%> 
+
+
+
+                            <%if tareas != nil%> 
+
+
+
+                                <%tareas.each do |tarea|%> 
+
+
+
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%> 
+
+
+
+                                      <%tareastatus="redrow whitetigger"%> 
+
+
+
+                                    <%end%>                 
+
+
+
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%> 
+
+
+
+                                      <%tareastatus="orangerow whitetigger"%> 
+
+
+
+                                    <%end%> 
+
+
+
+                                    <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%> 
+
+
+
+                                      <% tareastatus="navyrow linkcolor"%> 
+
+
+
+                                    <%end%> 
+
+
+
+                                    <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%> 
+
+
+
+                                      <%tareastatus="stonerow linkcolor"%> 
+
+
+
+                                    <%end%> 
+
+
+
+                                <%end%> 
+
+
+
+                            <%end%> 
+
+
+
+                          <%tareas = Llamada.where(:model_name=>"prospectos").where(:model_id=>prospecto.id,:pendiente=>true).all%> 
+
+
+
+                            <%if tareas != nil%> 
+
+
+
+                                <%tareas.each do |tarea|%> 
+
+
+
+                                    <%if tarea.inicio_de_la_llamada!=nil && tarea.inicio_de_la_llamada < Date.today - 2%> 
+
+
+
+                                      <%tareastatus="redrow whitetigger"%> 
+
+
+
+                                    <%end%>                 
+
+
+
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today - 1%> 
+
+
+
+                                      <%tareastatus="orangerow whitetigger"%> 
+
+
+
+                                    <%end%> 
+
+
+
+                                    <%if tarea.inicio_de_la_llamada != nil && tarea.inicio_de_la_llamada == Date.today%> 
+
+
+
+                                      <% tareastatus="navyrow linkcolor"%> 
+
+
+
+                                    <%end%> 
+
+
+
+                                    <%if tarea.inicio_de_la_llamada!= nil && tarea.inicio_de_la_llamada == Date.tomorrow%> 
+
+
+
+                                      <%tareastatus="stonerow linkcolor"%> 
+
+
+
+                                    <%end%> 
+
+
+
+                                <%end%> 
+
+
+
+                            <%end%>   
+
+
+
+                            <%tareas = Memo.where(:model_name=>"prospectos").where(:model_id=>prospecto.id,:pendiente=>true).size%>                                             
+
+
+
+                            <%if tareas > 0 
+
+
+
+                                tareastatus="orangerow linkcolor" 
+
+
+
+                              end%>   
+
+
+
+      <tr> 
+
+
+
+        <td><%= prospecto.id %></td> 
+
+
+
+        <td><%= link_to prospecto.nombre, prospecto_path(prospecto) %></td> 
+
+
+
+        <td><%= link_to prospecto.apellido_paterno, prospecto_path(prospecto) %></td> 
+
+
+
+        <td><%= link_to prospecto.apellido_materno, prospecto_path(prospecto) %></td> 
+
+
+
+        <td><%= link_to prospecto_path(prospecto) do %> 
+
+
+
+            <%=prospecto.programa.nivel rescue nil%> - <%=prospecto.programa.programa rescue nil%> 
+
+
+
+            <%end%> 
+
+
+
+        </td> 
+
+
+
+        <td><%=link_to prospecto_path(prospecto) do%> 
+
+
+
+                <%= prospecto.importado_revisado == true ? "Revisada Importacion" : "Importacion No Revisada" %> 
+
+
+
+            <%end%> 
+
+
+
+        </td> 
+
+
+
+        <td><%= link_to prospecto_path(prospecto) do %> 
+
+
+
+            <%=prospecto.validado == true ? "Validado" : "No Validado"%> 
+
+
+
+          <%end%></td>         
+
+
+
+        <td><%= prospecto.created_at %></td> 
+
+
+
+        <td> 
+
+
+
+        <%if tareastatus != ""%> 
+
+
+
+          <%= link_to '<i class="icon-info-sign"></i> Acciones Pendientes'.html_safe,  edit_prospecto_path(prospecto,:anchor=>"tareas"),:class=>'btn btn-warning btn-mini zero2'%> 
+
+
+
+        <%end%>             
+
+
+
+          <%= link_to 'Edit', edit_prospecto_path(prospecto), :class => 'btn btn-mini' %> 
+
+
+
+          <%= link_to 'Resumen', resumen_path(prospecto),:class=>'btn btn-success btn-mini'%> 
+
+
+
+        <a href="#" class='btn btn-info btn-mini'  onclick="javascript:openPrint('prospectos','<%=prospecto.id%>')"> 
+
+
+
+          <i class="icon-print"></i> Imprimir 
+
+
+
+        </a> 
+
+
+
+          <%if not prospecto.issolicitante%> 
+
+
+
+              <%= link_to 'Destroy', prospecto_path(prospecto), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %> 
+
+
+
+          <%end%> 
+
+
+
+        </td> 
+
+
+
+      </tr> 
+
+
+
+    <% end %> 
+
+
+
+  </tbody> 
+
+
+
+</table> 
+
+
+
+ 
+
+
+
+ 
+
+
+
+<script type="text/javascript"> 
+
+
+
+(function($) { 
+
+
+
+$(document).ready(function(){ 
+
+
+
+	$('.datepicker').datepicker(); 
+
+
+
+}); 
+
+
+
+})(jQuery); 
+
+
+
+ 
+
+
+
+</script>

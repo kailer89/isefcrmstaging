@@ -120,8 +120,10 @@ rol = Role.where(:id=>current_user.role).first
     @tarea.destroy
 
 else
+  @tarea = Tarea.find(params[:id])
   flash[:error] ='No tienes permiso para realizar esta accion'
-
+redirect_to "/#{@tarea.model_name}/#{@tarea.model_id}/edit/"
+return
 end
 
 

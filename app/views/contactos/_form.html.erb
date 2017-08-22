@@ -8,6 +8,20 @@
   <%= f.input :cargo %>
   <%= f.input :archivar_como %>
   <%= f.input :correo_electronico %>
+
+<%
+logger.debug "lllllllllllllllllllllllllllll"
+    rol = Role.where(:id=>current_user.role).first
+logger.debug rol.nombre
+      if rol.nombre == "DN" or rol.nombre == "ACRM" 
+%>
+        <%= f.input :sede_id,as: :select, :collection=>Sede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>false ,:label=> "Sede" %>
+  <%else%>
+        <%= f.hidden_field :sede_id,:value=>current_user.sede_id %>
+  <%end
+
+logger.debug "lllllllllllllllllllllllllllll"
+  %>
   <%= f.input :pagina_web %>
   <%= f.input :direccion_de_instant_messenger %>
   <%= f.input :numeros_de_trabajo %>

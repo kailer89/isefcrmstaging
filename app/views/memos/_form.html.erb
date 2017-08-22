@@ -24,8 +24,17 @@
           <%= link_to 'Hacer pendiente', "convertir_memo",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'convertir_memo'%> 
         <%end%> 
       <%end%>  
-      <%end%>             
-      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%end%>        
+
+      <%
+      va = request.parameters[:action]
+      labl = "Crear Nota"
+        if va = "edit"
+          labl = "Guardar Nota"
+        end
+      %>
+
+      <%= f.submit labl, :class => 'btn btn-primary'%>
        <a href="/<%=@memo.model_name%>/<%=@memo.model_id%>/edit" class="btn">Cancel</a>
     </div>
 <% end %>

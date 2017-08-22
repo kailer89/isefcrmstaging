@@ -1,10 +1,20 @@
 <%reporte = Rpm.find(params[:id])%>
-<%@AllProspectos =Prospecto.where{prospectos.created_at != nil} %>
+
+
+<%        rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "DN" or rol.nombre == "ACRM"  %>
+
+  <%@AllProspectos =Prospecto.includes(:sede,:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]).where{prospectos.created_at != nil} %>
+<%else%>
+  <%@AllProspectos =Prospecto.includes(:sede,:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]).where{prospectos.created_at != nil}.where(:user_id=>current_user).where(:sede_id=>current_user.sede) %>
+<%end%>
+
 
 <%
 #campos editables
 if reporte.nacionalidad_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{nacionalidad_id.like_any reporte.nacionalidad_id}
+  @AllProspectos = @AllProspectos.where{nacionalidad_id.eq_any reporte.nacionalidad_id}
 end
 
 @AllProspectos = @AllProspectos.joins{interes_basicos}
@@ -13,43 +23,43 @@ end
 @AllProspectos = @AllProspectos.joins{medio_de_contactos}
 @AllProspectos = @AllProspectos.joins{plan_de_descuentos}
 if reporte.ultimo_grado_de_estudio_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{interes_basicos.ultimo_grado_de_estudio_id.like_any reporte.ultimo_grado_de_estudio_id}
+  @AllProspectos = @AllProspectos.where{interes_basicos.ultimo_grado_de_estudio_id.eq_any reporte.ultimo_grado_de_estudio_id}
 end
 
 if reporte.preparatoria_o_universidad_de_origen_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{interes_basicos.preparatoria_o_universidad_de_origen_id.like_any reporte.preparatoria_o_universidad_de_origen_id}
+  @AllProspectos = @AllProspectos.where{interes_basicos.preparatoria_o_universidad_de_origen_id.eq_any reporte.preparatoria_o_universidad_de_origen_id}
 end
 
 if reporte.municipio_de_la_preparatoria_o_universidad_de_origen_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{interes_basicos.municipio_de_la_preparatoria_o_universidad_de_origen_id.like_any reporte.municipio_de_la_preparatoria_o_universidad_de_origen_id}
+  @AllProspectos = @AllProspectos.where{interes_basicos.municipio_de_la_preparatoria_o_universidad_de_origen_id.eq_any reporte.municipio_de_la_preparatoria_o_universidad_de_origen_id}
 end
 
 if reporte.sede_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{interes_basicos.sede_id.like_any reporte.sede_id}
+  @AllProspectos = @AllProspectos.where{interes_basicos.sede_id.eq_any reporte.sede_id}
 end
 
 if reporte.subsede_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{interes_basicos.subsede_id.like_any reporte.subsede_id}
+  @AllProspectos = @AllProspectos.where{interes_basicos.subsede_id.eq_any reporte.subsede_id}
 end
 
 if reporte.modalidad_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{interes_basicos.modalidad_id.like_any reporte.modalidad_id}
+  @AllProspectos = @AllProspectos.where{interes_basicos.modalidad_id.eq_any reporte.modalidad_id}
 end
 
 if reporte.turno_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{interes_basicos.turno_id.like_any reporte.turno_id}
+  @AllProspectos = @AllProspectos.where{interes_basicos.turno_id.eq_any reporte.turno_id}
 end
 
 if reporte.periodo_para_ingresar_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{interes_basicos.periodo_para_ingresar_id.like_any reporte.periodo_para_ingresar_id}
+  @AllProspectos = @AllProspectos.where{interes_basicos.periodo_para_ingresar_id.eq_any reporte.periodo_para_ingresar_id}
 end
 
 if reporte.status_de_interes_de_prospecto_validado_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{interes_basicos.status_de_interes_de_prospecto_validado_id.like_any reporte.status_de_interes_de_prospecto_validado_id}
+  @AllProspectos = @AllProspectos.where{interes_basicos.status_de_interes_de_prospecto_validado_id.eq_any reporte.status_de_interes_de_prospecto_validado_id}
 end
 
 if reporte.grupo_id.flatten.size > 1
-  @AllProspectos = @AllProspectos.where{prospectos.grupo_id.like_any reporte.grupo_id}
+  @AllProspectos = @AllProspectos.where{prospectos.grupo_id.eq_any reporte.grupo_id}
 end
 
 
@@ -99,6 +109,60 @@ if reporte.medio_de_contactos_id.flatten.size > 1
 end
 @prospectos = @AllProspectos
 %>
+
+
+    <%
+    if rol.nombre == "DN" or rol.nombre == "ACRM"  
+      if reporte.usuarios !=nil
+          if reporte.usuarios == ""
+            reporte.usuarios = User.all
+          end
+        end
+
+        if reporte.sedes !=nil
+          if reporte.sedes == ""
+            reporte.sedes = Sede.all
+          end
+        end
+
+        if reporte.subsedes !=nil
+          if reporte.subsedes == ""
+            reporte.subsedes = Subsede.all
+          end
+        end       
+
+
+
+      else
+        if reporte.usuarios !=nil
+          if reporte.usuarios == ""
+            reporte.usuarios = [current_user]
+          end
+        end
+
+        if reporte.sedes !=nil
+          if reporte.sedes == ""
+            reporte.sedes = [current_user.sede]
+          end
+        end
+
+        if reporte.subsedes !=nil
+          if reporte.subsedes == ""
+            reporte.subsedes = Subsede.where(:sede_id=>current_user.sede.id)
+          end
+        end       
+
+
+
+
+      end
+        if reporte.programas !=nil
+            reporte.programas = Programa.all
+        end     
+    %>
+
+
+
 <?xml version="1.0"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
   xmlns:o="urn:schemas-microsoft-com:office:office"

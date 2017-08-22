@@ -6,10 +6,10 @@ class OfertaEducativasController < ApplicationController
   def index
 
     rol = Role.where(:id=>current_user.role).first
-    if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"    or rol.nombre == "CP"  
-      @oferta_educativas = OfertaEducativa.all
+    if rol.nombre == "X" 
+      
     else
-      @oferta_educativas = OfertaEducativa.where(:sede_id=>current_user.sede)
+      @oferta_educativas = OfertaEducativa.all
     end    
 
     respond_to do |format|

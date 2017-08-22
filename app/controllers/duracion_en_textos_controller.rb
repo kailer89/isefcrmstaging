@@ -1,4 +1,5 @@
 class DuracionEnTextosController < ApplicationController
+  before_filter :authenticate_user!
   
   # GET /duracion_en_textos
   # GET /duracion_en_textos.json

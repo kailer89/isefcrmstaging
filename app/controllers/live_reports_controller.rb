@@ -1,4 +1,5 @@
 class LiveReportsController < ApplicationController
+  before_filter :authenticate_user!
   
   # GET /live_reports
   # GET /live_reports.json

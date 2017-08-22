@@ -55,6 +55,19 @@ jQuery('#q_programa_programa_cont').children().each(function() {
 
 
 });
+var optGpos =$('#q_c_0_a_0_name').find('optgroup');
+
+optGpos.each(function(a,b)
+  {
+    if(b.label == "Subsede")
+    {
+      b.label = "Extensión de interés";
+    }
+
+  });
+
+
+
 })(jQuery);
 
 </script>

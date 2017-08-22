@@ -6,10 +6,10 @@ before_filter :authenticate_user!
   def index
   rol = Role.where(:id=>current_user.role).first
 
-   if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"     
+   if rol.nombre == "DN" or rol.nombre == "ACRM"
     @rpms = Rpm.all
   else
-    @rpms = Rpm.where(:created_by=>current_user.id)
+    @rpms = Rpm.where(:created_by=>current_user)
   end
 
     respond_to do |format|

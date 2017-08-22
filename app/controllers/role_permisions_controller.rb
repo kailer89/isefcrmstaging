@@ -1,4 +1,5 @@
 class RolePermisionsController < ApplicationController
+  before_filter :authenticate_user!
   
   # GET /role_permisions
   # GET /role_permisions.json

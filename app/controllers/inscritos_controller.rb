@@ -1,4 +1,5 @@
 class InscritosController < ApplicationController
+   
   before_filter :authenticate_user!
   
   helper_method :sort_column, :sort_direction  
@@ -12,9 +13,9 @@ class InscritosController < ApplicationController
       archivado = modelo.mostrar_archivados
     end  
     if modelo == nil           
-    @inscritos = Inscrito.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+    @inscritos = getInscritosForUser(current_user).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     else
-      @inscritos = Inscrito.where(:archivado=>archivado).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+      @inscritos = getInscritosForUser(current_user).where(:archivado=>archivado).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     end
 
         rol = Role.where(:id=>current_user.role).first
@@ -23,13 +24,27 @@ class InscritosController < ApplicationController
       logger.debug "admin"
     else
       #@admitidos = @admitidos.where("examinado_id in (:examinados)",:examinados=>Examinado.where("solicitante_id in (:solicitantes)",:solicitantes=>Solicitante.where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.joins{solicitante}.where(:user_id=>current_user.id))))
-      @inscritos = @inscritos.where("admitido_id in (:admitidos)",:admitidos=>Admitido.where("examinado_id in (:examinados)",:examinados=>Examinado.where("solicitante_id in (:solicitantes)",:solicitantes=>Solicitante.where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.where(:sede_id=>current_user.sede).joins{solicitante}.where(:user_id=>current_user.id)))))
+      @inscritos = getInscritosForUser(current_user)
     end
     
+
+
+      ini = params[:inicio]
+      fin = params[:final]
+
+
       @q = @inscritos.ransack(params[:q])
       @q.build_grouping unless @q.groupings.any?
-      @inscritos  = params[:distinct].to_i.zero? ? @q.result.paginate(:per_page => 50, :page => params[:page])  : @q.result(distinct: true).paginate(:per_page => 50, :page => params[:page]) 
 
+          if ini != nil
+            @inscritos  = params[:distinct].to_i.zero? ? @q.result.paginate(:per_page => 50, :page => params[:page])  : @q.result(distinct: true).paginate(:per_page => 50, :page => params[:page]).where{id>=ini.to_s}.where{id<=fin.to_s}
+          else
+            @inscritos  = params[:distinct].to_i.zero? ? @q.result.paginate(:per_page => 50, :page => params[:page])  : @q.result(distinct: true).paginate(:per_page => 50, :page => params[:page])
+          end
+
+
+
+      
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @inscritos }

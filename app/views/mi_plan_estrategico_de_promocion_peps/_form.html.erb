@@ -16,12 +16,37 @@
   <%= f.input :pep_para %>
   <%= f.input :nombre_de_la_institucion %>
   <%= f.input :segmento %>
-  <%= f.input :tipo_especifico %>
+  <%= f.input :tipo_especifico, :label=> "Plantel" %>
+
+<%
+logger.debug "lllllllllllllllllllllllllllll"
+    rol = Role.where(:id=>current_user.role).first
+logger.debug rol.nombre
+      if rol.nombre == "DN" or rol.nombre == "ACRM" 
+%>
+        <%= f.input :sede_id,as: :select, :collection=>Sede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>false ,:label=> "Sede" %>
+  <%else%>
+        <%= f.hidden_field :sede_id,:value=>current_user.sede_id %>
+  <%end
+
+logger.debug "lllllllllllllllllllllllllllll"
+  %>
+
+
   <%= f.input :nse %>
   <%= f.input :forma_parte_de_mi_mdo_meta %>
   <%= f.input :tamano_de_mdo_que_aspira_abarcar %>
   <%= f.input :mercado_meta_observaciones %>
-  <%= f.association :user,:label_method=>:username,:include_blank => false, :label=>"Asesor a cargo"%>
+
+
+<%rol = Role.where(:id=>current_user.role).first%>
+          <%if rol.nombre == "DN" or rol.nombre == "ACRM" %>           
+            <%=f.association :user,:label_method=>:username,:include_blank => false,:label=>"Asesor a cargo:"%>
+          <%else%>
+            <%=f.hidden_field :user_id,:value=>current_user.id%>
+          <%end%>
+
+
         </p>
       </div>
       <div class="tab-pane" id="tab2">

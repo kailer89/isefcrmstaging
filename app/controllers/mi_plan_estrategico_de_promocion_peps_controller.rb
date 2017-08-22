@@ -4,7 +4,13 @@ class MiPlanEstrategicoDePromocionPepsController < ApplicationController
   # GET /mi_plan_estrategico_de_promocion_peps
   # GET /mi_plan_estrategico_de_promocion_peps.json
   def index
-    @mi_plan_estrategico_de_promocion_peps = MiPlanEstrategicoDePromocionPep.all
+    rol = Role.where(:id=>current_user.role).first
+
+      if rol.nombre == "DN" or rol.nombre == "ACRM" 
+        @mi_plan_estrategico_de_promocion_peps = MiPlanEstrategicoDePromocionPep.all
+      else
+        @mi_plan_estrategico_de_promocion_peps = MiPlanEstrategicoDePromocionPep.where(:sede_id=>current_user.sede_id)
+      end
 
     respond_to do |format|
       format.html # index.html.erb

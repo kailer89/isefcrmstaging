@@ -1,4 +1,5 @@
 class CorreosController < ApplicationController
+   
   before_filter :authenticate_user!
   
 
@@ -13,25 +14,170 @@ class CorreosController < ApplicationController
 
   end
 
+  def send_correo_individually
+    #flash[:error] = 'Envio de correos temporalmente bloqueado'
+  #redirect_to "/correos"
+  #return
+ archivado = false
+            rol = Role.where(:id=>current_user.role).first
+    modelo = Configuracione.where(:user_id=>user.id).first rescue nil
+    
+    if modelo != nil
+      archivado = modelo.mostrar_archivados
+    end   
+
+    @correo = Correo.find(params[:id])
+    adjuntos = Attachment.where(:model_id=>@correo.id,:model_name=>"correos")
+
+
+    mailAEnviar = params[:mailAEnviar]
+
+    CorreosMailer.enviar_correo(current_user.email, @correo,mailAEnviar,adjuntos).deliver     
+    
+    
+  end
+  
+  def enviandocorreos
+    archivado = false
+            rol = Role.where(:id=>current_user.role).first
+    modelo = Configuracione.where(:user_id=>user.id).first rescue nil
+    
+    if modelo != nil
+      archivado = modelo.mostrar_archivados
+    end   
+
+    @correo = Correo.find(params[:id])
+    aquienSeAEnviado = []
+    mails = []
+    adjuntos = Attachment.where(:model_id=>@correo.id,:model_name=>"correos")
+
+
+  rol = Role.where(:id=>current_user.role).first
+
+      @correo.a_quien_enviarle_correo.each do |aquien|
+        logger.debug aquien
+        case aquien
+          when "a_todos"
+             if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                    @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).uniq
+              else
+                    @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).uniq
+              end                
+          
+          when "por_usuarios"
+            if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                  @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).uniq
+            else
+                  @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).where(:user_id=>@correo.user_id).uniq
+            end        
+          
+          when "por_sedes"
+              if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                    @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).uniq
+              else
+                    @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).where(:sede_id=>@correo.sede_id).uniq
+              end        
+          
+          when "por_grupos"
+            if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                  @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).uniq
+            else
+                  @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).where(:grupo_id=>@correo.grupo_id).uniq
+            end        
+          
+          when "por_programa"
+            if rol.nombre == "DN" or rol.nombre == "ACRM"    
+               @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).uniq
+            else
+                @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).where(:programa_id=>@correo.programa_id).uniq
+            end        
+          
+          when "por_periodo"
+            periodos=InteresBasico.where(:periodo_para_ingresar_id=>@correo.por_periodo)
+
+            periodos.each do |periodo|
+
+
+              if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                    @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).where(:id=>periodo.prospecto_id).uniq
+              else
+                    @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).where(:id=>periodo.prospecto_id).uniq
+              end        
+            end
+          
+          when "por_estado"
+            @correo.por_estado.each do |estado|
+                case estado
+                when "prospectos"
+                  if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                        @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).uniq
+                  else
+                        @mails=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).uniq
+                  end              
+                
+                when "solicitantes"
+                  if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                        @mails=getSolicitantesForUser(current_user).where(:isexaminado=> false).where(:archivado=>archivado).where(:isexaminado=> false).uniq
+                  else
+                        @mails=getSolicitantesForUser(current_user).where(:isexaminado=> false).where(:archivado=>archivado).where(:isexaminado=> false).uniq
+                  end              
+                
+                when "examinados"
+                  if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                        @mails=getExaminadosForUser(current_user).where(:archivado=>archivado).where(:isadmitido=>false).uniq
+                  else
+                        @mails=getExaminadosForUser(current_user).where(:archivado=>archivado).where(:isadmitido=>false).uniq
+                  end   
+                           
+                when "adminitidos"
+                  if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                        @mails=getAdmitidosForUser(current_user).where(:archivado=>archivado).where(:isinscrito=>false).uniq
+                  else
+                        @mails=getAdmitidosForUser(current_user).where(:archivado=>archivado).where(:isinscrito=>false).uniq
+                  end              
+                when "inscritos"
+                  if rol.nombre == "DN" or rol.nombre == "ACRM"    
+                        @mails=getInscritosForUser(current_user).uniq
+                  else
+                        @mails=getInscritosForUser(current_user).uniq
+                  end              
+              end
+            end
+        end            
+      end
+
+
+
+  end
 
   def send_correo
+  #flash[:error] = 'Envio de correos temporalmente bloqueado'
+  #redirect_to "/correos"
+  #return
+ archivado = false
+            rol = Role.where(:id=>current_user.role).first
+    modelo = Configuracione.where(:user_id=>user.id).first rescue nil
+    
+    if modelo != nil
+      archivado = modelo.mostrar_archivados
+    end   
+
     @correo = Correo.find(params[:id])
     @correo.update_attributes(params[:correo])
     aquienSeAEnviado = []
-
+    adjuntos = Attachment.where(:model_id=>@correo.id,:model_name=>"correos")
 
     if @correo.es_uno_a_uno
       if @correo.mail_campana.include? ","
         @correo.mail_campana.split(",").each do |mail_campana|
           unless not matches?(mail_campana)
-            adjuntos = Attachment.where(:model_id=>@correo.id,:model_name=>"correos")
+            
             CorreosMailer.enviar_correo(current_user.email, @correo,mail_campana,adjuntos).deliver     
             aquienSeAEnviado.push(mail_campana)
           end            
         end
       else
         unless not matches?(@correo.mail_campana)
-          adjuntos = Attachment.where(:model_id=>@correo.id,:model_name=>"correos")
           CorreosMailer.enviar_correo(current_user.email, @correo,@correo.mail_campana,adjuntos).deliver     
           aquienSeAEnviado.push(@correo.mail_campana)
         end
@@ -39,196 +185,9 @@ class CorreosController < ApplicationController
 
       
     else
-#[["A todos","a_todos"],["Por Usuarios","por_usuarios"],["Por Sedes","por_sedes"],["Por Grupos","por_grupos"],["Por Programa","por_programa"],["Por periodo","por_periodo"],["Por Estado","por_estado"]]
-
-      @correo.a_quien_enviarle_correo.each do |aquien|
-        logger.debug aquien
-        case aquien
-        when "a_todos"
-
-          mails=Prospecto.all
-          mails.each do |mail|
-            if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end        
-            else
-              unless not matches?(mail.email)
-                logger.debug "a aaaa"
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end    
-            end             
-          end                  
-        when "por_usuarios"
-          mails=Prospecto.where(:user_id=>@correo.user_id)
-          mails.each do |mail|
-            if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end               
-            else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end         
-            end             
-          end
-        when "por_sedes"
-          mails=Prospecto.where(:sede_id=>@correo.sede_id)
-          mails.each do |mail|
-            if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end              
-            else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end    
-            end             
-          end
-        when "por_grupos"
-          mails=Prospecto.where(:grupo_id=>@correo.grupo_id)
-          mails.each do |mail|
-            if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end          
-            else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end     
-            end             
-          end
-        when "por_programa"
-          mails=Prospecto.where(:programa_id=>@correo.programa_id)
-          mails.each do |mail|
-            if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end             
-            else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end      
-            end      
-          end  
-        when "por_periodo"
-          periodos=InteresBasico.where(:periodo_para_ingresar_id=>@correo.por_periodo)
-
-          periodos.each do |periodo|
-            mails=Prospecto.where(:id=>periodo.prospecto_id)
-            mails.each do |mail|
-              if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end              
-              else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end        
-              end   
-          end
-        end
-        when "por_estado"
-          @correo.por_estado.each do |estado|
-            case estado
-            when "prospectos"
-              @prospectos = Prospecto.where(:is_solicitante=>false) 
-
-              @prospectos.each do |prospecto|
-                if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end         
-                else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end        
-                end                           
-              end                  
-            when "solicitantes"
-              historial = History.where("action like '%icitante%'")
-              @prospectos = Prospecto.where("prospectos.id in (:historyids)",:historyids=>historial) 
-
-              @prospectos.each do |prospecto|
-                if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end             
-                else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end          
-                end                           
-              end     
-
-            when "examinados"
-            historial = History.where("action like '%xaminado%'")
-            @prospectos = Prospecto.where("prospectos.id in (:historyids)",:historyids=>historial)  
-              @prospectos.each do |prospecto|
-                if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end              
-                else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end     
-                end                           
-              end                           
-            when "adminitidos"
-            historial = History.where("action like '%dmitido%'")
-            @prospectos = Prospecto.where("prospectos.id in (:historyids)",:historyids=>historial)              
-              @prospectos.each do |prospecto|
-                if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end             
-                else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end       
-                end                           
-              end               
-            when "inscritos"
-            historial = History.where("action like '%nscrito%'")
-            @prospectos = Prospectowhere("prospectos.id in (:historyids)",:historyids=>historial)
-              @prospectos.each do |prospecto|
-                if mail.email != ""
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(mail.email)   
-              end             
-                else
-              unless not matches?(mail.email)
-                CorreosMailer.enviar_correo(current_user.email, @correo,mail.email).deliver   
-                aquienSeAEnviado.push(current_user.email)   
-              end      
-                end                           
-              end            
-            end #end del case
-          end #end del each
-        end
-      end
+      @correo.update_attributes(params[:correo])
+      redirect_to enviandocorreos_path(:id=>params[:id])
+      return
     end
 logger.debug "qqqqqqqqqqqqqqqqqqqqq"
 correosenviados = ""
@@ -244,7 +203,7 @@ redirect_to "/correos/#{@correo.id}/edit/"
   def index
   rol = Role.where(:id=>current_user.role).first
 
-   if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"      
+   if rol.nombre == "DN" or rol.nombre == "ACRM"    
       @search = Correo.ransack(params[:search])
       @correos = @search.result.paginate(:per_page => 15, :page => params[:page])
     else
@@ -315,6 +274,14 @@ redirect_to "/correos/#{@correo.id}/edit/"
   # PUT /correos/1.json
   def update
     @correo = Correo.find(params[:id])
+
+    logger.debug "/////////////////////////////////////////////////////////////////////"
+    logger.debug  params[:correo][:maildata]
+    logger.debug "/////////////////////////////////////////////////////////////////////"
+#<img src="https://www.willows-consulting.com/images/stories/Epicor-osCommerce.JPG" width="100%" height="100%" title="Image: https://www.willows-consulting.com/images/stories/Epicor-osCommerce.JPG">
+
+
+
     if params[:enviar] != nil
         
     end
@@ -341,14 +308,16 @@ rol = Role.where(:id=>current_user.role).first
     @correo.destroy
 
 else
+  @correo = Correo.find(params[:id])
   flash[:error] ='No tienes permiso para realizar esta accion'
-
+  redirect_to "/correos/#{@correo.id}/edit/"
+  return
 end
 
 
 
     respond_to do |format|
-      format.html { redirect_to "/correos/#{@correo.id}/edit/", notice: 'correo was successfully created.' }
+      format.html { redirect_to "/correos", notice: 'correo was successfully deleted.' }
       format.json { head :ok }
     end
   end

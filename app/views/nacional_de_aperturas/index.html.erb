@@ -1,5 +1,5 @@
 <%- model_class = NacionalDeApertura.new.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<h1><%=t '.title', :default => 'Plan Nacional de Aperturas' %></h1>
 <table class="table table-striped table-bordered table-condensed">
   <thead>
     <tr>
@@ -30,7 +30,7 @@
 <%
          elPrograma = Programa.where(:id=>nacional_de_apertura.programa_id).first
     %>
-    <%=elPrograma.nivel%>  - <%=elPrograma.programa%>
+    <%=elPrograma.nivel rescue nil%>  - <%=elPrograma.programa rescue nil%>
 
         </td>
         <td><%=l nacional_de_apertura.created_at %></td>

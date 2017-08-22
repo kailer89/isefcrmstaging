@@ -84,6 +84,12 @@ class PurgesController < ApplicationController
     end
   end
 
+  def purge_test
+    logger.debug "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"
+    logger.debug params.inspect
+    logger.debug "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"
+  end
+
   def purge_admitidos
     Admitido.delete_all
     redirect_to purges_path

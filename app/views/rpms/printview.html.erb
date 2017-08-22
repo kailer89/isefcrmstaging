@@ -174,25 +174,27 @@
 			<!-- Ordenar por programa -->
 			<div class="tabbable"> 
 			  <ul class="nav nav-tabs">
+			  	/ljhasdkjghaskjdhasd
 			  	<%if reporte.subsedes != nil and reporte.subsedes != ""%>
 				  	<%reporte.subsedes.each do |subsede|%>
 				  		<%subsede = Subsede.where(:id=>subsede).first%>
 				  		<%if subsede != nil%>
 					  		<%if firstitem%>
-					  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>
+					  			<li class="active"><a href="#subsede<%=subsede.id%>" da="asd" data-toggle="tab"><%=subsede.nombre%></a></li>
 					  			<%firstitem = false%>
 					  		<%else%>
-					  			<li><a href="#<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>		
+					  			<li><a href="#subsede<%=subsede.id%>" da="asd" data-toggle="tab"><%=subsede.nombre%></a></li>		
 					  		<%end%>
 				  		<%end%>
 				  	<%end%>
 			  	<%else%>
+
 			  		<%Subsede.all.each do |subsede|%>
 				  		<%if firstitem%>
-				  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>
+				  			<li class="active"><a href="#subsede<%=subsede.id%>" da="asd" data-toggle="tab"><%=subsede.nombre%></a></li>
 				  			<%firstitem = false%>
 				  		<%else%>
-				  			<li><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>		
+				  			<li><a href="#subsede<%=subsede.id%>" da="asd" data-toggle="tab"><%=subsede.nombre%></a></li>		
 				  		<%end%>
 				  	<%end%>			  	
 			  	<%end%>
@@ -205,10 +207,10 @@
 				  		<%if subsede != nil%>
 					  		<%@prospectos = Prospecto.where(:subsede_id=>subsede).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
 					  		<%if firstitem%>
-								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>true}%>
+								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsedes",:active=>true}%>
 					  			<%firstitem = false%>
 					  		<%else%>
-							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>false}%>	
+							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsedes",:active=>false}%>	
 					  		<%end%>			
 				  		<%end%>	
 					<%end%>
@@ -216,10 +218,10 @@
 				  	<%Subsede.all.each do |subsede|%>
 				  	<%@prospectos = Prospecto.where(:subsede_id=>subsede).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
 				  		<%if firstitem%>
-						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>true}%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsedes",:active=>true}%>
 				  			<%firstitem = false%>
 				  		<%else%>
-						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>false}%>	
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsedes",:active=>false}%>	
 				  		<%end%>			
 					<%end%>				
 				<%end%>

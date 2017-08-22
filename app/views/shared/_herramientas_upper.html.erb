@@ -4,7 +4,7 @@
 					  <ul class="dropdown-menu">
 					  	<li class="nav-header">Acciones</li>
 					    <%rol = Role.where(:id=>current_user.role).first rescue nil%>
-					    <%if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"    %>
+					    <%if rol.nombre == "DN" or rol.nombre == "ACRM" %>
 						    <li><%=link_to "Sedes", sedes_path%></li>
 						    <li><%=link_to "Roles", roles_path%></li>
 						    <li class="divider"></li>
@@ -17,3 +17,4 @@
 					  </ul>
 					</li>  
 				</ul>	
+				

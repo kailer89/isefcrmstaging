@@ -1,4 +1,5 @@
 class EfectividadsController < ApplicationController
+  before_filter :authenticate_user!
   
   # GET /efectividads
   # GET /efectividads.json

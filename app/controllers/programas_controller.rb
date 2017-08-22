@@ -71,6 +71,24 @@ class ProgramasController < ApplicationController
     end
   end
 
+
+  def borrar
+
+  end
+
+  def masschange
+    @psm = params["/programas/" + params[:id] + "/masschange"]
+
+    Prospecto.where(:programa_id => params[:id]).update_all(:programa_id => @psm[:programa_id])
+    Programa.where(:id=>params[:id]).first.destroy
+    respond_to do |format|
+      format.html { redirect_to programas_path, notice: 'Programa borrado.' }
+      format.json { head :ok }
+    end
+
+  end
+
+
   # DELETE /programas/1
   # DELETE /programas/1.json
   def destroy
@@ -78,20 +96,19 @@ class ProgramasController < ApplicationController
 
 
 rol = Role.where(:id=>current_user.role).first
-        if rol.nombre == "ACRM"
+      if rol.nombre == "ACRM"
+        flash[:notice] ='Por favor seleccione un programa para reemplazar el programa a borrar actual, esta accion no puede ser revertida.'
+        respond_to do |format|
+          format.html { redirect_to borrar_url }
+          format.json { head :ok }
+        end
   
-  @programa = Programa.find(params[:id])
-    @programa.destroy
-else
-  flash[:error] ='No tienes permiso para realizar esta accion'
-
-end
-    
-   
-
-    respond_to do |format|
-      format.html { redirect_to programas_url }
-      format.json { head :ok }
-    end
+      else
+        flash[:error] ='No tienes permiso para realizar esta accion'
+          respond_to do |format|
+            format.html { redirect_to programas_url }
+            format.json { head :ok }
+          end
+      end
   end
 end

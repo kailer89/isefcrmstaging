@@ -4,6 +4,17 @@ class ImportsController < ApplicationController
   require 'csv' 
   require 'iconv'
 
+  def getEmtpyForNik(val)
+
+    if val !=nil and not val.nil?
+
+      return val.rstrip
+    else 
+      return val
+    end
+
+  end
+
   def uploadcsv
     @import = Import.find(params[:id])
         all_ok = true
@@ -23,12 +34,24 @@ class ImportsController < ApplicationController
             row = row.to_hash.with_indifferent_access 
             prospecto=row
             direccion= row.to_hash 
+
+
+            #*Nombre(s):
+
+            if prospecto["nombre"]!=nil and prospecto["nombre"].upcase == "*NOMBRE(S):"
+              next
+            end
+
+            if prospecto["nombre"]!=nil and prospecto["nombre"].upcase =="AL MOMENTO DE GUARDAR"
+              next
+            end
+
             #remove extra fields
-            if prospecto["nombre"] == "*Nombre(s):" 
+            if prospecto["nombre"]!=nil and prospecto["nombre"].upcase.match(/^NOMBRE/)
               
             elsif prospecto["sexo"] != nil
 
-              if prospecto["sexo"].gsub(/\s+/, "").upcase == "MASCULINO"
+              if getEmtpyForNik(prospecto["sexo"]).upcase == "MASCULINO"
                   prospecto["sexo"] = true
               else
                   prospecto["sexo"] = false
@@ -63,6 +86,7 @@ class ImportsController < ApplicationController
               prospecto.delete("fecha_de_caducidad")
               prospecto.delete("otro_cual")
               prospecto.delete("status_de_interes_de_prospecto_validado")
+              prospecto.delete("subsede")
               prospecto["email"] = prospecto["email"].gsub(" ","") if prospecto["email"] != nil
 
 
@@ -81,12 +105,11 @@ class ImportsController < ApplicationController
                       prospecto["otro_telefono"] = 0
                     end
                   end
-
               @objecto = eval(@import.module.singularize.camelize).create!(prospecto.to_hash.symbolize_keys)
 
               logger.debug "1#######################################################################"
                 if(@import.module.singularize.camelize=="Prospecto")
-                  @objecto.importado_revisado=false
+                  @objecto.importado_revisado=true
                   @objecto.issolicitante=false
                   @objecto.archivado =false
                   @objecto.created_by = current_user.id
@@ -94,11 +117,11 @@ class ImportsController < ApplicationController
                   @objecto.sede_id =current_user.sede_id
 
                   @objecto.accion_estrategicas.build
-                
+
                   if direccion["nacionalidad"] != nil
-                      @nacionalidad = Nacionalidad.where(:nacionalidad=>direccion["nacionalidad"],:pais=>direccion["pais"]).first
+                      @nacionalidad = Nacionalidad.where(:nacionalidad=>getEmtpyForNik(direccion["nacionalidad"]),:pais=>getEmtpyForNik(direccion["pais"])).first
                       if @nacionalidad == nil
-                        @nacionalidad = Nacionalidad.create(:nacionalidad=>direccion["nacionalidad"],:pais=>direccion["pais"])
+                        @nacionalidad = Nacionalidad.create(:nacionalidad=>getEmtpyForNik(direccion["nacionalidad"]),:pais=>getEmtpyForNik(direccion["pais"]))
                         @nacionalidad.save
                       end
                       logger.debug "==========================="
@@ -108,9 +131,9 @@ class ImportsController < ApplicationController
                   end
                   
                   if  direccion["programa"] != nil
-                      @programa = Programa.find_or_create_by_programa_and_nivel(direccion["programa"],direccion["nivel"])
+                      @programa = Programa.find_or_create_by_programa_and_nivel(getEmtpyForNik(direccion["programa"]),getEmtpyForNik(direccion["nivel"]))
                       if direccion["nivel"] != nil
-                        @programa.nivel = direccion["nivel"]
+                        @programa.nivel = getEmtpyForNik(direccion["nivel"])
                         @programa.save
                       else
                         @programa.nivel = "Sin Nivel"
@@ -118,7 +141,7 @@ class ImportsController < ApplicationController
                       end
                       @objecto.programa_id = @programa.id
                   end
-                  
+
 
                   #direccions
                   @objecto.direccions.build
@@ -134,42 +157,90 @@ class ImportsController < ApplicationController
                   @objecto.interes_basicos.build
                   @objecto.interes_basicos.first.comentarios = direccion["commentarios"]
                   if direccion["nivel"] != nil
-                      @nivel = Nivel.find_or_create_by_valor(direccion["nivel"])
+                      @nivel = Nivel.find_or_create_by_valor(getEmtpyForNik(direccion["nivel"]))
                        @objecto.interes_basicos.first.nivel_id = @nivel.id
 
                   end       
 
-                  @sub_sede = Subsede.where(:sede_id=>current_user.sede_id).first
-                  @objecto.interes_basicos.first.sede_id = current_user.sede_id
-                  @objecto.interes_basicos.first.subsede_id = @sub_sede.id
+
+
+                  @sub_sede = Subsede.where(:sede_id=>current_user.sede_id)
+                  #checking for subsede
+                  if direccion["subsede"]!=nil
+
+                    logger.debug "a************************************************"
+                    logger.debug "a************************************************"
+                    logger.debug "a************************************************"
+                      subs = @sub_sede.where("nombre like '%" + getEmtpyForNik(direccion["subsede"]) + "%'")
+
+
+                    logger.debug "b************************************************"
+                    logger.debug "b************************************************"
+                    logger.debug "b************************************************"
+                      if subs !=nil and subs.first !=nil
+                        logger.debug "c************************************************"
+                    logger.debug "c************************************************"
+                    logger.debug "c************************************************"
+                          @objecto.interes_basicos.first.sede_id = subs.first.sede_id
+                          @objecto.interes_basicos.first.subsede_id = subs.first.id
+                              
+                      else
+                          logger.debug "d************************************************"
+                    logger.debug "d************************************************"
+                    logger.debug "d************************************************"
+                          @objecto.interes_basicos.first.sede_id = current_user.sede_id
+                          @objecto.interes_basicos.first.subsede_id = current_user.sede_id
+                            
+                      end
+                  else
+                        logger.debug "e************************************************"
+                    logger.debug current_user.sede_id
+                    logger.debug "e************************************************"
+                     @objecto.interes_basicos.first.sede_id = current_user.sede_id
+                      @objecto.interes_basicos.first.subsede_id =current_user.sede_id
+                  end
+
+                 logger.debug "asd************************************************"
+                  logger.debug "asd************************************************"
+                  logger.debug "asd************************************************"
+                  logger.debug "asd************************************************"
+                  logger.debug "asd************************************************"
+                  logger.debug "asd************************************************"
+                  logger.debug "asd************************************************"
+                  logger.debug "asd************************************************"
+                  logger.debug "asd************************************************"
+                  logger.debug "asd************************************************"
+
+                  #@objecto.interes_basicos.first.sede_id = current_user.sede_id
+                  
 
                   if direccion["ultimo_grado_de_estudio"] != nil
-                      @ultimo_grado_de_estudio = UltimoGradoDeEstudio.find_or_create_by_grado_de_estudio(direccion["ultimo_grado_de_estudio"])
+                      @ultimo_grado_de_estudio = UltimoGradoDeEstudio.find_or_create_by_grado_de_estudio(getEmtpyForNik(direccion["ultimo_grado_de_estudio"]))
                        @objecto.interes_basicos.first.ultimo_grado_de_estudio_id = @ultimo_grado_de_estudio.id
                   end
                   
                   if direccion["preparatoria_o_universidad_de_origen"] != nil or direccion["preparatoria_o_universidad_de_origen"] != nil
-                      @preparatoria_o_universidad_de_origen = PreparatoriaOUniversidadDeOrigen.find_or_create_by_valor(direccion["preparatoria_o_universidad_de_origen"])
+                      @preparatoria_o_universidad_de_origen = PreparatoriaOUniversidadDeOrigen.find_or_create_by_valor(getEmtpyForNik(direccion["preparatoria_o_universidad_de_origen"]))
                       @objecto.interes_basicos.first.preparatoria_o_universidad_de_origen_id = @preparatoria_o_universidad_de_origen.id
                   end
                 
                   if direccion["municipio_de_la_preparatoria_o_universidad_de_origen"] != nil
-                      @municipio_de_la_preparatoria_o_universidad_de_origen = MunicipioDeLaPreparatoriaOUniversidadDeOrigen.find_or_create_by_valor(direccion["municipio_de_la_preparatoria_o_universidad_de_origen"])
+                      @municipio_de_la_preparatoria_o_universidad_de_origen = MunicipioDeLaPreparatoriaOUniversidadDeOrigen.find_or_create_by_valor(getEmtpyForNik(direccion["municipio_de_la_preparatoria_o_universidad_de_origen"]))
                       @objecto.interes_basicos.first.municipio_de_la_preparatoria_o_universidad_de_origen_id = @municipio_de_la_preparatoria_o_universidad_de_origen.id
                   end
                   @objecto.interes_basicos.first.ano_de_graduacion=direccion["ano_de_graduacion"]
 
      
                   if direccion["turno"] != nil
-                      @turno = Turno.find_or_create_by_valor(direccion["turno"])
+                      @turno = Turno.find_or_create_by_valor(getEmtpyForNik(direccion["turno"]))
                       @objecto.interes_basicos.first.turno_id = @turno.id
                   end
                   if direccion["modalidad"] != nil
-                      @modalidad = Modalidad.find_or_create_by_valor(direccion["modalidad"])
+                      @modalidad = Modalidad.find_or_create_by_valor(getEmtpyForNik(direccion["modalidad"]))
                       @objecto.interes_basicos.first.modalidad_id = @modalidad.id
                   end              
                   if direccion["periodo_para_ingresar"] != nil
-                      @periodo_para_ingresar = PeriodoParaIngresar.find_or_create_by_valor(direccion["periodo_para_ingresar"])
+                      @periodo_para_ingresar = PeriodoParaIngresar.find_or_create_by_valor(getEmtpyForNik(direccion["periodo_para_ingresar"]))
                       @objecto.interes_basicos.first.periodo_para_ingresar_id = @periodo_para_ingresar.id
                   end              
                   logger.debug "2#######################################################################"

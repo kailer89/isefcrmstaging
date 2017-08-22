@@ -102,8 +102,10 @@ class AttachmentsController < ApplicationController
     @attachment = Attachment.find(params[:id])
     @attachment.destroy
 else
+  @attachment = Attachment.find(params[:id])
   flash[:error] ='No tienes permiso para realizar esta accion'
-
+redirect_to "/#{@attachment.model_name}/#{@attachment.model_id}/edit/"
+return
 end
 
 

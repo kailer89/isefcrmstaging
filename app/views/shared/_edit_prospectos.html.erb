@@ -41,7 +41,7 @@ end
           <%= g.input :twitter  , :label=>"Twitter:"%>
           <%=g.hidden_field :created_by%>
           <%rol = Role.where(:id=>current_user.role).first%>
-          <%if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"%>           
+          <%if rol.nombre == "DN" or rol.nombre == "ACRM"  or rol.nombre=="D" or rol.nombre =="CP"%>           
             <%=g.association :user,:label_method=>:username,:include_blank => false,:label=>"Asignado a:"%>
           <%else%>
             <%=g.hidden_field :user,:label_method=>:username,:include_blank => false,:label=>"Asignado a:",:disabled=>true%>
@@ -224,8 +224,25 @@ end
           <%= g.input :facebook  , :label=>"Facebook:"%>
           <%= g.input :twitter  , :label=>"Twitter:"%>
           <%=g.hidden_field :created_by%>
-          <%=g.association :user,:label_method=>:username,:include_blank => false%>
-          <%=g.association :sede,:label_method=>:nombre,:include_blank => false%>
+          <%rol = Role.where(:id=>current_user.role).first%>
+          <%if rol.nombre == "DN" or rol.nombre == "ACRM"  or rol.nombre=="D" or rol.nombre =="CP"%>           
+            <%=g.association :user,:label_method=>:username,:include_blank => false,:label=>"Asignado a:"%>
+          <%else%>
+            <%=g.hidden_field :user,:label_method=>:username,:include_blank => false,:label=>"Asignado a:",:disabled=>true%>
+          <%end%>
+
+<%
+if rol.nombre == "DN" or rol.nombre == "ACRM"   or rol.nombre=="D" or rol.nombre =="CP"
+  %>
+<%=g.association :sede,:label_method=>:nombre,:include_blank => false, :label=>"Sede:"%>
+  <%
+else
+  sedesParaElCombo = Sede.where(:id=>current_user.sede)
+  %>
+<%=g.association :sede,:label_method=>:nombre,:include_blank => false, :label=>"Sede de interés:",collection: sedesParaElCombo, :selected=> sedesParaElCombo%>
+  <%
+end
+%>
           <%=g.association :grupo,:label_method=>:nombre,:include_blank => false%>
           <%=g.hidden_field :issolicitante%>
           <%= g.hidden_field :validado, :value=>true%>

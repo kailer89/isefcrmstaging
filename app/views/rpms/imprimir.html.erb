@@ -7,16 +7,23 @@
 
 <%        rol = Role.where(:id=>current_user.role).first
 
-        if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"  %>
+        if rol.nombre == "DN" or rol.nombre == "ACRM"  %>
 
-	<%@AllProspectos =Prospecto.where{prospectos.created_at != nil} %>
+
+	<%@AllProspectos =Prospecto.includes(:sede,:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]).where{prospectos.created_at != nil} %>
 <%else%>
-	<%@AllProspectos =Prospecto.where{prospectos.created_at != nil}.where{:user_id==current_user.id}.where{:sede_id==current_user.sede_id} %>
+	<%@AllProspectos =Prospecto.includes(:sede,:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]).where{prospectos.created_at != nil}.where(:user_id=>current_user).where(:sede_id=>current_user.sede) %>
 <%end%>
 <%
+fixedLimit = 10
+modelo = Configuracione.where(:user_id=>current_user.id).first rescue nil
+    if modelo != nil
+      fixedLimit = modelo.LimiteReportes 
+  
+    end  
 #campos editables
 if reporte.nacionalidad_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{nacionalidad_id.like_any reporte.nacionalidad_id}
+	@AllProspectos = @AllProspectos.where{nacionalidad_id.eq_any reporte.nacionalidad_id}
 end
 
 @AllProspectos = @AllProspectos.joins{interes_basicos}
@@ -25,43 +32,43 @@ end
 @AllProspectos = @AllProspectos.joins{medio_de_contactos}
 @AllProspectos = @AllProspectos.joins{plan_de_descuentos}
 if reporte.ultimo_grado_de_estudio_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{interes_basicos.ultimo_grado_de_estudio_id.like_any reporte.ultimo_grado_de_estudio_id}
+	@AllProspectos = @AllProspectos.where{interes_basicos.ultimo_grado_de_estudio_id.eq_any reporte.ultimo_grado_de_estudio_id}
 end
 
 if reporte.preparatoria_o_universidad_de_origen_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{interes_basicos.preparatoria_o_universidad_de_origen_id.like_any reporte.preparatoria_o_universidad_de_origen_id}
+	@AllProspectos = @AllProspectos.where{interes_basicos.preparatoria_o_universidad_de_origen_id.eq_any reporte.preparatoria_o_universidad_de_origen_id}
 end
 
 if reporte.municipio_de_la_preparatoria_o_universidad_de_origen_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{interes_basicos.municipio_de_la_preparatoria_o_universidad_de_origen_id.like_any reporte.municipio_de_la_preparatoria_o_universidad_de_origen_id}
+	@AllProspectos = @AllProspectos.where{interes_basicos.municipio_de_la_preparatoria_o_universidad_de_origen_id.eq_any reporte.municipio_de_la_preparatoria_o_universidad_de_origen_id}
 end
 
 if reporte.sede_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{interes_basicos.sede_id.like_any reporte.sede_id}
+	@AllProspectos = @AllProspectos.where{interes_basicos.sede_id.eq_any reporte.sede_id}
 end
 
 if reporte.subsede_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{interes_basicos.subsede_id.like_any reporte.subsede_id}
+	@AllProspectos = @AllProspectos.where{interes_basicos.subsede_id.eq_any reporte.subsede_id}
 end
 
 if reporte.modalidad_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{interes_basicos.modalidad_id.like_any reporte.modalidad_id}
+	@AllProspectos = @AllProspectos.where{interes_basicos.modalidad_id.eq_any reporte.modalidad_id}
 end
 
 if reporte.turno_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{interes_basicos.turno_id.like_any reporte.turno_id}
+	@AllProspectos = @AllProspectos.where{interes_basicos.turno_id.eq_any reporte.turno_id}
 end
 
 if reporte.periodo_para_ingresar_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{interes_basicos.periodo_para_ingresar_id.like_any reporte.periodo_para_ingresar_id}
+	@AllProspectos = @AllProspectos.where{interes_basicos.periodo_para_ingresar_id.eq_any reporte.periodo_para_ingresar_id}
 end
 
 if reporte.status_de_interes_de_prospecto_validado_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{interes_basicos.status_de_interes_de_prospecto_validado_id.like_any reporte.status_de_interes_de_prospecto_validado_id}
+	@AllProspectos = @AllProspectos.where{interes_basicos.status_de_interes_de_prospecto_validado_id.eq_any reporte.status_de_interes_de_prospecto_validado_id}
 end
 
 if reporte.grupo_id.flatten.size > 1
-	@AllProspectos = @AllProspectos.where{prospectos.grupo_id.like_any reporte.grupo_id}
+	@AllProspectos = @AllProspectos.where{prospectos.grupo_id.eq_any reporte.grupo_id}
 end
 
 
@@ -112,47 +119,117 @@ end
 	<%firstitem=true%>
 	<div class="tabbable tabs-left">
 	  <ul class="nav nav-tabs">
-	    <li class="active" ><a href="#usuario" data-toggle="tab">Usuario</a></li>
-	    <li><a href="#sede" data-toggle="tab">Sede</a></li>
-	    <li><a href="#subsede" data-toggle="tab">SubSede</a></li>
-	    <li><a href="#programa" data-toggle="tab">Programa</a></li>
-	    <li><a href="#porEstado" data-toggle="tab">Por Estado</a></li>
+
+
+	  <%
+	  	if rol.nombre == "DN" or rol.nombre == "ACRM"  
+			if reporte.usuarios !=nil
+	  			if reporte.usuarios == ""
+	  				reporte.usuarios = User.all
+	  			end
+	  		end
+
+	  		if reporte.sedes !=nil
+	  			if reporte.sedes == ""
+	  				reporte.sedes = Sede.all
+	  			end
+	  		end
+
+	  		if reporte.subsedes !=nil
+	  			if reporte.subsedes == ""
+	  				reporte.subsedes = Subsede.all
+	  			end
+	  		end	  		
+
+
+
+	  	else
+	  		if reporte.usuarios !=nil
+	  			if reporte.usuarios == ""
+	  				reporte.usuarios = [current_user]
+	  			end
+	  		end
+
+	  		if reporte.sedes !=nil
+	  			if reporte.sedes == ""
+	  				reporte.sedes = [current_user.sede]
+	  			end
+	  		end
+
+	  		if reporte.subsedes !=nil
+	  			if reporte.subsedes == ""
+	  				reporte.subsedes = Subsede.where(:sede_id=>current_user.sede.id)
+	  			end
+	  		end	  		
+
+
+
+
+	  	end
+	  		if reporte.programas !=nil
+	  				reporte.programas = Programa.all
+	  		end	  
+	  %>
+
+
+	  	<%
+	  	totalUsuarios = reporte.usuarios.size  rescue nil
+	  	totalSedes = reporte.sedes.size  rescue nil
+	  	totalSubsedes = reporte.subsedes.size  rescue nil
+	  	totalProgramas = reporte.programas.size  rescue nil
+	  	totalEstados = 4
+	  	%>
+
+
+	    <li class="active" ><a href="#usuario" data-toggle="tab">Usuario (<%=totalUsuarios%>)</a></li>
+	    <li><a href="#sede" data-toggle="tab">Sede (<%=totalSedes%>)</a></li>
+	    <li><a href="#subsede" data-toggle="tab">SubSede (<%=totalSubsedes%>)</a></li>
+	    <li><a href="#programa" data-toggle="tab">Programa (<%=totalProgramas%>)</a></li>
+	    <li><a href="#porEstado" data-toggle="tab">Por Estado (4)</a></li>
 	  </ul>
+
+
+
 	  <div class="tab-content">
 	    <div class="tab-pane fade in active" id="usuario">
 			<!-- Ordenar por programa -->
 			<div class="tabbable"> 
 			  <ul class="nav nav-tabs">
+
 			  	<%if reporte.usuarios != nil   and reporte.usuarios != ""%>
-				  	<%reporte.usuarios.each do |usuario|%>
+				  	<%reporte.usuarios.compact.each do |usuario|%>
 				  		<%usuario = User.where(:id=>usuario).first%>
 				  		<%if usuario != nil%>
+				  		<%@prospectos = @AllProspectos.where{prospectos.user_id==usuario.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
 					  		<%if firstitem%>
-					  			<li class="active"><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>
+					  			<li class="active"><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%> (<%=@prospectos.size%>)</a></li>
 					  			<%firstitem = false%>
 					  		<%else%>
-					  			<li><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>		
+					  			<li><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%> (<%=@prospectos.size%>)</a></li>		
 					  		<%end%>
 				  		<%end%>
 				  	<%end%>
 				<%else%>
+					<%if rol.nombre == "DN" or rol.nombre == "ACRM"  %>
 				  	<%User.all.each do |usuario|%>
+				  	<%@prospectos = @AllProspectos.where{prospectos.user_id==usuario.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
 				  		<%if firstitem%>
-				  			<li class="active"><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>
+				  			<li class="active"><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%> (<%=@prospectos.size%>)</a></li>
 				  			<%firstitem = false%>
 				  		<%else%>
-				  			<li><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>		
+				  			<li><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%> (<%=@prospectos.size%>)</a></li>		
 				  		<%end%>
 				  	<%end%>				
+				  	<%end%>	
 			  	<%end%>
 			  	<%firstitem = true%>
 			  </ul>
 			  <div class="tab-content">
 			  	<%if reporte.usuarios != nil  and reporte.usuarios != ""%>
-			  		<%reporte.usuarios.each do |usuario|%>
+			  		<%reporte.usuarios.compact.each do |usuario|%>
 				  		<%usuario = User.where(:id=>usuario).first%>
 				  		<%if usuario != nil %>
-					  		<%@prospectos = @AllProspectos.where{prospectos.user_id==usuario.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%@prospectos = @AllProspectos.where{prospectos.user_id==usuario.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}.limit(fixedLimit)%>
 					  		<%if firstitem%>
 					  			<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
 					  			<%firstitem = false%>
@@ -162,15 +239,17 @@ end
 				  		<%end%>		
 					<%end%>
 				<%else%>
+				<%if rol.nombre == "DN" or rol.nombre == "ACRM"  %>
 			  		<%User.all.each do |usuario|%>
 			  			<%if usuario != nil %>
-					  		<%@prospectos = @AllProspectos.where{prospectos.user_id==usuario.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%@prospectos = @AllProspectos.where{prospectos.user_id==usuario.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}.limit(fixedLimit)%>
 							<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
 				  			<%firstitem = false%>
 				  		<%else%>
 						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>		
 				  		<%end%>			
 					<%end%>				
+					<%end%>		
 				<%end%>
 
 				<%firstitem = true%>
@@ -183,35 +262,39 @@ end
 			<div class="tabbable"> 
 			  <ul class="nav nav-tabs">
 			  	<%if reporte.sedes != nil   and reporte.sedes != ""%>
-				  	<%reporte.sedes.each do |sede|%>
+				  	<%reporte.sedes.compact.each do |sede|%>
 				  		<%sede = Sede.where(:id=>sede).first%>
 				  		<%if sede != nil %>
+				  		<%@prospectos = @AllProspectos.where{prospectos.sede_id==sede.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
 					  		<%if firstitem%>
-					  			<li class="active"><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>
+					  			<li class="active"><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%> (<%=@prospectos.size%>)</a></li>
 					  			<%firstitem = false%>
 					  		<%else%>
-					  			<li><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>		
+					  			<li><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%> (<%=@prospectos.size%>)</a></li>		
 					  		<%end%>
 				  		<%end%>
 				  	<%end%>
 				<%else%>
+				<%if rol.nombre == "DN" or rol.nombre == "ACRM"  %>
 				  	<%Sede.all.each do |sede|%>
+				  	<%@prospectos = @AllProspectos.where{prospectos.sede_id==sede.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
 				  		<%if firstitem%>
-				  			<li class="active"><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>
+				  			<li class="active"><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%> (<%=@prospectos.size%>)</a></li>
 				  			<%firstitem = false%>
 				  		<%else%>
-				  			<li><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>		
+				  			<li><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%> (<%=@prospectos.size%>)</a></li>		
 				  		<%end%>
 				  	<%end%>				
+				  	<%end%>	
 				<%end%>
 			  	<%firstitem = true%>
 			  </ul>
 			  <div class="tab-content">
 			  	<%if reporte.sedes != nil  and reporte.sedes != ""%>
-				  	<%reporte.sedes.each do |sede|%>
+				  	<%reporte.sedes.compact.each do |sede|%>
 				  		<%sede = Sede.where(:id=>sede).first%>
 				  		<%if sede != nil %>
-					  		<%@prospectos = @AllProspectos.where{prospectos.sede_id==sede.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%@prospectos = @AllProspectos.where{prospectos.sede_id==sede.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}.limit(fixedLimit)%>
 					  		<%if firstitem%>
 								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
 					  			<%firstitem = false%>
@@ -221,8 +304,9 @@ end
 				  		<%end%>	
 					<%end%>
 				<%else%>
+				<%if rol.nombre == "DN" or rol.nombre == "ACRM"  %>
 					<%Sede.all.each do |sede|%>
-					  		<%@prospectos = @AllProspectos.where{prospectos.sede_id==sede.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%@prospectos = @AllProspectos.where{prospectos.sede_id==sede.id}.where{prospectos.created_at >= reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}.limit(fixedLimit)%>
 				  		<%if firstitem%>
 						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
 				  			<%firstitem = false%>
@@ -230,6 +314,7 @@ end
 								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>	
 				  		<%end%>			
 					<%end%>				
+					<%end%>		
 				<%end%>
 				<%firstitem = true%>
 			  </div>
@@ -241,35 +326,39 @@ end
 			<div class="tabbable"> 
 			  <ul class="nav nav-tabs">
 			  	<%if reporte.subsedes != nil and reporte.subsedes != ""%>
-				  	<%reporte.subsedes.each do |subsede|%>
+				  	<%reporte.subsedes.compact.each do |subsede|%>
 				  		<%subsede = Subsede.where(:id=>subsede).first%>
 				  		<%if subsede != nil%>
+				  		<%@prospectos = @AllProspectos.joins{interes_basicos}.where{interes_basicos.subsede_id==subsede.id}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
 					  		<%if firstitem%>
-					  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>
+					  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%> (<%=@prospectos.size%>)</a></li>
 					  			<%firstitem = false%>
 					  		<%else%>
-					  			<li><a href="#<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>		
+					  			<li><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%> (<%=@prospectos.size%>)</a></li>		
 					  		<%end%>
 				  		<%end%>
 				  	<%end%>
 			  	<%else%>
+			  	<%if rol.nombre == "DN" or rol.nombre == "ACRM"  %>
 			  		<%Subsede.all.each do |subsede|%>
+			  		<%@prospectos = @AllProspectos.joins{interes_basicos}.where{interes_basicos.subsede_id==subsede.id}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
 				  		<%if firstitem%>
-				  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>
+				  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%> (<%=@prospectos.size%>)</a></li>
 				  			<%firstitem = false%>
 				  		<%else%>
-				  			<li><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>		
+				  			<li><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%> (<%=@prospectos.size%>)</a></li>		
 				  		<%end%>
 				  	<%end%>			  	
+				  	<%end%>	
 			  	<%end%>
 			  	<%firstitem = true%>
 			  </ul>
 			  <div class="tab-content">
 			  	<%if reporte.subsedes != nil  and reporte.subsedes != ""%>
-				  	<%reporte.subsedes.each do |subsede|%>
+				  	<%reporte.subsedes.compact.each do |subsede|%>
 				  		<%subsede = Subsede.where(:id=>subsede).first%>
 				  		<%if subsede != nil%>
-					  		<%@prospectos = @AllProspectos.joins{interes_basicos}.where{interes_basicos.subsede_id==subsede.id}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%@prospectos = @AllProspectos.joins{interes_basicos}.where{interes_basicos.subsede_id==subsede.id}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}.limit(fixedLimit)%>
 					  		<%if firstitem%>
 								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
 					  			<%firstitem = false%>
@@ -279,8 +368,9 @@ end
 				  		<%end%>	
 					<%end%>
 				<%else%>
+				<%if rol.nombre == "DN" or rol.nombre == "ACRM"  %>
 				  	<%Subsede.all.each do |subsede|%>
-					  		<%@prospectos = @AllProspectos.joins{interes_basicos}.where{interes_basicos.subsede_id==subsede.id}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+					  		<%@prospectos = @AllProspectos.joins{interes_basicos}.where{interes_basicos.subsede_id==subsede.id}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}.limit(fixedLimit)%>
 				  		<%if firstitem%>
 						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
 				  			<%firstitem = false%>
@@ -288,35 +378,39 @@ end
 						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>	
 				  		<%end%>			
 					<%end%>				
+					<%end%>
 				<%end%>
 				<%firstitem = true%>
 			  </div>
 			</div>
 			<!-- Ordenar por programa -->
 	    </div>
+
 	    <div class="tab-pane" id="programa">
 			<!-- Ordenar por programa -->
 			<div class="tabbable"> 
 			  <ul class="nav nav-tabs">
 			  	<%if reporte.programas != nil%>
-				  	<%reporte.programas.each do |programaid|%>
+				  	<%reporte.programas.compact.each do |programaid|%>
 				  		<%programa = Programa.where(:id=>programaid).first%>
 				  		<%if programa != nil%>
+				  		<%@prospectos = @AllProspectos.where{prospectos.programa_id==programaid}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
 					  		<%if firstitem%>
-					  			<li class="active"><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%></a></li>
+					  			<li class="active"><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%> (<%=@prospectos.size%>)</a></li>
 					  			<%firstitem = false%>
 					  		<%else%>
-					  			<li><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%></a></li>		
+					  			<li><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%> (<%=@prospectos.size%>)</a></li>		
 					  		<%end%>
 				  		<%end%>
 				  	<%end%>
 				<%else%>
 				  	<%Programa.all.each do |programa|%>
+				  	<%@prospectos = @AllProspectos.where{prospectos.programa_id==programaid}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
 				  		<%if firstitem%>
-				  			<li class="active"><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%></a></li>
+				  			<li class="active"><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%> (<%=@prospectos.size%>)</a></li>
 				  			<%firstitem = false%>
 				  		<%else%>
-				  			<li><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%></a></li>		
+				  			<li><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue nil%> - <%=programa.programa rescue nil%> (<%=@prospectos.size%>)</a></li>		
 				  		<%end%>
 				  	<%end%>				
 				<%end%>
@@ -324,10 +418,10 @@ end
 			  </ul>
 			  <div class="tab-content">
 			  	<%if reporte.programas != nil%>
-					<%reporte.programas.each do |programaid|%>
+					<%reporte.programas.compact.each do |programaid|%>
 						<%programa = Programa.where(:id=>programaid).first%>
 						<%if programa != nil%>
-							<%@prospectos = @AllProspectos.where{prospectos.programa_id==programaid}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+							<%@prospectos = @AllProspectos.where{prospectos.programa_id==programaid}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}.limit(fixedLimit)%>
 					  		<%if firstitem%>
 							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
 					  			<%firstitem = false%>
@@ -338,7 +432,7 @@ end
 					<%end%>
 				<%else%>
 					<%Programa.all.each do |programa|%>
-							<%@prospectos = @AllProspectos.where{prospectos.programa_id==programaid}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}%>
+							<%@prospectos = @AllProspectos.where{prospectos.programa_id==programaid}.where{prospectos.created_at >=  reporte.rango_inicio}.where{prospectos.created_at <= reporte.rango_fin}.limit(fixedLimit)%>
 				  		<%if firstitem%>
 						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
 				  			<%firstitem = false%>
@@ -352,55 +446,175 @@ end
 			</div>
 			<!-- Ordenar por programa -->
 	    </div>
+
+					<%inicio = DateTime.parse('2010-09-6')%>
+					<%fin = DateTime.parse('2020-09-6')%>
+			  		<%historial = History.where("created_at >= ?",reporte.validado_inicio).where("created_at <= ?",reporte.validado_fin).where("action like '%alidado%'").all.map{|p|p.model_id}%>
+
 	    <div class="tab-pane" id="porEstado">
 			<!-- Ordenar por estado -->
 			<div class="tabbable"> 
 			  <ul class="nav nav-tabs">
-			  	<li class="active"><a href="#validados" data-toggle="tab">Validados</a></li>
-				<li><a href="#solicitantes" data-toggle="tab">Solicitantes</a></li>		
-				<li><a href="#examinados" data-toggle="tab">Examinados</a></li>		
-				<li><a href="#admitidos" data-toggle="tab">Admitidos</a></li>		
-				<li><a href="#inscritos" data-toggle="tab">Inscritos</a></li>		
+
+<%availprosp = @AllProspectos.all.map{|p|p.id}%>
+
+
+<%
+				  		@prospectos = @AllProspectos.where(:validado=>false).where(:importado_revisado=>true).where(:issolicitante=>false)%>
+
+
+
+			  	<li class="active"><a href="#novalidados" data-toggle="tab">No Validados (<%=@prospectos.size%>)</a></li>
+<%
+				  		@prospectos = @AllProspectos.where(:validado=>true).where(:importado_revisado=>true).where(:issolicitante=>false)%>
+
+
+			  	<li><a href="#validados" data-toggle="tab">Validados (<%=@prospectos.size%>)</a></li>
+<%
+
+				  		@prospectos = @AllProspectos.where(:importado_revisado=>false)%>
+
+
+			  	<li><a href="#norevisados" data-toggle="tab">Importado no revisado (<%=@prospectos.size%>)</a></li>
+
+<%
+
+historial =Solicitante.includes(:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]).where(:isexaminado=> false).where("created_at >= ?",inicio).where("created_at <= ?",fin).all.map do |u|
+	if availprosp.include?(u.prospecto_id)
+		u.prospecto_id
+	end
+end
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial.compact)%>
+
+
+
+				<li><a href="#solicitantes" data-toggle="tab">Solicitantes (<%=@prospectos.size%>)</a></li>		
+
+
+<%
+examinados=Examinado.includes(:status_del_examinado_paa,:status_del_examinado_psico,:status_del_examinado_entrevistum,solicitantes:[:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]]).where(:isadmitido=>false).where("created_at >= ?",inicio).where("created_at <= ?",fin).all.map{|p|p.id}
+solicitantes = Solicitante.includes(:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]).where(:isexaminado=>true).where("examinado_id in (:examinados)",:examinados=>examinados).all.map do |u|
+	if availprosp.include?(u.prospecto_id)
+		u.prospecto_id
+	end
+end
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>solicitantes.compact)%>
+
+				<li><a href="#examinados" data-toggle="tab">Examinados (<%=@prospectos.size%>)</a></li>	
+
+
+<%
+
+
+admitidos = Admitido.where(:isinscrito=>false).where("created_at >= ?",inicio).where("created_at <= ?",fin).all.map{|p|p.id}
+examinados=Examinado.includes(:status_del_examinado_paa,:status_del_examinado_psico,:status_del_examinado_entrevistum,solicitantes:[:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]]).where(:isadmitido=>true).where("admitido_id in (:admitidos)",:admitidos =>admitidos).all.map{|p|p.id}
+solicitantes = Solicitante.includes(:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]).where(:isexaminado=>true).where("examinado_id in (:examinados)",:examinados=>examinados).all.map do |u|
+	if availprosp.include?(u.prospecto_id)
+		u.prospecto_id
+	end
+end
+
+
+
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>solicitantes.compact)%>
+
+				<li><a href="#admitidos" data-toggle="tab">Admitidos (<%=@prospectos.size%>)</a></li>	
+
+<%
+inscritos = Inscrito.where("created_at >= ?",inicio).where("created_at <= ?",fin).all.map{|p|p.id}
+admitidos = Admitido.where(:isinscrito=>true).all.map{|p|p.id}
+examinados=Examinado.includes(:status_del_examinado_paa,:status_del_examinado_psico,:status_del_examinado_entrevistum,solicitantes:[:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]]).where(:isadmitido=>true).where("admitido_id in (:admitidos)",:admitidos =>admitidos).all.map{|p|p.id}
+solicitantes = Solicitante.includes(:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]).where(:isexaminado=>true).where("examinado_id in (:examinados)",:examinados=>examinados).all.map do |u|
+	if availprosp.include?(u.prospecto_id)
+		u.prospecto_id
+	end
+end
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>solicitantes.compact)%>
+
+
+				<li><a href="#inscritos" data-toggle="tab">Inscritos (<%=@prospectos.size%>)</a></li>		
 			  </ul>
 			  <div class="tab-content">
 <%logger.debug "---------------------------aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-----0"%>
-					<%inicio = DateTime.parse('2010-09-6')%>
-					<%fin = DateTime.parse('2020-09-6')%>
-			  		<%historial = History.where("created_at >= ?",reporte.validado_inicio).where("created_at <= ?",reporte.validado_fin).where("action like '%alidado%'").all.map{|p|p.model_id}
-			  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
-			  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"validados",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+					
+					<%
+				  		@prospectos = @AllProspectos.where(:validado=>false).where(:importado_revisado=>true).where(:issolicitante=>false).limit(fixedLimit)%>
+				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"novalidados",:active=>true,:columnas=>reporte.columnas_seleccionadas}%>
+			<%
+				  		@prospectos = @AllProspectos.where(:validado=>true).where(:importado_revisado=>true).where(:issolicitante=>false).limit(fixedLimit)%>
+				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"validados",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
+				  		<%
+				  		@prospectos = @AllProspectos.where(:importado_revisado=>false).limit(fixedLimit)%>
+				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"norevisados",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
+
+			
+			  		
 
 			  		<%if reporte.show_solicitantes%>
-				  		<%historial = History.where("created_at >= ?",inicio).where("created_at <= ?",fin).where("action like '%icitante%'").all.map{|p|p.model_id}
-				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
+				  		<%historial =Solicitante.where(:isexaminado=> false).where("created_at >= ?",inicio).where("created_at <= ?",fin).all.map do |u|
+	if availprosp.include?(u.prospecto_id)
+		u.prospecto_id
+	end
+end
+
+
+
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial.compact).limit(fixedLimit)%>
 
 				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"solicitantes",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
 				  	<%else%>
-				  	<div class="tab-pane active" id="solicitantes">
+				  	<div class="tab-pane" id="solicitantes">
 				  	</div>
 			  		<%end%>
 			  		<%if reporte.show_examinados%>
-				  		<%historial = History.where("created_at >= ?",inicio).where("created_at <= ?",fin).where("action like '%xaminado%'").all.map{|p|p.model_id}
-				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
+				  		<%
+
+examinados=Examinado.includes(:status_del_examinado_paa,:status_del_examinado_psico,:status_del_examinado_entrevistum,solicitantes:[:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]]).where(:isadmitido=>false).where("created_at >= ?",inicio).where("created_at <= ?",fin).all.map{|p|p.id}
+solicitantes = Solicitante.includes(:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]).where(:isexaminado=>true).where("examinado_id in (:examinados)",:examinados=>examinados).all.map do |u|
+	if availprosp.include?(u.prospecto_id)
+		u.prospecto_id
+	end
+end
+
+
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>solicitantes.compact).limit(fixedLimit)%>
 				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"examinados",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
 				  	<%else%>
-				  	<div class="tab-pane active" id="examinados">
+				  	<div class="tab-pane" id="examinados">
+
 				  	</div>				  		
 			  		<%end%>
 			  		<%if reporte.show_admitidos%>
-				  		<%historial = History.where("created_at >= ?",inicio).where("created_at <= ?",fin).where("action like '%dmitido%'").all.map{|p|p.model_id}
-				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
+				  		<%
+admitidos = Admitido.includes(:status_de_admision,:status_de_la_notificacion,:status_del_admitido,:status_ref_pago_insc,:periodo_para_ingresar,examinados:[:status_del_examinado_paa,:status_del_examinado_psico,:status_del_examinado_entrevistum,solicitantes:[:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]]]).where(:isinscrito=>false).where("created_at >= ?",inicio).where("created_at <= ?",fin).all.map{|p|p.id}
+examinados=Examinado.includes(:status_del_examinado_paa,:status_del_examinado_psico,:status_del_examinado_entrevistum,solicitantes:[:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]]).where(:isadmitido=>true).where("admitido_id in (:admitidos)",:admitidos =>admitidos).all.map{|p|p.id}
+solicitantes = Solicitante.includes(:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]).where(:isexaminado=>true).where("examinado_id in (:examinados)",:examinados=>examinados).all.map do |u|
+	if availprosp.include?(u.prospecto_id)
+		u.prospecto_id
+	end
+end
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>solicitantes.compact).limit(fixedLimit)%>
 				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"admitidos",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
 				  	<%else%>
-				  	<div class="tab-pane active" id="admitidos">
+				  	<div class="tab-pane" id="admitidos">
 				  	</div>					  		
 			  		<%end%>
 			  		<%if reporte.show_inscritos%>
-				  		<%historial = History.where("created_at >= ?",inicio).where("created_at <= ?",fin).where("action like '%nscrito%'").all.map{|p|p.model_id}
-				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>historial)%>
+				  		<%
+
+inscritos = Inscrito.includes(:status_de_la_inscripcion,:status_del_pago_de_la_inscripcion,admitidos:[:status_de_admision,:status_de_la_notificacion,:status_del_admitido,:status_ref_pago_insc,:periodo_para_ingresar,examinados:[:status_del_examinado_paa,:status_del_examinado_psico,:status_del_examinado_entrevistum,solicitantes:[:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]]]]).where("created_at >= ?",inicio).where("created_at <= ?",fin).all.map{|p|p.id}
+admitidos = Admitido.includes(:status_de_admision,:status_de_la_notificacion,:status_del_admitido,:status_ref_pago_insc,:periodo_para_ingresar,examinados:[:status_del_examinado_paa,:status_del_examinado_psico,:status_del_examinado_entrevistum,solicitantes:[:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]]]).where(:isinscrito=>true).all.map{|p|p.id}
+examinados=Examinado.includes(:status_del_examinado_paa,:status_del_examinado_psico,:status_del_examinado_entrevistum,solicitantes:[:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]]).where(:isadmitido=>true).where("admitido_id in (:admitidos)",:admitidos =>admitidos).all.map{|p|p.id}
+solicitantes = Solicitante.includes(:status_de_pago_de_examen_de_admision,:tipo_de_admision,:becacreditos,becacreditos:[:status_de_ese,:status_de_pago_ese,:status_del_tramite_de_beca],prospectos: [:direccions,:interes_basicos,:medio_de_contactos, :interes_academicos, :accion_estrategicas, :plan_de_descuentos, :subsedes, :programa_de_interes, :ultimo_grado_de_estudios, :preparatoria_o_universidad_de_origens, :municipio_de_la_preparatoria_o_universidad_de_origens, :nivels, :turnos, :periodo_para_ingresars, :status_de_interes_de_prospecto_validados, :modalidads,:user,:nacionalidad,:mercado_metum,:territorio,:plan_de_ventum,:programa,:grupo, interes_basicos: [:sede,:ultimo_grado_de_estudio,:preparatoria_o_universidad_de_origen,:municipio_de_la_preparatoria_o_universidad_de_origen,:programa_de_intere,:nivel,:turno,:periodo_para_ingresar,:status_de_interes_de_prospecto_validado,:subsede,:programa,:modalidad]]).where(:isexaminado=>true).where("examinado_id in (:examinados)",:examinados=>examinados).all.map do |u|
+	if availprosp.include?(u.prospecto_id)
+		u.prospecto_id
+	end
+end
+
+				  		@prospectos = @AllProspectos.where("prospectos.id in (:historyids)",:historyids=>solicitantes.compact).limit(fixedLimit)%>
 				  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"inscritos",:active=>false,:columnas=>reporte.columnas_seleccionadas}%>
 				  	<%else%>
-				  	<div class="tab-pane active" id="inscritos">
+				  	<div class="tab-pane" id="inscritos">
 				  	</div>						  		
 			  		<%end%>
 <%logger.debug "---------------------------aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-----0"%>			  		

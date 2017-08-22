@@ -5,8 +5,7 @@ class DashboardsController < ApplicationController
   # GET /dashboards
   # GET /dashboards.json
   def index
-    @search = User.ransack(params[:search])
-    @users = @search.result.paginate(:per_page => 15, :page => params[:page])
+    @users = User.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }

@@ -1,4 +1,5 @@
 class SolicitantesController < ApplicationController
+   
   before_filter :authenticate_user!
   
   helper_method :sort_column, :sort_direction
@@ -14,9 +15,9 @@ class SolicitantesController < ApplicationController
 
 
     if modelo == nil
-    @solicitantes = Solicitante.where(:isexaminado=>false).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+    @solicitantes = getSolicitantesForUser(current_user).where(:isexaminado=>false).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     else
-      @solicitantes = Solicitante.where(:archivado=>archivado).where(:isexaminado=>false).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+      @solicitantes = getSolicitantesForUser(current_user).where(:archivado=>archivado).where(:isexaminado=>false).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     end
 
 
@@ -30,12 +31,25 @@ class SolicitantesController < ApplicationController
     if rol.nombre == "DN" or rol.nombre == "ACRM"  
       logger.debug "admin"
     else
-      @solicitantes=@solicitantes.where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.where(:sede_id=>current_user.sede).joins{solicitante}.where(:user_id=>current_user.id))
+      @solicitantes=getSolicitantesForUser(current_user).where(:isexaminado=>false)
     end
+
+
+      ini = params[:inicio]
+      fin = params[:final]
+
 
       @q = @solicitantes.ransack(params[:q])
       @q.build_grouping unless @q.groupings.any?
-      @solicitantes  = params[:distinct].to_i.zero? ? @q.result.paginate(:per_page => 50, :page => params[:page])  : @q.result(distinct: true).paginate(:per_page => 50, :page => params[:page]) 
+
+
+          if ini != nil
+            @solicitantes  = params[:distinct].to_i.zero? ? @q.result.paginate(:per_page => 50, :page => params[:page])  : @q.result(distinct: true).paginate(:per_page => 50, :page => params[:page]).where{id>=ini.to_s}.where{id<=fin.to_s}
+          else
+            @solicitantes  = params[:distinct].to_i.zero? ? @q.result.paginate(:per_page => 50, :page => params[:page])  : @q.result(distinct: true).paginate(:per_page => 50, :page => params[:page])
+          end
+      
+       
 
 
 
@@ -222,6 +236,14 @@ end
   def convertir_solicitante
     @solicitante = Solicitante.find(params[:id])
     @solicitante.isexaminado=true
+
+    hasInscritoAlready = Examinado.where(:solicitante_id=>@solicitante.id).first
+    if hasInscritoAlready != nil
+      redirect_to edit_examinado_path(hasInscritoAlready), :flash => { :info => "Solicitante ya habia sido convertido." }
+      return
+    end
+
+
     solicitante=@solicitante
     newexaminado=Examinado.create(:solicitante_id=>solicitante.id)
     newexaminado.isadmitido = false

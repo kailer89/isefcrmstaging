@@ -6,17 +6,7 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.json
   def stweet
-      atoken = session['twitterinfo']['extra']['access_token'].token
-      asecret = session['twitterinfo']['extra']['access_token'].secret
 
-      Twitter.configure do |config|
-        config.consumer_key = "RYtwkKaKy6TfIrUILDPN8Q"
-        config.consumer_secret = "N4j5OWyIVDBTz40m244wT9hq3hK7RcaVjG3yhJc9Jo"
-        config.oauth_token = atoken
-        config.oauth_token_secret = asecret 
-      end
-
-      Twitter.update("I'm tweeting with @gem! v2")
   end
 
 
@@ -24,62 +14,35 @@ class HomesController < ApplicationController
   def index
     archivado = false
             rol = Role.where(:id=>current_user.role).first
-    modelo = Configuracione.where(:user_id=>current_user.id).first rescue nil
+    modelo = Configuracione.where(:user_id=>user.id).first rescue nil
     
     if modelo != nil
       archivado = modelo.mostrar_archivados
     end   
-    if modelo == nil 
-
-      if rol.nombre == "ACRM"      
-        @prospectosnovalidados=Prospecto.where(:validado=>false).where(:issolicitante=> false).limit(5)
-        @prospectosvalidados=Prospecto.where(:validado=>true).where(:issolicitante=> false).limit(5)
-        @solicitantes=Solicitante.where(:isexaminado=> false).all(:limit=>5)
-        @examinados=Examinado.where(:isadmitido=>false).all(:limit=>5)
-        @admitidos=Admitido.where(:isinscrito=>false).all(:limit=>5)
-        @inscritos=Inscrito.all(:limit=>5)
-
-        @tareas =Tarea.where(:user_id =>current_user.id).limit(5).order(:fecha_de_inicio_de_la_tarea)
-        @memos=Memo.where(:user_id =>current_user.id).limit(5)
-        @llamadas=Llamada.where(:user_id =>current_user.id).limit(5)
-    else
-        @prospectosnovalidados=Prospecto.where(:issolicitante=> false).where(:validado=>false,:user_id =>current_user.id).where(:issolicitante=> false).limit(5)
-        @prospectosvalidados=Prospecto.where(:issolicitante=> false).where(:validado=>true,:user_id =>current_user.id).where(:issolicitante=> false).limit(5)
-        @solicitantes=Solicitante.where(:isexaminado=> false).where(:isexaminado=> false).where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.joins{solicitante}.where(:user_id=>current_user.id)).all(:limit=>5)
-        @examinados=Examinado.where(:isadmitido=>false).where("solicitante_id in (:solicitantes)",:solicitantes=>Solicitante.where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.joins{solicitante}.where(:user_id=>current_user.id))).all(:limit=>5)
-        @admitidos=Admitido.where(:isinscrito=>false).where("examinado_id in (:examinados)",:examinados=>Examinado.where("solicitante_id in (:solicitantes)",:solicitantes=>Solicitante.where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.joins{solicitante}.where(:user_id=>current_user.id)))).all(:limit=>5)
-        @inscritos=Inscrito.where("admitido_id in (:admitidos)",:admitidos=>Admitido.where("examinado_id in (:examinados)",:examinados=>Examinado.where("solicitante_id in (:solicitantes)",:solicitantes=>Solicitante.where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.joins{solicitante}.where(:user_id=>current_user.id))))).all(:limit=>5)
-
-
-        @tareas =Tarea.where(:user_id =>current_user.id).limit(5).order(:fecha_de_inicio_de_la_tarea)
-        @memos=Memo.where(:user_id =>current_user.id).limit(5)
-        @llamadas=Llamada.where(:user_id =>current_user.id).limit(5)      
-    end
-  else
-    if rol.nombre == "ACRM"  
-      @prospectosnovalidados=Prospecto.where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).limit(5)
-      @prospectosvalidados=Prospecto.where(:archivado=>archivado).where(:validado=>true).where(:issolicitante=> false).limit(5)
-      @solicitantes=Solicitante.where(:isexaminado=> false).where(:archivado=>archivado).where(:isexaminado=> false).all(:limit=>5)
-      @examinados=Examinado.where(:archivado=>archivado).where(:isadmitido=>false).all(:limit=>5)
-      @admitidos=Admitido.where(:archivado=>archivado).where(:isinscrito=>false).all(:limit=>5)
-      @inscritos=Inscrito.where(:archivado=>archivado).all(:limit=>5)
+    
+    if rol.nombre == "ACRM"   or rol.nombre == "DN" 
+      @prospectosnovalidados=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).limit(5)
+      @prospectosvalidados=getProspectosForUser(current_user).where(:archivado=>archivado).where(:validado=>true).where(:issolicitante=> false).limit(5)
+      @solicitantes=getSolicitantesForUser(current_user).where(:isexaminado=> false).where(:archivado=>archivado).where(:isexaminado=> false).all(:limit=>5)
+      @examinados=getExaminadosForUser(current_user).where(:archivado=>archivado).where(:isadmitido=>false).all(:limit=>5)
+      @admitidos=getAdmitidosForUser(current_user).where(:archivado=>archivado).where(:isinscrito=>false).all(:limit=>5)
+      @inscritos=getInscritosForUser(current_user).where(:archivado=>archivado).all(:limit=>5)
 
       @tareas =Tarea.where(:user_id =>current_user.id).limit(5).order(:fecha_de_inicio_de_la_tarea)
       @memos=Memo.where(:user_id =>current_user.id).limit(5)
       @llamadas=Llamada.where(:user_id =>current_user.id).limit(5)
     else
-      @prospectosnovalidados=Prospecto.where(:issolicitante=> false).where(:archivado=>archivado).where(:validado=>false,:user_id =>current_user.id).where(:issolicitante=> false).limit(5)
-      @prospectosvalidados=Prospecto.where(:issolicitante=> false).where(:archivado=>archivado).where(:validado=>true,:user_id =>current_user.id).where(:issolicitante=> false).limit(5)
-      @solicitantes=Solicitante.where(:isexaminado=> false).where(:archivado=>archivado).where(:isexaminado=> false).where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.joins{solicitante}.where(:user_id=>current_user.id)).all(:limit=>5)
-      @examinados=Examinado.where(:archivado=>archivado).where(:isadmitido=>false).where("solicitante_id in (:solicitantes)",:solicitantes=>Solicitante.where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.joins{solicitante}.where(:user_id=>current_user.id))).all(:limit=>5)
-      @admitidos=Admitido.where(:archivado=>archivado).where(:isinscrito=>false).all(:limit=>5)
-      @inscritos=Inscrito.where(:archivado=>archivado).where("admitido_id in (:admitidos)",:admitidos=>Admitido.where("examinado_id in (:examinados)",:examinados=>Examinado.where("solicitante_id in (:solicitantes)",:solicitantes=>Solicitante.where("prospecto_id in (:prospectos)",:prospectos=>Prospecto.joins{solicitante}.where(:user_id=>current_user.id))))).all(:limit=>5)
+      @prospectosnovalidados=getProspectosForUser(current_user).where(:issolicitante=> false).where(:archivado=>archivado).where(:validado=>false).where(:issolicitante=> false).limit(5)
+      @prospectosvalidados=getProspectosForUser(current_user).where(:issolicitante=> false).where(:archivado=>archivado).where(:validado=>true).where(:issolicitante=> false).limit(5)
+      @solicitantes=getSolicitantesForUser(current_user).where(:isexaminado=> false).where(:archivado=>archivado).where(:isexaminado=> false).all(:limit=>5)
+      @examinados=getExaminadosForUser(current_user).where(:archivado=>archivado).where(:isadmitido=>false).all(:limit=>5)
+      @admitidos=getAdmitidosForUser(current_user).where(:archivado=>archivado).where(:isinscrito=>false).all(:limit=>5)
+      @inscritos=getInscritosForUser(current_user).all(:limit=>5)
 
       @tareas =Tarea.where(:user_id =>current_user.id).limit(5).order(:fecha_de_inicio_de_la_tarea)
       @memos=Memo.where(:user_id =>current_user.id).limit(5)
       @llamadas=Llamada.where(:user_id =>current_user.id).limit(5)      
     end
-  end
 #Load facebook.yml info
    #config = YAML::load(File.open("#{Rails.root}/config/facebook.yml"))
   

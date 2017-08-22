@@ -1,4 +1,5 @@
 	<%= simple_form_for @rpm, :html => { :class => 'form-horizontal' ,:id=>"forma" } do |f| %>
+	<%=f.hidden_field :created_by, :value=>current_user %>
 		<div id="wizard">
 			<ol>
 				<li>Titulo</li>
@@ -18,20 +19,23 @@
 			</div>
 			<div>
 				<legend>Selccionar el personal que creo prospectos</legend>
+
+
+
 				<%rol = Role.where(:id=>current_user.role).first%>
 				<%if rol.nombre == "AC"%>
-					<p>Solo puedes ver los prospctos que tu hayas creado.</p>
-					<%f.hidden_field :usuarios,:collection=>User.where(:id=>current_user.id).map{|c| [c.username,c.id] }.sort%>
+					<p>Solo puedes ver los prospectos que tu hayas creado.</p>
+					<%=f.hidden_field :usuarios,:as=>:check_boxes,:checked=> current_user.id,:collection=>User.where(:id=>current_user.id).map{|c| [c.username,c.id] }.sort,:include_blank=>false%>
 				<%else%>
 <%
  rol = Role.where(:id=>current_user.role).first
-    if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"    or rol.nombre == "CP"  
+    if rol.nombre == "DN" or rol.nombre == "ACRM"
       %>
 				<%= f.input :usuarios,:as => :check_boxes,:label=>"Empleados",:checked => @rpm.usuarios, :collection=>User.all.map{|c| [c.username,c.id] }.sort,:include_blank=>true%>
       <%
     else
       %>
-				<%= f.input :usuarios,:as => :check_boxes,:label=>"Empleados",:checked => @rpm.usuarios, :collection=>User.where(:sede_id=>current_user.sede).all.map{|c| [c.username,c.id] }.sort,:include_blank=>true%>
+				<%= f.hidden_field :usuarios,:as => :check_boxes,:label=>"Empleados",:checked => current_user.id, :collection=>User.where(:sede_id=>current_user.sede).all.map{|c| [c.username,c.id] }.sort,:include_blank=>true%>
       <%
     end
 
@@ -43,14 +47,14 @@
 			<div>
 				<legend>Seleccionar la Sede y SubSede del Prospecto</legend>
 				<%rol = Role.where(:id=>current_user.role).first%>
-				<%if rol.nombre == "D" or rol.nombre == "ACRM" or rol.nombre == "AL" or rol.nombre == "A"%>				
+				<%if rol.nombre == "DN" or rol.nombre == "ACRM" %>				
 					<%= f.input :sedes,:as => :check_boxes,:checked => @rpm.sedes, :collection=>Sede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>true  %>
 					<%= f.input :subsedes,:as => :check_boxes,:checked => @rpm.subsedes, :collection=>Subsede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>true %>
 
 				<%else%>
- 					<p>Solo puedes ver los prospctos que tu hayas creado en tu sede.</p>				
-					<%= f.hidden_field :sedes,:as => :check_boxes,:checked => @rpm.sedes, :collection=>Sede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>true  %>
-					<%= f.hidden_field :subsedes,:as => :check_boxes,:checked => @rpm.subsedes, :collection=>Subsede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>true %>
+ 					<p>Solo puedes ver los prospectos que tu hayas creado en tu sede.</p>				
+					<%= f.hidden_field :sedes,:as => :check_boxes,:checked => [current_user.sede.id], :collection=>Sede.where(:id=>current_user.sede).map{|c| [c.nombre,c.id] }.sort,:include_blank=>false  %>
+					<%= f.hidden_field :subsedes,:as => :check_boxes,:checked => Subsede.where('sede_id in (:sedes)',:sedes=>Sede.where(:id=>current_user.sede).map{|c| c.id}).map{|c| c.id }, :collection=>Subsede.where('sede_id in (:sedes)',:sedes=>Sede.where(:id=>current_user.sede).map{|c| c.id}).map{|c| [c.nombre,c.id] }.sort,:include_blank=>false %>
 				<%end%>
 			</div>
 			<div>
@@ -95,21 +99,21 @@
 						<blockquote>
 						  <p>Examinados</p>
 						</blockquote>              
-						<%= f.input :show_solicitantes,:label=>"Mostrar Examinados"%>											
+						<%= f.input :show_examinados,:label=>"Mostrar Examinados"%>											
 					</div>
 					<div>
 						<legend>Seleccionar el rango de fechas para Admitidos</legend>
 						<blockquote>
 						  <p>Admitidos</p>
 						</blockquote>              
-						<%= f.input :show_solicitantes,:label=>"Mostrar Admitidos"%>					
+						<%= f.input :show_admitidos,:label=>"Mostrar Admitidos"%>					
 					</div>
 					<div>
 						<legend>Seleccionar el rango de fechas para Inscritos</legend>
 						<blockquote>
 						  <p>Inscritos</p>
 						</blockquote>              															
-						<%= f.input :show_solicitantes,:label=>"Mostrar Inscritos"%>					
+						<%= f.input :show_inscritos,:label=>"Mostrar Inscritos"%>					
 					</div>
 				</div>				
 			</div>
@@ -132,8 +136,19 @@
 						<%= f.input :ultimo_grado_de_estudio_id,:as => :check_boxes,:checked => @rpm.ultimo_grado_de_estudio_id, :collection=>UltimoGradoDeEstudio.all.map{|c| [c.grado_de_estudio,c.id] }.sort,:include_blank=>true%>
 						<%= f.input :preparatoria_o_universidad_de_origen_id,:checked => @rpm.preparatoria_o_universidad_de_origen_id,:as => :check_boxes, :collection=>PreparatoriaOUniversidadDeOrigen.all.map{|c| [c.valor,c.id] }.sort,:include_blank=>true%>	
 						<%= f.input :municipio_de_la_preparatoria_o_universidad_de_origen_id,:checked => @rpm.municipio_de_la_preparatoria_o_universidad_de_origen_id,:as => :check_boxes, :collection=>MunicipioDeLaPreparatoriaOUniversidadDeOrigen.all.map{|c| [c.valor,c.id] }.sort,:include_blank=>true%>
-						<%= f.input :sede_id,:as => :check_boxes,:checked => @rpm.sede_id, :collection=>Sede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>true%>
-						<%= f.input :subsede_id,:as => :check_boxes,:checked => @rpm.subsede_id, :collection=>Subsede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>true%>
+
+				<%rol = Role.where(:id=>current_user.role).first%>
+				<%if rol.nombre == "DN" or rol.nombre == "ACRM" %>				
+					<%= f.input :sede_id,:as => :check_boxes,:checked => @rpm.sede_id, :collection=>Sede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>true  %>
+					<%= f.input :subsede_id,:as => :check_boxes,:checked => @rpm.subsede_id, :collection=>Subsede.all.map{|c| [c.nombre,c.id] }.sort,:include_blank=>true %>
+
+				<%else%>
+ 					<p>Solo puedes ver los prospectos que tu hayas creado en tu sede.</p>				
+					<%= f.input :sede_id,:as => :check_boxes,:checked => @rpm.sede_id, :collection=>Sede.where(:id=>current_user.sede).map{|c| [c.nombre,c.id] }.sort,:include_blank=>true  %>
+					<%= f.input :subsede_id,:as => :check_boxes,:checked => @rpm.subsede_id, :collection=>Subsede.where('sede_id in (:sedes)',:sedes=>Sede.where(:id=>current_user.sede).map{|c| c.id}).map{|c| [c.nombre,c.id] }.sort,:include_blank=>true %>
+				<%end%>
+
+
 						<%= f.input :modalidad_id,:as => :check_boxes,:checked => @rpm.modalidad_id, :collection=>Modalidad.all.map{|c| [c.valor,c.id] }.sort,:include_blank=>true%>
 						<%= f.input :nivel_id,:as => :check_boxes,:checked => @rpm.nivel_id, :collection=>Nivel.all.map{|c| [c.valor,c.id] }.sort,:include_blank=>true%>
 						<%= f.input :turno_id,:as => :check_boxes,:checked => @rpm.turno_id, :collection=>Turno.all.map{|c| [c.valor,c.id] }.sort,:include_blank=>true%>

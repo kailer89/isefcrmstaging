@@ -8,6 +8,11 @@
   </p>
 </div>
 <div class="well">
+<%
+@purge = Purge.new
+%>
+<%= form_tag  do |f| %>
+<%sedes = Sede.all%>
 <table class="table table-striped table-bordered table-condensed">
   <thead>
     <tr>
@@ -16,6 +21,12 @@
     </tr>
   </thead>
   <tbody>
+          <tr>
+        <td>Purge Test</td>
+        <td>
+          <%= link_to 'Purge test test', purge_test_path , :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
       <tr>
         <td>Purge Admitidos</td>
         <td>
@@ -66,4 +77,6 @@
       </tr>
   </tbody>
 </table>
+<% end %>
+
 </div>

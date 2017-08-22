@@ -97,8 +97,10 @@ rol = Role.where(:id=>current_user.role).first
     @llamada = Llamada.find(params[:id])
     @llamada.destroy
 else
+  @llamada = Llamada.find(params[:id])
   flash[:error] ='No tienes permiso para realizar esta accion'
-
+  redirect_to "/#{@llamada.model_name}/#{@llamada.model_id}/edit/"
+  return 
 end
     
 

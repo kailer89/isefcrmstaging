@@ -1,0 +1,205 @@
+ 
+
+
+
+<h1><%=@prospectos.size%> Prospectos Cambiados!<small>Por favor verifique los cambios realizados.<br/> 
+
+
+
+Cambiado <b><%=@psm[:fieldname]%></b> a <b><%=@psm[:fieldvaluetext]%></b></small></h1> 
+
+
+
+<br/> 
+
+
+
+<p><%=link_to 'Volver a cambiar mas &raquo; registros'.html_safe, mostrarmultiple_path(:q=>params[:q]),:class=>"btn"%></p> 
+
+
+
+<table class="table table-striped table-bordered table-condensed" id="MyTable"> 
+
+
+
+  <thead> 
+
+
+
+    <tr> 
+
+
+
+      <th>Id</th> 
+
+
+
+      <th>Nombre</th> 
+
+
+
+      <th>Apellido Paterno</th> 
+
+
+
+      <th>Apellido Materno</th> 
+
+
+
+      <th>Programa</th> 
+
+
+
+      <th>Importado Revisado</th> 
+
+
+
+      <th>Validado</th> 
+
+
+
+      <th>Creado en</th> 
+
+
+
+      <th>Acciones</th> 
+
+
+
+    </tr> 
+
+
+
+  </thead> 
+
+
+
+  <tbody> 
+
+
+
+    <% @prospectos.each do |prospecto| %> 
+
+
+
+      <tr> 
+
+
+
+        <td><%= prospecto.id %></td> 
+
+
+
+        <td><%= link_to prospecto.nombre, prospecto_path(prospecto) %></td> 
+
+
+
+        <td><%= link_to prospecto.apellido_paterno, prospecto_path(prospecto) %></td> 
+
+
+
+        <td><%= link_to prospecto.apellido_materno, prospecto_path(prospecto) %></td> 
+
+
+
+        <td><%= link_to prospecto_path(prospecto) do %> 
+
+
+
+            <%=prospecto.programa.nivel rescue nil%> - <%=prospecto.programa.programa rescue nil%> 
+
+
+
+            <%end%> 
+
+
+
+        </td> 
+
+
+
+        <td><%=link_to prospecto_path(prospecto) do%> 
+
+
+
+                <%= prospecto.importado_revisado == true ? "Revisada Importacion" : "Importacion No Revisada" %> 
+
+
+
+            <%end%> 
+
+
+
+        </td> 
+
+
+
+        <td><%= link_to prospecto_path(prospecto) do %> 
+
+
+
+            <%=prospecto.validado == true ? "Validado" : "No Validado"%> 
+
+
+
+          <%end%></td>         
+
+
+
+        <td><%= prospecto.created_at %></td> 
+
+
+
+        <td>          
+
+
+
+          <%= link_to 'Edit', edit_prospecto_path(prospecto), :class => 'btn btn-mini' %> 
+
+
+
+          <%= link_to 'Resumen', resumen_path(prospecto),:class=>'btn btn-success btn-mini'%> 
+
+
+
+        <a href="#" class='btn btn-info btn-mini'  onclick="javascript:openPrint('prospectos','<%=prospecto.id%>')"> 
+
+
+
+          <i class="icon-print"></i> Imprimir 
+
+
+
+        </a> 
+
+
+
+          <%if not prospecto.issolicitante%> 
+
+
+
+              <%= link_to 'Destroy', prospecto_path(prospecto), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %> 
+
+
+
+          <%end%> 
+
+
+
+        </td> 
+
+
+
+      </tr> 
+
+
+
+    <% end %> 
+
+
+
+  </tbody> 
+
+
+
+</table>

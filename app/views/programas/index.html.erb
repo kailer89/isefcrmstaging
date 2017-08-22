@@ -18,6 +18,7 @@
         <td><%= programa.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_programa_path(programa), :class => 'btn btn-mini' %>
+          <%= link_to 'Borrar', programa_path(programa), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
