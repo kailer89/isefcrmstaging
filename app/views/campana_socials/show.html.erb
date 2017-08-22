@@ -1,0 +1,27 @@
+<h1>Campana Social</h1>
+
+<p>
+  <b>Nombre</b><br>
+  <%= @campana_social.nombre %>
+</p>
+
+<p>
+  <b>Descripcion</b><br>
+  <%= @campana_social.descripcion %>
+</p>
+
+<p>
+  <b>Tipo</b><br>
+  <%= @campana_social.tipo %>
+</p>
+
+<p>
+  <b>Proveedor</b><br>
+  <%= @campana_social.proveedor %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', campana_socials_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_campana_social_path(@campana_social), :class => 'btn' %>
+  <%= link_to 'Delete', campana_social_path(@campana_social), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

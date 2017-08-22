@@ -1,0 +1,48 @@
+<%- model_class = @equipo_de_alto_rendimiento.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-vertical">
+  <dt><strong><%= model_class.human_attribute_name(:periodo_anual) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.periodo_anual %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id) %>:</strong></dt>
+  <dd>
+<%
+         elPrograma = Sede.where(:id=>@equipo_de_alto_rendimiento.sede_id).first
+    %>
+    <%=elPrograma.nombre%>
+  </dd>
+  <dt><strong><%= model_class.human_attribute_name(:nombre_completo) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.nombre_completo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cargo) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.cargo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:proyectos_a_cargo) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.proyectos_a_cargo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:horario_laboral) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.horario_laboral %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_nacimiento) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.fecha_de_nacimiento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:modalidad_de_contratacion) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.modalidad_de_contratacion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:horas_semanales) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.horas_semanales %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email_institucional) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.email_institucional %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefono_de_oficina) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.telefono_de_oficina %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:extension) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.extension %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:jefe_directo) %>:</strong></dt>
+  <dd><%= @equipo_de_alto_rendimiento.jefe_directo %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              equipo_de_alto_rendimientos_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_equipo_de_alto_rendimiento_path(@equipo_de_alto_rendimiento), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              equipo_de_alto_rendimiento_path(@equipo_de_alto_rendimiento),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

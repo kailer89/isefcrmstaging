@@ -1,0 +1,16 @@
+<%= simple_form_for(@reportline) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :nombre_del_campo %>
+    <%= f.input :modulo %>
+    <%= f.input :report_id %>
+    <%= f.input :campo %>
+    <%= f.input :filtro %>
+    <%= f.input :valorcampo %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

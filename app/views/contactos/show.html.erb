@@ -1,0 +1,43 @@
+<%- model_class = @contacto.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-vertical">
+  <dt><strong><%= model_class.human_attribute_name(:nombre_completo) %>:</strong></dt>
+  <dd><%= @contacto.nombre_completo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:organizacion) %>:</strong></dt>
+  <dd><%= @contacto.organizacion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cargo) %>:</strong></dt>
+  <dd><%= @contacto.cargo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:archivar_como) %>:</strong></dt>
+  <dd><%= @contacto.archivar_como %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:correo_electronico) %>:</strong></dt>
+  <dd><%= @contacto.correo_electronico %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pagina_web) %>:</strong></dt>
+  <dd><%= @contacto.pagina_web %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:direccion_de_instant_messenger) %>:</strong></dt>
+  <dd><%= @contacto.direccion_de_instant_messenger %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:numeros_de_trabajo) %>:</strong></dt>
+  <dd><%= @contacto.numeros_de_trabajo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:numero_particular) %>:</strong></dt>
+  <dd><%= @contacto.numero_particular %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:numero_del_fax_del_trabajo) %>:</strong></dt>
+  <dd><%= @contacto.numero_del_fax_del_trabajo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:numero_movil) %>:</strong></dt>
+  <dd><%= @contacto.numero_movil %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:direccion_trabajo) %>:</strong></dt>
+  <dd><%= @contacto.direccion_trabajo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:notas) %>:</strong></dt>
+  <dd><%= @contacto.notas %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              contactos_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_contacto_path(@contacto), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              contacto_path(@contacto),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

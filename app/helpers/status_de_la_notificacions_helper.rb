@@ -1,0 +1,2 @@
+module StatusDeLaNotificacionsHelper
+end

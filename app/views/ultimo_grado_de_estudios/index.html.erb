@@ -1,0 +1,26 @@
+<h1>Ultimo Grado De Estudios</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Grado de estudio</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ultimo_grado_de_estudios.each do |ultimo_grado_de_estudio| %>
+      <tr>
+        <td><%= ultimo_grado_de_estudio.id %></td>
+        <td><%= link_to ultimo_grado_de_estudio.grado_de_estudio, ultimo_grado_de_estudio_path(ultimo_grado_de_estudio) %></td>
+        <td><%= ultimo_grado_de_estudio.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_ultimo_grado_de_estudio_path(ultimo_grado_de_estudio), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', ultimo_grado_de_estudio_path(ultimo_grado_de_estudio), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_ultimo_grado_de_estudio_path, :class => 'btn btn-primary' %>

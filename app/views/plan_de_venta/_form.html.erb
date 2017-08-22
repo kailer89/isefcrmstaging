@@ -1,0 +1,49 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@plan_de_ventum.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= simple_form_for @plan_de_ventum, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', plan_de_venta_path, :class => 'btn' %>
+  <div class="well">
+            <%=f.input :programa_id,:label=>"Programa" do%>
+              <%= f.select :programa_id , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa, c.id] }%>
+            <%end%>  
+      <%=f.input :cuota_de_inscripcion, :label=>"Cuota de inscripción:"%>
+      <%=f.input :periodo_de_pago_de_inscripcion, :label=>"Periodo de pago de Inscripción:"%>
+      <%=f.input :cuota_de_colegiatura, :label=>"Cuota de colegiatura:"%>
+      <%=f.input :meses_de_pago_de_colegiatura, :label=>"Meses de pago de colegiatura:"%>
+      <%=f.input :sede_id, :label=>"Sede:"%>
+      <%=f.input :subsede, :label=>"Subsede:"%>
+      <%=f.input :fecha_de_apertura, :label=>"Fecha de apertura:", :as => :date, :start_year => Date.today.year - 90,
+                              :end_year => Date.today.year - 12,
+                              :order => [:day, :month, :year] 
+		%>
+      <%=f.input :periodo_Banner_de_apertura, :label=>"Periodo Banner de apertura:"%>
+      <%=f.input :nombre_del_asesor_a_cargo, :label=>"Nombre del Asesor a Cargo:"%>
+      <%=f.input :comentarios_generalidades_de_apertura, :label=>"Comentarios:"%>
+      <%=f.input :meta_de_enteros, :label=>"Meta de enteros:"%>
+      <%=f.input :status_de_la_apertura, :label=>"Status de apertura:"%>
+      <%=f.input :avance_en_enteros, :label=>"Avance de enteros:"%>
+      <%=f.input :fecha_de_apertura, :label=>"Nueva Fecha de apertura:", :as => :date, :start_year => Date.today.year - 90,
+                              :end_year => Date.today.year - 12,
+                              :order => [:day, :month, :year] 
+		%>
+      <%=f.input :porcentaje_de_cumplimiento_meta_vs_avance_en_enteros, :label=>"% de cumplimiento Meta vs. Avance en enteros"%>
+      <%=f.input :viabilidad_de_esta_apertura, :label=>"Viabilidad de ésta Apertura:"%>
+      <%=f.input :comentarios_meta, :label=>"Comentarios:"%>
+      <%=f.input :medio_promocional, :label=>"Medio Promocional #1:"%>
+      <%=f.input :descripcion_especificaciones_detalladas_del_medio_promocional, :label=>"Descripción / especificaciones detalladas del medio promocional:"%>
+      <%=f.input :cantidad, :label=>"Cantidad:"%>
+      <%=f.input :inversion, :label=>"Inversión:"%>
+      <%=f.input :viaticos_de_promocion_estimados, :label=>"Viáticos de promoción estimados:"%>
+      <%=f.input :vales_de_gasolina, :label=>"Vales de gasolina:"%>
+      <%=f.input :total_de_inversion_en_medios_y_viaticos_para_esta_apertura, :label=>"Total Inversión en medios y viáticos para esta apertura:"%>
+    </div>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@plan_de_ventum.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@plan_de_ventum.id}%>   
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@plan_de_ventum.id}%> 
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@plan_de_ventum.id}%> 
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', plan_de_venta_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

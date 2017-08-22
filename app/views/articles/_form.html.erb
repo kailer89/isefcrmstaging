@@ -1,0 +1,22 @@
+<%= simple_form_for @article, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :body %>
+
+
+<h2>Commentarios</h2>
+
+<legend>Parametros</legend>
+<%= f.simple_fields_for :comments, :html => { :class => 'form-inline' } do |fg| %> 
+  <%= render :partial=> 'comment_fields', :f => fg%>
+<% end %>
+<div class="fields">
+  <%= link_to_add_fields "Agregar Nuevo Comentario", f, :comments %>
+</div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                articles_path, :class => 'btn' %>
+  </div>
+<% end %>

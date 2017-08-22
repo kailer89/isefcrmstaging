@@ -1,0 +1,12 @@
+<h1>Dashboard</h1>
+
+<p>
+  <b>Value</b><br>
+  <%= @dashboard.value %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', dashboards_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_dashboard_path(@dashboard), :class => 'btn' %>
+  <%= link_to 'Delete', dashboard_path(@dashboard), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

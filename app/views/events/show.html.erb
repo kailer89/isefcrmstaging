@@ -1,0 +1,47 @@
+<h1>Event</h1>
+
+<p>
+  <b>Mensaje</b><br>
+  <%= @event.mensaje %>
+</p>
+
+<p>
+  <b>Fecha inicio</b><br>
+  <%= @event.fecha_inicio %>
+</p>
+
+<p>
+  <b>Fecha fin</b><br>
+  <%= @event.fecha_fin %>
+</p>
+
+<p>
+  <b>Donde</b><br>
+  <%= @event.donde %>
+</p>
+
+<p>
+  <b>Whensaved</b><br>
+  <%= @event.whensaved %>
+</p>
+
+<p>
+  <b>Created by</b><br>
+  <%= @event.created_by %>
+</p>
+
+<p>
+  <b>User</b><br>
+  <%= @event.user_id %>
+</p>
+
+<p>
+  <b>Sede</b><br>
+  <%= @event.sede_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', events_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_event_path(@event), :class => 'btn' %>
+  <%= link_to 'Delete', event_path(@event), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

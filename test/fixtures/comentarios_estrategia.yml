@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  comentario_del_seguimiento: MyText
+  estrategia_promocional_id: 1
+
+two:
+  comentario_del_seguimiento: MyText
+  estrategia_promocional_id: 1

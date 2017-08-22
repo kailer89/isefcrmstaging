@@ -1,0 +1,28 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@grupo.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= form_for @grupo, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Grupo</legend>
+
+    <div class="control-group">
+      <%= f.label :nombre, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :nombre, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :descripcion, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :descripcion, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', grupos_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
+
+
+<%=render :partial=>"shared/tabed_actions", :locals=>{:prospecto_id=>@grupo.id,:real_id=>nil,:tareas=>@tareas,:memos=>@memos,:llamadas=>@llamadas,:correos=>@correos,:attachments=>@attachments}%>

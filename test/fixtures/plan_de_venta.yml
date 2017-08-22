@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  programa: MyString
+  cuota_de_inscripcion: 9.99
+  periodo_de_pago_de_inscripcion: MyString
+  cuota_de_colegiatura: 9.99
+  meses_de_pago_de_colegiatura: MyString
+  sede_id: 1
+  subsede: MyString
+  fecha_de_apertura: 2012-03-25
+  periodo_Banner_de_apertura: MyString
+  nombre_del_asesor_a_cargo: MyString
+  comentarios_generalidades_de_apertura: MyText
+  meta_de_enteros: MyString
+  status_de_la_apertura: MyString
+  avance_en_enteros: MyString
+  fecha_de_apertura: 2012-03-25
+  porcentaje_de_cumplimiento_meta_vs_avance_en_enteros: MyString
+  viabilidad_de_esta_apertura: MyString
+  comentarios_meta: MyText
+  medio_promocional: MyString
+  descripcion_especificaciones_detalladas_del_medio_promocional: MyText
+  cantidad: MyString
+  inversion: 9.99
+  viaticos_de_promocion_estimados: 9.99
+  vales_de_gasolina: 9.99
+  total_de_inversion_en_medios_y_viaticos_para_esta_apertura: 9.99
+
+two:
+  programa: MyString
+  cuota_de_inscripcion: 9.99
+  periodo_de_pago_de_inscripcion: MyString
+  cuota_de_colegiatura: 9.99
+  meses_de_pago_de_colegiatura: MyString
+  sede_id: 1
+  subsede: MyString
+  fecha_de_apertura: 2012-03-25
+  periodo_Banner_de_apertura: MyString
+  nombre_del_asesor_a_cargo: MyString
+  comentarios_generalidades_de_apertura: MyText
+  meta_de_enteros: MyString
+  status_de_la_apertura: MyString
+  avance_en_enteros: MyString
+  fecha_de_apertura: 2012-03-25
+  porcentaje_de_cumplimiento_meta_vs_avance_en_enteros: MyString
+  viabilidad_de_esta_apertura: MyString
+  comentarios_meta: MyText
+  medio_promocional: MyString
+  descripcion_especificaciones_detalladas_del_medio_promocional: MyText
+  cantidad: MyString
+  inversion: 9.99
+  viaticos_de_promocion_estimados: 9.99
+  vales_de_gasolina: 9.99
+  total_de_inversion_en_medios_y_viaticos_para_esta_apertura: 9.99

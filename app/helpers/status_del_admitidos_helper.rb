@@ -1,0 +1,2 @@
+module StatusDelAdmitidosHelper
+end

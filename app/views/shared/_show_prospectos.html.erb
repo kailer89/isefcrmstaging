@@ -1,0 +1,325 @@
+<%
+  if not defined?(prospectoid)
+    prospectoid=""
+  end
+%>
+<%
+  if not defined?(isactive)
+    isactive = ""
+  end
+  if request.path_parameters[:controller] == "prospectos"
+    isactive = " in  active  "
+  end
+%>
+<div class="tab-pane fade<%=isactive%>" id="informacion<%=prospectoid%>">
+  <fieldset>
+    <p>
+      <%=printIfAvailable("Nombre(s)",f.nombre)%>
+    </p>
+
+    <p>
+      <%=printIfAvailable("Apellido paterno",f.apellido_paterno)%>
+    </p>
+
+    <p>
+      <%=printIfAvailable("Apellido materno",f.apellido_materno)%>
+    </p>
+
+    <p>
+      <%=printIfAvailable("Sexo",f.sexo == true ? "Masculino" : "Femenino")%>
+    </p>
+
+    <p>
+      <%=printIfAvailable("Fecha de nacimiento",f.fecha_de_nacimiento)%>
+    </p>
+
+    <p>
+      <%valor = f.programa.programa rescue nil
+      valor = valor + " - " + f.programa.nivel rescue nil%>
+      <%=printIfAvailable("Programa (producto)",valor)%>
+    </p>
+
+    <p>
+      <%valor = f.nacionalidad.nacionalidad rescue nil%>
+      <%=printIfAvailable("Nacionalidad",valor)%>
+    </p>
+
+    <p>
+      <%=printIfAvailable("Teléfono particular",f.telefono_particular)%>
+    </p>
+
+    <p>
+      <%=printIfAvailable("Teléfono movil",f.telefono_movil)%>
+    </p>
+
+    <p>
+      <%=printIfAvailable("Otro teléfono",f.otro_telefono)%>
+    </p>
+
+    <p>
+      <%=printIfAvailable("E-mail",f.email)%>
+    </p>
+    <p>
+      <%=printIfAvailable("Facebook",f.facebook)%>
+    </p>
+    <p>
+      <%=printIfAvailable("Twitter",f.twitter)%>
+    </p>    
+    <p>
+      <%=printIfAvailable(" ",f.validado == true ? "Validado" : "No Validado")%>
+    </p>
+    <p>
+      <%valor = f.user.username rescue nil%>
+      <%=printIfAvailable("Creado Por",valor)%>
+    </p>
+    <p>
+      <%=printIfAvailable("Cuando fue creado",f.created_at)%>
+    </p>
+    <p>
+      <%valor=f.sede.nombre rescue nil%><%=printIfAvailable("Sede",valor)%>
+    </p>
+    <p>
+      <%valor=f.grupo.nombre rescue nil%><%=printIfAvailable("Grupo",valor)%>
+    </p>
+    <p>
+      <%=printIfAvailable(" ",f.importado_revisado == true ? "Revisada Importacion" : "Importacion No Revisada")%>
+    </p>
+      <p>
+        <%=printIfAvailable("Archivado",f.archivado ? "Archivado": "")%>
+      </p>
+  </fieldset>
+</div>
+     <div class="tab-pane fade" id="direccion<%=prospectoid%>">
+     <%if f.direccions.empty?%>
+        Sin Direccion
+     <%else%>
+     <fieldset>
+        <p>
+          <%=printIfAvailable("Calle",f.direccions.first.calle)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("No interior",f.direccions.first.no_interior)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("No exterior",f.direccions.first.no_exterior)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Colonia",f.direccions.first.colonia)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Delegación / Municipio",f.direccions.first.delegacion_municipio)%>
+        </p>
+        <p>
+          <%=printIfAvailable("Estado",f.direccions.first.estado)%>
+        </p>        
+        <p>
+          <%=printIfAvailable("País",f.direccions.first.pais)%>
+        </p>		
+		 <p>
+      <%=printIfAvailable("Código Postal",f.direccions.first.codigo_postal)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Comentarios",f.direccions.first.comentarios)%>
+        </p> 
+        <%end%> 
+      </fieldset>
+      </div>
+     <div class="tab-pane fade" id="interesbasico<%=prospectoid%>">
+     <%if f.interes_basicos.empty?%>
+        Sin Interes Basico
+     <%else%>     
+     <fieldset>
+        <p>
+          <%valor=f.interes_basicos.first.ultimo_grado_de_estudio.grado_de_estudio rescue nil%>
+          <%=printIfAvailable("Ultimo grado de estudios",valor)%>
+        </p>
+
+        <p>
+          <%valor = f.interes_basicos.first.preparatoria_o_universidad_de_origen.valor rescue nil%>
+          <%=printIfAvailable("Preparatoria / Universidad de origen",valor)%>
+        </p>
+
+        <p>
+          <%valor = f.interes_basicos.first.municipio_de_la_preparatoria_o_universidad_de_origen.valor rescue nil%>
+          <%=printIfAvailable("Municipio de la Preparatoria / Universidad de origen",valor)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Año de graduación",f.interes_basicos.first.ano_de_graduacion)%>
+        </p>
+
+        <p>
+          <%valor =f.interes_basicos.first.sede.nombre rescue nil
+          valor = valor + " - " + f.interes_basicos.first.subsede.nombre rescue nil %>
+          <%=printIfAvailable("Sede y Extensión de interés",valor)%>
+        </p>
+
+		 <p>
+          <%valor = f.interes_basicos.first.modalidad.valor rescue nil %>
+          <%=printIfAvailable("Modalidad",valor)%>
+        </p>
+
+        <p>
+          <%valor = f.interes_basicos.first.turno.valor rescue nil %>
+          <%=printIfAvailable("Turno",valor)%>          
+        </p>
+
+        <p>
+          <%valor = f.interes_basicos.first.periodo_para_ingresar.valor rescue nil %>
+          <%=printIfAvailable("Periodo para ingresar",valor)%>           
+        </p>
+
+        <p>
+          <%valor = f.interes_basicos.first.status_de_interes_de_prospecto_validado.valor rescue nil %>
+          <%=printIfAvailable("Status de interes del prospecto validado",valor)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Comentarios",f.interes_basicos.first.comentarios)%>
+        </p>
+      <%end%>  
+      </fieldset>      
+      </div>
+      <div class="tab-pane fade" id="interesacademico<%=prospectoid%>">
+     <%if f.interes_academicos.empty?%>
+        Sin Interes Academico
+     <%else%>   
+     <fieldset>   
+        <p>
+          <%=printIfAvailable("Opción 1",f.interes_academicos.first.opcion_1)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Opción 2",f.interes_academicos.first.opcion_2)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Opción 3",f.interes_academicos.first.opcion_3)%>
+        </p>
+      <%end%> 
+      </fieldset>       
+      </div>
+     <div class="tab-pane fade" id="medio<%=prospectoid%>">
+     <%if f.medio_de_contactos.empty?%>
+        Sin Medio de Contacto
+     <%else%>  
+     <fieldset>   
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.feria_universitaria_en_su_colegio,"Feria universitaria")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.visita_a_su_salon,"Plática en su salón")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.recomendacion_de_un_amigo_familiar,"Recomendación de un amigo familiar")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.recomendacion_de_un_egresado,"Recomendación de un egresado")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.sitio_oficial_web_ISEF,"Web del Instituto")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.facebook,"Facebook")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.twitter,"Twitter")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.email_de_promocion_mailing,"E-mail de promoción mailing")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.impreso_flyer_folleto,"Impreso; flyer/folleto")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.anuncio_publicacion_periodico_revista,raw("Anuncio/Publicación/<br/>Periódico/Revista"))%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.llamada_telefonica_de_un_asesor,"Llamada teléfonica de un Asesor")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.conferencia_platica_charla,"Conferencia/Plática/Charla")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.sesion_informativa,"Sesión Informativa")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.visito_las_instalaciones,"Visitó las instalaciones")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.convenio_con_su_institucion,"Convenio con su institucion")%></b>
+        </p>
+
+        <p>
+          <b><%=printMedio( f.medio_de_contactos.first.otro,"Otro")%></b>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Otro texto",f.medio_de_contactos.first.otro_texto)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Comentarios",f.medio_de_contactos.first.comentarios)%>
+        </p>
+        <p>
+          <%=printIfAvailable("Referido interno",f.medio_de_contactos.first.Referido)%>
+        </p>
+        <p>
+          <%=printIfAvailable("Referido externo",f.medio_de_contactos.first.referido_externo)%>
+        </p>
+        <%end%>
+      </fieldset>
+      </div>
+   
+     <div class="tab-pane fade" id="plandescuentos<%=prospectoid%>">
+     <%if f.plan_de_descuentos.empty?%>
+        Sin Plan de descuentos
+     <%else%>  
+     <fieldset>   
+        <p>
+          <b>Descuento en la inscripción</b><br>
+          <%= printDescuento(f.plan_de_descuentos.first.descuento_en_la_inscripcion) %>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Porcentaje",f.plan_de_descuentos.first.porcentaje)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Fecha de caducidad",f.plan_de_descuentos.first.fecha_de_caducidad)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Otro ¿Cuál?",f.plan_de_descuentos.first.otro_cual)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Fecha de Otorgamiento",f.plan_de_descuentos.first.fecha_de_otorgamiento)%>
+        </p>
+
+        <p>
+          <%=printIfAvailable("Comentarios",f.plan_de_descuentos.first.comentarios)%>
+        </p>
+      <%end%>
+    </fieldset>
+      </div>            
+</div>

@@ -1,0 +1,11 @@
+<span class="fields" data-object-name="<%= f.object_name %>">
+  <%= f.attribute_fields do |a| %>
+    <%= a.attribute_select associations: [:prospectos,:becacreditos,:prospectos_nacionalidad, :prospectos_programa,:prospectos_user,:prospectos_sede,:prospectos_grupo,:prospectos_direccions,:prospectos_interes_basicos,:prospectos_interes_academicos,:prospectos_plan_de_descuentos] %>
+  <% end %>
+  <%= f.predicate_select %>
+  <%= f.value_fields do |v| %>
+    <%= v.text_field :value %>
+  <% end %>
+  <%= button_to_remove_fields "remove", f %>
+</span>
+<br/>

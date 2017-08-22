@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ultimo_grado_de_estudios: MyString
+  preparatoria_universidad_de_origen: MyString
+  municipio_de_la_preparatoria_universidad_de_origen: MyString
+  ano_de_graduacion: 1
+  sede_y_subsede_de_interes: MyString
+  programa_de_interes: MyString
+  nivel: MyString
+  turno: MyString
+  periodo_para_ingresar: MyString
+  status_de_interes_del_prospecto_validado: MyString
+  comentarios: MyText
+
+two:
+  ultimo_grado_de_estudios: MyString
+  preparatoria_universidad_de_origen: MyString
+  municipio_de_la_preparatoria_universidad_de_origen: MyString
+  ano_de_graduacion: 1
+  sede_y_subsede_de_interes: MyString
+  programa_de_interes: MyString
+  nivel: MyString
+  turno: MyString
+  periodo_para_ingresar: MyString
+  status_de_interes_del_prospecto_validado: MyString
+  comentarios: MyText

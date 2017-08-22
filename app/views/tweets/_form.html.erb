@@ -1,0 +1,49 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@tweet.id, :parent_model=>@tweet.model_name, :parent_id=>@tweet.model_id}%>
+<%= simple_form_for @tweet, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', tweets_path, :class => 'btn' %>
+      <% if request.path_parameters[:action] =="edit" %>
+      <%
+        if session['twitterinfo'] == nil
+          %>[Enviar tweet deshabilitado] No has ingresado al sistema con twitter porfavor ingresa con twitter.<%
+        else
+          %>
+          <%=link_to 'Tweet', send_tweet_path(@tweet),:class=>"btn btn-primary"%>
+          <%
+        end
+      %>
+        
+      <%end%>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> tweet</legend>
+    <div class="control-group">
+      <%= f.label :tweet, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :tweet, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <%= f.hidden_field :created_by%>
+    <%= f.association :user, :collection => User.where(:id => @tweet.created_by), :label_method => :username, :value_method => :id , :disabled=>true,:label=>"Creado por",:include_blank => false%>
+    <%= f.association :user,:label_method=>:username,:include_blank => false%>
+    <%= f.association :sede,:label_method=>:nombre,:include_blank => false%>  
+    <%=f.hidden_field :model_name %>
+    <%=f.hidden_field :model_id %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', tweets_path, :class => 'btn' %>
+      <% if request.path_parameters[:action] =="edit" %>
+      <%
+        if session['twitterinfo'] == nil
+          %>[Enviar tweet deshabilitado] No has ingresado al sistema con twitter porfavor ingresa con twitter.<%
+        else
+          %>
+          <%=link_to 'Tweet', send_tweet_path(@tweet),:class=>"btn btn-primary"%>
+          <%
+        end
+      %>
+        
+      <%end%>
+    </div>
+  </fieldset>
+<% end %>

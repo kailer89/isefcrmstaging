@@ -1,0 +1,26 @@
+<h1>Periodo Para Ingresars</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Valor</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @periodo_para_ingresars.each do |periodo_para_ingresar| %>
+      <tr>
+        <td><%= periodo_para_ingresar.id %></td>
+        <td><%= link_to periodo_para_ingresar.valor, periodo_para_ingresar_path(periodo_para_ingresar) %></td>
+        <td><%= periodo_para_ingresar.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_periodo_para_ingresar_path(periodo_para_ingresar), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', periodo_para_ingresar_path(periodo_para_ingresar), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_periodo_para_ingresar_path, :class => 'btn btn-primary' %>

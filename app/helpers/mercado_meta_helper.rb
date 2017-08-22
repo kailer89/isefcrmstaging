@@ -1,0 +1,2 @@
+module MercadoMetaHelper
+end

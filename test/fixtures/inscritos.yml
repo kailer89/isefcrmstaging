@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  status_de_la_inscripcion: MyString
+  fecha_limite_de_pago_de_inscripcion: 2012-03-24
+  status_del_pago_de_inscripcion: MyString
+  comentarios_del_coordinador_academico: MyText
+  admitido_id: 1
+
+two:
+  status_de_la_inscripcion: MyString
+  fecha_limite_de_pago_de_inscripcion: 2012-03-24
+  status_del_pago_de_inscripcion: MyString
+  comentarios_del_coordinador_academico: MyText
+  admitido_id: 1

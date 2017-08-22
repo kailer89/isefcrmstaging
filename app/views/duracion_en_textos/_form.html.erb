@@ -1,0 +1,12 @@
+ <%= simple_form_for @modalidad, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                modalidads_path, :class => 'btn' %>
+
+  <%= f.input :valor %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                modalidads_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module ReportDirectionsHelper
+end

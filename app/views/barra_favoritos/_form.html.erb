@@ -1,0 +1,17 @@
+<%= simple_form_for @barra_favorito, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', barra_favoritos_path, :class => 'btn' %>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@barra_favorito.id, :parent_model=>nil, :parent_id=>nil}%>
+
+    <%=f.association :favorito, :label_method=>:nombre,:include_blank => false, :hint=>"Si no existe ningun elemento aqui, da click en Herramientas Admisitrativas/Favoritos para agregar alguno."%>
+    <%= f.input :accion, :collection => ["Mostrar","Nuevo"],:include_blank=>false %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@barra_favorito.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@barra_favorito.id}%>   
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@barra_favorito.id}%>  
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@barra_favorito.id}%>  
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', barra_favoritos_path, :class => 'btn' %>
+    </div>
+<% end %>

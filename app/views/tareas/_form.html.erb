@@ -1,0 +1,85 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@tarea.id, :parent_model=>@tarea.model_name, :parent_id=>@tarea.model_id}%>
+<%= simple_form_for @tarea, :html => { :class => 'form-horizontal'  ,:multipart => true} do |f| %>
+      <%if request.path_parameters[:action] == 'edit' %>
+        <%if @tarea.attachment =! nil%>
+          <%= f.submit nil, :class => 'btn btn-primary',:onclick => "return confirm('Hay un archivo en la tarea, desea continuar?');"%>
+        <%else%>
+          <%= f.submit nil, :class => 'btn btn-primary'%>
+        <%end%>
+      <%else%>
+        <%= f.submit nil, :class => 'btn btn-primary'%>      
+      <%end%>  
+      <a href="/<%=@tarea.model_name%>/<%=@tarea.model_id%>/edit" class="btn">Cancel</a>
+<div class="well">  <%=f.input :nombre %>
+  <%=f.input :descripcion %>
+  <%= f.input :fecha_de_inicio_de_la_tarea do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_inicio_de_la_tarea%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%=f.input :hora_de_inicio %>
+  <%= f.input :fecha_de_fin_de_la_tarea do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_fin_de_la_tarea%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>  
+  <%=f.input :hora_de_fin %>
+    <%= f.hidden_field :created_by%>
+    <%= f.association :user, :collection => User.where(:id => @tarea.created_by), :label_method => :username, :value_method => :id , :disabled=>true,:label=>"Creado por"%>
+        <%=f.association :user,:label_method=>:username,:include_blank => false%>
+        <%=f.association :sede,:label_method=>:nombre,:include_blank => false%>  
+  <%=f.hidden_field :model_name %>
+  <%=f.hidden_field :model_id %>
+  <%=f.hidden_field :pendiente %>
+  <%=f.input :comentarios %>
+    <div class="control-group">
+      <%= f.label :attachment, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :attachment %>
+      </div>
+    </div>
+ 
+    <%if request.path_parameters[:action] == 'edit' %>
+      <div class="control-group">
+        <%= f.label :attachment, :class => 'control-label' %>
+        <div class="controls">
+          <%=link_to "Descargar Attachment",@tarea.attachment_url.to_s %> 
+        </div>
+      </div>     
+    <%end%>
+
+  </div>
+    <%=render :partial=>"shared/attachments", :locals=>{:model_id=>@tarea.id}%>
+    <%=render :partial=>"shared/memos", :locals=>{:model_id=>@tarea.id}%>
+    <div class="form-actions">
+      
+      <%if request.path_parameters[:action] == 'edit' %>
+      <%if @tarea != nil%>
+        <%if @tarea.pendiente == true %>
+          <%= link_to 'Quitar pendiente', "convertir_tarea",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-warning', :method=>'post', :id=>'convertir_tarea'%> 
+        <%else%>
+          <%= link_to 'Hacer pendiente', "convertir_tarea",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'convertir_tarea'%> 
+        <%end%> 
+      <%end%>         
+        <%if @tarea.attachment =! nil%>
+          <%= f.submit nil, :class => 'btn btn-primary',:onclick => "return confirm('Hay un archivo en la tarea, desea continuar?');"%>
+        <%else%>
+          <%= f.submit nil, :class => 'btn btn-primary'%>
+        <%end%>
+      <%else%>
+        <%= f.submit nil, :class => 'btn btn-primary'%>      
+      <%end%>  
+      <a href="/<%=@tarea.model_name%>/<%=@tarea.model_id%>/edit" class="btn">Cancel</a>
+    </div>
+<% end %>
+
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

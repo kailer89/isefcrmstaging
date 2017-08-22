@@ -1,0 +1,77 @@
+<%if request.path_parameters[:action] != "list"%>
+<%searches = Search.where(:model_name=>request.path_parameters[:controller]).where(:user_id=>current_user.id).all%>
+<div class="accordion" id="accordion2">
+	 <div class="accordion-group">
+   <div class="accordion-heading">
+     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseZero">
+       Filtros
+     </a>
+   </div>
+   <div id="collapseZero" class="accordion-body collapse in">
+     <div class="accordion-inner">
+		<%=link_to "Borrar parametros de busqueda", path_to_look_for%>
+		<%= search_form_for @q do |f| %>
+		    <% setup_search_form f %>
+			    <fieldset>
+			      <legend>Filtros</legend>
+			      <%= f.condition_fields do |c| %>
+			        <%= render "condition_fields", f: c%>
+			      <% end %>
+			      <%= button_to_add_fields "Agregar Filtro", f, :condition %>
+			    </fieldset>
+		    <%= f.submit %>
+
+		  <% end %>
+      </div>
+    </div>
+  </div>
+ <div class="accordion-group">
+   <div class="accordion-heading">
+     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+       Seleccionar Busqueda guardada
+     </a>
+   </div>
+   <div id="collapseOne" class="accordion-body collapse">
+     <div class="accordion-inner">
+        <div class="">
+			<%if unless searches.empty? %>
+				<%= simple_form_for searches, url: redir_to_saved_path, :html => { :class => 'form-horizontal',:onsubmit=>"return confirm('Estas seguro de querer continuar?');"} do |f| %>
+					<%= f.input :name,:label=>"Identificador", :collection=>searches.map{|c| [c.name + ' - ' + c.description,c.name] }.sort,:include_blank=>true %>
+		  			<%= f.hidden_field :model_name , :value => request.path_parameters[:controller] %>
+		  			<%= f.hidden_field :user_id, :value=>current_user.id %>					
+					<%= f.submit "Usar busqueda guardada" %>
+				<%end%>
+			<%else%>
+				
+			<%end%>
+      <%= link_to "Administrar busquedas guardadas", searches_path%>   
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        Guardar Busqueda
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="">
+			<%@search = Search.new%>
+			<%= simple_form_for @search ,url: saved_search_path, :html => { :class => 'form-horizontal',:onsubmit=>"return confirm('Estas seguro de querer continuar?');"} do |f| %>
+				<%= f.input :name,:label=>"Identificador"%>
+				<%= f.input :description,:label=>"Descripcion"%>
+				<%= f.hidden_field :content , :value =>  request.fullpath  %>
+	  			<%= f.hidden_field :model_name , :value => request.path_parameters[:controller] %>
+	  			<%= f.hidden_field :user_id, :value=>current_user.id %>
+	  			<%= f.submit "Guardar Busqueda" %>
+	  		<%end %>     
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
+<%end %>

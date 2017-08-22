@@ -1,0 +1,101 @@
+2012-09-13T19:04:40+00:00 heroku[api]: Deploy 4dba008 by israel.valdez.89@gmail.com
+2012-09-13T19:04:40+00:00 heroku[web.1]: State changed from crashed to starting
+2012-09-13T19:04:42+00:00 heroku[slugc]: Slug compilation finished
+2012-09-13T19:04:47+00:00 heroku[web.1]: Starting process with command `bundle exec thin start -R config.ru -e production -p 59834`
+2012-09-13T19:05:02+00:00 app[web.1]: /app/config/routes.rb:4:in `block in <top (required)>': uninitialized constant Engage (NameError)
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:258:in `instance_exec'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:258:in `eval_block'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:235:in `draw'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/config/routes.rb:1:in `<top (required)>'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/routes_reloader.rb:29:in `block in load_paths'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/routes_reloader.rb:29:in `each'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/routes_reloader.rb:29:in `load_paths'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/routes_reloader.rb:13:in `reload!'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application.rb:87:in `reload_routes!'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/devise-2.1.2/lib/devise/rails.rb:14:in `block in <class:Engine>'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:34:in `call'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:34:in `execute_hook'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:43:in `block in run_load_hooks'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:42:in `each'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:42:in `run_load_hooks'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/finisher.rb:50:in `block in <module:Finisher>'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:30:in `instance_exec'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:30:in `run'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:55:in `block in run_initializers'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:54:in `each'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:54:in `run_initializers'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application.rb:96:in `initialize!'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/config/environment.rb:5:in `<top (required)>'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/railtie/configurable.rb:30:in `method_missing'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from config.ru:3:in `require'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/builder.rb:51:in `instance_eval'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from config.ru:1:in `new'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from config.ru:1:in `<main>'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from config.ru:3:in `block in <main>'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/builder.rb:51:in `initialize'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/controllers/controller.rb:181:in `load_rackup_config'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/rack/adapter/loader.rb:36:in `eval'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:151:in `run!'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:185:in `run_command'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/rack/adapter/loader.rb:36:in `load'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/controllers/controller.rb:71:in `start'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/bin/thin:6:in `<top (required)>'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/bin/thin:19:in `load'
+2012-09-13T19:05:02+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/bin/thin:19:in `<main>'
+2012-09-13T19:05:03+00:00 heroku[web.1]: Process exited with status 1
+2012-09-13T19:05:03+00:00 heroku[web.1]: State changed from crashed to starting
+2012-09-13T19:05:03+00:00 heroku[web.1]: State changed from starting to crashed
+2012-09-13T19:05:17+00:00 heroku[web.1]: Starting process with command `bundle exec thin start -R config.ru -e production -p 30350`
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/devise-2.1.2/lib/devise/rails.rb:14:in `block in <class:Engine>'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:34:in `call'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:43:in `block in run_load_hooks'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:42:in `run_load_hooks'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/config/environment.rb:5:in `<top (required)>'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:235:in `draw'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/config/routes.rb:1:in `<top (required)>'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:258:in `eval_block'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/actionpack-3.1.4/lib/action_dispatch/routing/route_set.rb:258:in `instance_exec'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/routes_reloader.rb:29:in `block in load_paths'
+2012-09-13T19:05:35+00:00 app[web.1]: /app/config/routes.rb:4:in `block in <top (required)>': uninitialized constant Engage (NameError)
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/builder.rb:51:in `instance_eval'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from config.ru:3:in `require'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from config.ru:1:in `new'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/rack-1.3.6/lib/rack/builder.rb:51:in `initialize'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application.rb:87:in `reload_routes!'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/routes_reloader.rb:29:in `load_paths'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/routes_reloader.rb:29:in `each'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/routes_reloader.rb:13:in `reload!'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:34:in `execute_hook'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:185:in `run_command'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/runner.rb:151:in `run!'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/activesupport-3.1.4/lib/active_support/lazy_load_hooks.rb:42:in `each'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:30:in `instance_exec'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:54:in `each'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:54:in `run_initializers'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from config.ru:3:in `block in <main>'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application/finisher.rb:50:in `block in <module:Finisher>'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/application.rb:96:in `initialize!'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/railtie/configurable.rb:30:in `method_missing'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/rack/adapter/loader.rb:36:in `eval'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/rack/adapter/loader.rb:36:in `load'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:30:in `run'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/controllers/controller.rb:71:in `start'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/railties-3.1.4/lib/rails/initializable.rb:55:in `block in run_initializers'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/bin/thin:19:in `<main>'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib/thin/controllers/controller.rb:181:in `load_rackup_config'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from config.ru:1:in `<main>'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/bin/thin:19:in `load'
+2012-09-13T19:05:35+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/bin/thin:6:in `<top (required)>'
+2012-09-13T19:05:36+00:00 heroku[web.1]: Process exited with status 1
+2012-09-13T19:05:36+00:00 heroku[web.1]: State changed from starting to crashed
+2012-09-13T19:08:36+00:00 heroku[slugc]: Slug compilation started
+2012-09-13T19:12:44+00:00 heroku[router]: Error H10 (App crashed) -> GET tranquil-tundra-3192.herokuapp.com/ dyno= queue= wait= service= status=503 bytes=
+2012-09-13T19:12:45+00:00 heroku[router]: Error H10 (App crashed) -> GET tranquil-tundra-3192.herokuapp.com/favicon.ico dyno= queue= wait= service= status=503 bytes=
+2012-09-13T19:12:47+00:00 heroku[router]: Error H10 (App crashed) -> GET tranquil-tundra-3192.herokuapp.com/ dyno= queue= wait= service= status=503 bytes=
+2012-09-13T19:12:48+00:00 heroku[router]: Error H10 (App crashed) -> GET tranquil-tundra-3192.herokuapp.com/favicon.ico dyno= queue= wait= service= status=503 bytes=
+2012-09-13T19:12:49+00:00 heroku[router]: Error H10 (App crashed) -> GET tranquil-tundra-3192.herokuapp.com/ dyno= queue= wait= service= status=503 bytes=
+2012-09-13T19:12:49+00:00 heroku[api]: Release v28 created by israel.valdez.89@gmail.com
+2012-09-13T19:12:49+00:00 heroku[api]: Deploy 2d36e85 by israel.valdez.89@gmail.com
+2012-09-13T19:12:50+00:00 heroku[web.1]: State changed from crashed to starting
+2012-09-13T19:12:51+00:00 heroku[slugc]: Slug compilation finished
+2012-09-13T19:12:57+00:00 heroku[web.1]: Starting process with command `bundle exec thin start -R config.ru -e production -p 15222`

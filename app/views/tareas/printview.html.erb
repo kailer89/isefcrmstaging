@@ -1,0 +1,40 @@
+<A HREF="javascript:window.print()">Has click aqui para imprimir la pagina</A>
+<h1><%= @tarea.nombre %></h1>
+<div class=""><p>
+<fieldset>
+  <b>Nombre</b><br>
+  <%= @tarea.nombre %>
+</p>
+
+<p>
+  <b>Descripcion</b><br>
+  <%= @tarea.descripcion %>
+</p>
+
+<p>
+  <b>Fecha de inicio de la tarea</b><br>
+  <%= @tarea.fecha_de_inicio_de_la_tarea %>
+</p>
+
+<p>
+  <b>Hora de inicio</b><br>
+  <%= @tarea.hora_de_inicio %>
+</p>
+
+<p>
+  <b>Fecha de fin de la tarea</b><br>
+  <%= @tarea.fecha_de_fin_de_la_tarea %>
+</p>
+
+<p>
+  <b>Hora de fin</b><br>
+  <%= @tarea.hora_de_fin %>
+</p>
+
+<p>
+  <b>Attachment</b><br>
+  <%=link_to "Descargar Attachment",@tarea.attachment_url.to_s %>
+</p>
+</fieldset>
+</div>
+</div>

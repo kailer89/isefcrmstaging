@@ -1,0 +1,63 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  periodo_anual: MyString
+  pep_para: 1
+  nombre_de_la_institucion: MyString
+  segmento: MyString
+  tipo_especifico: MyString
+  nse: MyString
+  forma_parte_de_mi_mdo_meta: MyString
+  tamano_de_mdo_que_aspira_abarcar: MyString
+  mercado_meta_observaciones: MyText
+  asesor_a_cargo: 1
+  persona_de_contacto: MyString
+  cargo: MyString
+  telefono_de_oficina: MyString
+  ext: MyString
+  otro_telefono: MyString
+  movil: MyString
+  email: MyString
+  pag_web: MyString
+  calle: MyString
+  no_exterior: MyString
+  no_interior: MyString
+  colonia: MyString
+  codigo_postal: MyString
+  delegacion_municipio: MyString
+  estado: MyString
+  pais: MyString
+  google_maps: MyString
+  latitude: MyString
+  longitude: MyString
+
+two:
+  periodo_anual: MyString
+  pep_para: 1
+  nombre_de_la_institucion: MyString
+  segmento: MyString
+  tipo_especifico: MyString
+  nse: MyString
+  forma_parte_de_mi_mdo_meta: MyString
+  tamano_de_mdo_que_aspira_abarcar: MyString
+  mercado_meta_observaciones: MyText
+  asesor_a_cargo: 1
+  persona_de_contacto: MyString
+  cargo: MyString
+  telefono_de_oficina: MyString
+  ext: MyString
+  otro_telefono: MyString
+  movil: MyString
+  email: MyString
+  pag_web: MyString
+  calle: MyString
+  no_exterior: MyString
+  no_interior: MyString
+  colonia: MyString
+  codigo_postal: MyString
+  delegacion_municipio: MyString
+  estado: MyString
+  pais: MyString
+  google_maps: MyString
+  latitude: MyString
+  longitude: MyString

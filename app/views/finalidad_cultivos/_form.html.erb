@@ -1,0 +1,31 @@
+<%= form_for @finalidad_cultivo, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', finalidad_cultivos_path, :class => 'btn' %>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@finalidad_cultivo.id, :parent_model=>nil, :parent_id=>nil}%>
+
+  <fieldset>
+<div class="well">    <legend><%= controller.action_name.capitalize %> Finalidad Cultivo</legend>
+
+    <div class="control-group">
+      <%= f.label :finalidad_cultivo, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :finalidad_cultivo, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :mercado_meta_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :mercado_meta_id, :class => 'number_field' %>
+      </div>
+    </div></div>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@finalidad_cultivo.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@finalidad_cultivo.id}%>
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@finalidad_cultivo.id}%> 
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@finalidad_cultivo.id}%> 
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', finalidad_cultivos_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

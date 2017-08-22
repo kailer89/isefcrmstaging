@@ -1,0 +1,181 @@
+<%= simple_form_for @metas_globale, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                metas_globales_path, :class => 'btn' %>
+
+
+<div class="tabbable" style="margin-bottom: 18px;">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">Metas Globales Anual</a></li>
+      <li class=""><a href="#tab2" data-toggle="tab">Logros Globales Mensual</a></li>
+      <li class=""><a href="#tab3" data-toggle="tab">Logros Globales Anual</a></li>
+    </ul>
+  <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <p>
+  <%= f.input :periodo_anual %>
+      <%= f.input :sede_id do %>
+    <%= f.select :sede_id, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :meta_anual_de_alumnos_de_licenciatura %>
+  <%= f.input :meta_anual_de_enteros_de_licenciatura %>
+  <%= f.input :meta_anual_de_alumnos_de_posgrado %>
+  <%= f.input :meta_anual_de_enteros_de_posgrado %>
+  <%= f.input :no_de_grupos_al_ano_de_licenciatura %>
+  <%= f.input :no_de_grupos_al_ano_de_posgrado_local %>
+  <%= f.input :no_de_grupos_al_ano_de_posgrado_foraneo %>
+  <%= f.input :total_de_grupos_al_ano %>
+  <%= f.input :metas_establecidas_por %>
+  <%= f.input :observaciones %>
+        </p>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <p>
+      <%= f.input :sede_id_1 do %>
+    <%= f.select :sede_id_1, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_1 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_1 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_1 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_1 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_1 %>
+  <%= f.input :observaciones_1 %>
+      <%= f.input :sede_id_2 do %>
+    <%= f.select :sede_id_2, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_2 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_2 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_2 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_2 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_2 %>
+  <%= f.input :observaciones_2 %>
+      <%= f.input :sede_id_3 do %>
+    <%= f.select :sede_id_3, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_3 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_3 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_3 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_3 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_3 %>
+  <%= f.input :observaciones_3 %>
+      <%= f.input :sede_id_4 do %>
+    <%= f.select :sede_id_4, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_4 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_4 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_4 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_4 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_4 %>
+  <%= f.input :observaciones_4 %>
+      <%= f.input :sede_id_5 do %>
+    <%= f.select :sede_id_5, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_5 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_5 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_5 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_5 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_5 %>
+  <%= f.input :observaciones_5 %>
+      <%= f.input :sede_id_6 do %>
+    <%= f.select :sede_id_6, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_6 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_6 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_6 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_6 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_6 %>
+  <%= f.input :observaciones_6 %>
+      <%= f.input :sede_id_7 do %>
+    <%= f.select :sede_id_7, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_7 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_7 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_7 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_7 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_7 %>
+  <%= f.input :observaciones_7 %>
+      <%= f.input :sede_id_8 do %>
+    <%= f.select :sede_id_8, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_8 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_8 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_8 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_8 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_8 %>
+  <%= f.input :observaciones_8 %>
+      <%= f.input :sede_id_9 do %>
+    <%= f.select :sede_id_9, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_9 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_9 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_9 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_9 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_9 %>
+  <%= f.input :observaciones_9 %>
+      <%= f.input :sede_id_10 do %>
+    <%= f.select :sede_id_10, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_10 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_10 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_10 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_10 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_10 %>
+  <%= f.input :observaciones_10 %>
+      <%= f.input :sede_id_11 do %>
+    <%= f.select :sede_id_11, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_11 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_11 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_11 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_11 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_11 %>
+  <%= f.input :observaciones_11 %>
+      <%= f.input :sede_id_12 do %>
+    <%= f.select :sede_id_12, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :mes_ano_12 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_licenciatura_12 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_licenciatura_12 %>
+  <%= f.input :logro_mensual_de_alumnos_inscritos_de_Posgrado_12 %>
+  <%= f.input :logro_mensual_de_enteros_inscritos_de_posgrado_12 %>
+  <%= f.input :observaciones_12 %>
+        </p>
+      </div>
+      <div class="tab-pane" id="tab3">
+        <p>
+                <%= f.input :sede_id_anual do %>
+    <%= f.select :sede_id_anual, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :logro_anual_de_alumnos_de_licenciatura %>
+  <%= f.input :logro_anual_de_enteros_de_licenciatura %>
+  <%= f.input :logro_anual_de_alumnos_de_posgrado %>
+  <%= f.input :logro_anual_de_enteros_de_posgrado %>
+  <%= f.input :logro_anual_de_grupos_abiertos_de_licenciatura %>
+  <%= f.input :logro_anual_de_grupos_abiertos_de_posgrado_local %>
+  <%= f.input :logro_anual_de_grupos_abiertos_de_posgrado_foraneo %>
+  <%= f.input :total_de_grupos_abiertos %>
+  <%= f.input :indicador_de_resultados_anual_alumnos_de_licenciatura %>
+  <%= f.input :indicador_de_resultados_anual_enteros_de_licenciatura %>
+  <%= f.input :indicador_de_resultados_anual_alumnos_de_posgrado %>
+  <%= f.input :indicador_de_resultados_anual_enteros_de_posgrado %>
+  <%= f.input :metas_anuales_observaciones %>
+        </p>
+      </div>  
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                metas_globales_path, :class => 'btn' %>
+  </div>
+
+         <%=render :partial=>"shared/attachments", :locals=>{:model_id=>@metas_globale.id}%>  
+<% end %>

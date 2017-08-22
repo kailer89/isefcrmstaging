@@ -1,0 +1,206 @@
+<%= form_for @equipo_promocion, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', equipo_promocions_path, :class => 'btn' %>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@equipo_promocion.id, :parent_model=>nil, :parent_id=>nil}%>
+
+  <fieldset>
+   <div class="well"> <legend><%= controller.action_name.capitalize %> Equipo Promocion</legend>
+   
+       <div class="control-group">
+         <%= f.label :nombre, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :nombre, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :apellido_paterno, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :apellido_paterno, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :apellido_materno, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :apellido_materno, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :sexo, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.check_box :sexo, :class => 'check_box' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :fecha_de_nacimiento, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.date_select :fecha_de_nacimiento, :class => 'date_select' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :nacionalidad, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :nacionalidad, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :cargo, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :cargo, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :sede, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :sede, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :horas_laborales_semanales, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :horas_laborales_semanales, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :tipo_de_contrato, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :tipo_de_contrato, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :fecha_de_ingreso, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.date_select :fecha_de_ingreso, :class => 'date_select' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :jefe_directo, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :jefe_directo, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :cargo_del_jefe_directo, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :cargo_del_jefe_directo, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :telefono_particular, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :telefono_particular, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :movil, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :movil, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :otro_tel, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :otro_tel, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :email_personal, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :email_personal, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :email_laboral, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :email_laboral, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :modalidad_de_pago, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :modalidad_de_pago, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :sueldo_bruto, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :sueldo_bruto, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :porcentaje_de_comision, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :porcentaje_de_comision, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :calle, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :calle, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :no_interior, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :no_interior, :class => 'text_field' %>
+         </div>
+       </div>
+	   
+        <div class="control-group">
+         <%= f.label :no_exterior, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :no_exterior, :class => 'text_field' %>
+         </div>
+       </div>
+	   
+       <div class="control-group">
+         <%= f.label :colonia, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :colonia, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :codigo_postal, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_field :codigo_postal, :class => 'text_field' %>
+         </div>
+       </div>
+   
+       <div class="control-group">
+         <%= f.label :comentarios_direccion, :class => 'control-label' %>
+         <div class="controls">
+           <%= f.text_area :comentarios_direccion, :class => 'text_area' %>
+         </div>
+       </div></div>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@equipo_promocion.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@equipo_promocion.id}%>
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@equipo_promocion.id}%> 
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@equipo_promocion.id}%> 
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', equipo_promocions_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

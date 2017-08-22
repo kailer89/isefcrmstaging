@@ -1,0 +1,71 @@
+<p><h1><%= ((params[:validado]=="true")  or (params[:search] && params[:search][:validado_equals].to_i == 1)) ? "Prospectos" : "Prospectos" %></h1>
+<style type="text/css">
+fieldset {
+  display: block;
+  -webkit-margin-start: 2px;
+  -webkit-margin-end: 2px;
+  -webkit-padding-before: 0.35em;
+  -webkit-padding-start: 0.75em;
+  -webkit-padding-end: 0.75em;
+  -webkit-padding-after: 0.625em;
+  border: 2px groove threedface;
+}
+legend
+{
+margin-bottom: 0!important;
+border-bottom: 0px solid #e5e5e5!important;
+}
+</style>
+<%=link_to "Borrar parametros de busqueda", prospectos_path%>
+<%= search_form_for @q, url: prospectos_path, html: {method: :post} do |f| %>
+    <% setup_search_form f %>
+    <input type="button" value="Mostrar Busqueda Avanzada" id="avanzada"/>
+    <div id="busquedaAvanzada">
+
+    <fieldset>
+      <legend>Filtros</legend>
+      <%= f.condition_fields do |c| %>
+        <%= render "condition_fields", f: c%>
+      <% end %>
+      <%= button_to_add_fields "Agregar Filtro", f, :condition %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ordenamiento</legend>
+      <%= f.sort_fields do |s| %>
+        <%= render 'sort_fields', f: s %>
+      <% end %>
+      <%= button_to_add_fields "Agregar Campo de ordenamiento", f, :sort %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Grupos de condiciones</legend>
+      <%= f.grouping_fields do |g| %>
+        <%= render 'grouping_fields', f: g %>
+      <% end %>
+      <%= button_to_add_fields "Agregar Grupo de condiciones", f, :grouping %>
+    </fieldset>
+    </div>
+
+    <%= f.submit %>      
+  <% end %>
+
+
+<%= render 'results' %>
+
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('#avanzada').click(function()
+  {
+    $('#busquedaAvanzada').toggle();
+  });
+<%if params[:q] == nil%>
+$('#busquedaAvanzada').hide();
+<%end%>
+
+
+});
+})(jQuery);
+
+</script>

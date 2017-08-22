@@ -1,0 +1,26 @@
+<h1>Comentarios Estrategiums</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Comentario del seguimiento</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comentarios_estrategia.each do |comentarios_estrategium| %>
+      <tr>
+        <td><%= comentarios_estrategium.id %></td>
+        <td><%= link_to comentarios_estrategium.comentario_del_seguimiento, comentarios_estrategium_path(comentarios_estrategium) %></td>
+        <td><%= comentarios_estrategium.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_comentarios_estrategium_path(comentarios_estrategium), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', comentarios_estrategium_path(comentarios_estrategium), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_comentarios_estrategium_path, :class => 'btn btn-primary' %>

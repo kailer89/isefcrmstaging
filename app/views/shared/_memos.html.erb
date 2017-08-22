@@ -1,0 +1,31 @@
+  <%
+  #render a partial for any memos
+	memos =Memo.where(:model_name=>request.path_parameters[:controller] ,:model_id=>model_id)
+  %>
+  <div class="well">
+    <h3>Notas</h3>
+     <table class="table table-striped table-bordered table-condensed">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Creado en </th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% memos.each do |memo| %>
+          <tr>
+            <td><%= link_to memo.id, memo_path(memo) %></td>
+            <td><%= link_to memo.nombre, memo_path(memo) %></td>
+            <td><%= link_to memo.created_at, memo_path(memo) %></td>
+            <td>
+              <%= link_to 'Edit', edit_memo_path(memo), :class => 'btn btn-mini' %>
+              <%= link_to 'Destroy', memo_path(memo), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'Nueva Nota', new_memo_path(:model_name=>request.path_parameters[:controller],:model_id=>model_id), :class => 'btn btn-primary' %>
+  </div>

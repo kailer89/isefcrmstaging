@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  descuento_en_la_inscripcion: false
+  porcentaje: 1
+  fecha_de_caducidad: 2012-03-19
+  otro_cual: MyString
+  comentarios: MyText
+  prospecto_id: 1
+
+two:
+  descuento_en_la_inscripcion: false
+  porcentaje: 1
+  fecha_de_caducidad: 2012-03-19
+  otro_cual: MyString
+  comentarios: MyText
+  prospecto_id: 1

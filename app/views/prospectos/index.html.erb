@@ -1,0 +1,60 @@
+<p><h1><%= ((params[:validado]=="true")  or (params[:search] && params[:search][:validado_equals].to_i == 1)) ? "Prospectos" : "Prospectos" %></h1>
+<style type="text/css">
+fieldset {
+  display: block;
+  -webkit-margin-start: 2px;
+  -webkit-margin-end: 2px;
+  -webkit-padding-before: 0.35em;
+  -webkit-padding-start: 0.75em;
+  -webkit-padding-end: 0.75em;
+  -webkit-padding-after: 0.625em;
+  border: 2px groove threedface;
+}
+legend
+{
+margin-bottom: 0!important;
+border-bottom: 0px solid #e5e5e5!important;
+}
+</style>
+
+
+<%= render 'results' %>
+
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('#avanzada').click(function()
+  {
+    $('#busquedaAvanzada').toggle();
+  });
+
+<%if params[:q] == nil%>
+$('#busquedaAvanzada').hide();
+<%end%>
+
+
+var seen = {};
+jQuery('#q_programa_nivel_cont').children().each(function() {
+    var txt = jQuery(this).clone().wrap('<select>').parent().html();
+    if (seen[txt]) {
+        jQuery(this).remove();
+    } else {
+        seen[txt] = true;
+    }
+});
+var seen = {};
+jQuery('#q_programa_programa_cont').children().each(function() {
+    var txt = jQuery(this).clone().wrap('<select>').parent().html();
+    if (seen[txt]) {
+        jQuery(this).remove();
+    } else {
+        seen[txt] = true;
+    }
+});
+
+
+
+});
+})(jQuery);
+
+</script>

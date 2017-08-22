@@ -1,0 +1,18 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@nacionalidad.id, :parent_model=>nil, :parent_id=>nil}%>
+<div class="well"><h1>Nacionalidad</h1>
+
+<p>
+  <b>Nacionalidad</b><br>
+  <%= @nacionalidad.nacionalidad %>
+</p>
+
+<p>
+  <b>Pais</b><br>
+  <%= @nacionalidad.pais %>
+</p>
+</div>
+<div class="form-actions">
+  <%= link_to 'Back', nacionalidads_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_nacionalidad_path(@nacionalidad), :class => 'btn' %>
+  <%= link_to 'Delete', nacionalidad_path(@nacionalidad), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

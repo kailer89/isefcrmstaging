@@ -1,0 +1,24 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@sede.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= form_for @sede, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', sedes_path, :class => 'btn' %>
+<div  class="well">  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Sede</legend>
+
+    <div class="control-group">
+      <%= f.label :nombre, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :nombre, :class => 'text_field' %>
+      </div>
+    </div>
+    </div>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@sede.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@sede.id}%>
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@sede.id}%>
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@sede.id}%>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', sedes_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

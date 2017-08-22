@@ -1,0 +1,17 @@
+<h1>Employmentship</h1>
+
+<p>
+  <b>User</b><br>
+  <%= @employmentship.user_id %>
+</p>
+
+<p>
+  <b>Empleado</b><br>
+  <%= @employmentship.empleado_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', employmentships_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_employmentship_path(@employmentship), :class => 'btn' %>
+  <%= link_to 'Delete', employmentship_path(@employmentship), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

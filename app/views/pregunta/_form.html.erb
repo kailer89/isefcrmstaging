@@ -1,0 +1,54 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@preguntum.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= form_for @preguntum, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', pregunta_path, :class => 'btn' %>
+  <fieldset>
+    <div class="well"><legend><%= controller.action_name.capitalize %> Pregunta</legend>
+    
+        <div class="control-group">
+          <%= f.label :ambito_de_la_pregunta, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :ambito_de_la_pregunta, :class => 'text_field' %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :pregunta, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :pregunta, :class => 'text_area' %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :respuesta, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :respuesta, :class => 'text_area' %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :pregunta_planteada_por, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :pregunta_planteada_por, :class => 'text_field' %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :resuelta_por, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :resuelta_por, :class => 'text_field' %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :pregunta_frecuente, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.check_box :pregunta_frecuente, :class => 'check_box' %>
+          </div>
+        </div></div>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', pregunta_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

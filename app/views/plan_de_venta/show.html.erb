@@ -1,0 +1,128 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@plan_de_ventum.id, :parent_model=>nil, :parent_id=>nil}%>
+<div class="well"><h1>Plan De Venta</h1>
+
+<p>
+  <b>Programa</b><br>
+  <%= @plan_de_ventum.programa %>
+</p>
+
+<p>
+  <b>Cuota de inscripcion</b><br>
+  <%= @plan_de_ventum.cuota_de_inscripcion %>
+</p>
+
+<p>
+  <b>Periodo de pago de inscripcion</b><br>
+  <%= @plan_de_ventum.periodo_de_pago_de_inscripcion %>
+</p>
+
+<p>
+  <b>Cuota de colegiatura</b><br>
+  <%= @plan_de_ventum.cuota_de_colegiatura %>
+</p>
+
+<p>
+  <b>Meses de pago de colegiatura</b><br>
+  <%= @plan_de_ventum.meses_de_pago_de_colegiatura %>
+</p>
+
+<p>
+  <b>Sede</b><br>
+  <%= @plan_de_ventum.sede_id %>
+</p>
+
+<p>
+  <b>Subsede</b><br>
+  <%= @plan_de_ventum.subsede %>
+</p>
+
+<p>
+  <b>Fecha de apertura</b><br>
+  <%= @plan_de_ventum.fecha_de_apertura %>
+</p>
+
+<p>
+  <b>Periodo banner de apertura</b><br>
+  <%= @plan_de_ventum.periodo_Banner_de_apertura %>
+</p>
+
+<p>
+  <b>Nombre del asesor a cargo</b><br>
+  <%= @plan_de_ventum.nombre_del_asesor_a_cargo %>
+</p>
+
+<p>
+  <b>Comentarios generalidades de apertura</b><br>
+  <%= @plan_de_ventum.comentarios_generalidades_de_apertura %>
+</p>
+
+<p>
+  <b>Meta de enteros</b><br>
+  <%= @plan_de_ventum.meta_de_enteros %>
+</p>
+
+<p>
+  <b>Status de la apertura</b><br>
+  <%= @plan_de_ventum.status_de_la_apertura %>
+</p>
+
+<p>
+  <b>Avance en enteros</b><br>
+  <%= @plan_de_ventum.avance_en_enteros %>
+</p>
+
+<p>
+  <b>Porcentaje de cumplimiento meta vs avance en enteros</b><br>
+  <%= @plan_de_ventum.porcentaje_de_cumplimiento_meta_vs_avance_en_enteros %>
+</p>
+
+<p>
+  <b>Viabilidad de esta apertura</b><br>
+  <%= @plan_de_ventum.viabilidad_de_esta_apertura %>
+</p>
+
+<p>
+  <b>Comentarios meta</b><br>
+  <%= @plan_de_ventum.comentarios_meta %>
+</p>
+
+<p>
+  <b>Medio promocional</b><br>
+  <%= @plan_de_ventum.medio_promocional %>
+</p>
+
+<p>
+  <b>Descripcion especificaciones detalladas del medio promocional</b><br>
+  <%= @plan_de_ventum.descripcion_especificaciones_detalladas_del_medio_promocional %>
+</p>
+
+<p>
+  <b>Cantidad</b><br>
+  <%= @plan_de_ventum.cantidad %>
+</p>
+
+<p>
+  <b>Inversion</b><br>
+  <%= @plan_de_ventum.inversion %>
+</p>
+
+<p>
+  <b>Viaticos de promocion estimados</b><br>
+  <%= @plan_de_ventum.viaticos_de_promocion_estimados %>
+</p>
+
+<p>
+  <b>Vales de gasolina</b><br>
+  <%= @plan_de_ventum.vales_de_gasolina %>
+</p>
+
+<p>
+  <b>Total de inversion en medios y viaticos para esta apertura</b><br>
+  <%= @plan_de_ventum.total_de_inversion_en_medios_y_viaticos_para_esta_apertura %>
+</p></div>
+
+<div class="form-actions">
+  <%= link_to 'Back', plan_de_venta_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_plan_de_ventum_path(@plan_de_ventum), :class => 'btn' %>
+  <%= link_to 'Delete', plan_de_ventum_path(@plan_de_ventum), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

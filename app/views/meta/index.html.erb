@@ -1,0 +1,68 @@
+<%- model_class = Metum.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:periodo_anual) %></th>
+      <th><%= model_class.human_attribute_name(:sede_id) %></th>
+      <th><%= model_class.human_attribute_name(:clave_del_programa) %></th>
+      <th><%= model_class.human_attribute_name(:fecha_de_inicio) %></th>
+      <th><%= model_class.human_attribute_name(:nivel_id) %></th>
+      <th><%= model_class.human_attribute_name(:programa_id) %></th>
+      <th><%= model_class.human_attribute_name(:ciudad_de_apertura) %></th>
+      <th><%= model_class.human_attribute_name(:estado_de_apertura) %></th>
+      <th><%= model_class.human_attribute_name(:modalidad) %></th>
+      <th><%= model_class.human_attribute_name(:turno_id) %></th>
+      <th><%= model_class.human_attribute_name(:horarios) %></th>
+      <th><%= model_class.human_attribute_name(:horarios_text) %></th>
+      <th><%= model_class.human_attribute_name(:lugar_donde_se_impartiran_las_clases) %></th>
+      <th><%= model_class.human_attribute_name(:asesor_a_cargo) %></th>
+      <th><%= model_class.human_attribute_name(:status_de_fecha_de_apertura) %></th>
+      <th><%= model_class.human_attribute_name(:meta_de_alumnos) %></th>
+      <th><%= model_class.human_attribute_name(:meta_de_enteros) %></th>
+      <th><%= model_class.human_attribute_name(:viabilidad_de_la_apertura) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @meta.each do |metum| %>
+      <tr>
+        <td><%= link_to metum.id, metum_path(metum) %></td>
+        <td><%= metum.periodo_anual %></td>
+        <td><%= metum.sede_id %></td>
+        <td><%= metum.clave_del_programa %></td>
+        <td><%= metum.fecha_de_inicio %></td>
+        <td><%= metum.nivel_id %></td>
+        <td><%= metum.programa_id %></td>
+        <td><%= metum.ciudad_de_apertura %></td>
+        <td><%= metum.estado_de_apertura %></td>
+        <td><%= metum.modalidad %></td>
+        <td><%= metum.turno_id %></td>
+        <td><%= metum.horarios %></td>
+        <td><%= metum.horarios_text %></td>
+        <td><%= metum.lugar_donde_se_impartiran_las_clases %></td>
+        <td><%= metum.asesor_a_cargo %></td>
+        <td><%= metum.status_de_fecha_de_apertura %></td>
+        <td><%= metum.meta_de_alumnos %></td>
+        <td><%= metum.meta_de_enteros %></td>
+        <td><%= metum.viabilidad_de_la_apertura %></td>
+        <td><%=l metum.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_metum_path(metum), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      metum_path(metum),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_metum_path,
+            :class => 'btn btn-primary' %>

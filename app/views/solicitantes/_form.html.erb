@@ -1,0 +1,40 @@
+  <%= simple_form_for @solicitante, :html => { :class => 'form-horizontal' ,:onsubmit=>"return confirm('Estas seguro de querer continuar?');"} do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', solicitantes_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
+    <%if request.path_parameters[:action]== "edit" %>
+      <%if not @solicitante.isexaminado?%>
+        <%= link_to 'Convertir en Examinado', convertir_solicitante_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+      <%end%>
+    <%end%>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@solicitante.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= render :partial => "solicitanteNav"%>
+<%=render :partial=>"shared/edit_solicitantes", :locals=>{:f=>f}%>
+<%=render :partial=>"shared/edit_prospectos", :locals=>{:f=>f}%>
+<div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', solicitantes_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
+    <%if request.path_parameters[:action]== "edit" %>
+      <%if not @solicitante.isexaminado?%>
+        <%= link_to 'Convertir en Examinado', convertir_solicitante_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+      <%end%>
+    <%end%>
+</div>    
+<%=render :partial=>"shared/tabed_actions", :locals=>{:prospecto_id=>@solicitante.id,:real_id=>@solicitante.prospectos.first.id,:tareas=>@tareas,:memos=>@memos,:llamadas=>@llamadas,:correos=>@correos,:attachments=>@attachments}%>
+<div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', solicitantes_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
+    <%if request.path_parameters[:action]== "edit" %>
+      <%if not @solicitante.isexaminado?%>
+        <%= link_to 'Convertir en Examinado', convertir_solicitante_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+      <%end%>
+    <%end%>
+</div>    
+<% end %>
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

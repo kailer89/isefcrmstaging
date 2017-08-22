@@ -1,0 +1,49 @@
+  <%
+  #render a partial for any llamadas
+	llamadas =Llamada.where(:model_name=>request.path_parameters[:controller] ,:model_id=>model_id)
+  %>
+  <div class="well">
+    <h3>Llamadas</h3>
+     <table class="table table-striped table-bordered table-condensed">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Asunto</th>
+          <th>Creado en </th>
+          <th>Pendiente</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% llamadas.each do |llamada| %>
+          <tr>
+            <td><%= link_to llamada.id, llamada_path(llamada) %></td>
+            <td><%= link_to llamada.asunto, llamada_path(llamada) %></td>
+            <td><%= link_to llamada.created_at, llamada_path(llamada) %></td>
+                      <td>
+                        <%if llamada.pendiente == nil%>
+                          <%= link_to "No Pendiente", llamada_path(llamada) rescue nil%>
+                        <%else%>
+                          <%if llamada.pendiente == true%>
+                              <%= link_to "Pendiente", llamada_path(llamada) rescue nil%>
+                          <%else%>
+                              <%= link_to "No Pendiente", llamada_path(llamada) rescue nil%>                          
+                          <%end%>
+                        <%end%>
+                      </td>
+            <td>
+                        <%if llamada.pendiente == nil%>
+                        <%else%>
+                          <%if llamada.pendiente == true%>
+                              <%= link_to 'Acciones pendientes', edit_llamada_path(llamada), :class => 'btn btn-mini btn-warning' %>                        
+                          <%end%>
+                        <%end%>              
+              <%= link_to 'Edit', edit_llamada_path(llamada), :class => 'btn btn-mini' %>
+              <%= link_to 'Destroy', llamada_path(llamada), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'Nuevo Llamada', new_llamada_path(:model_name=>request.path_parameters[:controller],:model_id=>model_id), :class => 'btn btn-primary' %>
+  </div>

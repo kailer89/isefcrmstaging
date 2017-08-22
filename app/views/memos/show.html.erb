@@ -1,0 +1,25 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@memo.id, :parent_model=>@memo.model_name, :parent_id=>@memo.model_id}%>
+<div class="well"><h1>Memo</h1>
+
+<p>
+  <b>Nombre de la Nota</b><br>
+  <%= @memo.nombre %>
+</p>
+
+<p>
+  <b>Descripción</b><br>
+  <%= @memo.descripcion %>
+</p>
+</div>
+<div class="form-actions">
+  <a href="/<%=@memo.model_name%>/<%=@memo.model_id%>/edit" class="btn">Back</a>
+      <%if @memo != nil%>
+        <%if @memo.pendiente == true %>
+          <%= link_to 'Quitar pendiente', "#{@memo.id}/convertir_memo",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-warning', :method=>'post', :id=>'convertir_memo'%> 
+        <%else%>
+          <%= link_to 'Hacer pendiente', "#{@memo.id}/convertir_memo",:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'convertir_memo'%> 
+        <%end%> 
+      <%end%>     
+  <%= link_to 'Edit', edit_memo_path(@memo), :class => 'btn' %>
+  <%= link_to 'Delete', memo_path(@memo), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

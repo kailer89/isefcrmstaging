@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ISEF CRM</title>
+   <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <!--Raphael stuff for live graphs-->  
+  <%= stylesheet_link_tag    "bootstrap" %>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+  <%= stylesheet_link_tag    "bootstrap-responsive" %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application","dragtable", "sorttable","bootstrap-datepicker"%>
+  <%if current_user !=nil%>
+  <% if current_user.role == 'admin'%>
+    <%= stylesheet_link_tag "admin" %>
+  <%elsif current_user.role=="director"%>
+    <%= stylesheet_link_tag "director" %>
+  <%elsif current_user.role=="directorsede"%>
+    <%= stylesheet_link_tag "directorsede" %>
+  <%elsif current_user.role=="coordinadorapromocion"%>
+    <%= stylesheet_link_tag "coordinadorapromocion" %>
+  <%elsif current_user.role=="asesorpreuniversitario"%>
+    <%= stylesheet_link_tag "asesorpreuniversitario" %>
+  <%elsif current_user.role=="otrosdep"%>
+    <%= stylesheet_link_tag "otrosdep" %>
+  <%else%>
+    <%= stylesheet_link_tag "normal" %> 
+  <%end%>
+  <%else%>
+  <%= stylesheet_link_tag "admin" %>  
+  <%end%>
+  <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="centeredSignUp">
+<h2>Change your password</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :reset_password_token, :as => :hidden %>
+  <%= f.full_error :reset_password_token %>
+
+  <div class="form-inputs">
+    <%= f.input :password, :label => "New password", :required => true %>
+    <%= f.input :password_confirmation, :label => "Confirm your new password", :required => true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Change my password" %>
+  </div>
+<% end %>
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Sign in", new_user_session_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "Sign up", new_user_registration_path %><br />
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to "Forgot your password?", new_user_password_path %><br />
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path %><br />
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "Didn't receive unlock instructions?", new_user_unlock_path %><br />
+<% end -%>
+</div>
+</body>

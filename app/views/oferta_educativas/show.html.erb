@@ -1,0 +1,47 @@
+<%- model_class = @oferta_educativa.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-vertical">
+  <dt><strong><%= model_class.human_attribute_name(:periodo_anual) %>:</strong></dt>
+  <dd><%= @oferta_educativa.periodo_anual %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id) %>:</strong></dt>
+  <dd><%= @oferta_educativa.sede.nombre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nivel_id) %>:</strong></dt>
+  <dd><%= @oferta_educativa.nivel.valor %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id) %>:</strong></dt>
+  <dd><%= @oferta_educativa.programa.nivel %> - <%= @oferta_educativa.programa.programa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tipo_de_validez) %>:</strong></dt>
+  <dd><%= @oferta_educativa.tipo_de_validez %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tipo_de_reconocimiento) %>:</strong></dt>
+  <dd><%= @oferta_educativa.tipo_de_reconocimiento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sedes_en_las_que_se_oferta_este_programa) %>:</strong></dt>
+  <dd><%= @oferta_educativa.sedes_en_las_que_se_oferta_este_programa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:modalidades_en_que_se_imparte) %>:</strong></dt>
+  <dd><%= @oferta_educativa.modalidades_en_que_se_imparte %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:horarios_en_que_se_imparte) %>:</strong></dt>
+  <dd><%= @oferta_educativa.horarios_en_que_se_imparte %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:requisitos) %>:</strong></dt>
+  <dd><%= @oferta_educativa.requisitos %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:objetivo_del_programa) %>:</strong></dt>
+  <dd><%= @oferta_educativa.objetivo_del_programa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:perfil_de_ingreso) %>:</strong></dt>
+  <dd><%= @oferta_educativa.perfil_de_ingreso %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:perfil_de_egreso) %>:</strong></dt>
+  <dd><%= @oferta_educativa.perfil_de_egreso %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ambito_de_desempeno) %>:</strong></dt>
+  <dd><%= @oferta_educativa.ambito_de_desempeno %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:principales_beneficios_que_ofrece_el_programa) %>:</strong></dt>
+  <dd><%= @oferta_educativa.principales_beneficios_que_ofrece_el_programa %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              oferta_educativas_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_oferta_educativa_path(@oferta_educativa), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              oferta_educativa_path(@oferta_educativa),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

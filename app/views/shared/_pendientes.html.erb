@@ -1,0 +1,261 @@
+<%if request.path_parameters[:action] != "new"%>
+ <div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tareas" data-toggle="tab">Tarea</a></li>
+    <li><a href="#llamadas" data-toggle="tab">Llamadas</a></li>
+    <li><a href="#memos" data-toggle="tab">Notas</a></li>
+    <li><a href="#correos" data-toggle="tab">Correos</a></li>
+    <li><a href="#attachments" data-toggle="tab">Adjuntos</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tareas">
+        <div class="well">
+          <h3>Tareas</h3>
+           <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Procendencia</th>
+                <th>Nombre</th>
+                <th>Creado en </th>
+                <th>Pendiente </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%if tareas != nil%>
+                <%if tareas[0] != nil%>
+                  <% tareas.each do |tarea| %>
+                      <%if tarea.fecha_de_inicio_de_la_tarea!=nil && tarea.fecha_de_inicio_de_la_tarea < Date.today - 2%>
+                        <%tareastatus="redrow whitetigger"%>
+                      <%end%>                
+                      <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today - 1%>
+                        <%tareastatus="orangerow whitetigger"%>
+                      <%end%>
+                      <%if tarea.fecha_de_inicio_de_la_tarea != nil && tarea.fecha_de_inicio_de_la_tarea == Date.today%>
+                        <% tareastatus="navyrow linkcolor"%>
+                      <%end%>
+                      <%if tarea.fecha_de_inicio_de_la_tarea!= nil && tarea.fecha_de_inicio_de_la_tarea == Date.tomorrow%>
+                        <%tareastatus="stonerow linkcolor"%>
+                      <%end%>              
+                    <tr class="<%=tareastatus%>">
+                      <td><%= link_to tarea.id, tarea_path(tarea) %></td>
+                      <td><%= link_to "#{tarea.model_name}" , "/#{tarea.model_name}/#{tarea.model_id}/edit" %></td>
+                      <td><%= link_to tarea.nombre, tarea_path(tarea) %></td>
+                      <td><%= link_to tarea.created_at, tarea_path(tarea) %></td>
+                      <td>
+                        <%if tarea.pendiente == nil%>
+                          <%= link_to "No Pendiente", tarea_path(tarea) rescue nil%>
+                        <%else%>
+                          <%if tarea.pendiente == true%>
+                              <%= link_to "Pendiente", tarea_path(tarea) rescue nil%>
+                          <%else%>
+                              <%= link_to "No Pendiente", tarea_path(tarea) rescue nil%>                          
+                          <%end%>
+                        <%end%>
+                      </td>                      
+                      <td>
+                        <%if tarea.pendiente == nil%>
+                        <%else%>
+                          <%if tarea.pendiente == true%>
+                              <%= link_to 'Acciones pendientes', edit_tarea_path(tarea), :class => 'btn btn-mini btn-warning' %>                        
+                          <%end%>
+                        <%end%>                        
+                        <%= link_to 'Edit', edit_tarea_path(tarea), :class => 'btn btn-mini' %>
+                        <%= link_to 'Destroy', tarea_path(tarea), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+                      </td>
+                    </tr>
+                  <% end %>
+                <%end%>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <div class="tab-pane" id="llamadas">
+        <div class="well">
+          <h3>Llamadas</h3>
+           <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Procendencia</th>
+                <th>Asunto</th>
+                <th>Creado en </th>
+                <th>Pendiente </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%if llamadas != nil %>
+                <%if llamadas[0] != nil%>
+                  <% llamadas.each do |llamada| %>
+                    <%if llamada.inicio_de_la_llamada!=nil && llamada.inicio_de_la_llamada < Date.today - 2%>
+                      <%tareastatus="redrow whitetigger"%>
+                    <%end%>                
+                    <%if llamada.inicio_de_la_llamada != nil && llamada.inicio_de_la_llamada == Date.today - 1%>
+                      <%tareastatus="orangerow whitetigger"%>
+                    <%end%>
+                    <%if llamada.inicio_de_la_llamada != nil && llamada.inicio_de_la_llamada == Date.today%>
+                      <% tareastatus="navyrow linkcolor"%>
+                    <%end%>
+                    <%if llamada.inicio_de_la_llamada!= nil && llamada.inicio_de_la_llamada == Date.tomorrow%>
+                      <%tareastatus="stonerow linkcolor"%>
+                    <%end%>                
+                    <tr class="<%=tareastatus%>">
+                      <td><%= link_to llamada.id, llamada_path(llamada) %></td>
+                      <td><%= link_to "#{llamada.model_name}" , "/#{llamada.model_name}/#{llamada.model_id}/edit" %></td>
+                      <td><%= link_to llamada.asunto, llamada_path(llamada) %></td>
+                      <td><%= link_to llamada.created_at, llamada_path(llamada) %></td>
+                      <td>
+                        <%if llamada.pendiente == nil%>
+                          <%= link_to "No Pendiente", llamada_path(llamada) rescue nil%>
+                        <%else%>
+                          <%if llamada.pendiente == true%>
+                              <%= link_to "Pendiente", llamada_path(llamada) rescue nil%>
+                          <%else%>
+                              <%= link_to "No Pendiente", llamada_path(llamada) rescue nil%>                          
+                          <%end%>
+                        <%end%>
+                      </td>
+                      <td>
+                        <%if llamada.pendiente == nil%>
+                        <%else%>
+                          <%if llamada.pendiente == true%>
+                              <%= link_to 'Acciones pendientes', edit_llamada_path(llamada), :class => 'btn btn-mini btn-warning' %>                        
+                          <%end%>
+                        <%end%>
+                        <%= link_to 'Edit', edit_llamada_path(llamada), :class => 'btn btn-mini' %>
+                        <%= link_to 'Destroy', llamada_path(llamada), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+                      </td>
+                    </tr>
+                  <% end %>
+                <%end%>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <div class="tab-pane" id="memos">
+        <div class="well">
+          <h3>Notas</h3>
+           <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Procendencia</th>
+                <th>Nombre</th>
+                <th>Creado en </th>
+                <th>Pendiente </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%if memos != nil %>
+                <%if memos[0] != nil%>
+                <% memos.each do |memo| %>
+                  <tr>
+                    <td><%= link_to memo.id, memo_path(memo) %></td>
+                    <td><%= link_to "#{memo.model_name}" , "/#{memo.model_name}/#{memo.model_id}/edit" %></td>
+                    <td><%= link_to memo.nombre, memo_path(memo) %></td>
+                    <td><%= link_to memo.created_at, memo_path(memo) %></td>
+                      <td>
+                        <%if memo.pendiente == nil%>
+                          <%= link_to "No Pendiente", memo_path(memo) rescue nil%>
+                        <%else%>
+                          <%if memo.pendiente == true%>
+                              <%= link_to "Pendiente", memo_path(memo) rescue nil%>
+                          <%else%>
+                              <%= link_to "No Pendiente", memo_path(memo) rescue nil%>                          
+                          <%end%>
+                        <%end%>
+                      </td>
+                      <td>
+                        <%if memo.pendiente == nil%>
+                        <%else%>
+                          <%if memo.pendiente == true%>
+                              <%= link_to 'Acciones pendientes', edit_memo_path(memo), :class => 'btn btn-mini btn-warning' %>                        
+                          <%end%>
+                        <%end%>
+                      <%= link_to 'Edit', edit_memo_path(memo), :class => 'btn btn-mini' %>
+                      <%= link_to 'Destroy', memo_path(memo), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+                    </td>
+                  </tr>
+                <% end %>
+                <%end%>
+              <%end%>
+            </tbody>
+          </table>
+        </div>  
+    </div>
+    <div class="tab-pane" id="correos">
+        <div class="well">
+          <h3>Correos</h3>
+           <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Procendencia</th>
+                <th>Nombre</th>
+                <th>Creado en </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%if correos != nil %>
+                <%if correos[0] != nil%>
+                <% correos.each do |correo| %>
+                  <tr>
+                    <td><%= link_to correo.id, correo_path(correo) %></td>
+                    <td><%= link_to "#{correo.model_name}" , "/#{correo.model_name}/#{correo.model_id}/edit" %></td>
+                    <td><%= link_to correo.nombredelmail, correo_path(correo) %></td>
+                    <td><%= link_to correo.created_at, correo_path(correo) %></td>
+                    <td>
+                      <%= link_to 'Edit', edit_correo_path(correo), :class => 'btn btn-mini' %>
+                      <%= link_to 'Destroy', correo_path(correo), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+                    </td>
+                  </tr>
+                <% end %>
+                <%end%>
+              <%end%>
+            </tbody>
+          </table>
+        </div>  
+    </div>
+    <div class="tab-pane" id="attachments">
+        <div class="well">
+          <h3>Archivos Adjuntos</h3>
+           <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Procendencia</th>
+                <th>Nombre</th>
+                <th>Creado en </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%if attachments != nil%>
+                <%if attachments[0] != nil%>
+                  <% attachments.each do |attachment| %>
+                    <tr>
+                      <td><%= link_to attachment.id, attachment_path(attachment) %></td>
+                      <td><%= link_to "#{attachment.model_name}" , "/#{attachment.model_name}/#{attachment.model_id}/edit" %></td>
+                      <td><%= link_to attachment.name, attachment_path(attachment) rescue nil%></td>
+                      <td><%= link_to attachment.created_at, attachment_path(attachment) %></td>
+                      <td>
+                        <%= link_to 'Edit', edit_attachment_path(attachment), :class => 'btn btn-mini' %>
+                        <%= link_to 'Destroy', attachment_path(attachment), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+                      </td>
+                    </tr>
+                  <% end %>
+                <%end%>
+              <%end%>
+            </tbody>
+          </table>
+        </div>  
+    </div>            
+  </div>
+</div>
+<%end%>

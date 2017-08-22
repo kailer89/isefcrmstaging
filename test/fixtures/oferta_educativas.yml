@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  periodo_anual: MyString
+  sede_id: 1
+  nivel_id: 1
+  programa_id: 1
+  tipo_de_validez: MyString
+  tipo_de_reconocimiento: MyString
+  sedes_en_las_que_se_oferta_este_programa: MyString
+  modalidades_en_que_se_imparte: MyString
+  horarios_en_que_se_imparte: MyString
+  requisitos: MyText
+  objetivo_del_programa: MyText
+  perfil_de_ingreso: MyText
+  perfil_de_egreso: MyText
+  ambito_de_desempeno: MyText
+  principales_beneficios_que_ofrece_el_programa: MyText
+
+two:
+  periodo_anual: MyString
+  sede_id: 1
+  nivel_id: 1
+  programa_id: 1
+  tipo_de_validez: MyString
+  tipo_de_reconocimiento: MyString
+  sedes_en_las_que_se_oferta_este_programa: MyString
+  modalidades_en_que_se_imparte: MyString
+  horarios_en_que_se_imparte: MyString
+  requisitos: MyText
+  objetivo_del_programa: MyText
+  perfil_de_ingreso: MyText
+  perfil_de_egreso: MyText
+  ambito_de_desempeno: MyText
+  principales_beneficios_que_ofrece_el_programa: MyText

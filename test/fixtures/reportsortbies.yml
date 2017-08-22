@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fieldname: MyString
+  report_id: 1
+
+two:
+  fieldname: MyString
+  report_id: 1

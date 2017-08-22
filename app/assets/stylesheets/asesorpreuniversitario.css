@@ -1,0 +1,43 @@
+
+  body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+   .centeredSignUp{
+    display:block;
+
+    /*set the div in the center of the screen*/
+    position:absolute;
+    left:35%;
+    width:350px;
+  }
+  .favoritesBar
+  {
+    padding-top:0px;
+    padding-bottom: 0;
+    max-height: 35px;
+    margin-bottom:0;
+    display:block;
+    max-height: 35px;
+    min-height:35px;
+  }
+  #footer {
+    height: 15px;
+    display:block;
+
+    /*set the div in the center of the screen*/
+    position:absolute;
+    left:50%;    
+  }
+  .clearfooter {
+  height: 15px;
+  clear: both;  
+  }
+  body
+  {
+    padding-bottom:0;
+  }
+  .nav-tabs{
+    margin-bottom:0px;
+    }

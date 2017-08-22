@@ -1,0 +1,12 @@
+<h1>Periodo Para Ingresar</h1>
+
+<p>
+  <b>Valor</b><br>
+  <%= @periodo_para_ingresar.valor %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', periodo_para_ingresars_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_periodo_para_ingresar_path(@periodo_para_ingresar), :class => 'btn' %>
+  <%= link_to 'Delete', periodo_para_ingresar_path(@periodo_para_ingresar), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

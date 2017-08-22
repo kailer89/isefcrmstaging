@@ -1,0 +1,44 @@
+<%= simple_form_for @nacional_de_apertura, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                nacional_de_aperturas_path, :class => 'btn' %>
+  <%= f.input :periodo_actual %>
+  <%= f.input :sede_id do%>
+    <%f.select :sede_id, Sede.all.map{|c| [c.nombre,c.id]}%>
+  <%end %>
+  <%= f.input :clave_del_programa %>
+<%= f.input :fecha_de_inicio do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_inicio%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+            <%=f.input :programa_id,:label=>"Programa" do%>
+              <%= f.select :programa_id , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa, c.id] }%>
+            <%end%>  
+  <%= f.input :ciudad_de_apertura %>
+  <%= f.input :estado_de_apertura %>
+  <%= f.input :modalidad %>
+  <%= f.input :turno %>
+  <%= f.input :horarios %>
+  <%= f.input :lugar_donde_se_impartiran_las_clases %>
+  <%= f.input :asesor_a_cargo do%>
+    <%f.select :asesor_a_cargo, User.all.map{|c| [c.username,c.id]}%>
+  <%end%>
+  <%= f.input :email_de_contacto %>
+  <%= f.input :status_de_la_fecha_de_apertura %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                nacional_de_aperturas_path, :class => 'btn' %>
+  </div>
+       <%=render :partial=>"shared/attachments", :locals=>{:model_id=>@nacional_de_apertura.id}%>
+<% end %>
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

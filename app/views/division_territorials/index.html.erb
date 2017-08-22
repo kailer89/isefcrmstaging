@@ -1,0 +1,48 @@
+<%- model_class = DivisionTerritorial.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:periodo_anual) %></th>
+      <th><%= model_class.human_attribute_name(:sede_id) %></th>
+      <th><%= model_class.human_attribute_name(:estados_correspondientes) %></th>
+      <th><%= model_class.human_attribute_name(:estado_ciudad_con_grupo_abierto) %></th>
+      <th><%= model_class.human_attribute_name(:programa_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @division_territorials.each do |division_territorial| %>
+      <tr>
+        <td><%= link_to division_territorial.id, division_territorial_path(division_territorial) %></td>
+        <td><%= division_territorial.periodo_anual %></td>
+        <td><%= division_territorial.sede.nombre %></td>
+        <td><%= division_territorial.estados_correspondientes %></td>
+        <td><%= division_territorial.estado_ciudad_con_grupo_abierto %></td>
+        <td><%
+         elPrograma = Programa.where(:id=>division_territorial.programa_id).first
+    %>
+    <%=elPrograma.nivel%>  - <%=elPrograma.programa%></td>
+        <td><%=l division_territorial.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_division_territorial_path(division_territorial), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      division_territorial_path(division_territorial),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_division_territorial_path,
+            :class => 'btn btn-primary' %>
+<br/>
+<br/>
+<br/>

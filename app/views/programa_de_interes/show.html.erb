@@ -1,0 +1,12 @@
+<h1>Programa De Intere</h1>
+
+<p>
+  <b>Valor</b><br>
+  <%= @programa_de_intere.valor %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', programa_de_interes_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_programa_de_intere_path(@programa_de_intere), :class => 'btn' %>
+  <%= link_to 'Delete', programa_de_intere_path(@programa_de_intere), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

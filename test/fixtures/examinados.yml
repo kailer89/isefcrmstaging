@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  status_del_examinado_paa: MyString
+  puntuacion_verbal: 1.5
+  puntuacion_matematicas: 1.5
+  puntuacion_redaccion_indirecta: 1.5
+  puntaje_total_paa: 1.5
+  dictament_paa: MyString
+  comentarios_evaluador_paa: MyText
+  solicitante_id: 1
+
+two:
+  status_del_examinado_paa: MyString
+  puntuacion_verbal: 1.5
+  puntuacion_matematicas: 1.5
+  puntuacion_redaccion_indirecta: 1.5
+  puntaje_total_paa: 1.5
+  dictament_paa: MyString
+  comentarios_evaluador_paa: MyText
+  solicitante_id: 1

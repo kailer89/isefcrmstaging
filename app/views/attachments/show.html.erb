@@ -1,0 +1,16 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@attachment.id, :parent_model=>@attachment.model_name, :parent_id=>@attachment.model_id}%>
+<div class="well"><h1>Attachment</h1>
+<p>
+  <b>Attachment</b><br>
+  <%=link_to "Descargar Attachment",@attachment.name_url.to_s %>
+	<%if request.port != nil%>
+	  http://<%=request.host %>:<%=request.port%><%=@attachment.name_url.to_s%>
+	<%else%>
+	  http://<%=request.host %><%=@attachment.name_url.to_s%>                
+	<%end%>   
+</p></div>
+<div class="form-actions">
+  <a href="/<%=@attachment.model_name%>/<%=@attachment.model_id%>/edit" class="btn">Back</a>
+  <%= link_to 'Edit', edit_attachment_path(@attachment), :class => 'btn' %>
+  <%= link_to 'Delete', attachment_path(@attachment), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

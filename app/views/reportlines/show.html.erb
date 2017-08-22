@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre del campo:</b>
+  <%= @reportline.nombre_del_campo %>
+</p>
+
+<p>
+  <b>Modulo:</b>
+  <%= @reportline.modulo %>
+</p>
+
+<p>
+  <b>Report:</b>
+  <%= @reportline.report_id %>
+</p>
+
+<p>
+  <b>Campo:</b>
+  <%= @reportline.campo %>
+</p>
+
+<p>
+  <b>Filtro:</b>
+  <%= @reportline.filtro %>
+</p>
+
+<p>
+  <b>Valorcampo:</b>
+  <%= @reportline.valorcampo %>
+</p>
+
+
+<%= link_to 'Edit', edit_reportline_path(@reportline) %> |
+<%= link_to 'Back', reportlines_path %>

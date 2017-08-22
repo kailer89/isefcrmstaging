@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  status_admision: MyString
+  comentarios_de_la_direccion: MyText
+  status_de_la_notificacion: MyString
+  status_del_admitido: MyString
+  cometnarios_de_notificacion: MyText
+  solicitud_de_admision: false
+  copia_del_acta_de_nacimiento: false
+  copia_del_certificado_de_preparatoria_licenciatura: false
+  4_fotografias_tamano_infantil_blanco_y_negro_papel_mate: false
+  copia_del_comprobante_de_pago_de_inscripcion: false
+  comentarios_documentacion: MyText
+
+two:
+  status_admision: MyString
+  comentarios_de_la_direccion: MyText
+  status_de_la_notificacion: MyString
+  status_del_admitido: MyString
+  cometnarios_de_notificacion: MyText
+  solicitud_de_admision: false
+  copia_del_acta_de_nacimiento: false
+  copia_del_certificado_de_preparatoria_licenciatura: false
+  4_fotografias_tamano_infantil_blanco_y_negro_papel_mate: false
+  copia_del_comprobante_de_pago_de_inscripcion: false
+  comentarios_documentacion: MyText

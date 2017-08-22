@@ -1,0 +1,31 @@
+<%= form_for @reportparam, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Reportparam</legend>
+
+    <div class="control-group">
+      <%= f.label :nombre, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :nombre, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :fieldname, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :fieldname, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :fieldvalue, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :fieldvalue, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', reportparams_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

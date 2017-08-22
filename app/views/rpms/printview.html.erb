@@ -1,0 +1,325 @@
+<A HREF="javascript:window.print()">Has click aqui para imprimir la pagina</A>
+<%reporte = Rpm.find(params[:id])%>
+
+	<%firstitem=true%>
+	<div class="tabbable tabs-left">
+	  <ul class="nav nav-tabs">
+	    <li class="active"><a href="#prospecto" data-toggle="tab">Prospecto</a></li>
+	    <li><a href="#usuario" data-toggle="tab">Usuario</a></li>
+	    <li><a href="#sede" data-toggle="tab">Sede</a></li>
+	    <li><a href="#subsede" data-toggle="tab">SubSede</a></li>
+	    <li><a href="#programa" data-toggle="tab">Programa</a></li>
+	    <li><a href="#porEstado" data-toggle="tab">Por Estado</a></li>
+	  </ul>
+	  <div class="tab-content">
+	    <div class="tab-pane active" id="prospecto">
+			<!--aa Ordenar por programa -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  <%if reporte.prospectos != nil  and reporte.prospectos != ""%>
+				  	<%reporte.prospectos.each do |prospecto|%>
+				  		<%prospecto = Prospecto.where(:id=>prospecto).first%>
+				  		<%if prospecto != nil%>
+					  		<%if firstitem%>
+					  			<li class="active"><a href="#prospecto<%=prospecto.id%>" data-toggle="tab"><%=prospecto.nombre_completo%></a></li>
+					  			<%firstitem = false%>
+					  		<%else%>
+					  			<li><a href="#prospecto<%=prospecto.id%>" data-toggle="tab"><%=prospecto.nombre_completo%></a></li>		
+					  		<%end%>
+					  	<%end%>
+				  	<%end%>
+			  	<%end%>
+			  	<%firstitem = true%>
+			  </ul>
+			  <div class="tab-content">
+				<%reporte.prospectos.each do |prospecto|%>
+			  		<%
+			  		prospecto = Prospecto.where(:id=>prospecto).first%>
+			  		<%if prospecto != nil%>
+				  		<%if firstitem%>
+				  			<div class="tab-pane active" id="prospecto<%=prospecto.id%>">
+								<%=render :partial=>"resumen", :locals=>{:prospectoid=>prospecto.id}%>
+							</div>	  				
+				  			<%firstitem = false%>
+				  		<%else%>
+						    <div class="tab-pane" id="prospecto<%=prospecto.id%>">
+						    	<%=render :partial=>"resumen", :locals=>{:prospectoid=>prospecto.id}%>
+						    </div>		
+				  		<%end%>	
+			  		<%end%>	
+				<%end%>
+				<%firstitem = true%>
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->	      	
+	    </div>
+	    <div class="tab-pane" id="usuario">
+			<!-- Ordenar por programa -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<%if reporte.usuarios != nil   and reporte.usuarios != ""%>
+				  	<%reporte.usuarios.each do |usuario|%>
+				  		<%usuario = User.where(:id=>usuario).first%>
+				  		<%if usuario != nil%>
+					  		<%if firstitem%>
+					  			<li class="active"><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>
+					  			<%firstitem = false%>
+					  		<%else%>
+					  			<li><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>		
+					  		<%end%>
+				  		<%end%>
+				  	<%end%>
+				<%else%>
+				  	<%User.all.each do |usuario|%>
+				  		<%if firstitem%>
+				  			<li class="active"><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>
+				  			<%firstitem = false%>
+				  		<%else%>
+				  			<li><a href="#usuario<%=usuario.id%>" data-toggle="tab"><%=usuario.username%></a></li>		
+				  		<%end%>
+				  	<%end%>				
+			  	<%end%>
+			  	<%firstitem = true%>
+			  </ul>
+			  <div class="tab-content">
+			  	<%if reporte.usuarios != nil  and reporte.usuarios != ""%>
+			  		<%reporte.usuarios.each do |usuario|%>
+				  		<%usuario = User.where(:id=>usuario).first%>
+				  		<%if usuario != nil %>
+					  		<%@prospectos = Prospecto.where(:user_id=>usuario).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
+					  		<%if firstitem%>
+					  			<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>true}%>
+					  			<%firstitem = false%>
+					  		<%else%>
+									<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>false}%>	
+					  		<%end%>	
+				  		<%end%>		
+					<%end%>
+				<%else%>
+			  		<%User.all.each do |usuario|%>
+			  		<%@prospectos = Prospecto.where(:user_id=>usuario).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
+				  		<%if firstitem%>
+							<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>true}%>
+				  			<%firstitem = false%>
+				  		<%else%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>usuario.id,:kind=>"usuario",:active=>false}%>		
+				  		<%end%>			
+					<%end%>				
+				<%end%>
+
+				<%firstitem = true%>
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->
+	    </div>
+	    <div class="tab-pane" id="sede">
+			<!-- Ordenar por programa -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<%if reporte.sedes != nil   and reporte.sedes != ""%>
+				  	<%reporte.sedes.each do |sede|%>
+				  		<%sede = Sede.where(:id=>sede).first%>
+				  		<%if sede != nil %>
+					  		<%if firstitem%>
+					  			<li class="active"><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>
+					  			<%firstitem = false%>
+					  		<%else%>
+					  			<li><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>		
+					  		<%end%>
+				  		<%end%>
+				  	<%end%>
+				<%else%>
+				  	<%Sede.all.each do |sede|%>
+				  		<%if firstitem%>
+				  			<li class="active"><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>
+				  			<%firstitem = false%>
+				  		<%else%>
+				  			<li><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%></a></li>		
+				  		<%end%>
+				  	<%end%>				
+				<%end%>
+			  	<%firstitem = true%>
+			  </ul>
+			  <div class="tab-content">
+			  	<%if reporte.sedes != nil  and reporte.sedes != ""%>
+				  	<%reporte.sedes.each do |sede|%>
+				  		<%sede = Sede.where(:id=>sede).first%>
+				  		<%if sede != nil %>
+					  		<%@prospectos = Prospecto.where(:sede_id=>sede).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
+					  		<%if firstitem%>
+								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>true}%>
+					  			<%firstitem = false%>
+					  		<%else%>
+							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>false}%>
+					  		<%end%>			
+				  		<%end%>	
+					<%end%>
+				<%else%>
+					<%Sede.all.each do |sede|%>
+					<%@prospectos = Prospecto.where(:sede_id=>sede).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
+				  		<%if firstitem%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>true}%>
+				  			<%firstitem = false%>
+				  		<%else%>
+								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>sede.id,:kind=>"sede",:active=>false}%>	
+				  		<%end%>			
+					<%end%>				
+				<%end%>
+				<%firstitem = true%>
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->
+	    </div>
+	    <div class="tab-pane" id="subsede">
+			<!-- Ordenar por programa -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<%if reporte.subsedes != nil and reporte.subsedes != ""%>
+				  	<%reporte.subsedes.each do |subsede|%>
+				  		<%subsede = Subsede.where(:id=>subsede).first%>
+				  		<%if subsede != nil%>
+					  		<%if firstitem%>
+					  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>
+					  			<%firstitem = false%>
+					  		<%else%>
+					  			<li><a href="#<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>		
+					  		<%end%>
+				  		<%end%>
+				  	<%end%>
+			  	<%else%>
+			  		<%Subsede.all.each do |subsede|%>
+				  		<%if firstitem%>
+				  			<li class="active"><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>
+				  			<%firstitem = false%>
+				  		<%else%>
+				  			<li><a href="#subsede<%=subsede.id%>" data-toggle="tab"><%=subsede.nombre%></a></li>		
+				  		<%end%>
+				  	<%end%>			  	
+			  	<%end%>
+			  	<%firstitem = true%>
+			  </ul>
+			  <div class="tab-content">
+			  	<%if reporte.subsedes != nil  and reporte.subsedes != ""%>
+				  	<%reporte.subsedes.each do |subsede|%>
+				  		<%subsede = Subsede.where(:id=>subsede).first%>
+				  		<%if subsede != nil%>
+					  		<%@prospectos = Prospecto.where(:subsede_id=>subsede).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
+					  		<%if firstitem%>
+								<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>true}%>
+					  			<%firstitem = false%>
+					  		<%else%>
+							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>false}%>	
+					  		<%end%>			
+				  		<%end%>	
+					<%end%>
+				<%else%>
+				  	<%Subsede.all.each do |subsede|%>
+				  	<%@prospectos = Prospecto.where(:subsede_id=>subsede).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
+				  		<%if firstitem%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>true}%>
+				  			<%firstitem = false%>
+				  		<%else%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>subsede.id,:kind=>"subsede",:active=>false}%>	
+				  		<%end%>			
+					<%end%>				
+				<%end%>
+				<%firstitem = true%>
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->
+	    </div>
+	    <div class="tab-pane" id="programa">
+			<!-- Ordenar por programa -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<%if reporte.programas != nil%>
+				  	<%reporte.programas.each do |programaid|%>
+				  		<%programa = Programa.where(:id=>programaid).first%>
+				  		<%if programa != nil%>
+					  		<%if firstitem%>
+					  			<li class="active"><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.programa%></a></li>
+					  			<%firstitem = false%>
+					  		<%else%>
+					  			<li><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.programa%></a></li>		
+					  		<%end%>
+				  		<%end%>
+				  	<%end%>
+				<%else%>
+				  	<%Programa.all.each do |programa|%>
+				  		<%if firstitem%>
+				  			<li class="active"><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.programa%></a></li>
+				  			<%firstitem = false%>
+				  		<%else%>
+				  			<li><a href="#programa<%=programa.id%>" data-toggle="tab"><%=programa.programa%></a></li>		
+				  		<%end%>
+				  	<%end%>				
+				<%end%>
+			  	<%firstitem = true%>
+			  </ul>
+			  <div class="tab-content">
+			  	<%if reporte.programas != nil%>
+					<%reporte.programas.each do |programaid|%>
+						<%programa = Programa.where(:id=>programaid).first%>
+						<%if programa != nil%>
+							<%@prospectos = Prospecto.where(:programa_id=>programaid).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
+					  		<%if firstitem%>
+							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>true}%>
+					  			<%firstitem = false%>
+					  		<%else%>
+							    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>false}%>						    			
+					  		<%end%>			
+				  		<%end%>	
+					<%end%>
+				<%else%>
+					<%Programa.all.each do |programa|%>
+					<%@prospectos = Prospecto.where(:programa_id=>programa).where('created_at >= ?', reporte.rango_inicio).where('created_at <= ?', reporte.rango_fin).all%>
+				  		<%if firstitem%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>true}%>
+				  			<%firstitem = false%>
+				  		<%else%>
+						    	<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>programa.id,:kind=>"programa",:active=>false}%>
+				  		<%end%>			
+					<%end%>				
+				<%end%>
+				<%firstitem = true%>
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->
+	    </div>
+	    <div class="tab-pane" id="porEstado">
+			<!-- Ordenar por estado -->
+			<div class="tabbable"> 
+			  <ul class="nav nav-tabs">
+			  	<li class="active"><a href="#validados" data-toggle="tab">Validados</a></li>
+				<li><a href="#solicitantes" data-toggle="tab">Solicitantes</a></li>		
+				<li><a href="#examinados" data-toggle="tab">Examinados</a></li>		
+				<li><a href="#admitidos" data-toggle="tab">Admitidos</a></li>		
+				<li><a href="#inscritos" data-toggle="tab">Inscritos</a></li>		
+			  </ul>
+			  <div class="tab-content">
+			  		<%historial = History.where("created_at >= ?",reporte.validado_inicio).where("created_at <= ?",reporte.validado_fin).where("action like '%alidado%'").all
+			  		@prospectos = Prospecto.where("id in (:historyids)",:historyids=>historial).all%>
+			  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"validados",:active=>true}%>
+			  		<%historial = History.where("created_at >= ?",reporte.validado_inicio).where("created_at <= ?",reporte.validado_fin).where("action like '%icitante%'").all
+			  		@prospectos = Prospecto.where("id in (:historyids)",:historyids=>historial).all%>
+			  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"solicitantes",:active=>false}%>
+			  		<%historial = History.where("created_at >= ?",reporte.validado_inicio).where("created_at <= ?",reporte.validado_fin).where("action like '%xaminado%'").all
+			  		@prospectos = Prospecto.where("id in (:historyids)",:historyids=>historial).all%>
+			  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"examinados",:active=>false}%>
+			  		<%historial = History.where("created_at >= ?",reporte.validado_inicio).where("created_at <= ?",reporte.validado_fin).where("action like '%dmitido%'").all
+			  		@prospectos = Prospecto.where("id in (:historyids)",:historyids=>historial).all%>
+			  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"admitidos",:active=>false}%>
+			  		<%historial = History.where("created_at >= ?",reporte.validado_inicio).where("created_at <= ?",reporte.validado_fin).where("action like '%nscrito%'").all
+			  		@prospectos = Prospecto.where("id in (:historyids)",:historyids=>historial).all%>
+			  		<%=render :partial=>"prospectos", :locals=>{:prospectos=>@prospectos,:identifier=>nil,:kind=>"inscritos",:active=>false}%>
+				
+
+			  </div>
+			</div>
+			<!-- Ordenar por programa -->	    
+	    </div>
+
+	  </div>
+	</div>
+
+	<br/>

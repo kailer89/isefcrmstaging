@@ -1,0 +1,59 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  sexo: false
+  fecha_de_nacimiento: 2012-03-25
+  nacionalidad: MyString
+  cargo: MyString
+  sede: MyString
+  horas_laborales_semanales: 1.5
+  tipo_de_contrato: MyString
+  fecha_de_ingreso: 2012-03-25
+  jefe_directo: MyString
+  cargo_del_jefe_directo: MyString
+  telefono_particular: MyString
+  movil: MyString
+  otro_tel: MyString
+  email_personal: MyString
+  email_laboral: MyString
+  modalidad_de_pago: MyString
+  sueldo_bruto: 9.99
+  porcentaje_de_comision: 1.5
+  calle: MyString
+  no_exterior: MyString
+  no_interior: MyString
+  colonia: MyString
+  codigo_postal: MyString
+  comentarios_direccion: MyText
+
+two:
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  sexo: false
+  fecha_de_nacimiento: 2012-03-25
+  nacionalidad: MyString
+  cargo: MyString
+  sede: MyString
+  horas_laborales_semanales: 1.5
+  tipo_de_contrato: MyString
+  fecha_de_ingreso: 2012-03-25
+  jefe_directo: MyString
+  cargo_del_jefe_directo: MyString
+  telefono_particular: MyString
+  movil: MyString
+  otro_tel: MyString
+  email_personal: MyString
+  email_laboral: MyString
+  modalidad_de_pago: MyString
+  sueldo_bruto: 9.99
+  porcentaje_de_comision: 1.5
+  calle: MyString
+  no_exterior: MyString
+  no_interior: MyString
+  colonia: MyString
+  codigo_postal: MyString
+  comentarios_direccion: MyText

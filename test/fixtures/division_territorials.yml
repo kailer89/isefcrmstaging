@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  periodo_anual: MyString
+  sede_id: 1
+  estados_correspondientes: MyText
+  estado_ciudad_con_grupo_abierto: MyString
+  programa_id: 1
+  fecha_de_inicio: 2012-09-10
+  fecha_de_termino: 2012-09-10
+  estado_ciudad_con_grupo_abierto_1: MyString
+  programa_id_1: 1
+  fecha_de_inicio_1: 2012-09-10
+  fecha_de_termino_1: 2012-09-10
+  estado_ciudad_con_grupo_abierto_2: MyString
+  programa_id_2: 1
+  fecha_de_inicio_2: 2012-09-10
+  fecha_de_termino_2: 2012-09-10
+  estado_ciudad_con_grupo_abierto_3: MyString
+  programa_id_3: 1
+  fecha_de_inicio_3: 2012-09-10
+  fecha_de_termino_3: 2012-09-10
+  estado_ciudad_con_grupo_abierto_4: MyString
+  programa_id_4: 1
+  fecha_de_inicio_4: 2012-09-10
+  fecha_de_termino_4: 2012-09-10
+  estado_ciudad_con_grupo_abierto_5: MyString
+  programa_id_5: 1
+  fecha_de_inicio_5: 2012-09-10
+  fecha_de_termino_5: 2012-09-10
+  info_sim_sede_id: 1
+  estado_ciudad_con_mas_de_100_mil_habitantes: MyText
+  acceso_directo_al_sim: MyString
+
+two:
+  periodo_anual: MyString
+  sede_id: 1
+  estados_correspondientes: MyText
+  estado_ciudad_con_grupo_abierto: MyString
+  programa_id: 1
+  fecha_de_inicio: 2012-09-10
+  fecha_de_termino: 2012-09-10
+  estado_ciudad_con_grupo_abierto_1: MyString
+  programa_id_1: 1
+  fecha_de_inicio_1: 2012-09-10
+  fecha_de_termino_1: 2012-09-10
+  estado_ciudad_con_grupo_abierto_2: MyString
+  programa_id_2: 1
+  fecha_de_inicio_2: 2012-09-10
+  fecha_de_termino_2: 2012-09-10
+  estado_ciudad_con_grupo_abierto_3: MyString
+  programa_id_3: 1
+  fecha_de_inicio_3: 2012-09-10
+  fecha_de_termino_3: 2012-09-10
+  estado_ciudad_con_grupo_abierto_4: MyString
+  programa_id_4: 1
+  fecha_de_inicio_4: 2012-09-10
+  fecha_de_termino_4: 2012-09-10
+  estado_ciudad_con_grupo_abierto_5: MyString
+  programa_id_5: 1
+  fecha_de_inicio_5: 2012-09-10
+  fecha_de_termino_5: 2012-09-10
+  info_sim_sede_id: 1
+  estado_ciudad_con_mas_de_100_mil_habitantes: MyText
+  acceso_directo_al_sim: MyString

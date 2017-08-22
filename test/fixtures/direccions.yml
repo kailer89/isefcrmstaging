@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  calle: MyString
+  no_interior: 1
+  no_exterior: 1
+  colonia: MyString
+  delegacion_municipio: MyString
+  comentarios: MyText
+
+two:
+  calle: MyString
+  no_interior: 1
+  no_exterior: 1
+  colonia: MyString
+  delegacion_municipio: MyString
+  comentarios: MyText

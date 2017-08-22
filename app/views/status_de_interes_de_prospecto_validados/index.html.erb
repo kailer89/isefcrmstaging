@@ -1,0 +1,26 @@
+<h1>Status De Interes De Prospecto Validados</h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Valor</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @status_de_interes_de_prospecto_validados.each do |status_de_interes_de_prospecto_validado| %>
+      <tr>
+        <td><%= status_de_interes_de_prospecto_validado.id %></td>
+        <td><%= link_to status_de_interes_de_prospecto_validado.valor, status_de_interes_de_prospecto_validado_path(status_de_interes_de_prospecto_validado) %></td>
+        <td><%= status_de_interes_de_prospecto_validado.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_status_de_interes_de_prospecto_validado_path(status_de_interes_de_prospecto_validado), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', status_de_interes_de_prospecto_validado_path(status_de_interes_de_prospecto_validado), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_status_de_interes_de_prospecto_validado_path, :class => 'btn btn-primary' %>

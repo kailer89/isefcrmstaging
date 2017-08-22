@@ -1,0 +1,43 @@
+<%- model_class = OfertaEducativa.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:periodo_anual) %></th>
+      <th><%= model_class.human_attribute_name(:sede_id) %></th>
+      <th><%= model_class.human_attribute_name(:nivel_id) %></th>
+      <th><%= model_class.human_attribute_name(:programa_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @oferta_educativas.each do |oferta_educativa| %>
+      <tr>
+        <td><%= link_to oferta_educativa.id, oferta_educativa_path(oferta_educativa) %></td>
+        <td><%= oferta_educativa.periodo_anual %></td>
+        <td><%= oferta_educativa.sede.nombre %></td>
+        <td><%= oferta_educativa.nivel.valor %></td>
+        <td><%= oferta_educativa.programa.nivel %> - <%= oferta_educativa.programa.programa %></td>
+        <td><%=l oferta_educativa.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_oferta_educativa_path(oferta_educativa), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      oferta_educativa_path(oferta_educativa),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_oferta_educativa_path,
+            :class => 'btn btn-primary' %>
+<br/>
+<br/>
+<br/>

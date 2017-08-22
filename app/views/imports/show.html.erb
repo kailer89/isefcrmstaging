@@ -1,0 +1,28 @@
+<h1>Import</h1>
+
+<p>
+  <b>Filename</b><br>
+  <%=link_to "Descargar Attachment",@import.filename_url.to_s %>
+</p>
+
+<p>
+  <b>Module</b><br>
+  <%= @import.module %>
+</p>
+
+<p>
+  <b>Description</b><br>
+  <%= @import.description %>
+</p>
+
+<p>
+  <b>Whenimported</b><br>
+  <%= @import.whenimported %>
+</p>
+
+
+<div class="form-actions">
+  <%= link_to 'Back', imports_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_import_path(@import), :class => 'btn' %>
+  <%= link_to 'Delete', import_path(@import), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

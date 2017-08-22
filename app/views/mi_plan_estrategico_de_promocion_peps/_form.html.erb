@@ -1,0 +1,78 @@
+<%= simple_form_for @mi_plan_estrategico_de_promocion_pep, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                mi_plan_estrategico_de_promocion_peps_path, :class => 'btn' %>
+
+<div class="tabbable" style="margin-bottom: 18px;">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">Mercado Meta</a></li>
+      <li class=""><a href="#tab2" data-toggle="tab">Datos de Contacto</a></li>
+      <li class=""><a href="#tab3" data-toggle="tab">Logros Mercado Meta</a></li>
+    </ul>
+  <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <p>
+            <%= f.input :periodo_anual %>
+  <%= f.input :pep_para %>
+  <%= f.input :nombre_de_la_institucion %>
+  <%= f.input :segmento %>
+  <%= f.input :tipo_especifico %>
+  <%= f.input :nse %>
+  <%= f.input :forma_parte_de_mi_mdo_meta %>
+  <%= f.input :tamano_de_mdo_que_aspira_abarcar %>
+  <%= f.input :mercado_meta_observaciones %>
+  <%= f.association :user,:label_method=>:username,:include_blank => false, :label=>"Asesor a cargo"%>
+        </p>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <p>
+  <%= f.input :persona_de_contacto %>
+  <%= f.input :cargo %>
+  <%= f.input :telefono_de_oficina %>
+  <%= f.input :ext %>
+  <%= f.input :otro_telefono %>
+  <%= f.input :movil %>
+  <%= f.input :email %>
+  <%= f.input :pag_web %>
+  <%= f.input :calle %>
+  <%= f.input :no_exterior %>
+  <%= f.input :no_interior %>
+  <%= f.input :colonia %>
+  <%= f.input :codigo_postal %>
+  <%= f.input :delegacion_municipio %>
+  <%= f.input :estado %>
+  <%= f.input :pais %>
+  <%= f.input :google_maps %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+        </p>
+      </div>
+      <div class="tab-pane" id="tab3">
+        <p>
+  <%= f.input :total_de_prospectos_obtenidos %>
+  <%= f.input :no_solicitantes %>
+  <%= f.input :nombre_de_los_solicitantes %>
+  <%= f.input :no_de_entrevistados_examinados %>
+  <%= f.input :nombre_de_los_entrevistados_examinados %>
+  <%= f.input :no_de_admitidos %>
+  <%= f.input :no_de_inscritos %>
+  <%= f.input :nombre_de_los_inscritos %>
+  <%= f.input :observaciones %>
+        </p>
+      </div>  
+    </div>
+
+
+  </div>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                mi_plan_estrategico_de_promocion_peps_path, :class => 'btn' %>
+  </div>
+
+<%=render :partial=>"shared/tabed_actions", :locals=>{:prospecto_id=>@mi_plan_estrategico_de_promocion_pep.id,:real_id=>@mi_plan_estrategico_de_promocion_pep.id,:tareas=>@tareas,:memos=>@memos,:llamadas=>@llamadas,:correos=>@correos,:attachments=>@attachments}%>
+
+<% end %>

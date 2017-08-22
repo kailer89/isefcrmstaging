@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  periodo_anual: MyString
+  sede_id: 1
+  meta_anual_de_alumnos_de_licenciatura: MyString
+  meta_anual_de_enteros_de_licenciatura: MyString
+  meta_anual_de_alumnos_de_posgrado: MyString
+  meta_anual_de_enteros_de_posgrado: MyString
+  no_de_grupos_al_ano_de_licenciatura: MyString
+  no_de_grupos_al_ano_de_posgrado_local: MyString
+  no_de_grupos_al_ano_de_posgrado_foraneo: MyString
+  total_de_grupos_al_ano: MyString
+  metas_establecidas_por: MyString
+  observaciones: MyText
+
+two:
+  periodo_anual: MyString
+  sede_id: 1
+  meta_anual_de_alumnos_de_licenciatura: MyString
+  meta_anual_de_enteros_de_licenciatura: MyString
+  meta_anual_de_alumnos_de_posgrado: MyString
+  meta_anual_de_enteros_de_posgrado: MyString
+  no_de_grupos_al_ano_de_licenciatura: MyString
+  no_de_grupos_al_ano_de_posgrado_local: MyString
+  no_de_grupos_al_ano_de_posgrado_foraneo: MyString
+  total_de_grupos_al_ano: MyString
+  metas_establecidas_por: MyString
+  observaciones: MyText

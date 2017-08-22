@@ -1,0 +1,122 @@
+MileStones
+alpha1 Completar Prospectos
+0.01.001 -Prospectos Added
+0.01.002 -Bootstrap Added
+0.01.003 -Menus Added
+0.01.004 -Search Added
+0.01.005 -Sortable Added
+0.01.006 -Devise Added
+0.01.007 -User Div Added
+0.01.008 -Devise Views Added
+0.01.009 -UserName added to Users
+0.01.010 -Changed UserName on views and layout
+0.01.011 -Added Sedes
+0.01.012 -Added SideBar Logic
+0.01.013 -Added TopMenu logic
+0.01.014 -Added direccion
+0.01.015 -Added interes basico
+0.01.016 -Added has logic for both
+0.01.017 -Added extra tab for interes academico
+0.01.018 -Added beautifier to text areas using :input_html=>
+0.01.019 -Added Interes Academico
+0.01.020 -Added Accion Estrategica
+0.01.021 -Added Plan de descuentos
+0.01.022 -Added show view selectors
+0.01.023 -Added show fixes for edit view and validar prospecto
+
+alpha2 Completar Solicitantes
+0.02.024 -Added Solicitantes
+0.02.025 -Added Convertir en solicitante en prospectos
+0.02.026 -Fixed alignment on solicitantes
+0.02.027 -Upload to git and deploy
+0.02.028 -Added relation at the solicitante for prospectos
+0.02.029 -Added validations for the messages
+0.02.030 -Added willpaginate to solicitanes
+0.02.031 -Added sortable to solicitantes
+0.02.032 -Added becacredito
+0.02.033 -Added code to create becacredito and delete solicitante
+0.02.034 -Added isExaminado to solicitante
+0.02.035 -Uploaded to git and deployed
+0.02.036 -Added convert to examinado
+
+alpha3 Completar Examinados
+0.03.037 -Added standard stuff to the examinados module
+0.03.038 -Finished examinados show view
+0.03.039 -Added Admitidos, pending add convert to admitidos
+0.03.040 -Added admitidos convert to 
+0.03.041-45 -Redone the logic behind the relations now are has_many for ALL
+
+alpha4 Completar Admitidos
+0.04.046 -Added admitidos changes to show index controller model etc
+0.04.047 -Added menu entries for the admitidos
+0.04.048 -Added convert to inscrito
+0.04.049 -Fixed conver to inscrito parameters
+
+alpha5 Completar Inscritos
+0.05.050 -Added inscritos changes for all internal stuff
+0.05.051 -Added menu entries for inscritos
+0.05.052 -Added dependency to delete every record related
+
+beta1 Completar Home
+0.06.053 -Added purge data scaffold
+0.06.054 -Commit changes to git and deploy
+0.06.055 -Added Purge actions, fixed purge actions 
+0.06.056 -Added homepage
+0.06.056-62 -Added Mercado Meta
+0.06.063 -Added Plan de venta
+0.06.064 -Added Territorio
+0.06.065 -Added producto
+0.06.066 -Added equipo promocion
+0.6.67 -Changed style of version numberings
+0.6.68 -Changed main menu added territorio programa and equipo de promocion to the menus
+0.6.69 -Deploy to git 
+0.6.70 -Added casos
+0.6.71 -Added preguntas
+0.6.72 -Changed menus
+0.6.73 -Added mailer for prospectos create
+0.6.74 -Fixed variable issues at prospectos_mailer
+0.6.75 -Fixed tabs being shown twice at first
+0.6.76 -Added breadcrumbs navigation to inscritos
+0.6.77 -Added favorites bar
+
+beta2 Agregar ajustes para campos con associations
+pre1 Complete prospectos dropdowns
+0.6.78 -Added nacionalidad model
+0.6.79 -Added ultimo_grado_de_estudios model
+pre2 Complete soliciantes dropdowns
+
+pre3 Complete examinados dropdowns
+
+pre4 Complete admitidos dropdowns
+
+pre5 Complete inscritos dropdowns
+
+beta3 Completar Marketing
+0.7.xxx
+
+beta4 Completar Servicios
+0.8.xxx
+
+beta5 Completar Informes
+0.9.xxx
+
+gama1 Soporte inicial
+1.0.xxx
+
+epsilon1 Improvement build 1
+1.1.xxx
+
+dseta1  Improvement build 2
+1.2.xxx
+
+eta1  Improvement build 3
+1.3.xxx
+
+theta1  Improvement build 4
+1.4.xxx
+
+lotta1  Improvement build 5
+1.5.xxx
+
+kappa1  Improvement build 6
+1.6.xxx

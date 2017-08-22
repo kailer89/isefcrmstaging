@@ -1,0 +1,40 @@
+<%= simple_form_for @inscrito, :html => { :class => 'form-horizontal' ,:onsubmit=>"return confirm('Estas seguro de querer continuar?');"} do |f| %>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', inscritos_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
+<%= link_to 'Convertir en admitido',convertir_en_admitido_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'convertir_en_admitido',:rel=>'popover',:data => {:content => 'Usa este boton para revertir el inscrito en admitido.',"origintal-title"=>'Test',:notooltip=>'true'} %>
+
+
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@inscrito.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= render :partial => "inscritoNav"%>
+<div class="tab-pane fade in active" id="inscrito">
+
+<div  class="well">      
+      <%= f.association :status_del_pago_de_la_inscripcion,:include_blank => false, :label_method => :valor, :label=>"Status del pago de Inscripción:"%>
+            <%= f.input :fecha_de_pago_de_inscripcion do %>
+               <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+                 <%= f.text_field :fecha_de_pago_de_inscripcion, :label=> "Fecha de pago de inscripción:"%>
+           <span class="add-on"><i class="icon-th"></i></span>
+               </div>  
+             <%end%>
+      <%= f.input :id_de_alumno,:include_blank => false,:label=>"ID de alumno:"%>
+      <%= f.input :comentarios_del_coordinador_academico, :input_html=>{:cols=>50, :rows=>3}, :label=>"Comentarios:" %>
+      <%= f.input :archivado%>
+    </div>
+</div>
+<%=render :partial=>"shared/edit_admitidos", :locals=>{:f=>f}%>
+<div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', inscritos_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
+        <%= link_to 'Convertir en admitido',convertir_en_admitido_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-success', :method=>'post', :id=>'convertir_en_admitido',:rel=>'popover',:data => {:content => 'Usa este boton para revertir el inscrito en admitido.',"origintal-title"=>'Test',:notooltip=>'true'} %>
+</div>    
+<%=render :partial=>"shared/tabed_actions", :locals=>{:prospecto_id=>@inscrito.id,:real_id=>@inscrito.admitidos.first.examinados.first.solicitantes.first.prospectos.first.id,:tareas=>@tareas,:memos=>@memos,:llamadas=>@llamadas,:correos=>@correos,:attachments=>@attachments}%>
+       
+<% end %><!--End Admitido-->
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

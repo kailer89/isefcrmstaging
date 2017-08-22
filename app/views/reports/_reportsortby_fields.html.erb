@@ -1,0 +1,11 @@
+<div class="well fields">
+  
+  	<%	columnas=ActiveRecord::Base.connection.columns(@report.table)
+	  %>    	
+    <%= f.input_field :fieldname, :collection=>columnas.map{|c| [c.name.humanize,c.name] }.sort,:include_blank=>false %>
+    <%= f.input_field :orden, :collection=>["Ascendente","Descendente"],:include_blank=>false%>
+    <%= f.hidden_field :report_id, :disabled=>true %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to_function "Elminar Ordernar por", "if(confirm('Estas seguro?')){remove_fields(this)}", :class => 'btn btn-mini btn-danger' %>
+ 
+</div>

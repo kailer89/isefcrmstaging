@@ -1,0 +1,173 @@
+<%
+  if not defined?(prospectoid)
+    prospectoid=""
+  end
+%>
+<%
+  if not defined?(isactive)
+    isactive = ""
+  end
+  if request.path_parameters[:controller] == "solicitantes"
+    isactive = " in  active  "
+  end
+%>
+<div class="tab-pane fade<%=isactive%>" id="solicitante<%=prospectoid%>">
+  <fieldset>
+      <p>
+        <%=printIfAvailable("Solicita PAA (Prueba de Aptitud Academica)",f.socilicita_PAA)%>
+      </p>
+    
+      <p>
+        <%=printIfAvailable("Fecha programada para PAA",f.fecha_programacion_para_PAA)%>
+      </p>
+    
+      <p>
+        <%=printIfAvailable("Hora programada PAA",f.hora_programada_PAA.strftime('%H:%M %p')) rescue nil%>
+      </p>
+    
+      <p>
+        <%=printIfAvailable("Solicita Psicometría",f.solicita_pscicometria)%>
+      </p>
+
+      <p>
+        <%=printIfAvailable("Fecha programada para Exámenes Psicométrico",f.fecha_programacion_para_examenes_pscicomentricos)%>
+      </p>
+    
+     <p>
+      <%=printIfAvailable("Hora programada Psicométrico",f.hora_programada_pscicometrico.strftime('%H:%M %p') )rescue nil%>
+      </p>
+    
+      <p>
+        <%=printIfAvailable("Solicita Entrevista Académica",f.solicita_entrevista_academica)%>
+      </p>
+    
+      <p>
+        <%=printIfAvailable("Fecha programada para Entrevista:",f.fecha_programada_para_entrevistas)%>
+      </p>
+    
+     <p>
+      <%=printIfAvailable("Hora programada Entrevista",f.hora_programada_entrevistas.strftime('%H:%M %p')) rescue nil%>
+      </p>
+
+      <p>
+        <%=printIfAvailable("Status de pago de Examen de Admisión",f.status_depago_examen_de_admision)%>
+      </p>
+
+      <p>
+        <%=printIfAvailable("Promedio",f.promedio)%>
+      </p>
+
+      <p>
+        <%valor=f.tipo_de_admision.valor rescue nil%>
+        <%=printIfAvailable("Tipo de admisión",valor)%>
+      </p>
+
+
+      <p>
+        <%=printIfAvailable("Fecha límite de pago Examen de Admisión",f.fecha_de_limite_de_pago_examen_de_admision)%>
+      </p>
+
+      <p>
+        <%=printIfAvailable("Comentarios",f.comentarios)%>
+      </p>
+
+      <p>
+        <%=printIfAvailable("Archivado",f.archivado ? "Archivado" : "")%>
+      </p>
+
+            <p>
+        <%=printIfAvailable("Asistió a la entrevista",f.asistio_a_entrevista )%>
+      </p>
+
+            <p>
+        <%=printIfAvailable("Nueva fecha para entrevista",f.nueva_fecha_para_entrevista )%>
+      </p>
+
+            <p>
+        <%=printIfAvailable("Nueva hora para entrevista",f.nueva_hora_para_entrevista )%>
+      </p>
+
+   </fieldset>
+  </div>
+<div class="tab-pane fade" id="becacredito<%=prospectoid%>">
+  <fieldset>
+  <p>
+    <%=printIfAvailable("Solicitud de beca / crédito",f.becacreditos.first.solicitud_de_beca_credito)%>
+  </p>
+
+  <p>
+    <%=printIfAvailable("Porcentaje de Beca solicitado",f.becacreditos.first.porcentaje_de_beca_credito)%>
+  </p>
+
+  <p>
+    <%=printIfAvailable("Porcentaje de Crédito solicitado",f.becacreditos.first.porcentaje_de_credito_solicitado)%>
+  </p>
+
+  <p>
+    <%=printIfAvailable("Estimado de pago mensual de colegiatura",f.becacreditos.first.estimado_de_pago_mensual_de_colegiatura)%>
+  </p>
+
+  <p>
+    <%valor =f.becacreditos.first.status_de_ESE.valor rescue nil %>
+    <%=printIfAvailable("Status de ESE",valor)%>
+  </p>
+  <p>
+    <%=printIfAvailable("Fecha límite de aplicación ESE",f.becacreditos.first.fecha_limite_de_aplicacion_ESE)%>
+  </p>
+  
+  <p>
+    <%valor =f.becacreditos.first.status_de_pago_ESE.valor rescue nil %>
+    <%=printIfAvailable("Status de pago ESE",valor)%>    
+  </p>
+  
+   <p>
+    <%=printIfAvailable("Fecha límite de pago ESE",f.becacreditos.first.fecha_limite_de_pago_ESE)%>
+  </p>
+
+
+   <p>
+    <%=printIfAvailable("Porcentaje de Beca sugerido ESE",f.becacreditos.first.porcentaje_de_beca_sugerido_ESE)%>
+  </p>
+
+  <p>
+    <%=printIfAvailable("Porcentaje de Crédito sugerido ESE",f.becacreditos.first.porcentaje_de_credito_sugerido_ESE)%>
+  </p>
+
+  <p>
+    <%=printIfAvailable("Comentarios",f.becacreditos.first.comentarios)%>
+  </p>
+
+  <p>
+    <%valor=f.becacreditos.first.status_del_tramite.valor rescue nil%>
+    <%=printIfAvailable("Status de trámite de beca",valor)%>
+  </p>
+
+  <p>
+    <%=printIfAvailable("Porcentaje de Beca Concedido",f.becacreditos.first.porcentaje_de_beca_concedido)%>
+  </p>
+
+
+  <p>
+    <%=printIfAvailable("Porcentaje de Crédito concedido",f.becacreditos.first.porcentaje_de_credito_concedido)%>
+  </p>
+
+
+  <p>
+    <%=printIfAvailable("Comentarios",f.becacreditos.first.comentarios_dictamen_beca)%>
+  </p>
+
+              <p>
+        <%=printIfAvailable("Asistio a la entrevista",f.asistio_a_entrevista )%>
+      </p>
+
+            <p>
+        <%=printIfAvailable("Nueva fecha para entrevista",f.nueva_fecha_para_entrevista )%>
+      </p>
+
+            <p>
+        <%=printIfAvailable("Nueva hora para entrevista",f.nueva_hora_para_entrevista )%>
+      </p>
+</fieldset>
+  </div> 
+
+  <%=render :partial=>"shared/show_prospectos", :locals=>{:f=>f.prospectos.first,:prospectoid=>prospectoid}%>

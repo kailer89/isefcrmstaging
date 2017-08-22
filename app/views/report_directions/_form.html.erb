@@ -1,0 +1,12 @@
+<%= simple_form_for(@report_direction) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :fieldname %>
+    <%= f.input :fieldvalue %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

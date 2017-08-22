@@ -1,0 +1,71 @@
+
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@report.id, :parent_model=>nil}%>
+<%= simple_form_for @report, :html => { :class => 'form-horizontal',:id=>"forma" } do |f| %>
+    <fieldset>
+      <legend>Agregar Datos principales</legend>
+        <%= f.input :nombre %>
+        <%= f.input :descripcion, :as => :text ,:input_html => { :cols => 50, :rows => 3 }  %>
+
+        <% if request.path_parameters[:action] =="edit" %>
+          <%= f.input :por_pagina%>
+          <%columnas=ActiveRecord::Base.connection.columns(@report.table)%>          
+          <%= f.input :table, :collection=>ActiveRecord::Base.connection.tables,:include_blank => false, :label=>"Modulo",:disabled=>true,:hint=>"Una vez que selecciones el modulo no es posible cambiarlo."%> 
+          <% if @report.column_names == "" %>      
+              <%= f.input :column_names, :collection=>columnas.map{|c| [c.name.humanize,c.name] }.sort,:include_blank=>false,:input_html => { :multiple=>"multiple" } %>
+          <% else %>
+              <%= f.input :column_names, :collection=>columnas.map{|c| [c.name.humanize,c.name] }.sort,:include_blank=>false,:input_html => { :multiple=>"multiple" } %>                  
+          <% end %>
+        <%else%>   
+          <%= f.input :por_pagina, :input_html=>{:value=>5}%>
+          <%= f.input :table, :collection=>ActiveRecord::Base.connection.tables.sort,:include_blank => false, :label=>"Modulo",:hint=>"Una vez que selecciones el modulo no es posible cambiarlo."%>
+        <%end%>
+    </fieldset>
+      <% if request.path_parameters[:action] =="edit" %>
+      <fieldset>
+        <legend>Parametros</legend>
+        <%= f.simple_fields_for :reportparams, :html => { :class => 'form-inline' } do |fg| %> 
+          <%= render 'reportparam_fields', :f => fg %>
+        <% end %>
+        <div class="fields">
+          <%= link_to_add_fields "Agregar Nuevo Parametro", f, :reportparams %>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Ordenar Por</legend>
+        <%= f.simple_fields_for :reportsortbies, :html => { :class => 'form-inline' } do |fx| %> 
+          <%= render 'reportsortbies_fields', :f => fx %>
+        <% end %>
+        <div class="fields">
+          <%= link_to_add_fields "Agregar Nuevo Ordenar Por", f, :reportsortbies %>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Lineas Personalizadas</legend>
+        <%= f.simple_fields_for :reportlines, :html => { :class => 'form-inline' } do |fx| %> 
+          <%= render 'reportline_fields', :f => fx %>
+        <% end %>
+        <div class="fields">
+          <%= link_to_add_fields "Agregar Nueva Linea Personalizada", f, :reportlines %>
+        </div>        
+        </fieldset>
+      <%end%>
+    <fieldset>
+      <legend>Guardar/Imprimir</legend>
+    <div class="form-actions">
+      <% if request.path_parameters[:action] =="edit" %>
+        <%= f.submit nil, :class => 'btn btn-primary' ,:value=>"Imprimir"%>
+      <%else%>
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%end%>
+      <%= link_to 'Cancel', reports_path, :class => 'btn' %>
+    </div>
+    </fieldset>
+<% end %>
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

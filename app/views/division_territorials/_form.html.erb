@@ -1,0 +1,149 @@
+<%= simple_form_for @division_territorial, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                division_territorials_path, :class => 'btn' %>
+
+<div class="tabbable" style="margin-bottom: 18px;">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">Division Territorial</a></li>
+      <li class=""><a href="#tab2" data-toggle="tab">Info SIM</a></li>
+    </ul>
+  <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <p>
+  <%= f.input :periodo_anual %>
+  <%= f.association :sede, :include_blank=>false,:label_method=>:nombre,:label=>"Sede"%>
+  <%= f.input :estados_correspondientes %>
+  <%= f.input :estado_ciudad_con_grupo_abierto %>
+  <%=f.input :programa_id do%>
+    <%= f.select :programa_id , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa, c.id] }%>
+  <%end%>
+  <%= f.input :fecha_de_inicio do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_inicio%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :fecha_de_termino do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_termino%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :estado_ciudad_con_grupo_abierto_1 %>
+    <%=f.input :programa_id_1 do%>
+    <%= f.select :programa_id_1 , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa, c.id] }%>
+  <%end%>
+  <%= f.input :fecha_de_inicio_1 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_inicio_1%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :fecha_de_termino_1 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_termino_1%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :estado_ciudad_con_grupo_abierto_2 %>
+  <%=f.input :programa_id_2 do%>
+    <%= f.select :programa_id_2 , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa, c.id] }%>
+  <%end%>
+  <%= f.input :fecha_de_inicio_2 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_inicio_2%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :fecha_de_termino_2 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_termino_2%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :estado_ciudad_con_grupo_abierto_3 %>
+  <%=f.input :programa_id_3 do%>
+    <%= f.select :programa_id_3 , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa, c.id] }%>
+  <%end%>
+  <%= f.input :fecha_de_inicio_3 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_inicio_3%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :fecha_de_termino_3 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_termino_3%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :estado_ciudad_con_grupo_abierto_4 %>
+  <%=f.input :programa_id_4 do%>
+    <%= f.select :programa_id_4 , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa, c.id] }%>
+  <%end%>
+  <%= f.input :fecha_de_inicio_4 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_inicio_4%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :fecha_de_termino_4 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_termino_4%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :estado_ciudad_con_grupo_abierto_5 %>
+  <%=f.input :programa_id_5 do%>
+    <%= f.select :programa_id_5 , Programa.all.map{ |c| ["" + c.nivel + "-" + c.programa, c.id] }%>
+  <%end%>
+  <%= f.input :fecha_de_inicio_5 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_inicio_5%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+  <%= f.input :fecha_de_termino_5 do %>
+             <div class="input-append date datepicker" data-date="<%=DateTime.now.strftime('%Y/%m/%d')%>" data-date-format="yyyy/mm/dd">
+               <%= f.text_field :fecha_de_termino_5%>
+			   <span class="add-on"><i class="icon-th"></i></span>
+             </div>  
+           <%end%>
+        </p>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <p>
+  <%= f.input :info_sim_sede_id do %>
+    <%= f.select :info_sim_sede_id, Sede.all.map{|c| [c.nombre, c.id]}%>
+  <%end%>
+  <%= f.input :estado_ciudad_con_mas_de_100_mil_habitantes %>
+  <%= f.input :acceso_directo_al_sim %>
+        </p>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                division_territorials_path, :class => 'btn' %>
+  </div>
+
+
+  <%=render :partial=>"shared/attachments", :locals=>{:model_id=>@division_territorial.id}%>
+<% end %>
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

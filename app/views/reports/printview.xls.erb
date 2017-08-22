@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <%if @report.column_names != nil%>
+          <% @report.column_names.each do |column| %>
+              <Cell><Data ss:Type="String"><%= column.humanize %></Data></Cell>
+          <% end %>
+        <% end %>
+      </Row>
+    <% @informe.each do |informe| %>
+        <Row>
+          <%if @report.column_names != nil%>
+           <% @report.column_names.each do |column| %>
+              <%columnvalue = eval("informe" + "." + column)%>
+              <%
+                case columnvalue.class.to_s
+                when "Fixnum"
+                  %>
+                    <Cell><Data ss:Type="Number"><%= columnvalue %></Data></Cell>
+                  <%
+                when "String"
+                    evalpath=eval("edit_" + @report.table.singularize + "_path(informe.id)")
+                      %>
+                        <Cell><Data ss:Type="String"><%=link_to columnvalue, evalpath%></Data></Cell>
+                      <%                    
+                when "TrueClass"
+                    case column.to_s
+                    when "sexo"
+                      %>
+                        <Cell><Data ss:Type="String"><%= (columnvalue) ? "Masculino" : "Femenino" %></Data></Cell>
+                      <%                      
+                    when "validado"
+                      %>
+                        <Cell><Data ss:Type="String"><%= (columnvalue) ? "Validado" : "No Validado" %></Data></Cell>
+                      <%                      
+                    else
+                      %>
+                        <Cell><Data ss:Type="String"><%= columnvalue %></Data></Cell>
+                      <%            
+                    end    
+                when "Date"                              
+                  %>
+                    <Cell><Data ss:Type="String"><%= columnvalue %></Data></Cell>
+                  <%
+                when "Nacionalidad"                              
+                  %>
+                    <Cell><Data ss:Type="String"><%= columnvalue.nacionalidad %></Data></Cell>
+                  <%                
+                else
+                    %>
+                      <Cell><Data ss:Type="String"><%= (columnvalue.respond_to?(:valor)) ? columnvalue.valor  : columnvalue %></Data></Cell>
+                    <%                                                          
+                end
+
+              %>
+            <% end %>  
+          <%end%>        
+        </Row>
+      <% end %> 
+    </Table>
+  </Worksheet>
+</Workbook>

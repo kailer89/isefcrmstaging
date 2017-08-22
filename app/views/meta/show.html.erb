@@ -1,0 +1,53 @@
+<%- model_class = @metum.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:periodo_anual) %>:</strong></dt>
+  <dd><%= @metum.periodo_anual %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sede_id) %>:</strong></dt>
+  <dd><%= @metum.sede_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:clave_del_programa) %>:</strong></dt>
+  <dd><%= @metum.clave_del_programa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_de_inicio) %>:</strong></dt>
+  <dd><%= @metum.fecha_de_inicio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nivel_id) %>:</strong></dt>
+  <dd><%= @metum.nivel_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:programa_id) %>:</strong></dt>
+  <dd><%= @metum.programa_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ciudad_de_apertura) %>:</strong></dt>
+  <dd><%= @metum.ciudad_de_apertura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado_de_apertura) %>:</strong></dt>
+  <dd><%= @metum.estado_de_apertura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:modalidad) %>:</strong></dt>
+  <dd><%= @metum.modalidad %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:turno_id) %>:</strong></dt>
+  <dd><%= @metum.turno_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:horarios) %>:</strong></dt>
+  <dd><%= @metum.horarios %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:horarios_text) %>:</strong></dt>
+  <dd><%= @metum.horarios_text %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lugar_donde_se_impartiran_las_clases) %>:</strong></dt>
+  <dd><%= @metum.lugar_donde_se_impartiran_las_clases %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:asesor_a_cargo) %>:</strong></dt>
+  <dd><%= @metum.asesor_a_cargo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status_de_fecha_de_apertura) %>:</strong></dt>
+  <dd><%= @metum.status_de_fecha_de_apertura %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:meta_de_alumnos) %>:</strong></dt>
+  <dd><%= @metum.meta_de_alumnos %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:meta_de_enteros) %>:</strong></dt>
+  <dd><%= @metum.meta_de_enteros %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:viabilidad_de_la_apertura) %>:</strong></dt>
+  <dd><%= @metum.viabilidad_de_la_apertura %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              meta_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_metum_path(@metum), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              metum_path(@metum),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

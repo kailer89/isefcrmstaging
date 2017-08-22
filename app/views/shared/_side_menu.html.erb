@@ -1,0 +1,220 @@
+  
+  <!--
+  This hash is very usefull it gets the current path
+  request.path_parameters[:action] => index
+  request.path_parameters[:controller] =>prospectos-->
+  <%if not request.path_parameters[:controller].include? "users"%>  
+	  <%if not request.path_parameters[:controller].include? "devise"%>
+		<div class="container-fluid">
+			<% flash.each do |name, msg| %>
+			  <div class=" alert alert-<%=(name==:info) ? "info" : ( name == :notice ? "success" : "error") %>">
+			  	<h4 class="alert-heading"><%=(name==:info) ? "Información" : ( name == :notice ? "Acción" : "Ocurrio un error!") %></h4>
+			    <a class="close" data-dismiss="alert">×</a>
+			    <%= raw(msg) %>
+			  </div>
+			<% end %>
+		    <div class="row-fluid">
+				<div class="span2 zero  hidden-phone hidden-tablet">
+				  <div class="well zero sidebar-nav hidden-phone hidden-tablet">
+				      <!--Sidebar content-->
+				      <%if (request.path_parameters[:controller] == "homes") or (request.path_parameters[:controller] == "achievments")  or (request.path_parameters[:controller] == "mi_plan_estrategico_de_promocion_peps")   or (request.path_parameters[:controller] == "oferta_educativas") or (request.path_parameters[:controller] == "colegiaturas") or (request.path_parameters[:controller] == "division_territorials") or (request.path_parameters[:controller] == "nacional_de_aperturas") or (request.path_parameters[:controller] == "equipo_de_alto_rendimientos") or (request.path_parameters[:controller] == "contactos") or (request.path_parameters[:controller] == "metas_globales")%>
+				      <!--This sidebar is for
+				      	Mi Resumen
+				      	Directorio de Mercados Meta
+				      	Plan de venta
+				      	Territorios
+				      	Descripcion de Productos
+				      	Equipos de Promocion
+				      -->			     
+						<ul class="nav nav-list  hidden-phone hidden-tablet">
+							<li class="<%= (request.path_parameters[:controller]=="homes") ? "active" : "" %>">
+								<%= link_to home_path do%>
+									<i class="icon-home"></i>
+									Mi Resumen
+								<%end%>
+							</li>	
+							<li class="<%= (request.path_parameters[:controller]=="achievments") ? "active" : "" %>">
+								<%= link_to achievments_path do%>
+									<i class="icon-home"></i>
+									Mis Metas
+								<%end%>
+							</li>	
+							<li class="<%= (request.path_parameters[:controller]=="mi_plan_estrategico_de_promocion_peps") ? "active" : "" %>">
+								<%= link_to mi_plan_estrategico_de_promocion_peps_path do%>
+									<i class="icon-home"></i>
+									Plan Operativo
+								<%end%>
+							</li>																	
+							<li class="nav-header">
+							    
+							</li> 
+						
+							<li class="<%= (request.path_parameters[:controller]=="oferta_educativas") ? "active" : "" %>">
+								<%= link_to oferta_educativas_path do%>
+									<i class="icon-home"></i>
+									Oferta Educativa
+								<%end%>
+							</li>
+							<li class="<%= (request.path_parameters[:controller]=="colegiaturas") ? "active" : "" %>">
+								<%= link_to colegiaturas_path do%>
+									<i class="icon-home"></i>
+									Colegiaturas
+								<%end%>
+							</li>					
+							<li class="<%= (request.path_parameters[:controller]=="division_territorials") ? "active" : "" %>">
+								<%= link_to division_territorials_path do%>
+									<i class="icon-home"></i>
+									Division territorial
+								<%end%>
+							</li>
+							<li class="<%= (request.path_parameters[:controller]=="nacional_de_aperturas") ? "active" : "" %>">
+								<%= link_to nacional_de_aperturas_path do%>
+									<i class="icon-home"></i>
+									Plan Nacional de Aperturas
+								<%end%>
+							</li>
+							<li class="<%= (request.path_parameters[:controller]=="equipo_de_alto_rendimientos") ? "active" : "" %>">
+								<%= link_to equipo_de_alto_rendimientos_path do%>
+									<i class="icon-home"></i>
+									Equipo de Alto Rendimiento EAR
+								<%end%>
+							</li>												
+
+							<li class="<%= (request.path_parameters[:controller]=="contactos") ? "active" : "" %>">
+								<%= link_to contactos_path do%>
+									<i class="icon-home"></i>
+									Contactos
+								<%end%>
+							</li>	
+							<li class="nav-header">
+							    
+							</li> 							
+							<li class="<%= (request.path_parameters[:controller]=="metas_globales") ? "active" : "" %>">
+								<%= link_to metas_globales_path do%>
+									<i class="icon-home"></i>
+									Metas Globales
+								<%end%>
+							</li>	
+						</ul>		       	      
+				      <%elsif (request.path_parameters[:controller] == "prospectos") or (request.path_parameters[:controller] == "solicitantes") or (request.path_parameters[:controller] == "solicitantes") or (request.path_parameters[:controller] == "examinados") or (request.path_parameters[:controller] == "admitidos") or (request.path_parameters[:controller] == "inscritos")%>
+				      <!--This sidebar is for
+				      	prospectos
+				      	solicitantes
+				      	examinados
+				      	admitidos
+				      	inscritos
+
+				      	casos
+				      	base de conocimiento
+				      -->
+						<ul class="nav nav-list  hidden-phone hidden-tablet">
+							<li class="nav-header">
+							    Menu Ventas
+							</li>
+
+							  <li class="<%= (request.path_parameters[:controller]=="prospectos")? "active" : ""%>">
+							      <%= link_to prospectos_path do %>
+							      		<i class="icon-ok"></i>
+							      		Prospectos
+							      	<%end%>
+							  </li>
+						  <li class="<%= (request.path_parameters[:controller]=="solicitantes")? "active" : ""%>">
+							  	<%= link_to solicitantes_path do%>
+						      		<i class="icon-pencil"></i>
+						      		Solicitantes
+						      	<%end%>									  
+						  </li>
+						  <li class="<%= (request.path_parameters[:controller]=="examinados")? "active" : ""%>">
+							  	<%= link_to examinados_path do%>
+						      		<i class="icon-pencil"></i>
+						      		Examinados
+						      	<%end%>					  
+						  </li>
+						  <li class="<%= (request.path_parameters[:controller]=="admitidos")? "active" : ""%>">
+							  	<%= link_to admitidos_path do%>
+						      		<i class="icon-pencil"></i>
+						      		Admitidos
+						      	<%end%>		
+						  </li>
+						  <li class="<%= (request.path_parameters[:controller]=="inscritos")? "active" : ""%>">
+							  	<%= link_to inscritos_path do%>
+						      		<i class="icon-pencil"></i>
+						      		Inscritos
+						      	<%end%>		
+						  </li>		
+						</ul>
+				      <%elsif (request.path_parameters[:controller] == "pendiente_marketing")%>				
+				      <!--This sidebar is for
+				      	Marketing
+				      	Campaña Promocional
+				      -->
+				      <%elsif (request.path_parameters[:controller] == "casos") or (request.path_parameters[:controller] == "pregunta")%>
+				      <!--This sidebar is for
+				      	servicios
+				      	casos
+				      	pregunta frequentes
+				      	base del conocimiento (casos resueltos y pregunta frequentes)
+				      -->		 
+						<ul class="nav nav-list  hidden-phone hidden-tablet">
+							<li class="nav-header">
+								Acciones
+							</li>
+							<li class="<%= (request.path_parameters[:controller]=="casos") ? "active" : "" %>">
+								<%= link_to casos_path do%>
+									<i class="icon-home"></i>
+									Casos
+								<%end%>
+							</li>					
+							<li class="<%= (request.path_parameters[:controller]=="base") ? "active" : "" %>">
+								<%= link_to pregunta_path do%>
+									<i class="icon-home"></i>
+									Preguntas frecuentes
+								<%end%>
+							</li>																		  
+						</ul>			      
+				      <%elsif (request.path_parameters[:controller] == "pendiente_marketing")%>
+				      <!--This sidebar is for
+				      	informes
+				      	Area de informes y estadisticas
+				      	Filtrado de datos
+				      -->	     
+				      <%elsif (request.path_parameters[:controller] == "sedes") or (request.path_parameters[:controller] == "purges") or (request.path_parameters[:controller] == "nacionalidads") or (request.path_parameters[:controller] == "ultimo_grado_de_estudios") or (request.path_parameters[:controller] == "preparatoria_o_universidad_de_origens") or (request.path_parameters[:controller] == "municipio_de_la_preparatoria_o_universidad_de_origens") or (request.path_parameters[:controller] == "nivels") or (request.path_parameters[:controller] == "programa_de_interes") or (request.path_parameters[:controller] == "periodo_para_ingresars") or (request.path_parameters[:controller] == "status_de_admisions") or (request.path_parameters[:controller] == "status_de_eses") or (request.path_parameters[:controller] == "status_de_interes_de_prospecto_validados") or (request.path_parameters[:controller] == "status_de_la_inscripcions") or (request.path_parameters[:controller] == "status_de_la_notificacions") or (request.path_parameters[:controller] == "status_de_pago_de_examen_de_admisions") or (request.path_parameters[:controller] == "status_de_pago_eses") or (request.path_parameters[:controller] == "status_del_admitidos") or (request.path_parameters[:controller] == "status_del_examinado_paas") or (request.path_parameters[:controller] == "status_del_pago_de_la_inscripcions") or (request.path_parameters[:controller] == "status_del_tramite_de_becas") or (request.path_parameters[:controller] == "tipo_de_admisions") or (request.path_parameters[:controller] == "turnos")%>
+				      <!--This sidebar is for
+				      	herramientas de ajustes
+				      	sedes
+				      -->	 
+						<%=render :partial=> "shared/herramientas_side"%>	 
+					  <%else%>	  
+						<ul class="nav nav-list hidden-phone hidden-tablet">
+							<li class="nav-header">
+								Acciones
+							</li>
+							<%if params[:model_name].present?%>
+								<li class="">
+									<a href="/<%=params[:model_name]%>/<%=params[:model_id]%>/edit/">
+										<i class="icon-home"></i>
+										<%=params[:model_name].singularize.humanize%>
+									</a>
+								</li>	
+							<%end%>	
+							<%if (request.path_parameters[:controller] == "users") %>
+								<li class="active">
+									<%= link_to dashboards_path do%>
+										<i class="icon-home"></i>
+										Dashboard de Usuarios
+									<%end%>
+								</li>							
+							<%else%>
+								<li class="active">
+									<%= link_to nil do%>
+										<i class="icon-home"></i>
+										<%=request.path_parameters[:controller].singularize.humanize%>
+									<%end%>
+								</li>	
+							<%end%>																					  
+						</ul>			 			       
+				    <%end%>  
+			    </div>  
+			    </div>
+	    <%end%>
+	<%end%>

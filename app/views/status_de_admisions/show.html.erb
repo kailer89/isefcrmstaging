@@ -1,0 +1,12 @@
+<h1>Status De Admision</h1>
+
+<p>
+  <b>Valor</b><br>
+  <%= @status_de_admision.valor %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', status_de_admisions_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_status_de_admision_path(@status_de_admision), :class => 'btn' %>
+  <%= link_to 'Delete', status_de_admision_path(@status_de_admision), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

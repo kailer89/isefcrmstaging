@@ -1,0 +1,57 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@report.id, :parent_model=>nil}%>
+<h1>Report</h1>
+
+<p>
+  <b>Nombre</b><br>
+  <%= @report.nombre %>
+</p>
+
+<p>
+  <b>Descripcion</b><br>
+  <%= @report.descripcion %>
+</p>
+
+<p>
+  <b>Modulo</b><br>
+  <%= @report.table %>
+</p>
+
+<p>
+  <b>Registros Por Pagina</b><br>
+  <%= @report.por_pagina %>
+</p>
+
+<b>Columnas Seleccionadas</b><br>
+<ol>
+  <% if not @report.column_names == nil%>
+    <% @report.column_names.each do |column| %>
+      <li><%= column %></li>
+    <% end %>  
+  <% end %>      
+</ol>
+
+<b>Parametros</b><br>
+<ol>
+  <% for reportparam in @report.reportparams %>
+  <li><%= h reportparam.fieldname %> <%= h reportparam.filter %> <%= h reportparam.fieldvalue %></li>
+  <% end %>
+</ol>
+
+<b>Ordenar Por</b><br>
+<ol>
+  <% for reportsortby in @report.reportsortbies %>
+  <li><%= h reportsortby.fieldname %> <%= reportsortby.orden %></li>
+  <% end %>
+</ol>
+
+<b>Lineas Personalizadas</b><br>
+<ol>
+  <% for reportline in @report.reportlines %>
+  <li><%= h reportline.modulo %></li>
+  <% end %>
+</ol>
+<div class="form-actions">
+  <%= link_to 'Back', reports_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_report_path(@report), :class => 'btn' %>
+  <%= link_to 'Delete', report_path(@report), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

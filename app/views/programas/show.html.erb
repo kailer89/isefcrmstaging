@@ -1,0 +1,37 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@programa.id, :parent_model=>nil, :parent_id=>nil}%>
+<div class="well"><h1>Programa</h1>
+
+<p>
+  <b>Nivel</b><br>
+  <%= @programa.nivel %>
+</p>
+
+<p>
+  <b>Programa</b><br>
+  <%= @programa.programa %>
+</p>
+
+<p>
+  <b>Descripcion detallada</b><br>
+  <%= @programa.descripcion_detallada %>
+</p>
+
+<p>
+  <b>Principales caracteristicas</b><br>
+  <%= @programa.principales_caracteristicas %>
+</p>
+
+<p>
+  <b>Principales ventajas</b><br>
+  <%= @programa.principales_ventajas %>
+</p>
+
+<p>
+  <b>Principales beneficios</b><br>
+  <%= @programa.principales_beneficios %>
+</p></div>
+
+<div class="form-actions">
+  <%= link_to 'Back', programas_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_programa_path(@programa), :class => 'btn' %>
+</div>

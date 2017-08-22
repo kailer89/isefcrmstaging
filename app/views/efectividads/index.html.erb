@@ -1,0 +1,23 @@
+<h1>Listing efectividads</h1>
+
+<table>
+  <tr>
+    <th>Valor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @efectividads.each do |efectividad| %>
+  <tr>
+    <td><%= efectividad.valor %></td>
+    <td><%= link_to 'Show', efectividad %></td>
+    <td><%= link_to 'Edit', edit_efectividad_path(efectividad) %></td>
+    <td><%= link_to 'Destroy', efectividad, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Efectividad', new_efectividad_path %>

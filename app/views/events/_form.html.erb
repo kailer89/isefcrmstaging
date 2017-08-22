@@ -1,0 +1,66 @@
+<%= form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Event</legend>
+
+    <div class="control-group">
+      <%= f.label :mensaje, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :mensaje, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :fecha_inicio, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.date_select :fecha_inicio, :class => 'date_select' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :fecha_fin, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.date_select :fecha_fin, :class => 'date_select' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :donde, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :donde, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :whensaved, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.date_select :whensaved, :class => 'date_select' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :created_by, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :created_by, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :user_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :user_id, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :sede_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :sede_id, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', events_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

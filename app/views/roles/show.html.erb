@@ -1,0 +1,40 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@role.id, :parent_model=>nil}%>
+<%- model_class = @role.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nombre) %>:</strong></dt>
+  <dd><%= @role.nombre %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descripcion) %>:</strong></dt>
+  <dd><%= @role.descripcion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nivel) %>:</strong></dt>
+  <dd><%= @role.nivel %></dd>
+</dl>
+
+<table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Modulo</th>
+      <th>Permiso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for role_permision in @role.role_permisions %>
+      <tr>
+        <td><%=role_permision.objeto%></td>
+        <td><%=role_permision.permiso%></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              roles_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_role_path(@role), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              role_path(@role),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

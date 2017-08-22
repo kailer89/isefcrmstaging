@@ -1,0 +1,33 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@territorio.id, :parent_model=>nil, :parent_id=>nil}%>
+<div class="well"><h1>Territorio</h1>
+
+<p>
+  <b>Nombre</b><br>
+  <%= @territorio.nombre %>
+</p>
+
+<p>
+  <b>Sede</b><br>
+  <%= @territorio.sede_id %>
+</p>
+
+<p>
+  <b>Estado</b><br>
+  <%= @territorio.estado %>
+</p>
+
+<p>
+  <b>Ciudad</b><br>
+  <%= @territorio.ciudad %>
+</p>
+
+<p>
+  <b>Descripcion detallada</b><br>
+  <%= @territorio.descripcion_detallada %>
+</p></div>
+
+<div class="form-actions">
+  <%= link_to 'Back', territorios_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_territorio_path(@territorio), :class => 'btn' %>
+  <%= link_to 'Delete', territorio_path(@territorio), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

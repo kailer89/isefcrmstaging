@@ -1,0 +1,12 @@
+<h1>Ultimo Grado De Estudio</h1>
+
+<p>
+  <b>Grado de estudio</b><br>
+  <%= @ultimo_grado_de_estudio.grado_de_estudio %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', ultimo_grado_de_estudios_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_ultimo_grado_de_estudio_path(@ultimo_grado_de_estudio), :class => 'btn' %>
+  <%= link_to 'Delete', ultimo_grado_de_estudio_path(@ultimo_grado_de_estudio), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

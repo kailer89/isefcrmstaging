@@ -1,0 +1,42 @@
+  <%= simple_form_for @examinado, :html => { :class => 'form-horizontal' ,:onsubmit=>"return confirm('Estas seguro de querer continuar?');"} do |i| %>
+      <%= i.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', examinados_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
+    <%if request.path_parameters[:action]== "edit" %>
+      <%if not @examinado.isadmitido?%>
+        <%= link_to 'Convertir en Admitido', convertir_examinado_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+      <%end%>
+    <%end%>
+    <%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@examinado.id, :parent_model=>nil, :parent_id=>nil}%>
+    <%= render :partial => "examinadoNav"%>
+    <%=render :partial=>"shared/edit_examinados", :locals=>{:f=>i}%>
+    <%=render :partial=>"shared/edit_solicitantes", :locals=>{:f=>i}%>
+    
+    <div class="form-actions">
+        <%= i.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to 'Cancel', examinados_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
+        <%if request.path_parameters[:action]== "edit" %>
+          <%if not @examinado.isadmitido?%>
+            <%= link_to 'Convertir en Admitido', convertir_examinado_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+          <%end%>
+        <%end%>
+    </div>   
+<%=render :partial=>"shared/tabed_actions", :locals=>{:prospecto_id=>@examinado.id,:real_id=>@examinado.solicitantes.first.prospectos.first.id,:tareas=>@tareas,:memos=>@memos,:llamadas=>@llamadas,:correos=>@correos,:attachments=>@attachments}%>
+<div class="form-actions">
+    <%= i.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', examinados_path,:confirm => "Estas seguro de querer continuar?", :class => 'btn' %>
+    <%if request.path_parameters[:action]== "edit" %>
+      <%if not @examinado.isadmitido?%>
+        <%= link_to 'Convertir en Admitido', convertir_examinado_path,:confirm => "Estas seguro de querer continuar?", :class=>'btn btn-info', :method=>'post', :id=>'convertir'%> 
+      <%end%>
+    <%end%>
+</div>    
+<% end %><!--Solicitante-->
+
+<script type="text/javascript">
+(function($) {
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+})(jQuery);
+
+</script>

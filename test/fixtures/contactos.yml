@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre_completo: MyString
+  organizacion: MyString
+  cargo: MyString
+  archivar_como: MyString
+  correo_electronico: MyString
+  pagina_web: MyString
+  direccion_de_instant_messenger: MyString
+  numeros_de_trabajo: MyString
+  numero_particular: MyString
+  numero_del_fax_del_trabajo: MyString
+  numero_movil: MyString
+  direccion_trabajo: MyText
+  notas: MyText
+
+two:
+  nombre_completo: MyString
+  organizacion: MyString
+  cargo: MyString
+  archivar_como: MyString
+  correo_electronico: MyString
+  pagina_web: MyString
+  direccion_de_instant_messenger: MyString
+  numeros_de_trabajo: MyString
+  numero_particular: MyString
+  numero_del_fax_del_trabajo: MyString
+  numero_movil: MyString
+  direccion_trabajo: MyText
+  notas: MyText

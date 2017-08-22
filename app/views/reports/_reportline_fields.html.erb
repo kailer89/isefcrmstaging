@@ -1,0 +1,10 @@
+<div class="well fields">
+
+  	<%= f.hidden_field :nombre_del_campo%>
+  	<%= f.input_field :modulo, :collection=>ActiveRecord::Base.connection.tables,:include_blank => false, :label=>"Modulo",:hint=>"Una vez que selecciones el modulo no es posible cambiarlo."%>
+    <%= f.input_field :filtro, :collection => [ "Sumarizar"],:include_blank=>false %>
+    <%= f.hidden_field :report_id, :disabled=>true %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to_function "Elminar Linea", "if(confirm('Estas seguro?')){remove_fields(this)}", :class => 'btn btn-mini btn-danger' %>
+
+</div>

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  periodo_actual: MyString
+  sede_id: 1
+  clave_del_programa: MyString
+  fecha_de_inicio: 2012-09-10
+  programa_id: 1
+  ciudad_de_apertura: MyString
+  estado_de_apertura: MyString
+  estado_de_apertura: MyString
+  modalidad: MyString
+  turno: MyString
+  horarios: MyText
+  lugar_donde_se_impartiran_las_clases: MyString
+  asesor_a_cargo: 1
+  email_de_contacto: MyString
+  status_de_la_fecha_de_apertura: MyString
+
+two:
+  periodo_actual: MyString
+  sede_id: 1
+  clave_del_programa: MyString
+  fecha_de_inicio: 2012-09-10
+  programa_id: 1
+  ciudad_de_apertura: MyString
+  estado_de_apertura: MyString
+  estado_de_apertura: MyString
+  modalidad: MyString
+  turno: MyString
+  horarios: MyText
+  lugar_donde_se_impartiran_las_clases: MyString
+  asesor_a_cargo: 1
+  email_de_contacto: MyString
+  status_de_la_fecha_de_apertura: MyString

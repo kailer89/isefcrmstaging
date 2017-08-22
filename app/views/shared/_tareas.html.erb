@@ -1,0 +1,31 @@
+  <%
+  #render a partial for any tareas
+	tareas =Tarea.where(:model_name=>request.path_parameters[:controller] ,:model_id=>model_id)
+  %>
+  <div class="well">
+    <h3>Tareas</h3>
+     <table class="table table-striped table-bordered table-condensed">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Creado en </th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tareas.each do |tarea| %>
+          <tr>
+            <td><%= link_to tarea.id, tarea_path(tarea) %></td>
+            <td><%= link_to tarea.nombre, tarea_path(tarea) %></td>
+            <td><%= link_to tarea.created_at, tarea_path(tarea) %></td>
+            <td>
+              <%= link_to 'Edit', edit_tarea_path(tarea), :class => 'btn btn-mini' %>
+              <%= link_to 'Destroy', tarea_path(tarea), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'Nueva Tarea', new_tarea_path(:model_name=>request.path_parameters[:controller],:model_id=>model_id), :class => 'btn btn-primary' %>
+  </div>

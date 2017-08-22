@@ -1,0 +1,84 @@
+    <%= simple_nested_form_for @mercado_metum, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.submit nil, :class => 'btn btn-primary',:value=>"Crear Mercado Meta" %>
+    <%= link_to 'Cancel', mercado_meta_path, :class => 'btn' %>
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@mercado_metum.id, :parent_model=>nil, :parent_id=>nil}%>
+<%= render :partial => "mercado_metaNav"%>
+  <div class="tab-pane fade in active" id="mercadometa">
+    <div class="well">
+    
+    <div class="row">
+      <div class="span4">
+        <%= f.input :nombre_de_la_institucion_meta, :label=>"Nombre de la Institución Meta:"%>
+        <%= f.input :contacto_principal, :label=>"Contacto Principal:"%>
+        <%= f.input :email, :label=>"E-mail:"%>
+        <%= f.input :pag_web, :label=>"Página Web:"%>
+        <%= f.input :movil, :label=>"Móvil:"%>
+        <%= f.input :observaciones_del_mercado_meta, :input_html=>{:cols=>50, :rows=>3, :value=>"default"}, :label=>"Observaciones:"%>
+      </div>
+      <div class="span5">
+        <%= f.input :giro, :label=>"Giro:"%>
+        <%= f.input :cargo, :label=>"Cargo:"%>
+        <%= f.input :email_secundario, :label=>"E-mail Secundario:"%>
+        <%= f.input :telefono, :label=>"Teléfono:"%>
+        <%= f.input :otro_telefono, :label=>"Otro Tel:"%>
+      </div>
+    </div>    
+                    
+    </div>    
+    <div class="well form-horizontal"> 
+      <legend>Direccion</legend>
+    <div class="row">
+      <div class="span4">
+        <%= f.input :calle, :label=>"Calle:"%>
+        <%= f.input :no_exterior, :label=>"No. Exterior:"%>
+        <%= f.input :delegacion_municipio, :label=>"Delegación/Municipio:"%>
+                <%= f.input :comentarios_direccion, :input_html=>{:cols=>50, :rows=>3, :value=>"default"}%> 
+         <%= f.input :mapa_google_maps%>
+          <%= f.hidden_field :latitude%>
+          <%= f.hidden_field :longitude%>
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@mercado_metum.latitude}%2C#{@mercado_metum.longitude}" %>         
+      </div>
+      <div class="span5">
+        <%= f.input :colonia, :label=>"Colonia:"%>
+        <%= f.input :no_interior, :label=>"No. Interior:"%>
+        <%= f.input :codigo_postal, :label=>"Código Postal"%>
+      </div>
+     </div>
+    </div> 
+    
+          <div class="well">
+            <%= f.simple_fields_for :finalidad_cultivos, :html => { :class => 'form-horizontal' } do |q| %>
+                <%= q.input :finalidad_cultivo, :label=>"Finalidad de Cultivo:"%>
+                <%= q.input :mercado_metum_id%>          
+                <%= q.link_to_remove "Eliminar" %>         
+            <%end%>
+            <p><%= f.link_to_add "Add Finalidad Cultivo", :finalidad_cultivos %></p>  
+          </div>
+  </div><!--End Mercado Meta tab-->  
+  <div class="tab-pane fade form-horizontal" id="estrategia">
+    <div class="well">
+      <%= f.simple_fields_for :estrategia_promocionals, :html => { :class => 'form-horizontal' } do |q| %>
+          <%=q.input :status_de_la_estrategia%>
+          <%=q.input :fecha_para_llevarla_a_cabo%>
+          <%=q.input :reponsable_para_llevarla_a_cabo%>
+          <%=q.input :descripcion_detallada, :input_html=>{:cols=>50, :rows=>3, :value=>"default"}%>
+    </div>
+        <div class="well">
+          <%= q.simple_fields_for :comentarios_estrategiums, :html => { :class => 'form-horizontal' } do |d| %>
+            <%=d.input :comentario_del_seguimiento, :input_html=>{:cols=>50, :rows=>3, :value=>"default"}%>
+            <%=d.input :estrategia_promocional_id%>
+            <%=d.link_to_remove "Eliminar" %> 
+          <%end%>
+          <p><%= q.link_to_add "Add Comentario del seguimiento", :comentarios_estrategiums %></p>  
+        </div>     
+  </div>
+<%end%><!--End Estrategia promocional-->    
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@mercado_metum.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@mercado_metum.id}%>
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@mercado_metum.id}%> 
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@mercado_metum.id}%> 
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary',:value=>"Crear Mercado Meta" %>
+    <%= link_to 'Cancel', mercado_meta_path, :class => 'btn' %>
+  </div>
+<% end %><!--End Mercado  Meta-->

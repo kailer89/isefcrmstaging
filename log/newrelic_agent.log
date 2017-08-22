@@ -1,0 +1,390 @@
+# Logfile created on 2015-09-27 08:04:50 -0500 by logger.rb/31641
+[09/27/15 08:04:50 -0500 alienware (8872)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 08:04:50 -0500 alienware (8872)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 08:04:50 -0500 alienware (8872)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Environment: development
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Dispatcher: webrick
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Application: My Application
+[09/27/15 08:04:51 -0500 alienware (8872)] WARN : Agent configured not to send data in this environment.
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Installing HTTPClient instrumentation
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Installing Net instrumentation
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Installing deferred Rack instrumentation
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 08:04:51 -0500 alienware (8872)] INFO : Finished instrumentation
+[09/27/15 08:04:56 -0500 alienware (8872)] INFO : Doing deferred dependency-detection before Rack startup
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Environment: development
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : No known dispatcher detected.
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Application: My Application
+[09/27/15 08:12:41 -0500 alienware (1264)] WARN : Agent configured not to send data in this environment.
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Installing HTTPClient instrumentation
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Installing Net instrumentation
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Installing deferred Rack instrumentation
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 08:12:41 -0500 alienware (1264)] INFO : Finished instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Environment: development
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : No known dispatcher detected.
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Application: My Application
+[09/27/15 08:14:17 -0500 alienware (3160)] WARN : Agent configured not to send data in this environment.
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Installing HTTPClient instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Installing Net instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Installing deferred Rack instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 08:14:17 -0500 alienware (3160)] INFO : Finished instrumentation
+[09/27/15 08:15:06 -0500 alienware (4868)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 08:15:06 -0500 alienware (4868)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 08:15:06 -0500 alienware (4868)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Environment: development
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : No known dispatcher detected.
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Application: My Application
+[09/27/15 08:15:07 -0500 alienware (4868)] WARN : Agent configured not to send data in this environment.
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Installing HTTPClient instrumentation
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Installing Net instrumentation
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Installing deferred Rack instrumentation
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 08:15:07 -0500 alienware (4868)] INFO : Finished instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Environment: development
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : No known dispatcher detected.
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Application: My Application
+[09/27/15 08:17:12 -0500 alienware (5424)] WARN : Agent configured not to send data in this environment.
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Installing HTTPClient instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Installing Net instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Installing deferred Rack instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 08:17:12 -0500 alienware (5424)] INFO : Finished instrumentation
+[09/27/15 08:27:17 -0500 alienware (9556)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 08:27:17 -0500 alienware (9556)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 08:27:17 -0500 alienware (9556)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 08:27:17 -0500 alienware (9556)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Environment: development
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : No known dispatcher detected.
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Application: My Application
+[09/27/15 08:27:18 -0500 alienware (9556)] WARN : Agent configured not to send data in this environment.
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Installing HTTPClient instrumentation
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Installing Net instrumentation
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Installing deferred Rack instrumentation
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 08:27:18 -0500 alienware (9556)] INFO : Finished instrumentation
+[09/27/15 08:28:18 -0500 alienware (3436)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 08:28:18 -0500 alienware (3436)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 08:28:18 -0500 alienware (3436)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 08:28:18 -0500 alienware (3436)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 08:28:18 -0500 alienware (3436)] INFO : Environment: development
+[09/27/15 08:28:18 -0500 alienware (3436)] INFO : No known dispatcher detected.
+[09/27/15 08:28:18 -0500 alienware (3436)] INFO : Application: My Application
+[09/27/15 08:28:18 -0500 alienware (3436)] WARN : Agent configured not to send data in this environment.
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Installing HTTPClient instrumentation
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Installing Net instrumentation
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Installing deferred Rack instrumentation
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 08:28:19 -0500 alienware (3436)] INFO : Finished instrumentation
+[09/27/15 08:33:15 -0500 alienware (476)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 08:33:15 -0500 alienware (476)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 08:33:15 -0500 alienware (476)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 08:33:15 -0500 alienware (476)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Environment: development
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : No known dispatcher detected.
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Application: My Application
+[09/27/15 08:33:16 -0500 alienware (476)] WARN : Agent configured not to send data in this environment.
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Installing HTTPClient instrumentation
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Installing Net instrumentation
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Installing deferred Rack instrumentation
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 08:33:16 -0500 alienware (476)] INFO : Finished instrumentation
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Environment: development
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Dispatcher: webrick
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Application: My Application
+[09/27/15 08:45:15 -0500 alienware (7416)] WARN : Agent configured not to send data in this environment.
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Installing HTTPClient instrumentation
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Installing Net instrumentation
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Installing deferred Rack instrumentation
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 08:45:15 -0500 alienware (7416)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 08:45:16 -0500 alienware (7416)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 08:45:16 -0500 alienware (7416)] INFO : Finished instrumentation
+[09/27/15 08:45:19 -0500 alienware (7416)] INFO : Doing deferred dependency-detection before Rack startup
+[09/27/15 09:11:14 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `model_name' for NilClass:Class
+[09/27/15 09:11:24 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:10: syntax error, unexpected $end, expecting keyword_end
+[09/27/15 09:12:27 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:8: syntax error, unexpected keyword_ensure, expecting keyword_end
+C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:10: syntax error, unexpected $end, expecting keyword_end
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Environment: development
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : No known dispatcher detected.
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Application: My Application
+[09/27/15 09:14:04 -0500 alienware (3232)] WARN : Agent configured not to send data in this environment.
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Installing HTTPClient instrumentation
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Installing Net instrumentation
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Installing deferred Rack instrumentation
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 09:14:04 -0500 alienware (3232)] INFO : Finished instrumentation
+[09/27/15 09:14:42 -0500 alienware (2860)] INFO : Starting the New Relic agent in "development" environment.
+[09/27/15 09:14:42 -0500 alienware (2860)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/27/15 09:14:42 -0500 alienware (2860)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : New Relic Agent Developer Mode enabled.
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Environment: development
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : No known dispatcher detected.
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Application: My Application
+[09/27/15 09:14:43 -0500 alienware (2860)] WARN : Agent configured not to send data in this environment.
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Installing ActiveRecord instrumentation
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Installing HTTPClient instrumentation
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Installing Net instrumentation
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Installing deferred Rack instrumentation
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Installing Rack::Builder middleware instrumentation
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Installing Rails 3+ middleware instrumentation
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Installing Rails 3 Controller instrumentation
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Installing Rails 3 Error instrumentation
+[09/27/15 09:14:43 -0500 alienware (2860)] INFO : Finished instrumentation
+[09/27/15 09:24:53 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:14: syntax error, unexpected keyword_end, expecting ')'
+');	end
+   	   ^
+C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:17: syntax error, unexpected keyword_ensure, expecting ')'
+C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:19: syntax error, unexpected keyword_end, expecting ')'
+[09/27/15 09:25:05 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:16: syntax error, unexpected keyword_ensure, expecting keyword_end
+C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:18: syntax error, unexpected $end, expecting keyword_end
+[09/27/15 09:25:25 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `model_name' for NilClass:Class
+[09/27/15 09:26:37 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `hidden' for #<SimpleForm::FormBuilder:0x1972e408>
+[09/27/15 09:26:58 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `merge' for "prospectos":String
+[09/27/15 09:32:10 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined local variable or method `saved_search_add' for #<ActionDispatch::Routing::Mapper:0x194f1f18>
+[09/27/15 09:33:02 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:14: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...er.append= ( f.submit, :label=>"Guardar Busqueda"%
+...                               ^
+C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:15: syntax error, unexpected '<'
+		  		<%end );@output_buffer.safe_concat('
+		  		 ^
+C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:15: unknown type of %string
+		  		<%end );@output_buffer.safe_concat('
+		  		    ^
+[09/27/15 09:33:35 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:15: syntax error, unexpected '<'
+		  		<%end );@output_buffer.safe_concat('
+		  		 ^
+C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:15: unknown type of %string
+		  		<%end );@output_buffer.safe_concat('
+		  		    ^
+[09/27/15 09:36:51 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined local variable or method `create_search_path' for #<#<Class:0x1113ddd0>:0x11134740>
+[09/27/15 09:39:42 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: unknown attribute: query
+[09/27/15 09:40:15 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No HTTP_REFERER was set in the request to this action, so redirect_to :back could not be called successfully. If this is a test, make sure to specify request.env["HTTP_REFERER"].
+[09/27/15 09:50:48 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `searches' for #<Search:0x151b4230>
+[09/27/15 09:52:38 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:21: syntax error, unexpected keyword_end, expecting $end
+');end ;@output_buffer.to_s
+      ^
+[09/27/15 09:52:58 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `model_name' for NilClass:Class
+[09/27/15 09:53:21 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `model_name' for NilClass:Class
+[09/27/15 09:53:31 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `empty?' for nil:NilClass
+[09/27/15 09:53:34 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `empty?' for nil:NilClass
+[09/27/15 10:21:13 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `empty?' for nil:NilClass
+[09/27/15 10:21:48 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `model_name' for NilClass:Class
+[09/27/15 10:21:59 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `model_name' for NilClass:Class
+[09/27/15 10:22:37 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `model_name' for NilClass:Class
+[09/27/15 10:23:17 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `model_name' for NilClass:Class
+[09/27/15 10:23:47 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `name' for nil:NilClass
+[09/27/15 10:24:04 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `name' for nil:NilClass
+[09/27/15 10:25:52 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: uninitialized constant ActionView::CompiledTemplates::Searches
+[09/27/15 10:29:07 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `searches' for #<Search:0x151b2928>
+[09/27/15 10:29:24 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `searches' for #<Search:0x2283d3c8>
+[09/27/15 10:29:26 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `searches' for #<Search:0xca44eb8>
+[09/27/15 10:30:53 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `searches' for #<Search:0x17605860>
+[09/27/15 10:37:31 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:48: syntax error, unexpected keyword_ensure, expecting keyword_end
+C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:50: syntax error, unexpected $end, expecting keyword_end
+[09/27/15 10:38:35 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `search_search_path' for #<#<Class:0x6ff4920>:0x700ab98>
+[09/27/15 10:39:11 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `search_search_path' for #<#<Class:0x13da4590>:0x13dc79a8>
+[09/27/15 10:39:27 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `search_search_path' for #<#<Class:0x2c109030>:0x2c1fca38>
+[09/27/15 10:43:57 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: wrong number of arguments (0 for 2..3)
+[09/27/15 10:44:21 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: wrong number of arguments (0 for 2..3)
+[09/27/15 10:45:31 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: wrong number of arguments (0 for 2..3)
+[09/27/15 10:45:37 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:16: syntax error, unexpected ':', expecting ')'
+... ( f.input :test, as: :string :value=>"test" );@output_buffe...
+...                               ^
+[09/27/15 10:45:47 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: wrong number of arguments (0 for 2..3)
+[09/27/15 10:48:50 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `nombre' for #<Search:0x2a96bbb0>
+[09/27/15 10:49:03 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_save_search.html.erb:16: syntax error, unexpected ','
+...append= ( f.text_field nombre:, input_html: { value: "nil" }...
+...                               ^
+[09/27/15 10:49:28 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `subject' for #<Search:0x1a104e60>
+[09/27/15 10:54:19 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `content' for []:ActiveRecord::Relation
+[09/27/15 10:54:31 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No HTTP_REFERER was set in the request to this action, so redirect_to :back could not be called successfully. If this is a test, make sure to specify request.env["HTTP_REFERER"].
+[09/27/15 10:56:40 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `exists?' for nil:NilClass
+[09/27/15 10:56:53 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `content' for nil:NilClass
+[09/27/15 10:59:18 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `busqueda' for #<Search:0x1092dc20>
+[09/27/15 11:04:04 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `name' for {"name"=>"test"}:ActiveSupport::HashWithIndifferentAccess
+[09/27/15 11:04:24 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No HTTP_REFERER was set in the request to this action, so redirect_to :back could not be called successfully. If this is a test, make sure to specify request.env["HTTP_REFERER"].
+[09/27/15 11:25:08 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert nil into String
+[09/27/15 11:25:43 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert nil into String
+[09/27/15 11:26:54 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: C:/Sites/isefcrm/app/views/shared/_edit_prospectos.html.erb:24: syntax error, unexpected tIDENTIFIER, expecting ']'
+...l + "-" + c.programa.present? c.programa : "", c.id] });@out...
+...                               ^
+C:/Sites/isefcrm/app/views/shared/_edit_prospectos.html.erb:24: syntax error, unexpected ':'
+....programa.present? c.programa : "", c.id] });@output_buffer....
+...                               ^
+C:/Sites/isefcrm/app/views/shared/_edit_prospectos.html.erb:24: syntax error, unexpected ']', expecting '}'
+...present? c.programa : "", c.id] });@output_buffer.safe_conca...
+...                               ^
+C:/Sites/isefcrm/app/views/shared/_edit_prospectos.html.erb:25: syntax error, unexpected keyword_end, expecting '}'
+');              end  
+                    ^
+C:/Sites/isefcrm/app/views/shared/_edit_prospectos.html.erb:157: syntax error, unexpected keyword_else, expecting '}'
+');else
+       ^
+C:/Sites/isefcrm/app/views/shared/_edit_prospectos.html.erb:296: syntax error, unexpected keyword_end, expecting '}'
+end;@output_buffer.to_s
+   ^
+C:/Sites/isefcrm/app/views/shared/_edit_prospectos.html.erb:297: syntax error, unexpected keyword_ensure, expecting '}'
+C:/Sites/isefcrm/app/views/shared/_edit_prospectos.html.erb:299: syntax error, unexpected keyword_end, expecting '}'
+[09/27/15 11:27:42 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert nil into String
+[09/27/15 11:28:29 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert nil into String
+[09/27/15 11:28:43 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert nil into String
+[09/27/15 11:29:08 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert nil into String
+[09/27/15 11:29:12 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert nil into String
+[09/27/15 11:29:37 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert nil into String
+[09/27/15 12:20:26 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Admitido with id=23
+[09/27/15 12:20:32 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Inscrito with id=17
+[09/27/15 12:20:34 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Admitido with id=23
+[09/27/15 12:22:27 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Inscrito with id=18
+[09/27/15 12:24:07 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Inscrito with id=18
+[09/27/15 12:24:22 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Inscrito with id=18
+[09/27/15 12:25:44 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Inscrito with id=19
+[09/27/15 12:26:04 -0500 alienware (7416)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Inscrito with id=19
+[01/23/16 08:35:46 -0600 alienware (6776)] INFO : Starting the New Relic agent in "development" environment.
+[01/23/16 08:35:46 -0600 alienware (6776)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[01/23/16 08:35:46 -0600 alienware (6776)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : New Relic Agent Developer Mode enabled.
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Environment: development
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Dispatcher: webrick
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Application: My Application
+[01/23/16 08:35:47 -0600 alienware (6776)] WARN : Agent configured not to send data in this environment.
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Installing ActiveRecord instrumentation
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Installing HTTPClient instrumentation
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Installing Net instrumentation
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Installing deferred Rack instrumentation
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Installing Rack::Builder middleware instrumentation
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Installing Rails 3+ middleware instrumentation
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Installing Rails 3 Controller instrumentation
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Installing Rails 3 Error instrumentation
+[01/23/16 08:35:47 -0600 alienware (6776)] INFO : Finished instrumentation
+[01/23/16 08:35:51 -0600 alienware (6776)] INFO : Doing deferred dependency-detection before Rack startup
+[02/04/16 14:01:29 -0600 alienware (8944)] INFO : Starting the New Relic agent in "development" environment.
+[02/04/16 14:01:29 -0600 alienware (8944)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[02/04/16 14:01:29 -0600 alienware (8944)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm)
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : New Relic Agent Developer Mode enabled.
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Environment: development
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Dispatcher: webrick
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Application: My Application
+[02/04/16 14:01:30 -0600 alienware (8944)] WARN : Agent configured not to send data in this environment.
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Installing ActiveRecord instrumentation
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Installing HTTPClient instrumentation
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Installing Net instrumentation
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Installing deferred Rack instrumentation
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Installing Rack::Builder middleware instrumentation
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Installing Rails 3+ middleware instrumentation
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Installing Rails 3 Controller instrumentation
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Installing Rails 3 Error instrumentation
+[02/04/16 14:01:30 -0600 alienware (8944)] INFO : Finished instrumentation
+[02/04/16 14:01:35 -0600 alienware (8944)] INFO : Doing deferred dependency-detection before Rack startup
+[03/22/17 18:19:05 -0600 alienware (13268)] INFO : Starting the New Relic agent in "development" environment.
+[03/22/17 18:19:05 -0600 alienware (13268)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[03/22/17 18:19:05 -0600 alienware (13268)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm_staging)
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : New Relic Agent Developer Mode enabled.
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Environment: development
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Dispatcher: webrick
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Application: My Application
+[03/22/17 18:19:06 -0600 alienware (13268)] WARN : Agent configured not to send data in this environment.
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Installing ActiveRecord instrumentation
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Installing HTTPClient instrumentation
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Installing Net instrumentation
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Installing deferred Rack instrumentation
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Installing Rack::Builder middleware instrumentation
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Installing Rails 3+ middleware instrumentation
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Installing Rails 3 Controller instrumentation
+[03/22/17 18:19:06 -0600 alienware (13268)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[03/22/17 18:19:07 -0600 alienware (13268)] INFO : Installing Rails 3 Error instrumentation
+[03/22/17 18:19:07 -0600 alienware (13268)] INFO : Finished instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Starting the New Relic agent in "development" environment.
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm_staging)
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : New Relic Agent Developer Mode enabled.
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Environment: development
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Dispatcher: webrick
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Application: My Application
+[03/22/17 18:20:19 -0600 alienware (8592)] WARN : Agent configured not to send data in this environment.
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing ActiveRecord instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing HTTPClient instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing Net instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing deferred Rack instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing Rack::Builder middleware instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing Rails 3+ middleware instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing Rails 3 Controller instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing Rails 3 Error instrumentation
+[03/22/17 18:20:19 -0600 alienware (8592)] INFO : Finished instrumentation
+[03/22/17 18:20:36 -0600 alienware (8592)] INFO : Doing deferred dependency-detection before Rack startup

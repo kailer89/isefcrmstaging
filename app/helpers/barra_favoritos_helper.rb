@@ -1,0 +1,2 @@
+module BarraFavoritosHelper
+end

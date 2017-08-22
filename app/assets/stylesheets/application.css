@@ -1,0 +1,696 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require jquery.ui.all
+ *= require_self
+ *= require_tree .
+
+ *= require datepicker
+*/
+/* Base class */
+
+
+
+
+.bs-docs-example {
+  position: relative;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  *padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+/* Echo out a label for the example */
+.bs-docs-example:after {
+  content: "CRM Login";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  -webkit-border-radius: 4px 0 4px 0;
+     -moz-border-radius: 4px 0 4px 0;
+          border-radius: 4px 0 4px 0;
+}
+
+/* Remove spacing between an example and it's code */
+.bs-docs-example + .prettyprint {
+  margin-top: -20px;
+  padding-top: 15px;
+}
+
+/* Tweak examples
+------------------------- */
+.bs-docs-example > p:last-child {
+  margin-bottom: 0;
+}
+.bs-docs-example .table,
+.bs-docs-example .progress,
+.bs-docs-example .well,
+.bs-docs-example .alert,
+.bs-docs-example .hero-unit,
+.bs-docs-example .pagination,
+.bs-docs-example .navbar,
+.bs-docs-example > .nav,
+.bs-docs-example blockquote {
+  margin-bottom: 5px;
+}
+.bs-docs-example .pagination {
+  margin-top: 0;
+}
+.bs-navbar-top-example,
+.bs-navbar-bottom-example {
+  z-index: 1;
+  padding: 0;
+  height: 90px;
+  overflow: hidden; /* cut the drop shadows off */
+}
+.bs-navbar-top-example .navbar-fixed-top,
+.bs-navbar-bottom-example .navbar-fixed-bottom {
+  margin-left: 0;
+  margin-right: 0;
+}
+.bs-navbar-top-example {
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+}
+.bs-navbar-top-example:after {
+  top: auto;
+  bottom: -1px;
+  -webkit-border-radius: 0 4px 0 4px;
+     -moz-border-radius: 0 4px 0 4px;
+          border-radius: 0 4px 0 4px;
+}
+.bs-navbar-bottom-example {
+  -webkit-border-radius: 4px 4px 0 0;
+     -moz-border-radius: 4px 4px 0 0;
+          border-radius: 4px 4px 0 0;
+}
+.bs-navbar-bottom-example .navbar {
+  margin-bottom: 0;
+}
+form.bs-docs-example {
+  padding-bottom: 19px;
+}
+
+/* Images */
+.bs-docs-example-images img {
+  margin: 10px;
+  display: inline-block;
+}
+
+/* Tooltips */
+.bs-docs-tooltip-examples {
+  text-align: center;
+  margin: 0 0 10px;
+  list-style: none;
+}
+.bs-docs-tooltip-examples li {
+  display: inline;
+  padding: 0 10px;
+}
+
+/* Popovers */
+.bs-docs-example-popover {
+  padding-bottom: 24px;
+  background-color: #f9f9f9;
+}
+.bs-docs-example-popover .popover {
+  position: relative;
+  display: block;
+  float: left;
+  width: 260px;
+  margin: 20px;
+}
+
+
+
+
+.ts-docs-example {
+  position: relative;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  *padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+/* Echo out a label for the example */
+.ts-docs-example:after {
+  content: "Registro en linea";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  -webkit-border-radius: 4px 0 4px 0;
+     -moz-border-radius: 4px 0 4px 0;
+          border-radius: 4px 0 4px 0;
+}
+
+/* Remove spacing between an example and it's code */
+.ts-docs-example + .prettyprint {
+  margin-top: -20px;
+  padding-top: 15px;
+}
+
+/* Tweak examples
+------------------------- */
+.ts-docs-example > p:last-child {
+  margin-bottom: 0;
+}
+.ts-docs-example .table,
+.ts-docs-example .progress,
+.ts-docs-example .well,
+.ts-docs-example .alert,
+.ts-docs-example .hero-unit,
+.ts-docs-example .pagination,
+.ts-docs-example .navbar,
+.ts-docs-example > .nav,
+.ts-docs-example blockquote {
+  margin-bottom: 5px;
+}
+.ts-docs-example .pagination {
+  margin-top: 0;
+}
+.ts-navbar-top-example,
+.ts-navbar-bottom-example {
+  z-index: 1;
+  padding: 0;
+  height: 90px;
+  overflow: hidden; /* cut the drop shadows off */
+}
+.ts-navbar-top-example .navbar-fixed-top,
+.ts-navbar-bottom-example .navbar-fixed-bottom {
+  margin-left: 0;
+  margin-right: 0;
+}
+.ts-navbar-top-example {
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+}
+.ts-navbar-top-example:after {
+  top: auto;
+  bottom: -1px;
+  -webkit-border-radius: 0 4px 0 4px;
+     -moz-border-radius: 0 4px 0 4px;
+          border-radius: 0 4px 0 4px;
+}
+.ts-navbar-bottom-example {
+  -webkit-border-radius: 4px 4px 0 0;
+     -moz-border-radius: 4px 4px 0 0;
+          border-radius: 4px 4px 0 0;
+}
+.ts-navbar-bottom-example .navbar {
+  margin-bottom: 0;
+}
+form.ts-docs-example {
+  padding-bottom: 19px;
+}
+
+/* Images */
+.ts-docs-example-images img {
+  margin: 10px;
+  display: inline-block;
+}
+
+/* Tooltips */
+.ts-docs-tooltip-examples {
+  text-align: center;
+  margin: 0 0 10px;
+  list-style: none;
+}
+.ts-docs-tooltip-examples li {
+  display: inline;
+  padding: 0 10px;
+}
+
+/* Popovers */
+.ts-docs-example-popover {
+  padding-bottom: 24px;
+  background-color: #f9f9f9;
+}
+.ts-docs-example-popover .popover {
+  position: relative;
+  display: block;
+  float: left;
+  width: 400px;
+  margin: 20px;
+}
+
+
+
+#toTop {
+  width:100px;
+        border:1px solid #ccc;
+        background:#f7f7f7;
+        text-align:center;
+        padding:5px;
+        position:fixed; /* this is the magic */
+        bottom:10px; /* together with this to put the div at the bottom*/
+        right:10px;
+        cursor:pointer;
+        display:none;
+        color:#333;
+        font-family:verdana;
+        font-size:11px;
+}
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+.twentyfiftywidth
+{
+	width: 100%!important;
+}
+.useravatar
+{
+	display:table-cell; 
+	vertical-align:middle;
+}
+.floatleft
+{
+	float:left;
+	z-index:1000;
+	padding:0;
+}
+.correobox
+{
+	width: 810px;
+	height: 600px;
+}
+.printbox
+{
+	margin-bottom:0px;
+	margin-top:2px;
+	float:right;
+	padding: 2px;
+}
+
+.whitetigger{color:white!important;}
+.linkcolor{color:#08C;}
+.zero
+{
+  padding: 0px 0px 0px 0px!important;
+  margin: 0px 2px 0px 0px!important;
+
+}
+.zero2
+{
+  padding: 1px 1px 1px 1px!important;
+  margin: 0px 2px 0px 0px!important;
+
+}
+
+.redrow{
+background: #a90329!important; /* Old browsers  *= require_tree ./engage
+*/
+/* IE9 SVG, needs conditional override of 'filter' to 'none'  *= require_tree ./engage
+*/
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E5MDMyOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iIzhmMDIyMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZDAwMTkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+)!important;
+background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%)!important; /* FF3.6+  *= require_tree ./engage
+*/
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019))!important; /* Chrome,Safari4+  *= require_tree ./engage
+*/
+background: -webkit-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%)!important; /* Chrome10+,Safari5.1+  *= require_tree ./engage
+*/
+background: -o-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%)!important; /* Opera 11.10+  *= require_tree ./engage
+*/
+background: -ms-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%)!important; /* IE10+  *= require_tree ./engage
+*/
+background: linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%)!important; /* W3C  *= require_tree ./engage
+*/
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 )!important; /* IE6-8  *= require_tree ./engage
+*/
+color:white;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+}
+
+.bluerow{
+background: #4096ee; /* Old browsers  *= require_tree ./engage
+*/
+/* IE9 SVG, needs conditional override of 'filter' to 'none'  *= require_tree ./engage
+*/
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQwOTZlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0MDk2ZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, #4096ee 0%, #4096ee 100%); /* FF3.6+  *= require_tree ./engage
+*/
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4096ee), color-stop(100%,#4096ee)); /* Chrome,Safari4+  *= require_tree ./engage
+*/
+background: -webkit-linear-gradient(top, #4096ee 0%,#4096ee 100%); /* Chrome10+,Safari5.1+  *= require_tree ./engage
+*/
+background: -o-linear-gradient(top, #4096ee 0%,#4096ee 100%); /* Opera 11.10+  *= require_tree ./engage
+*/
+background: -ms-linear-gradient(top, #4096ee 0%,#4096ee 100%); /* IE10+  *= require_tree ./engage
+*/
+background: linear-gradient(top, #4096ee 0%,#4096ee 100%); /* W3C  *= require_tree ./engage
+*/
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#4096ee',GradientType=0 ); /* IE6-8  *= require_tree ./engage
+*/
+
+
+}
+
+.greenrow{
+background: #299a0b; /* Old browsers  *= require_tree ./engage
+*/
+/* IE9 SVG, needs conditional override of 'filter' to 'none'  *= require_tree ./engage
+*/
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI5OWEwYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyOTlhMGIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, #299a0b 0%, #299a0b 100%); /* FF3.6+  *= require_tree ./engage
+*/
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#299a0b), color-stop(100%,#299a0b)); /* Chrome,Safari4+  *= require_tree ./engage
+*/
+background: -webkit-linear-gradient(top, #299a0b 0%,#299a0b 100%); /* Chrome10+,Safari5.1+  *= require_tree ./engage
+*/
+background: -o-linear-gradient(top, #299a0b 0%,#299a0b 100%); /* Opera 11.10+  *= require_tree ./engage
+*/
+background: -ms-linear-gradient(top, #299a0b 0%,#299a0b 100%); /* IE10+  *= require_tree ./engage
+*/
+background: linear-gradient(top, #299a0b 0%,#299a0b 100%); /* W3C  *= require_tree ./engage
+*/
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299a0b', endColorstr='#299a0b',GradientType=0 ); /* IE6-8  *= require_tree ./engage
+*/
+
+}
+
+.orangerow{
+background: #ffa84c; /* Old browsers  *= require_tree ./engage
+*/
+/* IE9 SVG, needs conditional override of 'filter' to 'none'  *= require_tree ./engage
+*/
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmYTg0YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjdiMGQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, #ffa84c 0%, #ff7b0d 100%); /* FF3.6+  *= require_tree ./engage
+*/
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffa84c), color-stop(100%,#ff7b0d)); /* Chrome,Safari4+  *= require_tree ./engage
+*/
+background: -webkit-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%); /* Chrome10+,Safari5.1+  *= require_tree ./engage
+*/
+background: -o-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%); /* Opera 11.10+  *= require_tree ./engage
+*/
+background: -ms-linear-gradient(top, #ffa84c 0%,#ff7b0d 100%); /* IE10+  *= require_tree ./engage
+*/
+background: linear-gradient(top, #ffa84c 0%,#ff7b0d 100%); /* W3C  *= require_tree ./engage
+*/
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa84c', endColorstr='#ff7b0d',GradientType=0 ); /* IE6-8  *= require_tree ./engage
+*/
+
+}
+
+
+.navyrow{
+background: #e9f6fd; /* Old browsers  *= require_tree ./engage
+*/
+/* IE9 SVG, needs conditional override of 'filter' to 'none'  *= require_tree ./engage
+*/
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U5ZjZmZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkM2VlZmIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, #e9f6fd 0%, #d3eefb 100%); /* FF3.6+  *= require_tree ./engage
+*/
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e9f6fd), color-stop(100%,#d3eefb)); /* Chrome,Safari4+  *= require_tree ./engage
+*/
+background: -webkit-linear-gradient(top, #e9f6fd 0%,#d3eefb 100%); /* Chrome10+,Safari5.1+  *= require_tree ./engage
+*/
+background: -o-linear-gradient(top, #e9f6fd 0%,#d3eefb 100%); /* Opera 11.10+  *= require_tree ./engage
+*/
+background: -ms-linear-gradient(top, #e9f6fd 0%,#d3eefb 100%); /* IE10+  *= require_tree ./engage
+*/
+background: linear-gradient(top, #e9f6fd 0%,#d3eefb 100%); /* W3C  *= require_tree ./engage
+*/
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', endColorstr='#d3eefb',GradientType=0 ); /* IE6-8  *= require_tree ./engage
+*/
+
+}
+
+.stonerow{
+background: #fcfff4; /* Old browsers  *= require_tree ./engage
+*/
+/* IE9 SVG, needs conditional override of 'filter' to 'none'  *= require_tree ./engage
+*/
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjZmZmNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQwJSIgc3RvcC1jb2xvcj0iI2RmZTVkNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiM2JlYWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%); /* FF3.6+  *= require_tree ./engage
+*/
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead)); /* Chrome,Safari4+  *= require_tree ./engage
+*/
+background: -webkit-linear-gradient(top, #fcfff4 0%,#dfe5d7 40%,#b3bead 100%); /* Chrome10+,Safari5.1+  *= require_tree ./engage
+*/
+background: -o-linear-gradient(top, #fcfff4 0%,#dfe5d7 40%,#b3bead 100%); /* Opera 11.10+  *= require_tree ./engage
+*/
+background: -ms-linear-gradient(top, #fcfff4 0%,#dfe5d7 40%,#b3bead 100%); /* IE10+  *= require_tree ./engage
+*/
+background: linear-gradient(top, #fcfff4 0%,#dfe5d7 40%,#b3bead 100%); /* W3C  *= require_tree ./engage
+*/
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 ); /* IE6-8  *= require_tree ./engage
+*/
+
+}
+
+/* Reset  *= require_tree ./engage
+*/
+body,img,p,h1,h2,h3,h4,h5,h6,ul,ol {margin:0; padding:0; list-style:none; border:none;}
+/* End Reset  *= require_tree ./engage
+*/
+
+body {font-size:0.8em; font-family:Arial,Verdana,Sans-Serif; background: #000;}
+a {color:white;}
+
+/* Colors  *= require_tree ./engage
+*/
+.color-yellow {background:#f2bc00;}
+.color-red    {background:#dd0000;}
+.color-blue   {background:#148ea4;}
+.color-white  {background:#dfdfdf;}
+.color-orange {background:#f66e00;}
+.color-green  {background:#8dc100;}
+.color-yellow h3,
+.color-white h3,
+.color-green h3
+    {color:#000;}
+.color-red h3,
+.color-blue h3,
+.color-orange h3
+    {color:#FFF;}
+/* End Colors  *= require_tree ./engage
+*/
+
+/* Head section  *= require_tree ./engage
+*/
+#head {
+    background: #000 url(img/head-bg.png) repeat-x;
+    height: 100px;
+}
+#head h1 {
+    line-height: 100px;
+    color: #FFF;
+    text-align: center;
+    background: url(img/inettuts.png) no-repeat center;
+    text-indent: -9999em
+}
+/* End Head Section  *= require_tree ./engage
+*/
+
+/* Columns section  *= require_tree ./engage
+*/
+#columns .column {
+    float: left;
+    width: 33.3%;
+        /* Min-height:  *= require_tree ./engage
+*/
+        min-height: 400px;
+        height: auto !important; 
+        height: 400px;
+}
+
+/* Column dividers (background-images) :  *= require_tree ./engage
+*/
+    #columns #column1 { background: url(img/column-bg-left.png) no-repeat right top; }
+    #columns #column3 { background: url(img/column-bg-right.png) no-repeat left top; }
+    
+#columns #column1 .widget { margin: 30px 35px 0 25px; }
+#columns #column3 .widget { margin: 30px 25px 0 35px; }
+#columns .widget {
+    margin: 30px 20px 0 20px;
+    padding: 2px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+#columns .widget .widget-head {
+    color: #000;
+    overflow: hidden;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+#columns .widget .widget-head h3 {
+    padding: 0 5px;
+    float: left;
+}
+#columns .widget .widget-content {
+    background: #333 url(img/widget-content-bg.png) repeat-x;
+    padding: 0 5px;
+    color: #DDD;
+    -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-bottomright: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+    line-height: 1.2em;
+    overflow: hidden;
+}
+#columns .widget .widget-content p {
+    padding: 0.8em 0;
+    border-bottom: 1px solid #666;
+}
+#columns .widget .widget-content img {
+    float: right;
+    margin: 10px;
+    border: 1px solid #FFF;
+}
+#columns .widget .widget-content pre {
+    padding: 0.5em 5px;
+    color: #EEE;
+    font-size: 12px;
+}
+#columns .widget .widget-content ul {
+    padding: 5px 0 5px 20px;
+    list-style: disc;
+}
+#columns .widget .widget-content ul li {padding: 3px 0;}
+#columns .widget .widget-content ul.images {
+    padding: 7px 0 0 0;
+    list-style: none;
+    height: 1%;
+}
+#columns .widget .widget-content ul.images li {
+    display: inline;
+    float: left;
+}
+#columns .widget .widget-content ul.images img {
+    display: inline;
+    float: left;
+    margin: 0 0 7px 7px;
+}
+/* End Columns section  *= require_tree ./engage
+*/
+
+.authentications {
+  margin-bottom: 30px;
+}
+
+.authentication {
+  width: 130px;
+  float: left;
+  background-color: #EEE;
+  border: solid 1px #999;
+  padding: 5px 10px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.authentication .remove {
+  text-decoration: none;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: #333;
+  padding: 2px 4px;
+  font-size: 10px;
+}
+
+.authentication .remove:hover {
+  color: #CCC;
+  background-color: #777;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+
+.authentication img {
+  float: left;
+  margin-right: 10px;
+}
+
+.authentication .provider {
+  font-weight: bold;
+}
+
+.authentication .uid {
+  color: #666;
+  font-size: 11px;
+}
+
+.auth_provider img {
+  display: block;
+}
+
+.auth_provider {
+  float: left;
+  text-decoration: none;
+  margin-right: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.container-fluid{
+ padding-left: 0px;
+ padding-right: 0px;
+}
+/* tables */
+table.tablesorter {
+  font-family:arial;
+  background-color: #CDCDCD;
+  margin:10px 0pt 15px;
+  font-size: 8pt;
+  width: 100%;
+  text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+  background-color: #e6EEEE;
+  border: 1px solid #FFF;
+  font-size: 8pt;
+  padding: 4px;
+}
+table.tablesorter thead tr .header {
+  background-image: url(/images/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
+}
+table.tablesorter tbody td {
+  color: #3D3D3D;
+  padding: 4px;
+  background-color: #FFF;
+  vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+  background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+  background-image: url(/images/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+  background-image: url(/images/desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}

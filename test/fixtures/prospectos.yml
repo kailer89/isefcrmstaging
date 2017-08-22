@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  sexo: false
+  fecha_de_nacimiento: 2012-03-18
+  nacionalidad: MyString
+  telefono_particular: MyString
+  telefono_movil: MyString
+  otro_telefono: MyString
+  email: MyString
+  validado: false
+
+two:
+  nombre: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  sexo: false
+  fecha_de_nacimiento: 2012-03-18
+  nacionalidad: MyString
+  telefono_particular: MyString
+  telefono_movil: MyString
+  otro_telefono: MyString
+  email: MyString
+  validado: false

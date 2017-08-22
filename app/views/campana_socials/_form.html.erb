@@ -1,0 +1,50 @@
+<%= simple_form_for @campana_social, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', :back, :class => 'btn' %>
+
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Campana Social</legend>
+    <%=f.input :nombre%>
+    <%=f.input :descripcion, :as => :text ,:input_html => { :cols => 50, :rows => 3 } %>
+    <%=f.input :tipo, :collection => [ "Campania Uno a N"],:include_blank=>false%>
+    <%if params[:tipo] != nil%>
+      <%=f.hidden_field :proveedor, :input_html=>{:value => params[:tipo]}%>
+    <%else%>
+    <%=f.hidden_field :proveedor%>
+    <%end%>
+
+    <% if request.path_parameters[:action] =="edit" %>
+      <%if params[:tipo]  =="twitter" || @campana_social.proveedor =="twitter"%>  
+        <legend>Tweets</legend>
+        <%=render :partial=>"shared/tweet", :locals=>{:model_id=>@campana_social.id}%>  
+      <%end%>
+
+      <%if params[:tipo]=="facebook"|| @campana_social.proveedor =="facebook"%>
+        <legend>Posts</legend>
+        <%=render :partial=>"shared/facebook", :locals=>{:model_id=>@campana_social.id}%>
+        <legend>Eventos</legend>
+        <%= f.simple_fields_for :events, :html => { :class => 'form-inline' } do |fg| %> 
+          <%= render 'event_fields', :f => fg %>
+        <% end %>
+        <div class="fields">
+          <%= link_to_add_fields "Agregar Nuevo Evento", f, :events %>
+        </div>
+      <%end%>
+
+      <%if params[:tipo]=="correo"|| @campana_social.proveedor =="correo"%>
+        <legend>Correos</legend>
+          <%=render :partial=>"shared/correos", :locals=>{:model_id=>@campana_social.id}%>
+      <%end%>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', :back, :class => 'btn' %>
+      <%=render :partial=>"shared/tareas", :locals=>{:model_id=>@campana_social.id}%>
+      <%=render :partial=>"shared/memos", :locals=>{:model_id=>@campana_social.id}%>
+      <%=render :partial=>"shared/attachments", :locals=>{:model_id=>@campana_social.id}%>
+      <%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@campana_social.id}%>
+    <%end%>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', :back, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

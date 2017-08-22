@@ -1,0 +1,22 @@
+<%= form_for @preparatoria_o_universidad_de_origen, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', preparatoria_o_universidad_de_origens_path, :class => 'btn' %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Preparatoria O Universidad De Origen</legend>
+
+    <div class="control-group">
+      <%= f.label :valor, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :valor, :class => 'text_field' %>
+      </div>
+    </div>
+<%=render :partial=>"shared/tareas", :locals=>{:model_id=>@preparatoria_o_universidad_de_origen.id}%>
+<%=render :partial=>"shared/memos", :locals=>{:model_id=>@preparatoria_o_universidad_de_origen.id}%>
+<%=render :partial=>"shared/attachments", :locals=>{:model_id=>@preparatoria_o_universidad_de_origen.id}%>
+<%=render :partial=>"shared/llamadas", :locals=>{:model_id=>@preparatoria_o_universidad_de_origen.id}%>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', preparatoria_o_universidad_de_origens_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

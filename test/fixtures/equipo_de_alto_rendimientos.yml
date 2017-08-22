@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  periodo_anual: MyString
+  sede_id: 1
+  nombre_completo: MyString
+  cargo: MyString
+  proyectos_a_cargo: MyText
+  horario_laboral: MyText
+  fecha_de_nacimiento: 2012-09-10
+  modalidad_de_contratacion: MyText
+  horas_semanales: MyText
+  email_institucional: MyString
+  telefono_de_oficina: MyString
+  extension: MyString
+  jefe_directo: MyString
+  cargo: MyString
+
+two:
+  periodo_anual: MyString
+  sede_id: 1
+  nombre_completo: MyString
+  cargo: MyString
+  proyectos_a_cargo: MyText
+  horario_laboral: MyText
+  fecha_de_nacimiento: 2012-09-10
+  modalidad_de_contratacion: MyText
+  horas_semanales: MyText
+  email_institucional: MyString
+  telefono_de_oficina: MyString
+  extension: MyString
+  jefe_directo: MyString
+  cargo: MyString

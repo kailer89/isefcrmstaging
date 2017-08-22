@@ -1,0 +1,103 @@
+<%=render :partial=>"shared/breadcrumbs", :locals=>{:model_name=>request.path_parameters[:controller],:model_id=>@mercado_metum.id, :parent_model=>nil, :parent_id=>nil}%>
+<h1>Mercado Metum</h1>
+
+<p>
+  <b>Nombre de la institucion meta</b><br>
+  <%= @mercado_metum.nombre_de_la_institucion_meta %>
+</p>
+
+<p>
+  <b>Contacto principal</b><br>
+  <%= @mercado_metum.contacto_principal %>
+</p>
+
+<p>
+  <b>Email</b><br>
+  <%= @mercado_metum.email %>
+</p>
+
+<p>
+  <b>Pag web</b><br>
+  <%= @mercado_metum.pag_web %>
+</p>
+
+<p>
+  <b>Observaciones del mercado meta</b><br>
+  <%= @mercado_metum.observaciones_del_mercado_meta %>
+</p>
+
+<p>
+  <b>Giro</b><br>
+  <%= @mercado_metum.giro %>
+</p>
+
+<p>
+  <b>Cargo</b><br>
+  <%= @mercado_metum.cargo %>
+</p>
+
+<p>
+  <b>Email secundario</b><br>
+  <%= @mercado_metum.email_secundario %>
+</p>
+
+<p>
+  <b>Telefono</b><br>
+  <%= @mercado_metum.telefono %>
+</p>
+
+<p>
+  <b>Movil</b><br>
+  <%= @mercado_metum.movil %>
+</p>
+
+<p>
+  <b>Otro telefono</b><br>
+  <%= @mercado_metum.otro_telefono %>
+</p>
+
+<p>
+  <b>Calle</b><br>
+  <%= @mercado_metum.calle %>
+</p>
+
+<p>
+  <b>No interior</b><br>
+  <%= @mercado_metum.no_interior %>
+</p>
+
+<p>
+  <b>No exterior</b><br>
+  <%= @mercado_metum.no_exterior %>
+</p>
+
+<p>
+  <b>Colonia</b><br>
+  <%= @mercado_metum.colonia %>
+</p>
+
+<p>
+  <b>Delegacion municipio</b><br>
+  <%= @mercado_metum.delegacion_municipio %>
+</p>
+
+<p>
+  <b>Codigo postal</b><br>
+  <%= @mercado_metum.codigo_postal %>
+</p>
+
+<p>
+  <b>Comentarios direccion</b><br>
+  <%= @mercado_metum.comentarios_direccion %>
+</p>
+
+<p>
+  <b>Mapa google maps</b><br>
+  <%= @mercado_metum.mapa_google_maps %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', mercado_meta_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_mercado_metum_path(@mercado_metum), :class => 'btn' %>
+  <%= link_to 'Delete', mercado_metum_path(@mercado_metum), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

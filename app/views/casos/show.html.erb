@@ -1,0 +1,82 @@
+<div class="well"><h1>Caso</h1>
+
+<p>
+  <b>Caso</b><br>
+  <%= @caso.caso %>
+</p>
+
+<p>
+  <b>Status del caso</b><br>
+  <%= @caso.status_del_caso %>
+</p>
+
+<p>
+  <b>Nombre del cliente</b><br>
+  <%= @caso.nombre_del_cliente %>
+</p>
+
+<p>
+  <b>Fecha que se presenta el problema</b><br>
+  <%= @caso.fecha_que_se_presenta_el_problema %>
+</p>
+
+<p>
+  <b>Fecha estimada de resolucion</b><br>
+  <%= @caso.fecha_estimada_de_resolucion %>
+</p>
+
+<p>
+  <b>Ambito del problema</b><br>
+  <%= @caso.ambito_del_problema %>
+</p>
+
+<p>
+  <b>Sintoma problema</b><br>
+  <%= @caso.sintoma_problema %>
+</p>
+
+<p>
+  <b>Descripcion del sintoma problema</b><br>
+  <%= @caso.descripcion_del_sintoma_problema %>
+</p>
+
+<p>
+  <b>Causa del problema</b><br>
+  <%= @caso.causa_del_problema %>
+</p>
+
+<p>
+  <b>Alternativas de solucion</b><br>
+  <%= @caso.alternativas_de_solucion %>
+</p>
+
+<p>
+  <b>Solucion</b><br>
+  <%= @caso.solucion %>
+</p>
+
+<p>
+  <b>Comentarios de seguimiento al problema</b><br>
+  <%= @caso.comentarios_de_seguimiento_al_problema %>
+</p>
+
+<p>
+  <b>Atentido por</b><br>
+  <%= @caso.atentido_por %>
+</p>
+
+<p>
+  <b>Resuelto por</b><br>
+  <%= @caso.resuelto_por %>
+</p>
+
+<p>
+  <b>Fecha que se soluciono</b><br>
+  <%= @caso.fecha_que_se_soluciono %>
+</p></div>
+
+<div class="form-actions">
+  <%= link_to 'Back', casos_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_caso_path(@caso), :class => 'btn' %>
+  <%= link_to 'Delete', caso_path(@caso), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
