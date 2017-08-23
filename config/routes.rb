@@ -188,19 +188,30 @@ resources :prospectos, only: :index do
   end
 
   resources :sedes
- devise_for :prospectos, :skip => [:webtest] 
-  root :to => "homes#force_redirect"
- 
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",:sessions => "sessions" }
   resources :users
   
-
+ devise_for :prospectos, :skip => [:webtest] 
+  root :to => "homes#force_redirect"
+ 
   
   match "/solicitantes/:id/convertir_solicitante" => "solicitantes#convertir_solicitante", as: :convertir_solicitante
   match "/examinados/:id/convertir_examinado" => "examinados#convertir_examinado", as: :convertir_examinado
   match "/admitidos/:id/convertir_admitido" => "admitidos#convertir_admitido", as: :convertir_admitido
   match "/prospectos/:id/validar" => "prospectos#validar", as: :validar,:validado=>false
   match "/prospectos/:id/convertir" => "prospectos#convertir", as: :convertir, :validado=>true
+  match "/multiexport" => "prospectos#multiexport"
+  match "/purgeprospectos" => "prospectos#purgeprospectos"
+  match "/borrarprospectosinvalidos" => "prospectos#borrarprospectosinvalidos"
+
+  match "/multiexports" => "prospectos#multiexports"
+  match "/multiexporta" => "prospectos#multiexporta"
+  match "/multiexporte" => "prospectos#multiexporte"
+  match "/multiexporti" => "prospectos#multiexporti"
+  match "/mostrarmultiple" => "prospectos#mostrarmultiple"
+  match "/cambiarmultiple" => "prospectos#cambiarmultiple"
+  match "/webtest" => "prospectos#webtest"
 
   match "/inscritos/:id/convertir_en_admitido" => "inscritos#convertir_en_admitido", as: :convertir_en_admitido
 
@@ -222,6 +233,7 @@ resources :prospectos, only: :index do
   match "/purge_solicitantes"=>"purges#purge_solicitantes",as: :purge_solicitantes
   match "/purge_users"=>"purges#purge_users",as: :purge_users
   match "/purge_all"=>"purges#purge_all",as: :purge_all
+  match "/purge_test"=>"purges#purge_test",as: :purge_test
 
   match "/home"=>"homes#index",as: :home
 
@@ -232,6 +244,13 @@ resources :prospectos, only: :index do
 
   match "/miscorreos" => "statics#miscorreos", as: :miscorreos
   match "/correosenviados" => "statics#correosenviados", as: :correosenviados
+
+
+
+  match "/enviandocorreos" => "correos#enviandocorreos", as: :enviandocorreos
+  match "/send_correo_individually" => "correos#send_correo_individually", as: :send_correo_individually
+  
+
   match "/campanasenviadas" => "statics#campanasenviadas", as: :campanasenviadas
 
   match "/prospectos/:id/printview" => "prospectos#printview", as: :printview
@@ -257,6 +276,10 @@ resources :prospectos, only: :index do
   match "/rpms/:id/printview" => "rpms#printview", as: :printview
 
 
+  match "/programas/:id/borrar" => "programas#borrar", as: :borrar
+  match "/programas/:id/masschange" => "programas#masschange", as: :masschange
+
+
 
   match "/prospectos/:id/resumen"=>"prospectos#resumen", as: :resumen
   
@@ -266,6 +289,7 @@ resources :prospectos, only: :index do
 
   
   match "/correos/:id/send_correo" => "correos#send_correo", as: :send_correo
+  match "/correos/:id/send_correo_individually" => "correos#send_correo_individually", as: :send_correo_individually
   match "/tweets/:id/send_tweet" => "tweets#send_tweet", as: :send_tweet
 
   match '/auth/:provider/callback' => 'authentications#create'
