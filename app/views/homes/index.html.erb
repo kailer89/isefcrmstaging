@@ -11,13 +11,16 @@
 <div class="page-header hidden-phone hidden-tablet">
   <h1>Bienvenid@ <%=current_user.username%>!<small>Selecciona alguna de las opciones para ver mas informacion.</small></h1>
 </div>
+
+<%rolx = Role.where(:id=>current_user.role).first.nombre%>
+
 <ul id="tab" class="nav nav-tabs">
-  <li class="active"><a href="#principal" data-toggle="tab">Principal</a></li>
+  <li class="<%if rolx == "ACRM" or rolx == "DN"%><%end%>"><a href="#principal" data-toggle="tab">Principal</a></li>
   <li><a href="#metricas" data-toggle="tab">Cono de Ventas</a></li>
-  <li><a href="#campanas" data-toggle="tab">Estadísticas</a></li>
+  <li class="<%if rolx == "ACRM" or rolx == "DN"%>active<%end%>"><a href="#campanas" data-toggle="tab">Estadísticas</a></li>
 </ul>
 <div id="myTabContent" class="tab-content">
-    <div class="container-fluid tab-pane fade in active" id="principal">
+    <div class="<%if rolx == "ACRM" or rolx == "DN"%> tab-pane fade <%else%>container-fluid tab-pane fade in active<%end%>" id="principal">
         <!-- Example row of columns -->
         <div class="row-fluid">
           <div class="span4">
@@ -949,7 +952,7 @@
       <hr/>
 
     </div>
-    <div class="tab-pane fade" id="campanas">
+    <div class="<%if rolx == "ACRM" or rolx == "DN"%>container-fluid tab-pane fade in active <%else%> tab-pane fade <%end%>" id="campanas">
       <div class="">
 
         <%
@@ -973,83 +976,11 @@
           prospectohoy = ApplicationController.getProspectosForUser2(current_user).where{created_at>=DateTime.now.beginning_of_day}         
         end
 
-          gcNoValidados=GoogleChart::PieChart.new('520x200', "Estadisticas de Prospectos No Validados", false) do |pc| 
-            pc.data "Total [#{prospectos123.size}]", prospectos123.size
-            pc.data "Ultimo Mes [#{prospectoultimomes.size}]", prospectoultimomes.size
-            pc.data "Ultimos 5 dias [#{prospectoultimoscincodias.size}]", prospectoultimoscincodias.size 
-            pc.data "Hoy [#{prospectohoy.size}]", prospectohoy.size
-            pc.show_legend = true  
-          end
-
           prospectos123V = prospectos123.where(:validado=>true)
           prospectoultimomesV = prospectoultimomes.where(:validado=>true)
           prospectoultimoscincodiasV = prospectoultimoscincodias.where(:validado=>true)
           prospectohoyV = prospectohoy.where(:validado=>true)
 
-          gcValidados=GoogleChart::PieChart.new('520x200', "Estadisticas de Prospectos Validados", false) do |pc| 
-            pc.data "Total [#{prospectos123.size}]", prospectos123V.size
-            pc.data "Ultimo Mes [#{prospectoultimomes.size}]", prospectoultimomesV.size
-            pc.data "Ultimos 5 dias [#{prospectoultimoscincodias.size}]", prospectoultimoscincodiasV.size 
-            pc.data "Hoy [#{prospectohoy.size}]", prospectohoyV.size
-            pc.show_legend = true  
-          end
-
-          gc1= GoogleChart::LineChart.new("420x200", "My Results", false) do |lc|
-            lc.data "Line green", [3,5,1,9,0,2], '4d89f9'
-            lc.data "Line red", [2,4,0,6,9,3], 'ff0000'
-            lc.axis :y, :range => [0,10], :font_size => 10, :alignment => :center
-            lc.axis :x, :range => [1,2,3,4,5,6],:font_size => 10, :alignment => :center
-            lc.show_legend = true
-            lc.shape_marker :square, :color => '4d89f9', :data_set_index => 0, :data_point_index => -1, :pixel_size => 10
-          end      
-          bar_1_data = [350,110,700]
-          bar_2_data = [200,800,50]
-          color_1 = 'c53711'
-          color_2 = '0000ff'
-          names_array = ["Bob","Stella","Foo"]
-          gc2=GoogleChart::BarChart.new("600x150", "Stacked Bar Graph", :horizontal, false) do |bc|
-            bc.data "2011", bar_1_data, color_1
-            bc.data "2012", bar_2_data, color_2
-            bc.axis :y, :labels => names_array, :font_size => 10
-            bc.axis :x, :range => [0,1000]
-            bc.show_legend = true
-            bc.stacked = true
-            bc.data_encoding = :extended
-            bc.shape_marker :square, :color => '00ff00', :data_set_index => 0, :data_point_index => -1, :pixel_size => 10
-          end
-
-          gc3=GoogleChart::BarChart.new("600x300", "Horizontal Bar Graph", :horizontal, false) do |bc|
-            bc.data "2011", bar_1_data, color_1
-            bc.data "2012", bar_2_data, color_2
-            bc.axis :y, :labels => names_array, :font_size => 10
-            bc.axis :x, :range => [0,1000]
-            bc.show_legend = true
-            bc.stacked = false
-            bc.data_encoding = :extended
-            bc.shape_marker :square, :color => '00ff00', :data_set_index => 0, :data_point_index => -1, :pixel_size => 10
-          end
-          gc4=GoogleChart::BarChart.new("600x300", "Horizontal Bar Graph", :vertical, false) do |pc| 
-            pc.data "2011", bar_1_data, color_1
-            pc.data "2012", bar_2_data, color_2
-            pc.axis :y, :labels => names_array, :font_size => 10
-            pc.axis :x, :range => [0,1000]
-            pc.show_legend = true
-            pc.stacked = false
-            pc.data_encoding = :extended
-            pc.shape_marker :square, :color => '00ff00', :data_set_index => 0, :data_point_index => -1, :pixel_size => 10          
-          end
-         flc = GoogleChart::FinancialLineChart.new do |chart|
-            chart.data "", [3,10,20,37,40,25,68,75,89,99], "ff0000"
-         end  
-          sc = GoogleChart::ScatterChart.new('320x200',"Scatter Chart")
-          sc.data "Scatter Set", [[1,1,], [2,2], [3,3], [4,4]]
-          sc.point_sizes [10,15,30,55]          
-
-          vd = GoogleChart::VennDiagram.new("320x200", 'Venn Diagram')
-          vd.data "Blue", 100, '0000ff'
-          vd.data "Green", 80, '00ff00'
-          vd.data "Red",   60, 'ff0000'
-          vd.intersections 30,30,30,10  
 
     modelo = Configuracione.where(:user_id=>current_user.id).first rescue nil
     archivado=false
@@ -1060,130 +991,297 @@
     end 
     
         %>
-            <div class="thumbnail">
-              <h2>Estadisticas</h2>
-               <p>
-                <table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
-                  <thead>
-                    <tr>
-                      <th>Indicador</th>
-                      <th>Valor</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-<%
-        rol = Role.where(:id=>current_user.role).first
 
-        if rol.nombre == "ACRM"  
-%>                    
-                      <tr>
-                        <td>Prospectos No Validados</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>false).size rescue nil%></td>
-                      </tr> 
-                      <tr>
-                        <td>Prospectos Validados</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>true).where(:issolicitante=>false).size rescue nil%></td>
-                      </tr>
- 
-                      <tr>
-                        <td>Solicitantes</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size rescue nil%></td>
-                      </tr>
-                      <tr>
-                        <td>Examinados/Entrevistados</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size rescue nil%></td>
-                      </tr>
-                      <tr>
-                        <td>Admitidos</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size rescue nil%></td>
-                      </tr>
-                      <tr>
-                        <td>Inscritos</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size rescue nil%></td>
-                      </tr>   
-              <%else%>    
-                      <tr>
-                        <td>Prospectos No Validados</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>false).size rescue nil%></td>
-                      </tr>                                                                                                                     
-                      <tr>
-                        <td>Prospectos Validados</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>true).where(:issolicitante=>false).size rescue nil%></td>
-                      </tr>
+<div>
 
-                      <tr>
-                        <td>Solicitantes</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size rescue nil%></td>
-                      </tr>
-                      <tr>
-                        <td>Examinados/Entrevistados</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size rescue nil%></td>
-                      </tr>
-                      <tr>
-                        <td>Admitidos</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size rescue nil%></td>
-                      </tr>
-                      <tr>
-                        <td>Inscritos</td>
-                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size rescue nil%></td>
-                      </tr>                 
-              <%end%>
-                  </tbody>
-                </table>    
-                <br/>                        
-<canvas id="cvs" width="450" height="500">[No canvas support]</canvas>
-    <script>
-    /*
-    pagina de los charts
-    http://www.rgraph.net/examples/index.html
-    */
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Estadistics detalladas</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Totales</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Totales en tabla</a></li>
+  </ul>
 
-<%
-@prospectosnovalidados = ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>false)
-@prospectosvalidados=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>true)
-%>
-
-<%
-        rol = Role.where(:id=>current_user.role).first
-
-        if rol.nombre == "ACRM"  
-%>           
-                   var funnel = new RGraph.Funnel('cvs', [<%=@prospectosnovalidados.size + 1 %>,<%=@prospectosvalidados.where(:issolicitante=>false).size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size + 1 %>]);
-            funnel.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:issolicitante=>false).size %>)','Solicitantes (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size %>)','Examinados (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size %>)',"Admitidos (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size  %>)","Inscritos (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size %>)"]);
-<%else%>     
-                   var funnel = new RGraph.Funnel('cvs', [<%=@prospectosnovalidados.size + 1 %>,<%=@prospectosvalidados.where(:issolicitante=>false).size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size + 1 %>]);
-            funnel.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:issolicitante=>false).size %>)','Solicitantes (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size %>)','Examinados (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size %>)',"Admitidos (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size  %>)","Inscritos (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size %>)"]);
-<%end%>
-            funnel.Set('chart.gutter.left', 350);
-            funnel.Set('chart.labels.sticks', true);
-            funnel.Set('chart.strokestyle', 'rgba(0,0,0,0)');
-            funnel.Set('chart.text.boxed', true);
-            funnel.Set('chart.labels.x', 10);
-            funnel.Set('chart.shadow', true);
-            funnel.Set('chart.shadow.offsetx', 0);
-            funnel.Set('chart.shadow.offsety', 0);
-            funnel.Set('chart.shadow.blur', 15);
-            funnel.Set('chart.shadow.color', 'gray');
-            funnel.Set('chart.tooltips', ['<b>Prospectos No Validados</b><br />Los Prospectos No valdiados son aquellos que solo han sido introducidos al sistema.', '<b>Prospectos No Validados</b><br />Los Prospectos Valdiados son aquellos que han sido validados por un personal de rango.', '<b>Solictantes</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Examinados</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Admitidos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Inscritos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..']);
-            funnel.Draw();
-    </script>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
 <%@programas = Programa.all
   valor= true%>
                              
 <%if @programas != nil%>
+
+<%        rol = Role.where(:id=>current_user.role).first
+users = nil
+whattodo = "currentuser"
+
+
+        if rol.nombre == "DN" or rol.nombre == "ACRM"  
+          whattodo = "main"
+%>
+                  <%valor =true%>
+                  <div class="tabbable tabs-left">
+                      <ul class="nav nav-tabs" id="myTaba4">
+                        <%Sede.all.each do |sede|%>
+                            <li class="<%if valor %>active<%end%>"><a href="#sede<%=sede.id%>" data-toggle="tab"><%=sede.nombre%> (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:sede_id=>sede.id).size%>)</a></li>
+                            <%if valor%>
+                                <%valor = false%>
+                            <%end%>
+                        <%end%>
+                      </ul>
+                      <%valor =true%>
+
+                      <div class="tab-content">
+                        <%Sede.all.each do |sede|%>
+                        <%valor1=true%>
+                               <div class="tab-pane <%if valor %>active<%end%>" id="sede<%=sede.id%>">
+                                  
+                                      <div class="tabbable tabs-left">
+                                          <ul class="nav nav-tabs" id="myTaba3">
+                                            <%User.where(:sede_id=>sede.id).each do |user|%>
+                                              <li class="<%if valor1 %>active<%end%>"><a href="#suser<%=user.id%>" data-toggle="tab"><%=user.username%> (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).where(:sede_id=>sede.id).size%>)</a></li>
+                                                <%if valor1%>
+                                                    <%valor1 = false%>
+                                                <%end%>
+                                            <%end%>
+                                          </ul>
+                                          <%valor1 =true%>
+
+                                          <div class="tab-content">
+                                            <%User.where(:sede_id=>sede.id).each do |user|%>
+
+<%
+@prospectosnovalidados = ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).where(:validado=>false).where(:sede_id=>sede.id)
+@prospectosvalidados=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).where(:validado=>true).where(:sede_id=>sede.id)
+%>
+
+                                                <div class="tab-pane <%if valor1 %>active<%end%>" id="suser<%=user.id%>">
+                                                    <h1><small><%=user.username%></small></h1>
+<div class="tabbable tabs-left">
+
+    <ul class="nav nav-tabs" id="myTaba">
+      <%@programas.each do |programa|%>
+          <li class="<%if valor %>active<%end%>"><a href="#<%=user.id%><%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue ""%> - <%=programa.programa%> (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).where(:sede_id=>sede.id).where(:programa_id=>programa.id).size%>)</a></li>      
+          <%if valor%>
+              <%valor = false%>
+          <%end%>
+      <%end%>
+    </ul>
+    <%valor =true%>
+
+    <div class="tab-content">
+      <%@programas.each do |programa|%>
+          <div class="tab-pane <%if valor %>active<%end%>" id="<%=user.id%><%=programa.id%>">
+                 <canvas id="cvs<%=user.id%><%=programa.id%>" width="450" height="500">[No canvas support]</canvas>
+                      <script>
+
+                              var funnel<%=user.id%><%=programa.id%> = new RGraph.Funnel('cvs<%=user.id%><%=programa.id%>', [<%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %>,<%=@prospectosvalidados.where(:issolicitante=>false).where(:programa_id=>programa.id).size + 1 %>,<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:sede_id=>sede.id).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size + 1 %>,<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:sede_id=>sede.id).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size + 1 %>,<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:sede_id=>sede.id).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size + 1 %>,<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:sede_id=>sede.id).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size + 1 %>]);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.where(:programa_id=>programa.id).size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:issolicitante=>false).where(:programa_id=>programa.id).size %>)','Solicitantes (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:sede_id=>sede.id).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size  %>)','Examinados (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:sede_id=>sede.id).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size %>)',"Admitidos (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:sede_id=>sede.id).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size %>)","Inscritos (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:sede_id=>sede.id).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size  %>)"]);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.gutter.left', 350);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.labels.sticks', true);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.strokestyle', 'rgba(0,0,0,0)');
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.text.boxed', true);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.labels.x', 10);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow', true);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow.offsetx', 0);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow.offsety', 0);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow.blur', 15);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow.color', 'gray');
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.tooltips', ['<b>Prospectos No Validados</b><br />Los Prospectos No valdiados son aquellos que solo han sido introducidos al sistema.<br /><%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %> Prospectos No validados para este programa (<%=programa.programa%>)', '<b>Prospectos No Validados</b><br />Los Prospectos Valdiados son aquellos que han sido validados por un personal de rango.', '<b>Solictantes</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Examinados</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Admitidos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Inscritos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..']);
+                              funnel<%=user.id%><%=programa.id%>.Draw();
+
+                      </script>
+
+              </div>      
+          <%if valor%>
+              <%valor = false%>
+          <%end%>      
+        
+      <%end%>
+
+      </div>
+    </div>                                                    
+                                                </div>                                            
+                                                <%if valor1%>
+                                                    <%valor1 = false%>         
+                                                <%end%>
+                                            <%end%>
+                                          </div>
+                                      </div>                
+                                </div>                        
+                            
+                            <%if valor%>
+                                <%valor = false%>       
+                            <%end%>
+                        <%end%>
+                      </div>
+                  </div>
+                  <br/>
+<%
+          #do by sede, then user
+        elsif rol.nombre == "D" or rol.nombre == "CP"
+          whattodo="sede"
+          valor1=true
+%>
+                                     
+            <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs" id="myTaba3">
+                  <%User.where(:sede_id=>current_user.sede_id).each do |user|%>
+                      <li class=" <%if valor1 %>active<%end%>"><a href="#suser<%=user.id%>" data-toggle="tab"><%=user.username%> (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).size%>)</a></li>
+                      <%if valor1%>
+                          <%valor1 = false%>
+                      <%end%>
+                  <%end%>
+                </ul>
+                <%valor1 =true%>
+
+                <div class="tab-content">
+                  <%User.where(:sede_id=>current_user.sede_id).each do |user|%>
+<%
+@prospectosnovalidados = ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).where(:validado=>false)
+@prospectosvalidados=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).where(:validado=>true)
+%>                  
+                      <div class="tab-pane <%if valor1 %>active<%end%>" id="suser<%=user.id%>">
+                          <h1><small><%=user.username%></small></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="tabbable tabs-left">
+
+    <ul class="nav nav-tabs" id="myTaba">
+      <%@programas.each do |programa|%>
+          <li class="<%if valor %>active<%end%>"><a href="#<%=user.id%><%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue ""%> - <%=programa.programa%> (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).where(:programa_id=>programa.id).size%>)</a></li>      
+          <%if valor%>
+              <%valor = false%>
+          <%end%>
+      <%end%>
+    </ul>
+    <%valor =true%>
+
+    <div class="tab-content">
+      <%@programas.each do |programa|%>
+          <div class="tab-pane <%if valor %>active<%end%>" id="<%=user.id%><%=programa.id%>">
+                 <canvas id="cvs<%=user.id%><%=programa.id%>" width="450" height="500">[No canvas support]</canvas>
+                      <script>
+
+                              var funnel<%=user.id%><%=programa.id%> = new RGraph.Funnel('cvs<%=user.id%><%=programa.id%>', [<%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %>,<%=@prospectosvalidados.where(:issolicitante=>false).where(:programa_id=>programa.id).size + 1 %>,<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size + 1 %>,<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size + 1 %>,<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size + 1 %>,<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size + 1 %>]);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.where(:programa_id=>programa.id).size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:issolicitante=>false).where(:programa_id=>programa.id).size %>)','Solicitantes (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.where(:programa_id=>programa.id).size  %>)','Examinados (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.where(:programa_id=>programa.id).size %>)',"Admitidos (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.where(:programa_id=>programa.id).size %>)","Inscritos (<%=ApplicationController.getProspectosForUser2(user).where(:user_id=>user.id).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where(:programa_id=>programa.id).size  %>)"]);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.gutter.left', 350);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.labels.sticks', true);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.strokestyle', 'rgba(0,0,0,0)');
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.text.boxed', true);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.labels.x', 10);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow', true);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow.offsetx', 0);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow.offsety', 0);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow.blur', 15);
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.shadow.color', 'gray');
+                              funnel<%=user.id%><%=programa.id%>.Set('chart.tooltips', ['<b>Prospectos No Validados</b><br />Los Prospectos No valdiados son aquellos que solo han sido introducidos al sistema.<br /><%=@prospectosnovalidados.where(:programa_id=>programa.id).size + 1 %> Prospectos No validados para este programa (<%=programa.programa%>)', '<b>Prospectos No Validados</b><br />Los Prospectos Valdiados son aquellos que han sido validados por un personal de rango.', '<b>Solictantes</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Examinados</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Admitidos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Inscritos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..']);
+                              funnel<%=user.id%><%=programa.id%>.Draw();
+
+                      </script>
+
+              </div>      
+          <%if valor%>
+              <%valor = false%>
+          <%end%>      
+        
+      <%end%>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      </div>
+                      <%if valor1%>
+                          <%valor1 = false%>
+                      <%end%>
+                  <%end%>
+                </div>
+            </div> 
+
+<%
+
+
+          #do by user
+        else
+          %>
 <div class="tabbable tabs-left">
 
     <ul class="nav nav-tabs" id="myTaba">
       <%@programas.each do |programa|%>
           <%if valor%>
               <%valor = false%>
-              <li class="active"><a href="#<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue ""%> - <%=programa.programa%></a></li>
+              <li class="active"><a href="#<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue ""%> - <%=programa.programa%> (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:programa_id=>programa.id).size%>)</a></li>
           <%else%>
-              <li class=""><a href="#<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue ""%> - <%=programa.programa%></a></li>
+              <li class=""><a href="#<%=programa.id%>" data-toggle="tab"><%=programa.nivel rescue ""%> - <%=programa.programa%> (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:programa_id=>programa.id).size%>)</a></li>
           <%end%>
       <%end%>
     </ul>
     <%valor =true%>
+
     <div class="tab-content">
       <%@programas.each do |programa|%>
           <%if valor%>
@@ -1274,9 +1372,140 @@
 
       </div>
     </div>
-<%end%>                                                       
 
-      </div>
+          <%
+          #do the regular one
+        end%>
+
+
+
+
+<%end%>   
+
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+<canvas id="cvs" width="450" height="500">[No canvas support]</canvas>
+    <script>
+    /*
+    pagina de los charts
+    http://www.rgraph.net/examples/index.html
+    */
+
+<%
+@prospectosnovalidados = ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>false)
+@prospectosvalidados=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>true)
+%>
+
+<%
+        rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "ACRM"  
+%>           
+                   var funnel = new RGraph.Funnel('cvs', [<%=@prospectosnovalidados.size + 1 %>,<%=@prospectosvalidados.where(:issolicitante=>false).size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size + 1 %>]);
+            funnel.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:issolicitante=>false).size %>)','Solicitantes (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size %>)','Examinados (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size %>)',"Admitidos (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size  %>)","Inscritos (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size %>)"]);
+<%else%>     
+                   var funnel = new RGraph.Funnel('cvs', [<%=@prospectosnovalidados.size + 1 %>,<%=@prospectosvalidados.where(:issolicitante=>false).size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size + 1 %>,<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size + 1 %>]);
+            funnel.Set('chart.labels', ['Prospectos No Validados (<%=@prospectosnovalidados.size %>)','Prospectos Validados (<%=@prospectosvalidados.where(:issolicitante=>false).size %>)','Solicitantes (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size %>)','Examinados (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size %>)',"Admitidos (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size  %>)","Inscritos (<%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size %>)"]);
+<%end%>
+            funnel.Set('chart.gutter.left', 350);
+            funnel.Set('chart.labels.sticks', true);
+            funnel.Set('chart.strokestyle', 'rgba(0,0,0,0)');
+            funnel.Set('chart.text.boxed', true);
+            funnel.Set('chart.labels.x', 10);
+            funnel.Set('chart.shadow', true);
+            funnel.Set('chart.shadow.offsetx', 0);
+            funnel.Set('chart.shadow.offsety', 0);
+            funnel.Set('chart.shadow.blur', 15);
+            funnel.Set('chart.shadow.color', 'gray');
+            funnel.Set('chart.tooltips', ['<b>Prospectos No Validados</b><br />Los Prospectos No valdiados son aquellos que solo han sido introducidos al sistema.', '<b>Prospectos No Validados</b><br />Los Prospectos Valdiados son aquellos que han sido validados por un personal de rango.', '<b>Solictantes</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Examinados</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Admitidos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..', '<b>Inscritos</b><br />Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..']);
+            funnel.Draw();
+    </script>
+
+
+    
+
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="messages">
+
+    <h2>Estadisticas</h2>
+               <p>
+                <table class="table table-striped table-bordered table-condensed table-bordered table-condensed">
+                  <thead>
+                    <tr>
+                      <th>Indicador</th>
+                      <th>Valor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+<%
+        rol = Role.where(:id=>current_user.role).first
+
+        if rol.nombre == "ACRM"  
+%>                    
+                      <tr>
+                        <td>Prospectos No Validados</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>false).size rescue nil%></td>
+                      </tr> 
+                      <tr>
+                        <td>Prospectos Validados</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>true).where(:issolicitante=>false).size rescue nil%></td>
+                      </tr>
+ 
+                      <tr>
+                        <td>Solicitantes</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Examinados/Entrevistados</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Admitidos</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Inscritos</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size rescue nil%></td>
+                      </tr>   
+              <%else%>    
+                      <tr>
+                        <td>Prospectos No Validados</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>false).size rescue nil%></td>
+                      </tr>                                                                                                                     
+                      <tr>
+                        <td>Prospectos Validados</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).where(:validado=>true).where(:issolicitante=>false).size rescue nil%></td>
+                      </tr>
+
+                      <tr>
+                        <td>Solicitantes</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante}.where{solicitantes.archivado==archivado}.where{solicitante.isexaminado==false}.size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Examinados/Entrevistados</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{examinados.isadmitido==false}.size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Admitidos</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.where{admitidos.isinscrito==false}.size rescue nil%></td>
+                      </tr>
+                      <tr>
+                        <td>Inscritos</td>
+                        <td><%=ApplicationController.getProspectosForUser2(current_user).where(:archivado=>archivado).joins{solicitante.examinado.admitido.inscrito}.where{inscritos.archivado == archivado}.where{admitidos.archivado==archivado}.where{examinados.archivado==archivado}.where{solicitantes.archivado==archivado}.size rescue nil%></td>
+                      </tr>                 
+              <%end%>
+                  </tbody>
+                </table>    
+                <br/>                        
+
+
+    </div>
+  </div>
+
+</div>
+
     </div>    
 <div> <!--End Container div-->
 

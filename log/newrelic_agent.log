@@ -388,3 +388,41 @@ C:/Sites/isefcrm/app/views/shared/_edit_prospectos.html.erb:299: syntax error, u
 [03/22/17 18:20:19 -0600 alienware (8592)] INFO : Installing Rails 3 Error instrumentation
 [03/22/17 18:20:19 -0600 alienware (8592)] INFO : Finished instrumentation
 [03/22/17 18:20:36 -0600 alienware (8592)] INFO : Doing deferred dependency-detection before Rack startup
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Starting the New Relic agent in "development" environment.
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm_staging)
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : New Relic Agent Developer Mode enabled.
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Environment: development
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : No known dispatcher detected.
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Application: My Application
+[08/22/17 20:57:16 -0500 alienware15 (19304)] WARN : Agent configured not to send data in this environment.
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Installing ActiveRecord instrumentation
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Installing HTTPClient instrumentation
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Installing Net instrumentation
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Installing deferred Rack instrumentation
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Installing Rack::Builder middleware instrumentation
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Installing Rails 3+ middleware instrumentation
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Installing Rails 3 Controller instrumentation
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Installing Rails 3 Error instrumentation
+[08/22/17 20:57:16 -0500 alienware15 (19304)] INFO : Finished instrumentation
+[08/22/17 20:57:19 -0500 alienware15 (19304)] INFO : Doing deferred dependency-detection before Rack startup
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Starting the New Relic agent in "development" environment.
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Reading configuration from config/newrelic.yml (C:/Sites/isefcrm_staging)
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : New Relic Agent Developer Mode enabled.
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Environment: development
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : No known dispatcher detected.
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Application: My Application
+[08/22/17 21:16:47 -0500 alienware15 (8368)] WARN : Agent configured not to send data in this environment.
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Installing ActiveRecord instrumentation
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Installing HTTPClient instrumentation
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Installing Net instrumentation
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Installing deferred Rack instrumentation
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Installing Rack::Builder middleware instrumentation
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Installing Rails 3+ middleware instrumentation
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Installing Rails 3 Controller instrumentation
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Installing Rails 3 Error instrumentation
+[08/22/17 21:16:47 -0500 alienware15 (8368)] INFO : Finished instrumentation
+[08/22/17 21:16:48 -0500 alienware15 (8368)] INFO : Doing deferred dependency-detection before Rack startup

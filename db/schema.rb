@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150927141448) do
+ActiveRecord::Schema.define(:version => 20170821235514) do
 
   create_table "Duraciontextos", :force => true do |t|
     t.string   "valor"
@@ -273,6 +273,7 @@ ActiveRecord::Schema.define(:version => 20150927141448) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "LimiteReportes",     :default => 50
   end
 
   create_table "contactos", :force => true do |t|
@@ -291,6 +292,7 @@ ActiveRecord::Schema.define(:version => 20150927141448) do
     t.text     "notas"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sede_id"
   end
 
   create_table "correos", :force => true do |t|
@@ -942,6 +944,7 @@ ActiveRecord::Schema.define(:version => 20150927141448) do
     t.text     "nombre_de_los_inscritos"
     t.text     "observaciones"
     t.integer  "user_id"
+    t.integer  "sede_id"
   end
 
   create_table "modalidads", :force => true do |t|
@@ -1227,40 +1230,40 @@ ActiveRecord::Schema.define(:version => 20150927141448) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "permalink"
-    t.text     "prospectos",                                              :limit => 255
-    t.text     "usuarios",                                                :limit => 255
-    t.text     "sedes",                                                   :limit => 255
-    t.text     "subsedes",                                                :limit => 255
-    t.text     "programas",                                               :limit => 255
-    t.text     "campanas",                                                :limit => 255
+    t.string   "prospectos",                                              :limit => 2000
+    t.string   "usuarios",                                                :limit => 2000
+    t.string   "sedes",                                                   :limit => 2000
+    t.string   "subsedes",                                                :limit => 2000
+    t.string   "programas",                                               :limit => 2000
+    t.string   "campanas",                                                :limit => 2000
     t.date     "rango_inicio"
     t.date     "rango_fin"
     t.string   "ordenar_por"
-    t.text     "sede_id",                                                 :limit => 255
-    t.text     "subsede_id",                                              :limit => 255
-    t.text     "nacionalidad_id",                                         :limit => 255
-    t.text     "ultimo_grado_de_estudio_id",                              :limit => 255
-    t.text     "preparatoria_o_universidad_de_origen_id",                 :limit => 255
-    t.text     "municipio_de_la_preparatoria_o_universidad_de_origen_id", :limit => 255
-    t.text     "periodo_para_ingresar_id",                                :limit => 255
-    t.text     "status_de_admision_id",                                   :limit => 255
-    t.text     "status_de_ese_id",                                        :limit => 255
-    t.text     "status_de_interes_de_prospecto_validado_id",              :limit => 255
-    t.text     "status_de_la_inscripcion_id",                             :limit => 255
-    t.text     "status_de_la_notificacion_id",                            :limit => 255
-    t.text     "status_de_pago_de_examen_de_admision_id",                 :limit => 255
-    t.text     "status_de_pago_de_ese_id",                                :limit => 255
-    t.text     "status_del_admitido_id",                                  :limit => 255
-    t.text     "status_del_examinado_paa_id",                             :limit => 255
-    t.text     "status_del_pago_de_la_inscripcion_id",                    :limit => 255
-    t.text     "status_del_tramite_de_beca_id",                           :limit => 255
-    t.text     "tipo_de_admision_id",                                     :limit => 255
-    t.text     "turno_id",                                                :limit => 255
-    t.text     "modalidad_id",                                            :limit => 255
-    t.text     "grupo_id",                                                :limit => 255
-    t.text     "status_ref_pago_inscs_id",                                :limit => 255
-    t.text     "status_del_examinado_psico_id",                           :limit => 255
-    t.text     "status_del_examinado_entrevistum_id",                     :limit => 255
+    t.string   "sede_id",                                                 :limit => 2000
+    t.string   "subsede_id",                                              :limit => 2000
+    t.string   "nacionalidad_id",                                         :limit => 2000
+    t.string   "ultimo_grado_de_estudio_id",                              :limit => 2000
+    t.string   "preparatoria_o_universidad_de_origen_id",                 :limit => 2000
+    t.string   "municipio_de_la_preparatoria_o_universidad_de_origen_id", :limit => 2000
+    t.string   "periodo_para_ingresar_id",                                :limit => 2000
+    t.string   "status_de_admision_id",                                   :limit => 2000
+    t.string   "status_de_ese_id",                                        :limit => 2000
+    t.string   "status_de_interes_de_prospecto_validado_id",              :limit => 2000
+    t.string   "status_de_la_inscripcion_id",                             :limit => 2000
+    t.string   "status_de_la_notificacion_id",                            :limit => 2000
+    t.string   "status_de_pago_de_examen_de_admision_id",                 :limit => 2000
+    t.string   "status_de_pago_de_ese_id",                                :limit => 2000
+    t.string   "status_del_admitido_id",                                  :limit => 2000
+    t.string   "status_del_examinado_paa_id",                             :limit => 2000
+    t.string   "status_del_pago_de_la_inscripcion_id",                    :limit => 2000
+    t.string   "status_del_tramite_de_beca_id",                           :limit => 2000
+    t.string   "tipo_de_admision_id",                                     :limit => 2000
+    t.string   "turno_id",                                                :limit => 2000
+    t.string   "modalidad_id",                                            :limit => 2000
+    t.string   "grupo_id",                                                :limit => 2000
+    t.string   "status_ref_pago_inscs_id",                                :limit => 2000
+    t.string   "status_del_examinado_psico_id",                           :limit => 2000
+    t.string   "status_del_examinado_entrevistum_id",                     :limit => 2000
     t.string   "estado_validado"
     t.date     "validado_inicio"
     t.date     "validado_fin"
@@ -1388,7 +1391,7 @@ ActiveRecord::Schema.define(:version => 20150927141448) do
   create_table "searches", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "content"
+    t.text     "content",     :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "model_name"
